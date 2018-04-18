@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 130cbe7313c73874085af942c5f3628c
+  - enabled: 1
+    path: Assets/Scenes/Combat.unity
+    guid: 8d314292cc631da449d1b522b98abd06
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 514219ff54d2d7645b793768b99acf9b
+  - enabled: 1
+    path: Assets/Scenes/SilentEntryhall/EntryHallOfSilence.unity
+    guid: adf05722388f8a6459a282c1c9769c57
+  - enabled: 1
+    path: Assets/Scenes/SilentEntryhall/RightsideHallway.unity
+    guid: 0d7bfd2ad6506444ab2a6769f2f16a27
+  - enabled: 1
+    path: Assets/Scenes/SilentEntryhall/BathroomSEHallway.unity
+    guid: e315862da52f98c4c8e3992bccff995e
+  - enabled: 1
+    path: Assets/Scenes/SilentEntryhall/BedroomBlue.unity
+    guid: fbc25157cb331db4eafe8bf62a64fcd4
+  - enabled: 1
+    path: Assets/Scenes/SilentEntryhall/BathroomBB.unity
+    guid: 0626a37175c88d94b99dcd313a03d26a
+  - enabled: 1
+    path: Assets/Scenes/SilentEntryhall/OfficeSE.unity
+    guid: 33a20fb1de8b4a44fb30dc65785a929d
+  - enabled: 1
+    path: Assets/Scenes/SilentEntryhall/GarageSE.unity
+    guid: 5992e280c102d344aac85ee1a86d4af4
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/TheatreHellEntryway.unity
+    guid: 9e5d65b03a1949d4fa3d56808e483088
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/TheatreFloor.unity
+    guid: b0c90ab1e91add74fb7e5c2ad38154be
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: bc89e80eb3bf4264c8d195127a8b0aaf
