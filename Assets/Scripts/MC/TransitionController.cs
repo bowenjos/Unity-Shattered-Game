@@ -5,7 +5,13 @@ using UnityEngine;
 public class TransitionController : MonoBehaviour {
 
     private bool dark = false;
+    protected SpriteRenderer ZoneTransition;
 
+    void Start()
+    {
+        ZoneTransition = this.GetComponentInChildren<SpriteRenderer>();
+    }
+    
     void Update()
     {
         if(dark == true)
@@ -18,10 +24,10 @@ public class TransitionController : MonoBehaviour {
     {
         for(float i = 0f; i < 255f; i += 17f)
         {
-            this.GetComponent<SpriteRenderer>().color = new Color( 0f, 0f, 0f, i/255f);
+            ZoneTransition.color = new Color( 0f, 0f, 0f, i/255f);
             yield return new WaitForSeconds(0.005f);
         }
-        this.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, 1);
+        ZoneTransition.color = new Color(0f, 0f, 0f, 1);
         dark = true;
     }
 
@@ -31,10 +37,10 @@ public class TransitionController : MonoBehaviour {
         yield return new WaitForSeconds(0.05f);
         for (float i = 255f; i > 0f; i -= 17f)
         {
-            this.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, i/255f);
+            ZoneTransition.color = new Color(0f, 0f, 0f, i/255f);
             yield return new WaitForSeconds(0.005f);
         }
-        this.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, 0f);
+        ZoneTransition.color = new Color(0f, 0f, 0f, 0f);
     }
 
     
