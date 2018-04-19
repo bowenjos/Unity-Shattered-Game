@@ -6,18 +6,18 @@ using UnityEngine;
 [Serializable]
 public class ViData {
 
-    public int sEntr = 0;
-    public int dPerf = 0;
-    public int fMezz = 0;
-    public int fLoft = 0;
-    public int nBanq = 0;
-    public int fKiln = 0;
-    public int dSand = 0;
-    public int cDesc = 0;
+    public bool sEntr = false;
+    public bool dPerf = false;
+    public bool fMezz = false;
+    public bool fLoft = false;
+    public bool nBanq = false;
+    public bool fKiln = false;
+    public bool dSand = false;
+    public bool cDesc = false;
 
-    public int dHeart = 0;
+    public bool dHeart = false;
 
-    public int bonus = 0;
-    public int secret = 0;
+    public int bonusStoryline = 0;
+    public int secretStoryline = 0;
 
 }
