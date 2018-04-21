@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
 
     float speed = 1.5F;
     public int direction = 2;
+    public bool walking;
     int count;
     //bool frozen;
     bool canPush;
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour {
         animator.SetInteger("walkDirection", 2);
         GameControl.control.frozen = false;
         canPush = false;
+        walking = false;
     }
 
     void Awake()
@@ -33,24 +35,6 @@ public class PlayerController : MonoBehaviour {
         animator = GetComponent<Animator> ();
         rb2d = GetComponent<Rigidbody2D>();
     }
-
-    /*
-    public void Freeze()
-    {
-        animator.SetBool("walking", false);
-        GameControl.control.frozen = true;
-    }
-
-    public void Unfreeze()
-    {
-        GameControl.control.frozen = false;
-    }
-
-    public bool IsFrozen()
-    {
-        return GameControl.control.frozen;
-    }
-    */
 
     public void Push()
     {
@@ -64,7 +48,6 @@ public class PlayerController : MonoBehaviour {
 
     void Walk(int dir, int count)
     {
-        
         if (count > 0)
         {
             animator.SetInteger("walkDirection", dir);
@@ -77,6 +60,7 @@ public class PlayerController : MonoBehaviour {
                 {
                     animator.SetInteger("walkDirection", 3);
                     animator.SetBool("walking", true);
+                    walking = true;
                     direction = 3;
                 }
             }
@@ -87,6 +71,7 @@ public class PlayerController : MonoBehaviour {
                 {
                     animator.SetInteger("walkDirection", 1);
                     animator.SetBool("walking", true);
+                    walking = true;
                     direction = 1;
                 }
             }
@@ -103,6 +88,7 @@ public class PlayerController : MonoBehaviour {
                 transform.position += Vector3.left * speed * Time.deltaTime;
             }
             animator.SetBool("walking", true);
+            walking = true;
             direction = dir;
         }
         
@@ -129,6 +115,7 @@ public class PlayerController : MonoBehaviour {
             }
             else {
                 animator.SetBool("walking", false);
+                walking = false;
             }
             if (Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow))
             { // Walk Up
@@ -145,6 +132,7 @@ public class PlayerController : MonoBehaviour {
             if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow))
             {
                 animator.SetBool("walking", false);
+                walking = false;
             }
 
             if (Input.GetKeyDown(KeyCode.Z) && !GameControl.control.frozen)
@@ -181,6 +169,7 @@ public class PlayerController : MonoBehaviour {
         else
         {
             animator.SetBool("walking", false);
+            walking = false;
         }
         Realign();
 
