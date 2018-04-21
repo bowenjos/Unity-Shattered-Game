@@ -42,5 +42,8 @@ EditorBuildSettings:
     path: Assets/Scenes/TheatreHell/TheatreFloor.unity
     guid: b0c90ab1e91add74fb7e5c2ad38154be
   - enabled: 1
+    path: Assets/Scenes/TheatreHell/StageBehindCurtains.unity
+    guid: e3de8f29f8e945343b0666402d4165b4
+  - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: bc89e80eb3bf4264c8d195127a8b0aaf
