@@ -459,6 +459,11 @@ Prefab:
       propertyPath: m_Name
       value: HallwayDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 212996591791581132, guid: 6e2b8ae14bd7884458cf02c3fc4ace81,
+        type: 2}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114915379525540086, guid: 6e2b8ae14bd7884458cf02c3fc4ace81, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 6e2b8ae14bd7884458cf02c3fc4ace81, type: 2}
@@ -1095,9 +1100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c4987976abe4354cb1185782e7694e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  talkText: {fileID: 0}
   talkCanvas: {fileID: 0}
-  player: {fileID: 0}
   dialogue:
   - A Journal
 --- !u!61 &1934053801

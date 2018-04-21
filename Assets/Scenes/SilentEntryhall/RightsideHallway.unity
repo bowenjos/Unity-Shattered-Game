@@ -498,6 +498,11 @@ Prefab:
       propertyPath: targetY
       value: -1.1
       objectReference: {fileID: 0}
+    - target: {fileID: 212350816511668464, guid: 75e684c3a7d7d274bacb15b7e26a1c83,
+        type: 2}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114335011923724782, guid: 75e684c3a7d7d274bacb15b7e26a1c83, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 75e684c3a7d7d274bacb15b7e26a1c83, type: 2}
@@ -620,6 +625,11 @@ Prefab:
         type: 2}
       propertyPath: targetY
       value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 212996591791581132, guid: 6e2b8ae14bd7884458cf02c3fc4ace81,
+        type: 2}
+      propertyPath: m_FlipX
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114915379525540086, guid: 6e2b8ae14bd7884458cf02c3fc4ace81, type: 2}
@@ -1438,6 +1448,11 @@ Prefab:
     - target: {fileID: 1897051879665998, guid: 75e684c3a7d7d274bacb15b7e26a1c83, type: 2}
       propertyPath: m_Name
       value: MezzanineDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 212350816511668464, guid: 75e684c3a7d7d274bacb15b7e26a1c83,
+        type: 2}
+      propertyPath: m_FlipX
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114335011923724782, guid: 75e684c3a7d7d274bacb15b7e26a1c83, type: 2}
