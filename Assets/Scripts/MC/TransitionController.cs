@@ -33,6 +33,7 @@ public class TransitionController : MonoBehaviour {
 
     public IEnumerator transitionIn()
     {
+        GameControl.control.Unfreeze();
         dark = false;
         yield return new WaitForSeconds(0.05f);
         for (float i = 255f; i > 0f; i -= 17f)
@@ -41,6 +42,7 @@ public class TransitionController : MonoBehaviour {
             yield return new WaitForSeconds(0.005f);
         }
         ZoneTransition.color = new Color(0f, 0f, 0f, 0f);
+        
     }
 
     

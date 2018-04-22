@@ -34,6 +34,7 @@ public class SceneChangeCollide : MonoBehaviour {
     {
         TC = GameObject.Find("TransitionControl(Clone)").GetComponent<TransitionController>();
         player = GameObject.Find("player(Clone)");
+        GameControl.control.Freeze();
         yield return StartCoroutine(TC.transitionOut());
         SceneManager.LoadScene(targetSceneName, LoadSceneMode.Single);
         GameControl.control.room = targetSceneName;
