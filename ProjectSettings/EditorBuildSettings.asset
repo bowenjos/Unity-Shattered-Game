@@ -51,5 +51,8 @@ EditorBuildSettings:
     path: Assets/Scenes/TheatreHell/UnderstageCorridor.unity
     guid: 35abcf07ca62c5c46a4134546208ec3d
   - enabled: 1
+    path: Assets/Scenes/TheatreHell/WillGhostRoom.unity
+    guid: d50b84f90ccb3c4498a1dcc790f100a0
+  - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: bc89e80eb3bf4264c8d195127a8b0aaf
