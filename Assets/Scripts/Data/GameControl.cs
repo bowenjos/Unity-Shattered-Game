@@ -12,6 +12,9 @@ public class GameControl : MonoBehaviour {
     //NPCS
     public ViData ViData = new ViData();
 
+    //ZoneData
+    public DPMainData DPMainData = new DPMainData();
+
     //Rooms
     public MainRoom MainRoom = new MainRoom();
 

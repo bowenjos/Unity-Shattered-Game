@@ -2,20 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriggerInteraction : InteractionController {
+public class FollowPlayer : MonoBehaviour {
+
+    GameObject Player;
 
 	// Use this for initialization
 	void Start () {
-		
+        Player = GameObject.FindGameObjectWithTag("Player");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+        this.transform.position = Player.transform.position;
 	}
-
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        StartCoroutine(StartInteraction());
-    }
 }

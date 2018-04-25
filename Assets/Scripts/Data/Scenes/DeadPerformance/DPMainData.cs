@@ -7,11 +7,11 @@ using UnityEngine;
 public class DPMainData {
 
     //Porgression Data
-    int progression = 0;
-    bool williamTalked = false;
-    bool leverOne = false;
-    bool leverTwo = false;
-    bool leverThree = false;
+    public int progression = 0;
+    public bool williamTalked = false;
+    public bool leverOne = false;
+    public bool leverTwo = false;
+    public bool leverThree = false;
 
     //Enemy Data to come
 
