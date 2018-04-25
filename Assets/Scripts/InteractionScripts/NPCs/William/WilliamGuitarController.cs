@@ -13,6 +13,11 @@ public class WilliamGuitarController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        if(GameControl.control.DPMainData.progression != 0)
+        {
+            Destroy(this.gameObject);
+        }
+
         anim = this.gameObject.GetComponent<Animator>();
         thisLight = this.gameObject.GetComponentInChildren<Light>();
 	}

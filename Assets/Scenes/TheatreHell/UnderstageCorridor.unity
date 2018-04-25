@@ -661,6 +661,21 @@ Prefab:
       propertyPath: m_Name
       value: GhostRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 114573973680992290, guid: 71ac57786038da241bc11d44eeaa8add,
+        type: 2}
+      propertyPath: targetSceneName
+      value: WillGhostRoom
+      objectReference: {fileID: 0}
+    - target: {fileID: 114573973680992290, guid: 71ac57786038da241bc11d44eeaa8add,
+        type: 2}
+      propertyPath: zone
+      value: DP
+      objectReference: {fileID: 0}
+    - target: {fileID: 114573973680992290, guid: 71ac57786038da241bc11d44eeaa8add,
+        type: 2}
+      propertyPath: targetY
+      value: -1.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71ac57786038da241bc11d44eeaa8add, type: 2}
   m_IsPrefabParent: 0

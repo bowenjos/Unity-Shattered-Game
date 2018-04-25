@@ -16,6 +16,10 @@ public class WilliamFirstInteraction : TriggerInteraction {
 
 	// Use this for initialization
 	void Start () {
+        if(GameControl.control.DPMainData.progression != 0)
+        {
+            Destroy(this);
+        }
         WillAnim = GameObject.FindGameObjectWithTag("William").GetComponent<Animator>();
         talkCanvas = GameObject.Find("Talk UI(Clone)").GetComponent<TalkController>();
 
@@ -45,13 +49,15 @@ public class WilliamFirstInteraction : TriggerInteraction {
         Destroy(wgc);
         yield return new WaitForSeconds(1.0f);
         yield return StartCoroutine(talkCanvas.StartDialogueSprite(dialogue[0], "default", 1, 0));
+        GameControl.control.Freeze();
         thisLight.cookie = cookie;
         WillAnim.SetBool("Finished", true);
         yield return new WaitForSeconds(0.2f);
         WillAnim.SetBool("Spin", true);
         yield return new WaitForSeconds(2f);
         yield return StartCoroutine(talkCanvas.StartDialogueSprite(dialogue[1], "default", 1, 0));
-        while(dissappear != 0)
+        GameControl.control.Freeze();
+        while (dissappear > 0)
         {
             dissappear -= 0.1f;
             thisLight.intensity -= 0.2f;

@@ -448,6 +448,11 @@ Prefab:
       propertyPath: m_Offset.y
       value: -0.308
       objectReference: {fileID: 0}
+    - target: {fileID: 114614138159616926, guid: 5f6cd32f823724b42935da4f15e1dde8,
+        type: 2}
+      propertyPath: targetSceneName
+      value: UnderstageCorridor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5f6cd32f823724b42935da4f15e1dde8, type: 2}
   m_IsPrefabParent: 0
