@@ -202,8 +202,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetSceneName: StageBehindCurtains
   zone: DP
-  targetX: 0
-  targetY: 0
+  targetX: -6.7
+  targetY: -2
 --- !u!61 &162067000
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1128,8 +1128,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetSceneName: StageBehindCurtains
   zone: DP
-  targetX: 0
-  targetY: 0
+  targetX: 7.5
+  targetY: -2
 --- !u!61 &1446047981
 BoxCollider2D:
   m_ObjectHideFlags: 0
