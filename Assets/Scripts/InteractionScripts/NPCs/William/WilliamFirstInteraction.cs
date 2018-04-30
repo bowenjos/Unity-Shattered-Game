@@ -66,6 +66,8 @@ public class WilliamFirstInteraction : TriggerInteraction {
         }
         DestroyImmediate(William.gameObject);
         GameControl.control.DPMainData.progression = 1;
+        GameControl.control.DPMainData.viTalked = false;
+        GameControl.control.DPMainData.williamTalked = false;
         GameControl.control.Unfreeze();
         DestroyImmediate(this.gameObject);
         yield return null;

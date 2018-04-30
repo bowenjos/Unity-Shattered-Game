@@ -2168,6 +2168,26 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 84c38e29288e79e4488c27fc6f0ce495, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1451994785 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1007800068482820, guid: 84c38e29288e79e4488c27fc6f0ce495,
+    type: 2}
+  m_PrefabInternal: {fileID: 1451994784}
+--- !u!114 &1451994786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1451994785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4d5f87d0150b4840affb6668319724f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  talkControl: {fileID: 0}
+  saveLocation: Theatre Entryhall - DP
+  saveDialogue:
+  - Lovely day for a performance.
 --- !u!1 &1454202194
 GameObject:
   m_ObjectHideFlags: 0
