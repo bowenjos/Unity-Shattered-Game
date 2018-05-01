@@ -29,6 +29,10 @@ public class ViDP : CharacterInteraction {
                     dialogue[0][1] = "Don't mind him, he's a really nice guy, he's just not good at meeting new people.";
                     dialogue[0][2] = "You might find him in the room behind the stage, he's usually working there.";
                     break;
+                case 6:
+                    dialogue = new string[1][];
+                    dialogue[0] = new string[] { "Oh? The performance is soon? That's exciting, I'll be sure to be there." };
+                    break;
                 default:
                     DestroyThis();
                     break;
@@ -40,9 +44,13 @@ public class ViDP : CharacterInteraction {
     public override IEnumerator StartInteraction()
     {
         talkControl = GameObject.Find("Talk UI(Clone)").GetComponent<TalkController>();
-        switch (GameControl.control.numMasks)
+        switch (GameControl.control.DPMainData.progression)
         {
             case 0:
+                yield return StartCoroutine(talkControl.StartDialogueSprite(dialogue[0], "vi", 0, 0));
+                DestroyThis();
+                break;
+            case 5:
                 yield return StartCoroutine(talkControl.StartDialogueSprite(dialogue[0], "vi", 0, 0));
                 DestroyThis();
                 break;
