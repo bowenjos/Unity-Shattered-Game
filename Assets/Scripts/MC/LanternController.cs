@@ -129,7 +129,7 @@ public class LanternController : MonoBehaviour {
 
     IEnumerator setBlueLens()
     {
-        PlayerC.Push();
+        PlayerC.CanPush();
         lensSet = true;
         StopCoroutine("flicker");
         flickering = false;
@@ -139,7 +139,7 @@ public class LanternController : MonoBehaviour {
         thisLight.intensity = 3f;
         yield return new WaitForSeconds(0.1f);
         yield return StartCoroutine(WaitForKeyDown(KeyCode.X));
-        PlayerC.Unpush();
+        PlayerC.CannotPush();
     }
 
     IEnumerator setPinkLens()

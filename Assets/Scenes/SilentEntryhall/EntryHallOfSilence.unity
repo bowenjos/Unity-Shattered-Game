@@ -3350,8 +3350,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   talkControl: {fileID: 0}
-  saveLocation: 
-  saveDialogue: []
+  saveLocation: Silent Entryhall - SE
+  saveDialogue:
+  - Would you like some tea?
 --- !u!1 &1984259767
 GameObject:
   m_ObjectHideFlags: 0

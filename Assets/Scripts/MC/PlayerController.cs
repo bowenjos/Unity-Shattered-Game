@@ -8,10 +8,11 @@ public class PlayerController : MonoBehaviour {
     public int direction = 2;
     public bool walking;
     public bool walking2;
+    public bool pushing;
     public bool stopped;
     int count;
     //bool frozen;
-    bool canPush;
+    public bool canPush;
 
     public Animator animator;
     protected ContactFilter2D contactFilter;
@@ -40,12 +41,12 @@ public class PlayerController : MonoBehaviour {
         rb2d = GetComponent<Rigidbody2D>();
     }
 
-    public void Push()
+    public void CanPush()
     {
         canPush = true;
     }
 
-    public void Unpush()
+    public void CannotPush()
     {
         canPush = false;
     }
@@ -246,6 +247,36 @@ public class PlayerController : MonoBehaviour {
     
     */
 
+    IEnumerator Push(int dir, int count, KeyCode keyPressed)
+    {
+        pushing = true;
+        Debug.Log("Push it somewhere else");
+        while (Input.GetKey(keyPressed))
+        {
+            animator.SetInteger("walkDirection", dir);
+            animator.SetBool("pushing", true);
+            if (dir == 0)
+            {
+                rb2d.velocity = new Vector3(rb2d.velocity.x, 1.75f, 0);
+            }
+            else if (dir == 1)
+            {
+                rb2d.velocity = new Vector3(1.75f, rb2d.velocity.y, 0);
+            }
+            else if (dir == 2)
+            {
+                rb2d.velocity = new Vector3(rb2d.velocity.x, -1.75f, 0);
+            }
+            else if (dir == 3)
+            {
+                rb2d.velocity = new Vector3(-1.75f, rb2d.velocity.y, 0);
+            }
+
+            yield return null;
+        }
+        pushing = false;
+        animator.SetBool("pushing", false);
+    }
     
     void Walk(int dir, int count)
     {
@@ -330,36 +361,67 @@ public class PlayerController : MonoBehaviour {
     {
         if (!GameControl.control.frozen)
         {
-
-            if (Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
-            { // Walk Left
-                count = rb2d.Cast(Vector2.left, contactFilter, hitBuffer, 0.05F);
-                Walk(3, count);
-                StartCoroutine(Held(KeyCode.LeftArrow, 3));
-            }
-            else if (Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow))
-            { // Walk Right
-                count = rb2d.Cast(Vector2.right, contactFilter, hitBuffer, 0.05F);
-                Walk(1, count);
-                StartCoroutine(Held(KeyCode.RightArrow, 1));
-            }
-            else
+            if (!pushing)
             {
-                animator.SetBool("walking", false);
-                walking = false;
-            }
+                if (Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
+                { // Walk Left
+                    count = rb2d.Cast(Vector2.left, contactFilter, hitBuffer, 0.05F);
+                    if (count > 0 && hitBuffer[0].collider.transform.gameObject.GetComponent<Pushable>())
+                    {
+                        StartCoroutine(Push(3, count, KeyCode.LeftArrow));
+                    }
+                    else
+                    {
+                        Walk(3, count);
+                    }
 
-            if (Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow))
-            { // Walk Up
-                count = rb2d.Cast(Vector2.up, contactFilter, hitBuffer, 0.05F);
-                Walk(0, count);
-                StartCoroutine(Held(KeyCode.UpArrow, 0));
-            }
-            else if (Input.GetKey(KeyCode.DownArrow) && !Input.GetKey(KeyCode.UpArrow))
-            { // Walk Down
-                count = rb2d.Cast(Vector2.down, contactFilter, hitBuffer, 0.05F);
-                Walk(2, count);
-                StartCoroutine(Held(KeyCode.DownArrow, 2));
+                    StartCoroutine(Held(KeyCode.LeftArrow, 3));
+                }
+                else if (Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow))
+                { // Walk Right
+                    count = rb2d.Cast(Vector2.right, contactFilter, hitBuffer, 0.05F);
+                    if (count > 0 && hitBuffer[0].collider.transform.gameObject.GetComponent<Pushable>())
+                    {
+                        StartCoroutine(Push(1, count, KeyCode.RightArrow));
+                    }
+                    else
+                    {
+                        Walk(1, count);
+                    }
+                    StartCoroutine(Held(KeyCode.RightArrow, 1));
+                }
+                else
+                {
+                    animator.SetBool("walking", false);
+                    walking = false;
+                }
+
+                if (Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow))
+                { // Walk Up
+                    count = rb2d.Cast(Vector2.up, contactFilter, hitBuffer, 0.05F);
+                    if (count > 0 && hitBuffer[0].collider.transform.gameObject.GetComponent<Pushable>())
+                    {
+                        StartCoroutine(Push(0, count, KeyCode.UpArrow));
+                    }
+                    else
+                    {
+                        Walk(0, count);
+                    }
+                    StartCoroutine(Held(KeyCode.UpArrow, 0));
+                }
+                else if (Input.GetKey(KeyCode.DownArrow) && !Input.GetKey(KeyCode.UpArrow))
+                { // Walk Down
+                    count = rb2d.Cast(Vector2.down, contactFilter, hitBuffer, 0.05F);
+                    if (count > 0 && hitBuffer[0].collider.transform.gameObject.GetComponent<Pushable>())
+                    {
+                        StartCoroutine(Push(2, count, KeyCode.DownArrow));
+                    }
+                    else
+                    {
+                        Walk(2, count);
+                    }
+                    StartCoroutine(Held(KeyCode.DownArrow, 2));
+                }
             }
 
             // Stop Walking

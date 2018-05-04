@@ -9,7 +9,7 @@ public class ViES1 : CharacterInteraction {
     public string[] saveDialogue;
 
 	void Start () {
-        if (GameControl.control.ViData.sEntr != true)
+        if (GameControl.control.ViData.sEntr == true)
         {
             DestroyThis();
         }

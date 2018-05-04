@@ -27,8 +27,8 @@ TagManager:
   - LanternEffects
   - InteractableObjects
   - Walls
-  - 
-  - 
+  - BoxCollider
+  - Box
   - 
   - 
   - 
