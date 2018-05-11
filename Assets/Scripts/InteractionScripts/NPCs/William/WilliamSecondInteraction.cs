@@ -19,7 +19,7 @@ public class WilliamSecondInteraction : CharacterInteraction {
                     dialogue[0] = new string[] { "...", "...", "...", "Hello again.", "Don't mind me. I'm just, uh, setting up for the performance tonight.", "...",
                                     "Are you just going to keep standing there?", "Look, uh, if you want to help take this."};
                     dialogue[1] = new string[] { "It'll let you push some of these boxes around.", "If you could, uh, find the three big switches that control the spotlights, I'd, uh, really appreciate it.",
-                                               "I don't know why they put them where they did.", "Yeah...", "...", "See ya later." };
+                                               "I don't know why they put them where they did.", "I think you should probabaly do the one in the basement first, but it's up to you.", "Yeah...", "...", "See ya later." };
                     break;
                 case 3:
                     dialogue = new string[1][];
