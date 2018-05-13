@@ -66,5 +66,11 @@ EditorBuildSettings:
     path: Assets/Scenes/TheatreHell/DPWhicheverChangingRoom.unity
     guid: 52c648270e57a194a90afa7c41406c1f
   - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPStorageTransition.unity
+    guid: 4c76c91d9d537f143a8ce10c04685d88
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPPuzzleRoomOne.unity
+    guid: a5a593a4a16aef94d9b08a5aa6797429
+  - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: bc89e80eb3bf4264c8d195127a8b0aaf
