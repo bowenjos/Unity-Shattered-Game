@@ -72,5 +72,8 @@ EditorBuildSettings:
     path: Assets/Scenes/TheatreHell/DPPuzzleRoomOne.unity
     guid: a5a593a4a16aef94d9b08a5aa6797429
   - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPBalcony.unity
+    guid: 505d4e583e4211a478aca1f27a8e07a5
+  - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: bc89e80eb3bf4264c8d195127a8b0aaf

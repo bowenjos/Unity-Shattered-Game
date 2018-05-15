@@ -27,6 +27,7 @@ public class OnOffSwitch : InteractionController {
         GetComponent<SpriteRenderer>().sprite = SwitchOn;
         GameControl.control.DPMainData.levers[leverNumber] = true;
         GameControl.control.DPMainData.progression++;
+        GameControl.control.DPMainData.williamTalked = false;
         Destroy(this);
         yield return null;
     }

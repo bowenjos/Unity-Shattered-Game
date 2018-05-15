@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    float speed = 1.5F;
+    float speed = 1.75F;
     public int direction = 2;
     public bool walking;
     public bool walking2;
@@ -257,19 +257,19 @@ public class PlayerController : MonoBehaviour {
             animator.SetBool("pushing", true);
             if (dir == 0)
             {
-                rb2d.velocity = new Vector3(rb2d.velocity.x, 1.75f, 0);
+                rb2d.velocity = new Vector3(rb2d.velocity.x, speed, 0);
             }
             else if (dir == 1)
             {
-                rb2d.velocity = new Vector3(1.75f, rb2d.velocity.y, 0);
+                rb2d.velocity = new Vector3(speed, rb2d.velocity.y, 0);
             }
             else if (dir == 2)
             {
-                rb2d.velocity = new Vector3(rb2d.velocity.x, -1.75f, 0);
+                rb2d.velocity = new Vector3(rb2d.velocity.x, -speed, 0);
             }
             else if (dir == 3)
             {
-                rb2d.velocity = new Vector3(-1.75f, rb2d.velocity.y, 0);
+                rb2d.velocity = new Vector3(-speed, rb2d.velocity.y, 0);
             }
 
             yield return null;
@@ -311,13 +311,13 @@ public class PlayerController : MonoBehaviour {
         else {
             animator.SetInteger("walkDirection", dir);
             if (dir == 0) {
-                rb2d.velocity = new Vector3(rb2d.velocity.x, 1.75f, 0);
+                rb2d.velocity = new Vector3(rb2d.velocity.x, speed, 0);
             } else if(dir == 1) {
-                rb2d.velocity = new Vector3(1.75f, rb2d.velocity.y, 0);
+                rb2d.velocity = new Vector3(speed, rb2d.velocity.y, 0);
             } else if(dir == 2) {
-                rb2d.velocity = new Vector3(rb2d.velocity.x, -1.75f, 0);
+                rb2d.velocity = new Vector3(rb2d.velocity.x, -speed, 0);
             } else if(dir == 3) {
-                rb2d.velocity = new Vector3(-1.75f, rb2d.velocity.y, 0);
+                rb2d.velocity = new Vector3(-speed, rb2d.velocity.y, 0);
             }
             animator.SetBool("walking", true);
             walking = true;
@@ -361,6 +361,15 @@ public class PlayerController : MonoBehaviour {
     {
         if (!GameControl.control.frozen)
         {
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                speed = 2.5f;
+            }
+            else
+            {
+                speed = 1.5f;
+            }
+
             if (!pushing)
             {
                 if (Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
