@@ -287,6 +287,63 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1001 &490920876
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 670219167}
+    m_Modifications:
+    - target: {fileID: 4393177348293348, guid: 31516ca4375ba1942bc1ffef3978f3ee, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 4.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 4393177348293348, guid: 31516ca4375ba1942bc1ffef3978f3ee, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 3.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4393177348293348, guid: 31516ca4375ba1942bc1ffef3978f3ee, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4393177348293348, guid: 31516ca4375ba1942bc1ffef3978f3ee, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4393177348293348, guid: 31516ca4375ba1942bc1ffef3978f3ee, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4393177348293348, guid: 31516ca4375ba1942bc1ffef3978f3ee, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4393177348293348, guid: 31516ca4375ba1942bc1ffef3978f3ee, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4393177348293348, guid: 31516ca4375ba1942bc1ffef3978f3ee, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114504210878724678, guid: 31516ca4375ba1942bc1ffef3978f3ee,
+        type: 2}
+      propertyPath: zone
+      value: DP
+      objectReference: {fileID: 0}
+    - target: {fileID: 114504210878724678, guid: 31516ca4375ba1942bc1ffef3978f3ee,
+        type: 2}
+      propertyPath: targetSceneName
+      value: DPRaftersEntrance
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 31516ca4375ba1942bc1ffef3978f3ee, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &490920877 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4393177348293348, guid: 31516ca4375ba1942bc1ffef3978f3ee,
+    type: 2}
+  m_PrefabInternal: {fileID: 490920876}
 --- !u!1001 &583061115
 Prefab:
   m_ObjectHideFlags: 0
@@ -366,6 +423,7 @@ Transform:
   m_Children:
   - {fileID: 423624389}
   - {fileID: 1108468355}
+  - {fileID: 490920877}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -384,6 +442,7 @@ GameObject:
   - component: {fileID: 807484499}
   - component: {fileID: 807484498}
   - component: {fileID: 807484497}
+  - component: {fileID: 807484504}
   m_Layer: 0
   m_Name: Walls
   m_TagString: Untagged
@@ -416,7 +475,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 5, y: 3}
+  m_Offset: {x: 5, y: 6}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -427,7 +486,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.44, y: 9}
+  m_Size: {x: 1.44, y: 5.73}
   m_EdgeRadius: 0
 --- !u!61 &807484498
 BoxCollider2D:
@@ -578,6 +637,31 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 9.06, y: 10.93}
+  m_EdgeRadius: 0
+--- !u!61 &807484504
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 807484495}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 5, y: 0.4}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.44, y: 4.19}
   m_EdgeRadius: 0
 --- !u!1 &968841518
 GameObject:

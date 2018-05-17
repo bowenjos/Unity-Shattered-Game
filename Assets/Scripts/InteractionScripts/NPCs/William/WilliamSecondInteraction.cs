@@ -56,7 +56,7 @@ public class WilliamSecondInteraction : CharacterInteraction {
                 Debug.Log("Blue Lens Received");
                 yield return StartCoroutine(talkControl.StartDialogueSolo(new string[] { "You received the Blue Lens!" }));
                 yield return StartCoroutine(talkControl.StartDialogueSprite(dialogue[1], "default", 0, 0));
-                GameControl.control.DPMainData.progression = 3;
+                GameControl.control.DPMainData.progression = 2;
                 DestroyThis();
                 break;
             case 5:
