@@ -287,7 +287,7 @@ public class PlayerController : MonoBehaviour {
             animator.SetBool("walking", false);
             if (Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
             { // Walk Left
-                int count2 = rb2d.Cast(Vector2.left, contactFilter, hitBuffer, 0.05F);
+                int count2 = rb2d.Cast(Vector2.left, contactFilter, hitBuffer, 0.02F);
                 if(count2 == 0)
                 {
                     animator.SetInteger("walkDirection", 3);
@@ -298,7 +298,7 @@ public class PlayerController : MonoBehaviour {
             }
             else if (Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow))
             { // Walk Right
-                int count2 = rb2d.Cast(Vector2.right, contactFilter, hitBuffer, 0.05F);
+                int count2 = rb2d.Cast(Vector2.right, contactFilter, hitBuffer, 0.02F);
                 if (count2 == 0)
                 {
                     animator.SetInteger("walkDirection", 1);
@@ -374,7 +374,7 @@ public class PlayerController : MonoBehaviour {
             {
                 if (Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
                 { // Walk Left
-                    count = rb2d.Cast(Vector2.left, contactFilter, hitBuffer, 0.05F);
+                    count = rb2d.Cast(Vector2.left, contactFilter, hitBuffer, 0.02F);
                     if (count > 0 && hitBuffer[0].collider.transform.gameObject.GetComponent<Pushable>())
                     {
                         StartCoroutine(Push(3, count, KeyCode.LeftArrow));
@@ -388,7 +388,7 @@ public class PlayerController : MonoBehaviour {
                 }
                 else if (Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow))
                 { // Walk Right
-                    count = rb2d.Cast(Vector2.right, contactFilter, hitBuffer, 0.05F);
+                    count = rb2d.Cast(Vector2.right, contactFilter, hitBuffer, 0.02F);
                     if (count > 0 && hitBuffer[0].collider.transform.gameObject.GetComponent<Pushable>())
                     {
                         StartCoroutine(Push(1, count, KeyCode.RightArrow));
@@ -407,7 +407,7 @@ public class PlayerController : MonoBehaviour {
 
                 if (Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow))
                 { // Walk Up
-                    count = rb2d.Cast(Vector2.up, contactFilter, hitBuffer, 0.05F);
+                    count = rb2d.Cast(Vector2.up, contactFilter, hitBuffer, 0.02F);
                     if (count > 0 && hitBuffer[0].collider.transform.gameObject.GetComponent<Pushable>())
                     {
                         StartCoroutine(Push(0, count, KeyCode.UpArrow));
@@ -420,7 +420,7 @@ public class PlayerController : MonoBehaviour {
                 }
                 else if (Input.GetKey(KeyCode.DownArrow) && !Input.GetKey(KeyCode.UpArrow))
                 { // Walk Down
-                    count = rb2d.Cast(Vector2.down, contactFilter, hitBuffer, 0.05F);
+                    count = rb2d.Cast(Vector2.down, contactFilter, hitBuffer, 0.02F);
                     if (count > 0 && hitBuffer[0].collider.transform.gameObject.GetComponent<Pushable>())
                     {
                         StartCoroutine(Push(2, count, KeyCode.DownArrow));
@@ -446,19 +446,19 @@ public class PlayerController : MonoBehaviour {
             {
                 if (direction == 0)
                 {
-                    count = rb2d.Cast(Vector2.up, contactFilter, hitBuffer, 0.05F);
+                    count = rb2d.Cast(Vector2.up, contactFilter, hitBuffer, 0.02F);
                 }
                 if (direction == 1)
                 {
-                    count = rb2d.Cast(Vector2.right, contactFilter, hitBuffer, 0.05F);
+                    count = rb2d.Cast(Vector2.right, contactFilter, hitBuffer, 0.02F);
                 }
                 if (direction == 2)
                 {
-                    count = rb2d.Cast(Vector2.down, contactFilter, hitBuffer, 0.05F);
+                    count = rb2d.Cast(Vector2.down, contactFilter, hitBuffer, 0.02F);
                 }
                 if (direction == 3)
                 {
-                    count = rb2d.Cast(Vector2.left, contactFilter, hitBuffer, 0.05F);
+                    count = rb2d.Cast(Vector2.left, contactFilter, hitBuffer, 0.02F);
                 }
                 if (hitBuffer[0])
                 {
