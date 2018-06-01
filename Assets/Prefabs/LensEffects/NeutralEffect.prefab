@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 50983000070846906}
   m_Layer: 11
   m_Name: NeutralEffect
-  m_TagString: Untagged
+  m_TagString: LensEffect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

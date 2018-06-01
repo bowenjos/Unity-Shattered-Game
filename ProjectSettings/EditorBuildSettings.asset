@@ -75,5 +75,14 @@ EditorBuildSettings:
     path: Assets/Scenes/TheatreHell/DPBalcony.unity
     guid: 505d4e583e4211a478aca1f27a8e07a5
   - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPRaftersEntrance.unity
+    guid: e79cf2b37418a48488735049d2ac28a0
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPRaftersEntranceUP.unity
+    guid: 099fe3f4791942a488d034c57dbc3491
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPRafters.unity
+    guid: 331d7a5eeb3ba68449dae909d2feefee
+  - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: bc89e80eb3bf4264c8d195127a8b0aaf

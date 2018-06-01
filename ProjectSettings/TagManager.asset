@@ -12,6 +12,7 @@ TagManager:
   - Yellow
   - Purple
   - William
+  - LensEffect
   layers:
   - Default
   - TransparentFX
