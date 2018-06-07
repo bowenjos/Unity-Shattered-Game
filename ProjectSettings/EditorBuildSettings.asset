@@ -84,5 +84,8 @@ EditorBuildSettings:
     path: Assets/Scenes/TheatreHell/DPRafters.unity
     guid: 331d7a5eeb3ba68449dae909d2feefee
   - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPLeverRoomTwo.unity
+    guid: abadbc4da5f2ca84c8e14f7b58d252d3
+  - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: bc89e80eb3bf4264c8d195127a8b0aaf
