@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4053962030032282}
   - component: {fileID: 108866499214789662}
   - component: {fileID: 114417325743387296}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: lanternlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}

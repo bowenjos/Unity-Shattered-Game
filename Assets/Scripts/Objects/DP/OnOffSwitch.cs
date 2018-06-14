@@ -8,6 +8,7 @@ public class OnOffSwitch : InteractionController {
 
     public Sprite SwitchOn;
 
+
 	// Use this for initialization
 	void Start () {
 		if(GameControl.control.DPMainData.levers[leverNumber] == true)
@@ -28,6 +29,7 @@ public class OnOffSwitch : InteractionController {
         GameControl.control.DPMainData.levers[leverNumber] = true;
         GameControl.control.DPMainData.progression++;
         GameControl.control.DPMainData.williamTalked = false;
+        GetComponent<AudioSource>().Play();
         Destroy(this);
         yield return null;
     }

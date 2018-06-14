@@ -69,7 +69,7 @@ public class StairsEffect : MonoBehaviour {
         }
     }
 
-    void OnTriggerExit()
+    void OnTriggerExit2D()
     {
         pCon = null;
     }
