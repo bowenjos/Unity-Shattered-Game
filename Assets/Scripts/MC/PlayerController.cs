@@ -250,30 +250,34 @@ public class PlayerController : MonoBehaviour {
     IEnumerator Push(int dir, int count, KeyCode keyPressed)
     {
         pushing = true;
-        Debug.Log("Push it somewhere else");
+        if(hitBuffer[0].collider.transform.gameObject.GetComponent<Pushable>() != null)
+        {
+            hitBuffer[0].collider.transform.gameObject.GetComponent<Pushable>().beingPushed = true;
+        }
         while (Input.GetKey(keyPressed))
         {
             animator.SetInteger("walkDirection", dir);
             animator.SetBool("pushing", true);
             if (dir == 0)
             {
-                rb2d.velocity = new Vector3(rb2d.velocity.x, speed, 0);
+                rb2d.velocity = new Vector3(0, speed, 0);
             }
             else if (dir == 1)
             {
-                rb2d.velocity = new Vector3(speed, rb2d.velocity.y, 0);
+                rb2d.velocity = new Vector3(speed, 0, 0);
             }
             else if (dir == 2)
             {
-                rb2d.velocity = new Vector3(rb2d.velocity.x, -speed, 0);
+                rb2d.velocity = new Vector3(0, -speed, 0);
             }
             else if (dir == 3)
             {
-                rb2d.velocity = new Vector3(-speed, rb2d.velocity.y, 0);
+                rb2d.velocity = new Vector3(-speed, 0, 0);
             }
 
             yield return null;
         }
+        hitBuffer[0].collider.transform.gameObject.GetComponent<Pushable>().beingPushed = false;
         pushing = false;
         animator.SetBool("pushing", false);
     }
