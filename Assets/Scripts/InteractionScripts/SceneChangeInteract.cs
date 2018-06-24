@@ -29,7 +29,8 @@ public class SceneChangeInteract : InteractionController {
         yield return StartCoroutine(TC.transitionOut());
         SceneManager.LoadScene(targetSceneName, LoadSceneMode.Single);
         GameControl.control.room = targetSceneName;
-        GameControl.control.zone = zone;
+        TC.newZone = zone;
+        //GameControl.control.zone = zone;
         player.transform.position = new Vector3(targetX, targetY, 0);
     }
 }

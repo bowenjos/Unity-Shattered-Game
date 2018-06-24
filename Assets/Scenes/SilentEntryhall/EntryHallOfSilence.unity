@@ -1491,7 +1491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSceneName: EntryHallOfSilence
-  zone: 
+  zone: FM
   targetX: 0
   targetY: 0
 --- !u!61 &282658489
@@ -2289,7 +2289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSceneName: EntryHallOfSilence
-  zone: 
+  zone: SE
   targetX: 0
   targetY: 0
 --- !u!61 &816640031
@@ -2678,6 +2678,11 @@ Prefab:
     - target: {fileID: 1668114133271814, guid: 2467928b247b17c42a63982723ce55f5, type: 2}
       propertyPath: m_Name
       value: DesolateHeartDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 114902753178395562, guid: 2467928b247b17c42a63982723ce55f5,
+        type: 2}
+      propertyPath: zone
+      value: DH
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114848956526141756, guid: 2467928b247b17c42a63982723ce55f5, type: 2}
@@ -3096,7 +3101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSceneName: RightsideHallway
-  zone: 
+  zone: SE
   targetX: -4
   targetY: -1.8
 --- !u!61 &1505609743
@@ -3625,6 +3630,16 @@ Prefab:
     - target: {fileID: 4074692868856848, guid: 75e684c3a7d7d274bacb15b7e26a1c83, type: 2}
       propertyPath: m_LocalScale.y
       value: 0.6667
+      objectReference: {fileID: 0}
+    - target: {fileID: 114305202220195550, guid: 75e684c3a7d7d274bacb15b7e26a1c83,
+        type: 2}
+      propertyPath: zone
+      value: CD
+      objectReference: {fileID: 0}
+    - target: {fileID: 114305202220195550, guid: 75e684c3a7d7d274bacb15b7e26a1c83,
+        type: 2}
+      propertyPath: targetSceneName
+      value: Main
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114335011923724782, guid: 75e684c3a7d7d274bacb15b7e26a1c83, type: 2}

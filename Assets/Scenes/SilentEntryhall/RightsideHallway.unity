@@ -301,6 +301,11 @@ Prefab:
       propertyPath: targetY
       value: 1.8
       objectReference: {fileID: 0}
+    - target: {fileID: 114453500091267698, guid: 5ea5465fa1a6ed94e8db663448a4c22c,
+        type: 2}
+      propertyPath: zone
+      value: SE
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114131809408357604, guid: 5ea5465fa1a6ed94e8db663448a4c22c, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 5ea5465fa1a6ed94e8db663448a4c22c, type: 2}
@@ -437,6 +442,11 @@ Prefab:
       propertyPath: m_Name
       value: EntryHallTransition
       objectReference: {fileID: 0}
+    - target: {fileID: 114361182759894780, guid: 4778f28dc12f6c547a2925cbca97519b,
+        type: 2}
+      propertyPath: zone
+      value: SE
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4778f28dc12f6c547a2925cbca97519b, type: 2}
   m_IsPrefabParent: 0
@@ -502,6 +512,11 @@ Prefab:
         type: 2}
       propertyPath: m_FlipX
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114305202220195550, guid: 75e684c3a7d7d274bacb15b7e26a1c83,
+        type: 2}
+      propertyPath: zone
+      value: SE
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114335011923724782, guid: 75e684c3a7d7d274bacb15b7e26a1c83, type: 2}
@@ -630,6 +645,11 @@ Prefab:
         type: 2}
       propertyPath: m_FlipX
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114239836258204064, guid: 6e2b8ae14bd7884458cf02c3fc4ace81,
+        type: 2}
+      propertyPath: zone
+      value: SE
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114915379525540086, guid: 6e2b8ae14bd7884458cf02c3fc4ace81, type: 2}
@@ -1119,6 +1139,11 @@ Prefab:
       propertyPath: targetY
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 114239836258204064, guid: 6e2b8ae14bd7884458cf02c3fc4ace81,
+        type: 2}
+      propertyPath: zone
+      value: SE
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114915379525540086, guid: 6e2b8ae14bd7884458cf02c3fc4ace81, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 6e2b8ae14bd7884458cf02c3fc4ace81, type: 2}
@@ -1390,6 +1415,11 @@ Prefab:
       propertyPath: targetY
       value: -0.35
       objectReference: {fileID: 0}
+    - target: {fileID: 114361182759894780, guid: 4778f28dc12f6c547a2925cbca97519b,
+        type: 2}
+      propertyPath: zone
+      value: DP
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4778f28dc12f6c547a2925cbca97519b, type: 2}
   m_IsPrefabParent: 0
@@ -1453,6 +1483,11 @@ Prefab:
         type: 2}
       propertyPath: m_FlipX
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114305202220195550, guid: 75e684c3a7d7d274bacb15b7e26a1c83,
+        type: 2}
+      propertyPath: zone
+      value: SE
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114335011923724782, guid: 75e684c3a7d7d274bacb15b7e26a1c83, type: 2}

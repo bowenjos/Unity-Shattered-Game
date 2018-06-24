@@ -455,7 +455,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSceneName: RightsideHallway
-  zone: 
+  zone: SE
   targetX: 3.1
   targetY: 0.67
 --- !u!61 &184856930
