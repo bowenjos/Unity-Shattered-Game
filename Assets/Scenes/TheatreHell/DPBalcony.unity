@@ -145,7 +145,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4617673895967614, guid: 705ffea0792f68f419e09aa357f1ecdb, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 705ffea0792f68f419e09aa357f1ecdb, type: 2}
@@ -197,7 +197,7 @@ Prefab:
     - target: {fileID: 114305202220195550, guid: 75e684c3a7d7d274bacb15b7e26a1c83,
         type: 2}
       propertyPath: targetSceneName
-      value: 
+      value: DPViP
       objectReference: {fileID: 0}
     - target: {fileID: 114305202220195550, guid: 75e684c3a7d7d274bacb15b7e26a1c83,
         type: 2}
@@ -207,6 +207,16 @@ Prefab:
     - target: {fileID: 1897051879665998, guid: 75e684c3a7d7d274bacb15b7e26a1c83, type: 2}
       propertyPath: m_Name
       value: VIPDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 114305202220195550, guid: 75e684c3a7d7d274bacb15b7e26a1c83,
+        type: 2}
+      propertyPath: targetY
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114305202220195550, guid: 75e684c3a7d7d274bacb15b7e26a1c83,
+        type: 2}
+      propertyPath: targetX
+      value: 6.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 75e684c3a7d7d274bacb15b7e26a1c83, type: 2}
@@ -324,7 +334,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4393177348293348, guid: 31516ca4375ba1942bc1ffef3978f3ee, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114504210878724678, guid: 31516ca4375ba1942bc1ffef3978f3ee,
         type: 2}
@@ -427,17 +437,18 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 423624389}
+  - {fileID: 723003242}
   - {fileID: 1108468355}
   - {fileID: 490920877}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &723003241
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 670219167}
     m_Modifications:
     - target: {fileID: 4074692868856848, guid: 75e684c3a7d7d274bacb15b7e26a1c83, type: 2}
       propertyPath: m_LocalPosition.x
@@ -476,9 +487,33 @@ Prefab:
       propertyPath: zone
       value: DP
       objectReference: {fileID: 0}
+    - target: {fileID: 1897051879665998, guid: 75e684c3a7d7d274bacb15b7e26a1c83, type: 2}
+      propertyPath: m_Name
+      value: VIPDoorSmall
+      objectReference: {fileID: 0}
+    - target: {fileID: 114305202220195550, guid: 75e684c3a7d7d274bacb15b7e26a1c83,
+        type: 2}
+      propertyPath: targetSceneName
+      value: DPViP
+      objectReference: {fileID: 0}
+    - target: {fileID: 114305202220195550, guid: 75e684c3a7d7d274bacb15b7e26a1c83,
+        type: 2}
+      propertyPath: targetX
+      value: -2.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 114305202220195550, guid: 75e684c3a7d7d274bacb15b7e26a1c83,
+        type: 2}
+      propertyPath: targetY
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 75e684c3a7d7d274bacb15b7e26a1c83, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &723003242 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4074692868856848, guid: 75e684c3a7d7d274bacb15b7e26a1c83,
+    type: 2}
+  m_PrefabInternal: {fileID: 723003241}
 --- !u!1 &807484495
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,7 +549,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &807484497
 BoxCollider2D:
@@ -875,7 +910,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1018277095
 GameObject:
@@ -906,7 +941,7 @@ Transform:
   - {fileID: 968841519}
   - {fileID: 445817517}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1108468354
 GameObject:
@@ -936,7 +971,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 670219167}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1108468356
 MonoBehaviour:
@@ -1015,7 +1050,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4961552438003540, guid: e58c152bda263fc48ba80b1e810a9944, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114940716296003898, guid: e58c152bda263fc48ba80b1e810a9944,
         type: 2}
@@ -1133,7 +1168,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4179851187046412, guid: 31f93a92e9c662c43b3b7fc893c7f362, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 31f93a92e9c662c43b3b7fc893c7f362, type: 2}
@@ -1207,5 +1242,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

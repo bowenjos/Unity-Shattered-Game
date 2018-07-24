@@ -87,5 +87,11 @@ EditorBuildSettings:
     path: Assets/Scenes/TheatreHell/DPLeverRoomTwo.unity
     guid: abadbc4da5f2ca84c8e14f7b58d252d3
   - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPViP.unity
+    guid: beef926002d9f194780cd6583eae682d
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPVIPLower.unity
+    guid: 1ce464be4e397864fbb2b85ce1152c2b
+  - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: bc89e80eb3bf4264c8d195127a8b0aaf
