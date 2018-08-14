@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/GameOver.unity
     guid: 514219ff54d2d7645b793768b99acf9b
   - enabled: 1
+    path: Assets/Scenes/Other/Elevator.unity
+    guid: f3995a645e33f57419aedb95642ce204
+  - enabled: 1
     path: Assets/Scenes/SilentEntryhall/EntryHallOfSilence.unity
     guid: adf05722388f8a6459a282c1c9769c57
   - enabled: 1
