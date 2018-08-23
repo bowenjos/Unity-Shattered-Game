@@ -5,6 +5,7 @@ using UnityEngine;
 public class Shake : MonoBehaviour {
 
     protected bool shaking;
+    public float speed;
 
     // Use this for initialization
     void Start () {
@@ -22,8 +23,6 @@ public class Shake : MonoBehaviour {
         Vector2 defaultPos = obj.position;
 
         float counter = 0f;
-
-        const float speed = 2f;
 
         while (counter < time)
         {
