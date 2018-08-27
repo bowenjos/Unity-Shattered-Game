@@ -13,6 +13,7 @@ public class GameControl : MonoBehaviour {
     public ViData ViData = new ViData();
 
     //ZoneData
+    public ElevatorData ElevatorData = new ElevatorData();
     public DPMainData DPMainData = new DPMainData();
 
     //Rooms
@@ -101,6 +102,10 @@ public class GameControl : MonoBehaviour {
 
         GameControl.control.saved = false;
 
+        data.ElevatorData = ElevatorData;
+        data.ViData = ViData;
+
+        data.DPMainData = DPMainData;
         data.MainRoom = MainRoom;
 
         data.playerName = playerName;
@@ -134,6 +139,10 @@ public class GameControl : MonoBehaviour {
             PlayerData data = (PlayerData) bf.Deserialize(file);
             file.Close();
 
+            ElevatorData = data.ElevatorData;
+            ViData = data.ViData;
+
+            DPMainData = data.DPMainData;
             MainRoom = data.MainRoom;
 
             playerName = data.playerName;
@@ -180,6 +189,11 @@ public class GameControl : MonoBehaviour {
 [Serializable]
 class PlayerData
 {
+    public ViData ViData;
+
+    public ElevatorData ElevatorData;
+    public DPMainData DPMainData;
+
     public MainRoom MainRoom;
 
     public string playerName;

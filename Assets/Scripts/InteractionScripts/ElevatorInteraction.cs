@@ -9,9 +9,12 @@ public class ElevatorInteraction : CharacterInteraction
     public ElevatorController elevControl;
     public Shake elevator;
     public string[][] travelDialogue;
+    public string[] stayDialogue;
     public string[] errorDialogue;
     public string currentLocation;
     public string targetLocation;
+
+    public bool selectionMade = false;
     
 
     // Use this for initialization
@@ -26,12 +29,20 @@ public class ElevatorInteraction : CharacterInteraction
 
     public override IEnumerator StartInteraction()
     {
+        selectionMade = false;
         yield return StartCoroutine(talkControl.StartDialogueSprite(travelDialogue[0], "default", 0, 0));
         yield return StartCoroutine(elevControl.StartElevator(currentLocation));
-        yield return StartCoroutine(talkControl.StartDialogueSprite(travelDialogue[1], "default", 0, 0));
-        elevator.StartShake(1f);
-        yield return new WaitForSeconds(1f);
-        yield return StartCoroutine(talkControl.StartDialogueSprite(travelDialogue[2], "default", 0, 0));
+        if (selectionMade == false)
+        {
+            yield return StartCoroutine(talkControl.StartDialogueSprite(stayDialogue, "default", 0, 0));
+        }
+        else {
+            yield return StartCoroutine(talkControl.StartDialogueSprite(travelDialogue[1], "default", 0, 0));
+            elevator.StartShake(1f);
+            yield return new WaitForSeconds(1f);
+            yield return StartCoroutine(talkControl.StartDialogueSprite(travelDialogue[2], "default", 0, 0));
+        }
+        selectionMade = false;
     }
 
 }

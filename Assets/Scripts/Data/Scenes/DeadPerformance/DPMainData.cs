@@ -6,7 +6,7 @@ using UnityEngine;
 [Serializable]
 public class DPMainData {
 
-    //Porgression Data
+    //Progression Data
     public int progression = 0;
     public bool williamTalked = false;
     public bool viTalked = false;
