@@ -9,9 +9,13 @@ public class ElevatorTransferData : MonoBehaviour {
     public int zoneValue;
     public int roomValue;
 
+    public bool OptionalOtherUnlock;
+    public int optionalRoomValue;
+
     void Start()
     {
         GameControl.control.ElevatorData.unlockedElevators[zoneValue][roomValue] = true;
+        if(OptionalOtherUnlock == true) { GameControl.control.ElevatorData.unlockedElevators[zoneValue][optionalRoomValue] = true; }
         GameControl.control.ElevatorData.unlockedZones[zoneValue] = true;
 
         GameControl.control.ElevatorData.unlockedZones[4] = true;

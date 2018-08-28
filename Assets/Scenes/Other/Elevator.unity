@@ -342,11 +342,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EI: {fileID: 2028993714}
   elevatorPanel: {fileID: 1695029958}
+  ElevatorDoor: {fileID: 13350932}
   buttons:
   - {fileID: 1525996051}
   - {fileID: 1024911299}
   - {fileID: 1949933337}
   - {fileID: 1132372496}
+  exitButton: {fileID: 1183387042}
   zoneText: {fileID: 1450924701}
   zones: []
 --- !u!132 &193576990
@@ -2444,6 +2446,7 @@ MonoBehaviour:
   errorDialogue:
   - I've got not clue where we are kiddo.
   currentZone: DP
+  currentZoneValue: 0
   currentLocation: DPRafters
   targetLocation: DPRafters
   selectionMade: 0
