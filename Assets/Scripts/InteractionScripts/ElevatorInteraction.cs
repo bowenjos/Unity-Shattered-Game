@@ -5,21 +5,32 @@ using UnityEngine;
 public class ElevatorInteraction : CharacterInteraction
 {
 
-    public SceneChangeInteract ElevatorDoor;
+    public ElevatorExitInteraction ElevatorDoor;
     public ElevatorController elevControl;
     public Shake elevator;
     public string[][] travelDialogue;
     public string[] stayDialogue;
     public string[] errorDialogue;
+    public string currentZone;
+    public int currentZoneValue;
     public string currentLocation;
     public string targetLocation;
 
     public bool selectionMade = false;
+
+    protected GameObject ElevDataTrans;
     
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
+        ElevDataTrans = GameObject.Find("ElevatorDataTransfer");
+        currentZone = ElevDataTrans.GetComponent<ElevatorTransferData>().currentZone;
+        currentLocation = ElevDataTrans.GetComponent<ElevatorTransferData>().currentRoom;
+        currentZoneValue = ElevDataTrans.GetComponent<ElevatorTransferData>().zoneValue;
+        ElevatorDoor.targetSceneName = currentLocation;
+        ElevatorDoor.zone = currentZone;
+        Destroy(ElevDataTrans);
         talkControl = GameObject.Find("Talk UI(Clone)").GetComponent<TalkController>();
         travelDialogue = new string[3][];
         travelDialogue[0] = new string[] { "So, where to kid?" };

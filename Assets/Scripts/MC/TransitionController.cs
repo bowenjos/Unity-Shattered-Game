@@ -11,8 +11,11 @@ public class TransitionController : MonoBehaviour {
     public string currentZone;
     public string newZone;
 
+    public bool elevatorTransfer;
+
     void Start()
     {
+        elevatorTransfer = false;
         ZoneTransition = this.GetComponentInChildren<Image>();
         zoneText = this.GetComponentInChildren<Text>();
         //Debug.Log(ZoneTransition);
@@ -84,20 +87,22 @@ public class TransitionController : MonoBehaviour {
 
     public IEnumerator transitionOut()
     {
-        Debug.Log("Goodbwye");
         for(float i = 0f; i < 255f; i += 17f)
         {
             ZoneTransition.color = new Color( 0f, 0f, 0f, i/255f);
             yield return new WaitForSeconds(0.005f);
         }
         ZoneTransition.color = new Color(0f, 0f, 0f, 1);
-        Debug.Log("Im vewy scawed");
         dark = true;
     }
 
     public IEnumerator transitionIn()
     {
-        Debug.Log("Hewwo");
+        if (elevatorTransfer)
+        {
+            GameObject.Find("player(Clone)").transform.position = GameObject.Find("ElevatorDataTransfer").transform.position;
+            elevatorTransfer = false;
+        }
         GameControl.control.Unfreeze();
         dark = false;
         yield return new WaitForSeconds(0.05f);

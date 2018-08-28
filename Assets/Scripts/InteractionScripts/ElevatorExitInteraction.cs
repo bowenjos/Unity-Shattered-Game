@@ -3,23 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneChangeInteract : InteractionController {
-
-    protected GameObject player;
-    protected TransitionController TC;
-    public string targetSceneName;
-    public string zone;
-    public float targetX;
-    public float targetY;
-
-	// Use this for initialization
-	void Awake () { 
-    }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+public class ElevatorExitInteraction : SceneChangeInteract {
 
     public override IEnumerator StartInteraction()
     {
@@ -28,11 +12,13 @@ public class SceneChangeInteract : InteractionController {
         TC = GameObject.Find("TransitionControl(Clone)").GetComponent<TransitionController>();
         player = GameObject.Find("player(Clone)");
         yield return StartCoroutine(TC.transitionOut());
+        TC.elevatorTransfer = true;
         SceneManager.LoadScene(targetSceneName, LoadSceneMode.Single);
+        this.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 0f, 0f);
         GameControl.control.room = targetSceneName;
         GameControl.control.zone = zone;
         TC.newZone = zone;
-        //GameControl.control.zone = zone;
-        player.transform.position = new Vector3(targetX, targetY, 0);
+        Destroy(this.gameObject);
+
     }
 }

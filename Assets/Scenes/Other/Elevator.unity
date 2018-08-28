@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 13350930}
   - component: {fileID: 13350929}
   - component: {fileID: 13350932}
+  - component: {fileID: 13350933}
   m_Layer: 0
   m_Name: ElevatorDoor
   m_TagString: Untagged
@@ -214,13 +215,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 13350928}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9ca1959fdfe3bd48a0b8d724314513b, type: 3}
+  m_Script: {fileID: 11500000, guid: 964aa1d4ea11ecf4a9c17366fbc6d8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetSceneName: 
   zone: 
   targetX: 0
   targetY: 0
+--- !u!114 &13350933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 13350928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ae185be82d7764f9749d8c1291b373, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &193576984
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,7 +347,8 @@ MonoBehaviour:
   - {fileID: 1024911299}
   - {fileID: 1949933337}
   - {fileID: 1132372496}
-  zoneText: {fileID: 0}
+  zoneText: {fileID: 1450924701}
+  zones: []
 --- !u!132 &193576990
 GUIText:
   m_ObjectHideFlags: 0
@@ -1657,7 +1670,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Dead Performance
+  m_Text: 'Empty
+
+'
 --- !u!222 &1450924702
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2416,7 +2431,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2028993710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20cbc04875bc2f44bafdf4d44fedf427, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c368e9149d3c9c4fac07865ceb6e8b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   talkControl: {fileID: 0}
@@ -2424,12 +2439,13 @@ MonoBehaviour:
   elevControl: {fileID: 193576989}
   elevator: {fileID: 378661653}
   stayDialogue:
-  - Change you mind?
-  - That's okay kid, I'll be here if you need me.
+  - Change your mind?
+  - That's alright, Kid. I'll be here if you need me.
   errorDialogue:
-  - Welcome to the Hellevator
-  currentLocation: Hell
-  targetLocation: AlsoHell
+  - I've got not clue where we are kiddo.
+  currentZone: DP
+  currentLocation: DPRafters
+  targetLocation: DPRafters
   selectionMade: 0
 --- !u!1 &2078303236 stripped
 GameObject:

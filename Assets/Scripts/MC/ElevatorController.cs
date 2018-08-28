@@ -15,10 +15,20 @@ public class ElevatorController : MonoBehaviour {
     protected bool buttonPressed;
     protected int currentZone;
 
+    protected bool[] buttonActive = new bool[4];
+    protected string[] buttonDestination = new string[4];
+
 	// Use this for initialization
 	void Start () {
+        currentZone = EI.currentZoneValue;
+        //GameControl.control.ElevatorData.unlockedZones[currentZone] = true;
+        for(int i = 0; i < 9; i++)
+        {
+            Debug.Log(GameControl.control.ElevatorData.unlockedZones[i]);
+        }
+        Debug.Log(currentZone);
+        UpdateButtons();
         elevatorPanel.SetActive(false);
-        Debug.Log(buttons);
 	}
 	
 	// Update is called once per frame
@@ -27,7 +37,9 @@ public class ElevatorController : MonoBehaviour {
     {
         buttonPressed = false;
         GameControl.control.Freeze();
-        elevatorPanel.SetActive(true);
+
+        UpdateButtons();
+        
         buttons[0].Select();
 
         yield return WaitForButtonPress();
@@ -37,6 +49,41 @@ public class ElevatorController : MonoBehaviour {
         elevatorPanel.SetActive(false);
         GameControl.control.Unfreeze();
         yield return null;
+    }
+
+    public void UpdateButtons()
+    {
+        elevatorPanel.SetActive(true);
+        switch (currentZone)
+        {
+            case 0:
+                zoneText.text = "Silent Entryhall";
+                break;
+            case 1:
+                zoneText.text = "Dead Performance";
+                break;
+            case 2:
+                zoneText.text = "Forgotten Mezzanine";
+                break;
+            case 3:
+                zoneText.text = "Frigid Loft";
+                break;
+            case 4:
+                zoneText.text = "Natural Banquet";
+                break;
+            case 5:
+                zoneText.text = "Festered Kiln";
+                break;
+            case 6:
+                zoneText.text = "Departure Sandbox";
+                break;
+            case 7:
+                zoneText.text = "Cavernous Decline";
+                break;
+            case 8:
+                zoneText.text = "Desolate Heart";
+                break;
+        }
     }
 
     /*******************
@@ -62,18 +109,32 @@ public class ElevatorController : MonoBehaviour {
 
     public void OnNextButtonPress()
     {
-
+        for(int i = currentZone; i <= 8; i++)
+        {
+            if(GameControl.control.ElevatorData.unlockedZones[i])
+            {
+                currentZone = i;
+                UpdateButtons();
+                return;
+            }
+        }
+        UpdateButtons();
     }
 
     public void OnPrevButtonPress()
     {
-
+        for(int i = currentZone; i >= 0; i--) { 
+            if(GameControl.control.ElevatorData.unlockedZones[i])
+            {
+                currentZone = i;
+                UpdateButtons();
+                return;
+            }
+        } 
+        UpdateButtons();
     }
 
-    public void UpdateButtons()
-    {
-
-    }
+    
 
     public void OnButtonZeroPress()
     {
