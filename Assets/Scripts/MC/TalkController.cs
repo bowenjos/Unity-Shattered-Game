@@ -31,6 +31,8 @@ public class TalkController : MonoBehaviour {
     public Font William;
 
     private int i;
+    private bool marked;
+    private string markdown = "";
 
     enum DialogueStates { NoDialogue, SoloDialogue, SpriteDialogue, SaveDialogue, SavingDialogue };
     DialogueStates currentState;
@@ -244,9 +246,32 @@ public class TalkController : MonoBehaviour {
 
         Coroutine co = StartCoroutine(SkipText(text));
         yield return new WaitForEndOfFrame();
-        for (i = 0; i < (text.Length + 1); i++)
+        for (i = 0; i < (text.Length); i++)
         {
-            editText.text = text.Substring(0, i);
+
+            switch (text[i])
+            {
+                case '<':
+                    if (marked == false)
+                    {
+                        i = ResolveMarkdown(i, text);
+                    }
+                    else {
+                        i = FinishMarkdown(i, text);
+                    }
+                    break;
+                default:
+                    if (marked == true)
+                    {
+                        editText.text = text.Substring(0, i) + markdown;
+                    }
+                    else
+                    {
+                        editText.text = text.Substring(0, i);
+                    }
+                    break;
+            }
+           
             if (i != 0)
             {
                 switch (text[i - 1])
@@ -270,6 +295,48 @@ public class TalkController : MonoBehaviour {
             }
         }
         StopCoroutine(co);
+        editText.text = text;
+    }
+
+    protected int ResolveMarkdown(int i, string text)
+    {
+        int j = 0;
+        int k = 0;
+        int l = 0;
+        marked = true;
+        for (j = i; j < text.Length; j++)
+        {
+            if (text[j] == '>')
+            {
+                break;
+            }
+        }
+
+        for (l = j+2; l < text.Length; l++) { 
+            if (text[l] == '<') {
+                k = l;
+                Debug.Log(k);
+                Debug.Log(text[k]);
+            }
+            if (text[l] == '>')
+            {
+                Debug.Log(l);
+                markdown = text.Substring(k, l - k + 1);
+                Debug.Log(markdown);
+                Debug.Log(l);
+            }
+        }
+        editText.text = text.Substring(0, j + 1) + markdown;
+        return j;
+
+    }
+
+    protected int FinishMarkdown(int i, string text)
+    {
+        marked = false;
+        i = i + markdown.Length;
+        editText.text = text.Substring(0, i);
+        return i;
     }
 
     protected IEnumerator SkipText(string text)

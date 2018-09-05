@@ -20,7 +20,7 @@ public class ViES1 : CharacterInteraction {
                 dialogue = new string[1][];
                 dialogue[0] = new string[2];
                 dialogue[0][0] = "Welcome, young master. I wish we could have met under better circumstances, but you are here now, so please enjoy your stay.";
-                dialogue[0][1] = "If there are things you would like to commit to your memory, please do feel free to find me.";
+                dialogue[0][1] = "If there are things you would like to <color=cyan>commit to your memory</color>, please do feel free to find me.";
             }
         }
 	}
