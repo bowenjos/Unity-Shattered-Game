@@ -13,25 +13,26 @@ public class StairsEffect : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+        isColliding = false;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        isColliding = false;
 	}
 
-    //BUG: Something about this whole system isn't working right now
+    //BUG: Player will retrain staircase effect if they hold the button and collided with a wall even after leaving the zone
     //REPRODUCE: Collide with wall and walk into staircase, the effect will be doubled and stay even after the player leaves the zone
     //          If you collide upwards and walk left into a zone that should push you up you go down, for some reason...
+    //FIXED: When the played leaves the collision zone I set their velocity to 0, 0, 0 effectivelly reseting their movement. It doesn't solve the problem at it's source but it does solve it.
+    //       Might revist later to see if I can fix the root of the issue.
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log(col.transform.name);
-        if (isColliding) return;
-        isColliding = true;
-        if(col.gameObject.tag == "Player")
+        //Checks to see if the object in the stairwell is the played (stairwells will only ever have the player on them, but the floors and other objects can cause complications)
+        if (col.gameObject.tag == "Player")
         {
+            if (isColliding) return;
+            isColliding = true;
             pCon = col.gameObject.GetComponent<PlayerController>();
         }
     }
@@ -40,7 +41,6 @@ public class StairsEffect : MonoBehaviour {
     {
         if (col.gameObject.tag == "Player")
         {
-            Debug.Log(col.transform.name);
             if (pCon != null)
             {
                 if (pCon.walking && pCon.direction == 1)
@@ -71,6 +71,8 @@ public class StairsEffect : MonoBehaviour {
 
     void OnTriggerExit2D()
     {
+        isColliding = false;
+        pCon.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
         pCon = null;
     }
 }

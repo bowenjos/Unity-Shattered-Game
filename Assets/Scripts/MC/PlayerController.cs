@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour {
     protected Collider2D playerCollider;
     public GameObject collideObject;
     
+    //Initialize player character status variables
 
     void Start()
     {
@@ -35,21 +36,28 @@ public class PlayerController : MonoBehaviour {
         stopped = false;
     }
 
+    //Acquire access to specific parts of the player character
+
     void Awake()
     {
         animator = GetComponent<Animator> ();
         rb2d = GetComponent<Rigidbody2D>();
     }
 
+    
+    //Set it so te player character can push objects
     public void CanPush()
     {
         canPush = true;
     }
 
+    //Remove the ability for the player character to push objects
     public void CannotPush()
     {
         canPush = false;
     }
+
+    //What follows was an alternate take on the walking function, it ended up being more complicated and less effective than the form I use currently, but is preserved in case i desire to revist it
 
     /*
     IEnumerator WalkAngled(int dir, int count, KeyCode keyPressed)
@@ -247,17 +255,29 @@ public class PlayerController : MonoBehaviour {
     
     */
 
+    /***********************
+    * Function Name: Push
+    * Type: IEnumerator
+    * Arguments: direction the player is facing, the number of objects in front of the player, and the keypress of the direction they are facing
+    * Purpose: To allow the player character to push objects in front of them, prevent them from pushing more than 1 object at a time. 
+    ***********************/
+
     IEnumerator Push(int dir, int count, KeyCode keyPressed)
     {
         pushing = true;
+        //Check to see if the object in front of the player is pushable
         if(hitBuffer[0].collider.transform.gameObject.GetComponent<Pushable>() != null)
         {
+            //If the object is pushable set that object's variable "beingPushed" to true
             hitBuffer[0].collider.transform.gameObject.GetComponent<Pushable>().beingPushed = true;
         }
+        //While the player continues to hold the directional key
         while (Input.GetKey(keyPressed))
         {
+            //Begin the pushing animation for the direction they are moving
             animator.SetInteger("walkDirection", dir);
             animator.SetBool("pushing", true);
+            //Set the players velocity for that direction
             if (dir == 0)
             {
                 rb2d.velocity = new Vector3(0, speed, 0);
@@ -277,23 +297,35 @@ public class PlayerController : MonoBehaviour {
 
             yield return null;
         }
+        //Once no longer pushing, set the object being pushed back to false and remove the animation
         hitBuffer[0].collider.transform.gameObject.GetComponent<Pushable>().beingPushed = false;
         pushing = false;
         animator.SetBool("pushing", false);
     }
     
+    /**********************
+    * Function Name: Walk
+    * Type: void
+    * Arguments: direction the player is facing, number of objects in front of the player
+    * Purpose: To allow the player to move (cause the game would be real boring without it)
+    **********************/
     void Walk(int dir, int count)
     {
+        //Checks to see if the number of objects in front of the player is more than 0
         if (count > 0)
         {
+            //If true the players walk direction is set facing that direction, but walking is set to false, a new check is performed
             animator.SetInteger("walkDirection", dir);
             direction = dir;
             animator.SetBool("walking", false);
+            //Checks to see if the player is pushing either the left or the right arrow, but not both at the same time
             if (Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
             { // Walk Left
+                //If Left is pressed, a check is perfroemd to see if there are objects in front of the player
                 int count2 = rb2d.Cast(Vector2.left, contactFilter, hitBuffer, 0.02F);
                 if(count2 == 0)
                 {
+                    //If there are no objects in front of the player, they can walk left freely
                     animator.SetInteger("walkDirection", 3);
                     animator.SetBool("walking", true);
                     walking = true;
@@ -302,18 +334,25 @@ public class PlayerController : MonoBehaviour {
             }
             else if (Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow))
             { // Walk Right
+                //If Right is pressed, a check is performed to see if there are objects in front of the player
                 int count2 = rb2d.Cast(Vector2.right, contactFilter, hitBuffer, 0.02F);
                 if (count2 == 0)
                 {
+                    //If there are no objects in front of the player, they can walk right freely
                     animator.SetInteger("walkDirection", 1);
                     animator.SetBool("walking", true);
                     walking = true;
                     direction = 1;
                 }
             }
+            //NOTE: Because of the nature of the FixedUpdate directionary check function, it is NOT necessary to check for up or down if the player is going left or right, 
+            // this is because when fixed update is checked every frame the up and down directions occur AFTER the left or right directions meaning if they are pressed at the same time
+            // the left or right will be the final one that occurs that frame. This is due to the fact that all functions that aren't IEnumerators are completed in a single frame.
         }
         else {
+            //If there is nothing in front of the player, their direction is set that direction
             animator.SetInteger("walkDirection", dir);
+            //Sets the players velocity based on the direction they are going
             if (dir == 0) {
                 rb2d.velocity = new Vector3(rb2d.velocity.x, speed, 0);
             } else if(dir == 1) {
@@ -329,7 +368,12 @@ public class PlayerController : MonoBehaviour {
         }
     }
     
-    
+    /*****************
+    * Function Name: Realign()
+    * Type: void
+    * Purpose: Keeps the player's y and z position algned so as to allow the player to appear visually behind obejcts that should be in front of them
+    *           Runs every frame
+    ******************/
 
     void Realign()
     {
