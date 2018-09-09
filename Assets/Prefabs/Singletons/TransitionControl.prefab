@@ -134,7 +134,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Silent Entryhall
+  m_Text: 
 --- !u!114 &114484178596095848
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -186,6 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentZone: SE
   newZone: 
+  elevatorTransfer: 0
 --- !u!222 &222742090058807546
 CanvasRenderer:
   m_ObjectHideFlags: 1

@@ -28,10 +28,14 @@ public class TransitionController : MonoBehaviour {
         {
             StartCoroutine(transitionIn());
         }
-        if(newZone != currentZone)
+        if(newZone != currentZone && currentZone != "")
         {
             currentZone = newZone;
             StartCoroutine(displayZone());
+        }
+        else
+        {
+            currentZone = newZone;
         }
     }
 
