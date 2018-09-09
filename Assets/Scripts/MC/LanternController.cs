@@ -135,7 +135,7 @@ public class LanternController : MonoBehaviour {
         flickering = false;
         GameControl.control.Unfreeze();
         thisLight.cookieSize = 1.2f;
-        thisLight.color = new Color(0f, 0.25f, 1f, 1f);
+        thisLight.color = new Color(0f, 0.25f, 1f, 1f); //Fine (Doesn't quite align with the text, but is unseeable without the small change)
         thisLight.intensity = 3f;
         yield return new WaitForSeconds(0.1f);
         yield return StartCoroutine(WaitForKeyDown(KeyCode.X));
@@ -167,7 +167,7 @@ public class LanternController : MonoBehaviour {
                 thisLight.cookie = cone3;
                 break;
         }
-        thisLight.color = new Color(1f, 0.5f, 1f, 1f);
+        thisLight.color = new Color(1f, 0.5f, 1f, 1f); //Fine
         thisLight.intensity = 1f;
         yield return new WaitForSeconds(1f);
         Destroy(Current);
@@ -199,7 +199,7 @@ public class LanternController : MonoBehaviour {
                 thisLight.cookie = cone3;
                 break;
         }
-        thisLight.color = new Color(1f, 0.5f, 0f, 1f);
+        thisLight.color = new Color(1f, 0.5f, 0f, 1f); //Fine
         thisLight.intensity = 3f;
         yield return new WaitForSeconds(1f);
         thisLight.cookie = normal;
@@ -232,7 +232,7 @@ public class LanternController : MonoBehaviour {
                 thisLight.cookie = laser3;
                 break;
         }
-        thisLight.color = new Color(0f, 1f, 0f, 1f);
+        thisLight.color = new Color(0f, 1f, 0f, 1f); //Fine
         thisLight.intensity = 2f;
         yield return new WaitForSeconds(1f);
         thisLight.cookie = normal;
@@ -245,7 +245,7 @@ public class LanternController : MonoBehaviour {
         //StopCoroutine("flicker");
         GameControl.control.Unfreeze();
         setBrightness();
-        thisLight.color = new Color(1f, 0f, 0f, 1f);
+        thisLight.color = new Color(1f, 0f, 0f, 1f); //Fine
         thisLight.intensity = 0.5f;
 
         GameControl.control.aggroable = false;
@@ -265,7 +265,7 @@ public class LanternController : MonoBehaviour {
         flickering = false;
         GameControl.control.Freeze();
         thisLight.cookieSize = 4f;
-        thisLight.color = new Color(1f, 1f, 0f, 1f);
+        thisLight.color = new Color(1f, 1f, 0f, 1f); //Fine
         thisLight.intensity = 1f;
         yield return new WaitForSeconds(0.1f);
         yield return StartCoroutine(WaitForKeyDown(KeyCode.X));
@@ -281,7 +281,7 @@ public class LanternController : MonoBehaviour {
         flickering = false;
         GameControl.control.Freeze();
         thisLight.cookieSize = 4f;
-        thisLight.color = new Color(0.5f, 0f, 1f, 1f);
+        thisLight.color = new Color(0.5f, 0f, 1f, 1f); //Might Change
         thisLight.intensity = 1f;
         yield return new WaitForSeconds(0.1f);
         yield return StartCoroutine(WaitForKeyDown(KeyCode.X));
