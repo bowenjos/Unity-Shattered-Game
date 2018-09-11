@@ -493,7 +493,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &144520571
 BoxCollider2D:
@@ -1173,7 +1173,7 @@ Transform:
   - {fileID: 614578055}
   - {fileID: 1345187477}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &220265409
 GameObject:
@@ -1556,7 +1556,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4217664514373456, guid: e47ac28b12e83264b909ee70ce2b9dd7, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e47ac28b12e83264b909ee70ce2b9dd7, type: 2}
@@ -1751,7 +1751,7 @@ Transform:
   - {fileID: 282658486}
   - {fileID: 1505609744}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &614578053
 GameObject:
@@ -2472,7 +2472,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &899419204
 Rigidbody2D:
@@ -2862,6 +2862,81 @@ Transform:
   m_Father: {fileID: 213278866}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1140128999
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 114060778835237738, guid: eb02fc93e1fbabc458942aec39077f74,
+        type: 2}
+      propertyPath: dialogue.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975792499868314, guid: eb02fc93e1fbabc458942aec39077f74, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975792499868314, guid: eb02fc93e1fbabc458942aec39077f74, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975792499868314, guid: eb02fc93e1fbabc458942aec39077f74, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975792499868314, guid: eb02fc93e1fbabc458942aec39077f74, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975792499868314, guid: eb02fc93e1fbabc458942aec39077f74, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975792499868314, guid: eb02fc93e1fbabc458942aec39077f74, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975792499868314, guid: eb02fc93e1fbabc458942aec39077f74, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975792499868314, guid: eb02fc93e1fbabc458942aec39077f74, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114060778835237738, guid: eb02fc93e1fbabc458942aec39077f74,
+        type: 2}
+      propertyPath: dialogue.Array.data[1]
+      value: But in all my time here I've never seen it.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114060778835237738, guid: eb02fc93e1fbabc458942aec39077f74,
+        type: 2}
+      propertyPath: dialogue.Array.data[0]
+      value: They say in thise house there is a light that never goes out.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114060778835237738, guid: eb02fc93e1fbabc458942aec39077f74,
+        type: 2}
+      propertyPath: dialogue.Array.data[2]
+      value: <color=red>this</color> <color=orange>is</color> <color=yellow>a</color>
+        <color=lime>test</color> <color=blue>line</color>. <color=purple>purple</color>
+        <color=#ff80ffff>pink</color>.
+      objectReference: {fileID: 0}
+    - target: {fileID: 212830244193702140, guid: eb02fc93e1fbabc458942aec39077f74,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ce7d67497cfc4de4c92dc8144a9106b1,
+        type: 3}
+    - target: {fileID: 108262640735876008, guid: eb02fc93e1fbabc458942aec39077f74,
+        type: 2}
+      propertyPath: m_Cookie
+      value: 
+      objectReference: {fileID: 2800000, guid: cc996d44c63edf94caea729e35892519, type: 3}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: eb02fc93e1fbabc458942aec39077f74, type: 2}
+  m_IsPrefabParent: 0
 --- !u!4 &1161315958 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4674703700536986, guid: 76b795c3148aa1d46a7b98636430e82b,
@@ -2958,7 +3033,7 @@ Transform:
   - {fileID: 663386426}
   - {fileID: 1161315958}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1345187472
 GameObject:
@@ -3211,7 +3286,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1691847990
 Prefab:
@@ -3250,7 +3325,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4961552438003540, guid: e58c152bda263fc48ba80b1e810a9944, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114940716296003898, guid: e58c152bda263fc48ba80b1e810a9944,
         type: 2}
@@ -3481,7 +3556,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2111694960
 GameObject:
