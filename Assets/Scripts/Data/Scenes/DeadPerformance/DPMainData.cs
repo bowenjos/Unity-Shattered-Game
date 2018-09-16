@@ -8,6 +8,7 @@ public class DPMainData {
 
     //Progression Data
     public int progression = 0;
+    public bool key = false;
     public bool williamTalked = false;
     public bool viTalked = false;
     public bool[] levers = { false, false, false };

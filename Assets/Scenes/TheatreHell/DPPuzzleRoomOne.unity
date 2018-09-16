@@ -956,6 +956,11 @@ Prefab:
       propertyPath: m_Name
       value: SwitchOff
       objectReference: {fileID: 0}
+    - target: {fileID: 114033062960268920, guid: 0f6d1aa371cf04841979f5c5a72a3896,
+        type: 2}
+      propertyPath: leverNumber
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0f6d1aa371cf04841979f5c5a72a3896, type: 2}
   m_IsPrefabParent: 0
