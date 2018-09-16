@@ -51,12 +51,12 @@ public class LanternController : MonoBehaviour {
 
         thisLight.transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y, -2);
 
-        if (Input.GetKeyDown(KeyCode.X) && lensSet == false && !GameControl.control.frozen)
+        if (Input.GetKeyDown(KeyCode.X) && !lensSet && !GameControl.control.frozen)
         {
             StartCoroutine(setTheLens(GameControl.control.curLens));
         }
 
-        if (lensSet == false)
+        if (!lensSet)
         {
             setNormalLens();
         }

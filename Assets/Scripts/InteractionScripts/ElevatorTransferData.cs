@@ -15,7 +15,7 @@ public class ElevatorTransferData : MonoBehaviour {
     void Start()
     {
         GameControl.control.ElevatorData.unlockedElevators[zoneValue][roomValue] = true;
-        if(OptionalOtherUnlock == true) { GameControl.control.ElevatorData.unlockedElevators[zoneValue][optionalRoomValue] = true; }
+        if(OptionalOtherUnlock) { GameControl.control.ElevatorData.unlockedElevators[zoneValue][optionalRoomValue] = true; }
         GameControl.control.ElevatorData.unlockedZones[zoneValue] = true;
 
         GameControl.control.ElevatorData.unlockedZones[4] = true;

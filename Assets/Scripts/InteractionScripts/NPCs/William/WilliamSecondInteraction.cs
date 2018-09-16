@@ -10,7 +10,7 @@ public class WilliamSecondInteraction : CharacterInteraction {
         {
             Destroy(this.gameObject);
         }
-        else if (GameControl.control.DPMainData.williamTalked == false)
+        else if (!GameControl.control.DPMainData.williamTalked)
         {
             switch (GameControl.control.DPMainData.progression)
             {

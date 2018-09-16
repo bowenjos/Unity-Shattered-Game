@@ -10,7 +10,7 @@ public class ViDP : CharacterInteraction {
     // Use this for initialization
     void Start () {
         Debug.Log(GameControl.control.DPMainData.progression);
-        if (GameControl.control.DPMainData.viTalked == true)
+        if (GameControl.control.DPMainData.viTalked)
         {
             DestroyThis();
         }
