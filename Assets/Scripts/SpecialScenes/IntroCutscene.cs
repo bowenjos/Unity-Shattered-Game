@@ -6,10 +6,20 @@ using UnityEngine.UI;
 public class IntroCutscene : MonoBehaviour {
 
     public Text editText;
+    public Image editImage;
+    public GameObject Storm;
 
     private int i;
     private bool marked;
     private string markdown = "";
+
+    public Sprite image1;
+
+    void Awake()
+    {
+        editImage.gameObject.SetActive(false);
+        Storm.SetActive(false);
+    }
 
     // Use this for initialization
     void Start () {
@@ -52,6 +62,11 @@ public class IntroCutscene : MonoBehaviour {
         yield return AnimateText("You just don't know it yet.");
         yield return new WaitForSeconds(2f);
         yield return FadeOut();
+        yield return new WaitForSeconds(2f);
+        editImage.gameObject.SetActive(true);
+        StartCoroutine(StartStorm());
+        editImage.sprite = image1;
+        editImage.color = new Color(1, 1, 1, 1);
         yield return null;
     }
 
@@ -59,7 +74,13 @@ public class IntroCutscene : MonoBehaviour {
 
 
 
-
+    public IEnumerator StartStorm()
+    {
+        Storm.SetActive(true);
+        Storm.GetComponent<Rigidbody2D>().velocity = new Vector3(-0.1f, -0.3f, 0f);
+        yield return new WaitForSeconds(20f);
+        Storm.SetActive(false);
+    }
 
 
     public IEnumerator FadeOut()
