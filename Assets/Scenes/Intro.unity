@@ -444,8 +444,8 @@ Canvas:
   m_GameObject: {fileID: 919112767}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 417870323}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -489,7 +489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   editText: {fileID: 186838426}
   editImage: {fileID: 1396387944}
-  Storm: {fileID: 0}
+  Storm: {fileID: 2133088033}
   image1: {fileID: 21300000, guid: 877da09a353fe584987010b24ece937a, type: 3}
 --- !u!1 &1396387942
 GameObject:

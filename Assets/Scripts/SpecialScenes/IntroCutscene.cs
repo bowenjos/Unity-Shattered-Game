@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class IntroCutscene : MonoBehaviour {
@@ -67,7 +68,9 @@ public class IntroCutscene : MonoBehaviour {
         StartCoroutine(StartStorm());
         editImage.sprite = image1;
         editImage.color = new Color(1, 1, 1, 1);
+        yield return new WaitForSeconds(60f);
         yield return null;
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 
 
