@@ -17,12 +17,24 @@ public class MainMenuControl : MonoBehaviour {
     public Text playerLocation;
 
     public GameObject will;
+    public GameObject elise;
+    public GameObject thongsai;
+    public GameObject des;
+    public GameObject drum;
+    public GameObject voice;
+    public GameObject violin;
 
 	// Use this for initialization
 	void Start () {
 
         //Set all ghosts to inactive on menu
         will.SetActive(false);
+        elise.SetActive(false);
+        thongsai.SetActive(false);
+        des.SetActive(false);
+        drum.SetActive(false);
+        voice.SetActive(false);
+        violin.SetActive(false);
 
         if(File.Exists(Application.persistentDataPath + "/playerSave.dat"))
         {
@@ -33,9 +45,33 @@ public class MainMenuControl : MonoBehaviour {
             playerLocation.text = GameControl.control.saveRoomNameTemp;
 
             //Set Ghosts Active as needed
-            if (GameControl.control.masks[0])
+            if (GameControl.control.masksTemp[0])
             {
                 will.SetActive(true);
+            }
+            if (GameControl.control.masksTemp[1])
+            {
+                violin.SetActive(true);
+            }
+            if (GameControl.control.masksTemp[2])
+            {
+                elise.SetActive(true);
+            }
+            if (GameControl.control.masksTemp[3])
+            {
+                thongsai.SetActive(true);
+            }
+            if (GameControl.control.masksTemp[4])
+            {
+                drum.SetActive(true);
+            }
+            if (GameControl.control.masksTemp[5])
+            {
+                voice.SetActive(true);
+            }
+            if (GameControl.control.masksTemp[6])
+            {
+                des.SetActive(true);
             }
 
             ContinueButton.Select();
