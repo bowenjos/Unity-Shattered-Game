@@ -54,6 +54,9 @@ public class GameControl : MonoBehaviour {
 
     // Use this for initialization
     void Awake () {
+
+        Cursor.visible = false;
+
         if (control == null)
         {
             DontDestroyOnLoad(gameObject);
@@ -172,6 +175,7 @@ public class GameControl : MonoBehaviour {
             PlayerData data = (PlayerData)bf.Deserialize(file);
             file.Close();
 
+            playerName = data.playerName;
             playedTimeTemp = data.playedTime;
             lensTemp = data.lens;
             masksTemp = data.masks;
