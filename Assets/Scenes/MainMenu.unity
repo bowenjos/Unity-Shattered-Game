@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 91319008}
   - component: {fileID: 91319007}
   m_Layer: 0
-  m_Name: Piano
+  m_Name: Des
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -640,7 +640,7 @@ GameObject:
   - component: {fileID: 540578916}
   - component: {fileID: 540578915}
   m_Layer: 0
-  m_Name: Khene
+  m_Name: Thongsai
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -823,7 +823,7 @@ GameObject:
   - component: {fileID: 781266211}
   - component: {fileID: 781266210}
   m_Layer: 0
-  m_Name: Drum
+  m_Name: Aeron
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1132,6 +1132,16 @@ Prefab:
     - target: {fileID: 4617673895967614, guid: 705ffea0792f68f419e09aa357f1ecdb, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114208935716878952, guid: 705ffea0792f68f419e09aa357f1ecdb,
+        type: 2}
+      propertyPath: lens.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114208935716878952, guid: 705ffea0792f68f419e09aa357f1ecdb,
+        type: 2}
+      propertyPath: lens.Array.data[1]
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 705ffea0792f68f419e09aa357f1ecdb, type: 2}
@@ -1531,7 +1541,7 @@ GameObject:
   - component: {fileID: 1262269256}
   - component: {fileID: 1262269255}
   m_Layer: 0
-  m_Name: Harp
+  m_Name: Elise
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

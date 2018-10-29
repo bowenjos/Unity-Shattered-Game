@@ -534,6 +534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisLight: {fileID: 1828740218}
   cookie: {fileID: 2800000, guid: 738b4efc42416a54a85134f303e3910b, type: 3}
+  getUpCookie: {fileID: 2800000, guid: 4288d8d1ecce8684285f6cd79d9f11fc, type: 3}
   wgc: {fileID: 2008171424}
   William: {fileID: 2008171421}
 --- !u!1 &408938169
@@ -1251,6 +1252,23 @@ Prefab:
     - target: {fileID: 1480921655907714, guid: d6988faa3d69c2d42adfe2446e62a8e1, type: 2}
       propertyPath: m_Name
       value: William
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215465290764718, guid: d6988faa3d69c2d42adfe2446e62a8e1, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4215465290764718, guid: d6988faa3d69c2d42adfe2446e62a8e1, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4587898335462444, guid: d6988faa3d69c2d42adfe2446e62a8e1, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 108475779239323080, guid: d6988faa3d69c2d42adfe2446e62a8e1,
+        type: 2}
+      propertyPath: m_CookieSize
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d6988faa3d69c2d42adfe2446e62a8e1, type: 2}

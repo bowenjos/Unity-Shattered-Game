@@ -27,6 +27,9 @@ public class SpawnControllerPlayer : MonoBehaviour {
     public GameObject TransitionControl;
     public GameObject TransitionControlPrefab;
 
+    public GameObject JukeBox;
+    public GameObject JukeBoxPrefab;
+
     public GameObject SpawnLocation;
 
     // Use this for initialization
@@ -112,6 +115,15 @@ public class SpawnControllerPlayer : MonoBehaviour {
         else
         {
             EventSystem = Instantiate(TransitionControlPrefab);
+        }
+
+        if (GameObject.Find("JukeBox(Clone)") != null)
+        {
+            JukeBox = GameObject.Find("JukeBox(Clone)");
+        }
+        else
+        {
+            JukeBox = Instantiate(JukeBoxPrefab);
         }
     }
 	

@@ -58,6 +58,8 @@ public class IntroCutscene : MonoBehaviour {
         yield return new WaitForSeconds(2f);
         editText.text = "";
         editText.color = new Color(0.65f, 0.65f, 0.65f, 1f);
+        yield return AnimateText("Oh Child,");
+        yield return new WaitForSeconds(2f);
         yield return AnimateText("It sounds like you have already found your <color=cyan>way</color>.");
         yield return new WaitForSeconds(2f);
         yield return AnimateText("You just don't know it yet.");

@@ -9,6 +9,7 @@ public class WilliamFirstInteraction : TriggerInteraction {
 
     public Light thisLight;
     public Texture cookie;
+    public Texture getUpCookie;
     public WilliamGuitarController wgc;
     public SpriteRenderer William;
 
@@ -50,8 +51,12 @@ public class WilliamFirstInteraction : TriggerInteraction {
         yield return new WaitForSeconds(1.0f);
         yield return StartCoroutine(talkCanvas.StartDialogueSprite(dialogue[0], "default", 1, 0));
         GameControl.control.Freeze();
-        thisLight.cookie = cookie;
         WillAnim.SetBool("Finished", true);
+        yield return new WaitForSeconds(0.09f);
+        thisLight.cookie = getUpCookie;
+        yield return new WaitForSeconds(0.1f);
+        thisLight.cookie = cookie;
+        thisLight.transform.position = thisLight.GetComponentInParent<Transform>().position;
         yield return new WaitForSeconds(0.2f);
         WillAnim.SetBool("Spin", true);
         yield return new WaitForSeconds(2f);
