@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 1645880}
   - component: {fileID: 1645879}
   m_Layer: 0
-  m_Name: Violin
+  m_Name: Yolanda
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1143,6 +1143,10 @@ Prefab:
       propertyPath: lens.Array.data[1]
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1698922502829086, guid: 705ffea0792f68f419e09aa357f1ecdb, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 705ffea0792f68f419e09aa357f1ecdb, type: 2}
   m_IsPrefabParent: 0
@@ -1192,6 +1196,10 @@ Prefab:
     - target: {fileID: 4215465290764718, guid: d6988faa3d69c2d42adfe2446e62a8e1, type: 2}
       propertyPath: m_LocalScale.y
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1480921655907714, guid: d6988faa3d69c2d42adfe2446e62a8e1, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d6988faa3d69c2d42adfe2446e62a8e1, type: 2}
@@ -1798,7 +1806,7 @@ GameObject:
   - component: {fileID: 1605533838}
   - component: {fileID: 1605533837}
   m_Layer: 0
-  m_Name: Voice
+  m_Name: Selene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

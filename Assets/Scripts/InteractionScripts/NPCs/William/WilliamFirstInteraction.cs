@@ -6,6 +6,7 @@ public class WilliamFirstInteraction : TriggerInteraction {
 
     Animator WillAnim;
     TalkController talkCanvas;
+    JukeBoxController jukebox;
 
     public Light thisLight;
     public Texture cookie;
@@ -23,6 +24,7 @@ public class WilliamFirstInteraction : TriggerInteraction {
         }
         WillAnim = GameObject.FindGameObjectWithTag("William").GetComponent<Animator>();
         talkCanvas = GameObject.Find("Talk UI(Clone)").GetComponent<TalkController>();
+        jukebox = GameObject.Find("JukeBox(Clone)").GetComponent<JukeBoxController>();
 
         dialogue = new string[2][];
         dialogue[0] = new string[3];
@@ -46,6 +48,7 @@ public class WilliamFirstInteraction : TriggerInteraction {
         GameControl.control.Freeze();
         yield return new WaitForSeconds(2.0f);
         WillAnim.SetBool("Paused", true);
+        jukebox.StopSong();
         //stop music
         Destroy(wgc);
         yield return new WaitForSeconds(1.0f);

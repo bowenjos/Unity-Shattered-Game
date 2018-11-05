@@ -53,7 +53,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseOverworld: 0
   Overworld:
-  - {fileID: 8300000, guid: 8ef1e34205eb74e40a830ffda6a068ec, type: 3}
+  - {fileID: 8300000, guid: e3521585609742e4dbceadb43d2ac901, type: 3}
   - {fileID: 8300000, guid: c9e2bd151d2493a4190b4fab2ef63e9a, type: 3}
   - {fileID: 0}
   - {fileID: 0}
