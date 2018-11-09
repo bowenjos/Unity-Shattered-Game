@@ -18,6 +18,8 @@ public class TalkController : MonoBehaviour {
 
     public GameObject savingPanel;
 
+    public AudioSource audioPlayer;
+
     public Text characterNameText;
     public Text playTimeText;
     public Text locationText;
@@ -47,7 +49,7 @@ public class TalkController : MonoBehaviour {
         //Get the edittable text component of the text gameobject from the talking ui;
         */
         editText = talkText.GetComponent<Text>();
-        
+        audioPlayer = this.gameObject.GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -279,8 +281,9 @@ public class TalkController : MonoBehaviour {
                     }
                     break;
             }
-           
+
             //If this character isn't the very first character
+            audioPlayer.Play();
             if (i != 0)
             {
                 //Check the last printed character

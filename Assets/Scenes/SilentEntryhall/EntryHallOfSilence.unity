@@ -1675,7 +1675,7 @@ MonoBehaviour:
   talkCanvas: {fileID: 0}
   dialogue:
   - There are flowers in this pot.
-  - That tends to be what are pots on cabinets right?
+  - That tends to be what is in pots on cabinets right?
 --- !u!61 &545738698
 BoxCollider2D:
   m_ObjectHideFlags: 0
