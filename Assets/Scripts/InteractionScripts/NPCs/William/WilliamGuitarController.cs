@@ -37,7 +37,7 @@ public class WilliamGuitarController : MonoBehaviour {
         int rand = Random.Range(0, 3);
         anim.SetInteger("Style", rand);
         yield return new WaitForSeconds(0.5f);
-        rand = Random.Range(0, 2);
+        rand = Random.Range(0, 8);
         if(rand == 0)
         {
             anim.SetBool("Turned", false);
@@ -48,7 +48,7 @@ public class WilliamGuitarController : MonoBehaviour {
             anim.SetBool("Turned", true);
             thisLight.cookie = GuitarCookie1;
         }
-        float rand2 = Random.Range(1f, 3f);
+        float rand2 = Random.Range(3f, 7f);
         yield return new WaitForSeconds(rand2);
         changed = false;
     }
