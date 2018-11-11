@@ -3060,7 +3060,7 @@ Prefab:
     - target: {fileID: 114060778835237738, guid: eb02fc93e1fbabc458942aec39077f74,
         type: 2}
       propertyPath: dialogue.Array.data[0]
-      value: They say in thise house there is a light that never goes out.
+      value: They say in this house there is a light that never goes out.
       objectReference: {fileID: 0}
     - target: {fileID: 114060778835237738, guid: eb02fc93e1fbabc458942aec39077f74,
         type: 2}
