@@ -11,7 +11,7 @@ public class WilliamFirstInteraction : TriggerInteraction {
     public Light thisLight;
     public Texture cookie;
     public Texture getUpCookie;
-    public WilliamGuitarController wgc;
+    public InstrumentController wgc;
     public SpriteRenderer William;
 
     public string[][] dialogue;

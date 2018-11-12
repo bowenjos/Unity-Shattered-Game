@@ -1270,6 +1270,16 @@ Prefab:
       propertyPath: m_CookieSize
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114876243400422338, guid: d6988faa3d69c2d42adfe2446e62a8e1,
+        type: 2}
+      propertyPath: Cookie0
+      value: 
+      objectReference: {fileID: 2800000, guid: b53d43ec09f616a479d0e3066daa5ce4, type: 3}
+    - target: {fileID: 114876243400422338, guid: d6988faa3d69c2d42adfe2446e62a8e1,
+        type: 2}
+      propertyPath: Cookie1
+      value: 
+      objectReference: {fileID: 2800000, guid: 29f15e70e50f5134c9df17df0d27e825, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d6988faa3d69c2d42adfe2446e62a8e1, type: 2}
   m_IsPrefabParent: 0

@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WilliamGuitarController : MonoBehaviour {
+public class InstrumentController : MonoBehaviour {
 
     bool changed;
     Animator anim;
     Light thisLight;
 
-    public Texture GuitarCookie0;
-    public Texture GuitarCookie1;
+    public Texture Cookie0;
+    public Texture Cookie1;
 
 	// Use this for initialization
 	void Start () {
@@ -41,12 +41,12 @@ public class WilliamGuitarController : MonoBehaviour {
         if(rand == 0)
         {
             anim.SetBool("Turned", false);
-            thisLight.cookie = GuitarCookie0;
+            thisLight.cookie = Cookie0;
         }
         else
         {
             anim.SetBool("Turned", true);
-            thisLight.cookie = GuitarCookie1;
+            thisLight.cookie = Cookie1;
         }
         float rand2 = Random.Range(3f, 7f);
         yield return new WaitForSeconds(rand2);
