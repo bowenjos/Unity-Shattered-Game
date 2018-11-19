@@ -11,6 +11,7 @@ public class GameControl : MonoBehaviour {
 
     //NPCS
     public ViData ViData = new ViData();
+    public WillData WillData = new WillData();
 
     //ZoneData
     public ElevatorData ElevatorData = new ElevatorData();
