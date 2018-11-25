@@ -10,13 +10,14 @@ public class ElevatorInteraction : CharacterInteraction
     public Shake elevator;
     public string[][] travelDialogue;
     public string[] stayDialogue;
-    public string[] errorDialogue;
+    public string[] alreadyHereDialogue;
+    public string[] cantDialogue;
     public string currentZone;
     public int currentZoneValue;
     public string currentLocation;
     public string targetLocation;
 
-    public bool selectionMade = false;
+    public int selectionMade = 0;
 
     protected GameObject ElevDataTrans;
     
@@ -40,12 +41,20 @@ public class ElevatorInteraction : CharacterInteraction
 
     public override IEnumerator StartInteraction()
     {
-        selectionMade = false;
+        selectionMade = 0;
         yield return StartCoroutine(talkControl.StartDialogueSprite(travelDialogue[0], "default", 0, 0));
         yield return StartCoroutine(elevControl.StartElevator(currentLocation));
-        if (selectionMade == false)
+        if (selectionMade == 0)
         {
             yield return StartCoroutine(talkControl.StartDialogueSprite(stayDialogue, "default", 0, 0));
+        }
+        else if (selectionMade == 2)
+        {
+            yield return StartCoroutine(talkControl.StartDialogueSprite(alreadyHereDialogue, "default", 0, 0));
+        }
+        else if (selectionMade == 3)
+        {
+            yield return StartCoroutine(talkControl.StartDialogueSprite(cantDialogue, "default", 0, 0));
         }
         else {
             yield return StartCoroutine(talkControl.StartDialogueSprite(travelDialogue[1], "default", 0, 0));
@@ -53,7 +62,7 @@ public class ElevatorInteraction : CharacterInteraction
             yield return new WaitForSeconds(1f);
             yield return StartCoroutine(talkControl.StartDialogueSprite(travelDialogue[2], "default", 0, 0));
         }
-        selectionMade = false;
+        selectionMade = 0;
     }
 
 }

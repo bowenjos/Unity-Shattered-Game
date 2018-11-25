@@ -93,12 +93,12 @@ public class ElevatorController : MonoBehaviour {
             {
                 buttonText[i] = GameControl.control.ElevatorData.roomElevators[currentZone][i];
                 buttons[i].GetComponentInChildren<Text>().text = GameControl.control.ElevatorData.nameElevators[currentZone][i];
-                buttons[i].gameObject.SetActive(true);
+                //buttons[i].gameObject.SetActive(true);
             }
             else
             {
                 buttons[i].GetComponentInChildren<Text>().text = "????";
-                buttons[i].gameObject.SetActive(false);
+                //buttons[i].gameObject.SetActive(true);
             }
         }
 
@@ -121,7 +121,7 @@ public class ElevatorController : MonoBehaviour {
 
     public void OnExitButtonPress()
     {
-        EI.selectionMade = false;
+        EI.selectionMade = 0;
         buttonPressed = true;
     }
 
@@ -189,34 +189,90 @@ public class ElevatorController : MonoBehaviour {
 
     public void OnButtonZeroPress()
     {
-        ElevatorDoor.targetSceneName = buttonText[0];
-        SetZone();
-        EI.selectionMade = true;
-        buttonPressed = true;
+        if (GameControl.control.ElevatorData.roomElevators[currentZone][0] == ElevatorDoor.targetSceneName)
+        {
+            ElevatorDoor.targetSceneName = buttonText[0];
+            SetZone();
+            EI.selectionMade = 2;
+            buttonPressed = true;
+        }
+        else if (buttons[0].GetComponentInChildren<Text>().text != "????")
+        {
+            ElevatorDoor.targetSceneName = buttonText[0];
+            SetZone();
+            EI.selectionMade = 1;
+            buttonPressed = true;
+        }
+        else
+        {
+            EI.selectionMade = 3;
+        }
+  
     }
 
     public void OnButtonOnePress()
     {
-        ElevatorDoor.targetSceneName = buttonText[1];
-        SetZone();
-        EI.selectionMade = true;
-        buttonPressed = true;
+        if (GameControl.control.ElevatorData.roomElevators[currentZone][1] == ElevatorDoor.targetSceneName)
+        {
+            ElevatorDoor.targetSceneName = buttonText[1];
+            SetZone();
+            EI.selectionMade = 2;
+            buttonPressed = true;
+        }
+        else if (buttons[1].GetComponentInChildren<Text>().text != "????")
+        {
+            ElevatorDoor.targetSceneName = buttonText[1];
+            SetZone();
+            EI.selectionMade = 1;
+            buttonPressed = true;
+        }
+        else
+        {
+            EI.selectionMade = 3;
+        }
     }
 
     public void OnButtonTwoPress()
     {
-        ElevatorDoor.targetSceneName = buttonText[2];
-        SetZone();
-        EI.selectionMade = true;
-        buttonPressed = true;
+        if (GameControl.control.ElevatorData.roomElevators[currentZone][2] == ElevatorDoor.targetSceneName)
+        {
+            ElevatorDoor.targetSceneName = buttonText[2];
+            SetZone();
+            EI.selectionMade = 2;
+            buttonPressed = true;
+        }
+        else if (buttons[2].GetComponentInChildren<Text>().text != "????")
+        {
+            ElevatorDoor.targetSceneName = buttonText[2];
+            SetZone();
+            EI.selectionMade = 1;
+            buttonPressed = true;
+        }
+        else {
+            EI.selectionMade = 3;
+        }
     }
 
     public void OnButtonThreePress()
     {
-        ElevatorDoor.targetSceneName = buttonText[3];
-        SetZone();
-        EI.selectionMade = true;
-        buttonPressed = true;
+        if (GameControl.control.ElevatorData.roomElevators[currentZone][3] == ElevatorDoor.targetSceneName)
+        {
+            ElevatorDoor.targetSceneName = buttonText[3];
+            SetZone();
+            EI.selectionMade = 2;
+            buttonPressed = true;
+        }
+        else if (buttons[3].GetComponentInChildren<Text>().text != "????")
+        {
+            ElevatorDoor.targetSceneName = buttonText[3];
+            SetZone();
+            EI.selectionMade = 1;
+            buttonPressed = true;
+        }
+        else
+        {
+            EI.selectionMade = 3;
+        }
     }
 
 }

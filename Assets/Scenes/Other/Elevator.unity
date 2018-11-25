@@ -2443,8 +2443,11 @@ MonoBehaviour:
   stayDialogue:
   - Change your mind?
   - That's alright, Kid. I'll be here if you need me.
-  errorDialogue:
-  - I've got not clue where we are kiddo.
+  alreadyHereDialogue:
+  - Kid.
+  - You do realize that's where we are right now, right?
+  cantDialogue:
+  - Sorry, can't take you there yet, Kid.
   currentZone: DP
   currentZoneValue: 0
   currentLocation: DPRafters
