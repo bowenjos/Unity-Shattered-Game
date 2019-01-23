@@ -5,7 +5,7 @@ using UnityEngine;
 public class BattleController : MonoBehaviour {
 
     public static BattleController BC;
-    public enum BattleState {Player, Enemy};
+    public enum BattleState {PlayerTurn, EnemyTurn};
     public BattleState currentState;
 
     //Enemy Variables
@@ -25,7 +25,6 @@ public class BattleController : MonoBehaviour {
 
     //Entities
     EnemyCombatControl Enemy;
-    TalkControlDialogue tcd;
 
     void Awake()
     {
@@ -35,7 +34,6 @@ public class BattleController : MonoBehaviour {
     // Use this for initialization
     void Start () {
 		//Are you ready to Begin?
-        //StartCoroutine(tcd.Dialogue(Enemy.dialogueApproach);
 
 	}
 	
@@ -43,4 +41,21 @@ public class BattleController : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public IEnumerator EndTurnPlayer()
+    {
+        currentState = BattleState.EnemyTurn;
+        yield return null;
+    }
+
+    public IEnumerator EndTurnEnemy()
+    {
+        currentState = BattleState.PlayerTurn;
+        yield return null;
+    }
+    
+    public IEnumerator ResolveCombat()
+    {
+        yield return null;
+    }
 }
