@@ -223,6 +223,11 @@ Prefab:
       propertyPath: m_SortingLayer
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114239836258204064, guid: 6e2b8ae14bd7884458cf02c3fc4ace81,
+        type: 2}
+      propertyPath: zone
+      value: SE
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114915379525540086, guid: 6e2b8ae14bd7884458cf02c3fc4ace81, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 6e2b8ae14bd7884458cf02c3fc4ace81, type: 2}

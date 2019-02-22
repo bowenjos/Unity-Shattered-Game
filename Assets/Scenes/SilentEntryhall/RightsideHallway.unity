@@ -193,6 +193,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114208935716878952, guid: 705ffea0792f68f419e09aa357f1ecdb,
+        type: 2}
+      propertyPath: room
+      value: RightsideHallway
+      objectReference: {fileID: 0}
+    - target: {fileID: 114208935716878952, guid: 705ffea0792f68f419e09aa357f1ecdb,
+        type: 2}
+      propertyPath: zone
+      value: SE
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 705ffea0792f68f419e09aa357f1ecdb, type: 2}
   m_IsPrefabParent: 0
@@ -1487,7 +1497,7 @@ Prefab:
     - target: {fileID: 114305202220195550, guid: 75e684c3a7d7d274bacb15b7e26a1c83,
         type: 2}
       propertyPath: zone
-      value: SE
+      value: FM
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114335011923724782, guid: 75e684c3a7d7d274bacb15b7e26a1c83, type: 2}
