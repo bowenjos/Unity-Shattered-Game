@@ -184,7 +184,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 147344429}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 345178841}
+        m_MethodName: OnHelpButtonPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &147344429
@@ -343,6 +354,7 @@ GameObject:
   - component: {fileID: 345178839}
   - component: {fileID: 345178838}
   - component: {fileID: 345178837}
+  - component: {fileID: 345178841}
   m_Layer: 5
   m_Name: PlayerUI
   m_TagString: Untagged
@@ -428,6 +440,31 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &345178841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 345178836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01595f2f7986ee2449f93e9547672294, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MenuPanel: {fileID: 1611561962}
+  TalkPanel: {fileID: 962146011}
+  CombatPanel: {fileID: 880631753}
+  HelpButton: {fileID: 147344428}
+  ItemButton: {fileID: 712705603}
+  RestButton: {fileID: 1162720345}
+  FleeButton: {fileID: 692981190}
+  TalkButton: {fileID: 420392367}
+  HugButton: {fileID: 1528373739}
+  AffirmButton: {fileID: 274480799}
+  SitButton: {fileID: 1606451762}
+  ActButton: {fileID: 1506087028}
+  GiftButton: {fileID: 911220328}
+  enemyText: {fileID: 869774012}
 --- !u!1 &357902060
 GameObject:
   m_ObjectHideFlags: 0
