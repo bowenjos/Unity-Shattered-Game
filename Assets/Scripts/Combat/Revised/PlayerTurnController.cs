@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerTurnController : MonoBehaviour {
 
     public enum MenuStates { MainSelect, HelpSelect, ItemSelect, EnemyTurn };
-    public static MenuStates currentState;
+    public MenuStates currentState;
 
     public GameObject MenuPanel;
     public GameObject TalkPanel;
@@ -28,6 +28,8 @@ public class PlayerTurnController : MonoBehaviour {
     public Button ActButton;
     public Button GiftButton;
 
+    public TalkControl textBox;
+
     public Text enemyText;
 
 	// Use this for initialization
@@ -42,6 +44,14 @@ public class PlayerTurnController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        /*
+        if(BattleController.BC.currentState != BattleController.BattleState.PlayerTurn)
+        {
+            currentState = MenuStates.EnemyTurn;
+        }
+        */
+
         switch (currentState)
         {
             case MenuStates.MainSelect:
@@ -66,8 +76,9 @@ public class PlayerTurnController : MonoBehaviour {
                 ItemButton.interactable = false;
                 RestButton.interactable = false;
                 FleeButton.interactable = false;
-                TalkVisibility.color = new Color(1f, 1f, 1f, 0f);
+                //TalkVisibility.color = new Color(1f, 1f, 1f, 0f);
                 CombatVisibility.color = new Color(1f, 1f, 1f, 1f);
+                //CombatPanel.SetActive(true);
                 TalkButton.gameObject.SetActive(true);
                 HugButton.gameObject.SetActive(true);
                 AffirmButton.gameObject.SetActive(true);
@@ -78,12 +89,57 @@ public class PlayerTurnController : MonoBehaviour {
             case MenuStates.ItemSelect:
                 break;
             case MenuStates.EnemyTurn:
+                MenuVisibility.color = new Color(1f, 1f, 1f, 0.7f);
+                HelpButton.interactable = false;
+                ItemButton.interactable = false;
+                RestButton.interactable = false;
+                FleeButton.interactable = false;
+                CombatVisibility.color = new Color(1f, 1f, 1f, 0f);
+                TalkButton.gameObject.SetActive(false);
+                HugButton.gameObject.SetActive(false);
+                AffirmButton.gameObject.SetActive(false);
+                SitButton.gameObject.SetActive(false);
+                ActButton.gameObject.SetActive(false);
+                GiftButton.gameObject.SetActive(false);
                 break;
             default:
                 currentState = MenuStates.MainSelect;
                 break;
         }
+
+        if(Input.GetKeyDown(KeyCode.X))
+        {
+            if(currentState == MenuStates.HelpSelect)
+            {
+                StartCoroutine(MoveTalkBack());
+            }
+            else
+            {
+                currentState = MenuStates.MainSelect;
+            }
+        }
+        
 	}
+
+    public IEnumerator MoveTalkBack()
+    {
+        RectTransform TPRT = TalkPanel.GetComponent<RectTransform>();
+        enemyText.gameObject.SetActive(false);
+        CombatPanel.SetActive(false);
+        float dx = 0.7f;
+        while (dx < 0.9f)
+        {
+            dx += ((.01f / 0.2f) * 0.9f);
+            TPRT.anchorMax = new Vector2(dx, TPRT.anchorMax.y);
+            TPRT.anchorMin = new Vector2(1 - dx, TPRT.anchorMin.y);
+            yield return new WaitForSeconds(0.02f);
+        }
+        enemyText.gameObject.SetActive(true);
+        currentState = MenuStates.MainSelect;
+        yield return new WaitForEndOfFrame();
+        HelpButton.Select();
+        yield return null;
+    }
 
     public IEnumerator MoveTalk()
     {
@@ -98,7 +154,17 @@ public class PlayerTurnController : MonoBehaviour {
             yield return new WaitForSeconds(0.02f);
         }  
         currentState = MenuStates.HelpSelect;
+        CombatPanel.SetActive(true);
+        TalkButton.gameObject.SetActive(true);
+        HugButton.gameObject.SetActive(true);
+        AffirmButton.gameObject.SetActive(true);
+        SitButton.gameObject.SetActive(true);
+        ActButton.gameObject.SetActive(true);
+        GiftButton.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
         enemyText.gameObject.SetActive(true);
+        yield return new WaitForEndOfFrame();
+        TalkButton.Select();
         yield return null;
     }
 
