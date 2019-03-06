@@ -416,7 +416,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 274480800}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 345178841}
+        m_MethodName: OnAffirmButtonPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &274480800
@@ -574,7 +585,7 @@ MonoBehaviour:
   SitButton: {fileID: 1606451762}
   ActButton: {fileID: 1506087028}
   GiftButton: {fileID: 911220328}
-  textBox: {fileID: 0}
+  textBox: {fileID: 869774014}
   enemyText: {fileID: 869774012}
 --- !u!1 &357902060
 GameObject:
@@ -800,7 +811,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 420392368}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 345178841}
+        m_MethodName: OnTalkButtonPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &420392368
@@ -1445,7 +1467,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 911220329}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 345178841}
+        m_MethodName: OnGiftButtonPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &911220329
@@ -1926,6 +1959,7 @@ MonoBehaviour:
   currentState: 0
   textBox: {fileID: 869774014}
   PTC: {fileID: 345178841}
+  Enemy: {fileID: 0}
 --- !u!4 &1386836980
 Transform:
   m_ObjectHideFlags: 0
@@ -2057,7 +2091,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1506087029}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 345178841}
+        m_MethodName: OnActButtonPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1506087029
@@ -2169,7 +2214,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1528373740}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 345178841}
+        m_MethodName: OnHugButtonPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1528373740
@@ -2355,7 +2411,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1606451763}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 345178841}
+        m_MethodName: OnSitButtonPress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1606451763
@@ -2638,13 +2705,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa99a44ff6d49154390b3fd66dce07bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  encounter: 0
   fleeable: 0
   enemyHealth: 0
   enemyHealthMax: 0
   enemyEmotion: 
+  enemyResistances: 010000000200000000000000000000000100000002000000
   enemyLevel: 0
   introDialogue:
+  - It's a beautiful day out...
+  - On days like these. Kids like you.
+  - Should be Burning in Hell.
   - A poorly drawn frog approaches.
+  talkDialogue:
+  - You have a casual conversation about the rain. A topic you know frogs enjoy.
+  - You tell the frog about a cool pond lily you saw once.
+  sitDialogue:
+  - You sit with the frog. They appreciate your presence.
+  hugDialogue:
+  - You try to give the frog a hug but they are having none of it right now.
+  - You go in for the hug but the frog gives you a blank stare.
+  actDialogue:
+  - You clean the frogs painting supplies.
+  affirmDialogue:
+  - You tell the frog that you like their art.
+  - You give the frog a pat on the head. Good job Frog.
+  giftDialogue:
+  - You give the frog a mud sculpture you made.
+  reactionDialogue:
+  - The frog smiles at you.
+  - The frog appreciates this, but otherwise doesn't respond.
+  - The frog didn't seem to respond to that very well.
+  playerTurnIdle:
+  - You're wet from the rain.
+  - The frog stares you deeply in the eyes.
+  - Ribbit Ribbit.
+  - I had a funny joke but I forgot it.
 --- !u!4 &1863317848
 Transform:
   m_ObjectHideFlags: 0

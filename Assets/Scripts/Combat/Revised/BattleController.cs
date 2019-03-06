@@ -29,10 +29,20 @@ public class BattleController : MonoBehaviour {
     int playerLocationZ;
 
     //Entities
-    EnemyCombatController Enemy;
+    public EnemyCombatController Enemy;
 
     void Awake()
     {
+        if (BC == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            BC = this;
+        }
+        else if (BC != this)
+        {
+            Destroy(gameObject);
+        }
+
         Enemy = GameObject.Find("Enemy").GetComponent<EnemyCombatController>();
         currentState = BattleState.Neither;
     }
@@ -48,7 +58,7 @@ public class BattleController : MonoBehaviour {
     public IEnumerator BattleStart()
     {
 
-        yield return StartCoroutine(textBox.Dialogue(Enemy.introDialogue[0]));
+        yield return StartCoroutine(textBox.StartDialogue(Enemy.introDialogue));
         currentState = BattleState.PlayerTurn;
         PTC.currentState = PlayerTurnController.MenuStates.MainSelect;
         PTC.HelpButton.Select();
@@ -62,12 +72,18 @@ public class BattleController : MonoBehaviour {
     public IEnumerator EndTurnPlayer()
     {
         currentState = BattleState.EnemyTurn;
+        Debug.Log("End Player Turn");
         yield return null;
     }
 
     public IEnumerator EndTurnEnemy()
     {
+        Debug.Log("End Enemy Turn");
+        int rand = Random.Range(0, Enemy.playerTurnIdle.Length);
         currentState = BattleState.PlayerTurn;
+        StartCoroutine(textBox.Dialogue(Enemy.playerTurnIdle[rand]));
+        PTC.currentState = PlayerTurnController.MenuStates.MainSelect;
+        PTC.HelpButton.Select();
         yield return null;
     }
     

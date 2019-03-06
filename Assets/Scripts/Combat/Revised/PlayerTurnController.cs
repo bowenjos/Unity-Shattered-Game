@@ -195,37 +195,125 @@ public class PlayerTurnController : MonoBehaviour {
 
     public void OnTalkButtonPress()
     {
+        StartCoroutine(textBox.Dialogue(""));
+        StartCoroutine(talkButtonPress());
 
-        BattleController.BC.EndTurnPlayer();
+    }
+
+    IEnumerator talkButtonPress()
+    {
+        yield return StartCoroutine(MoveTalkBack());
+        currentState = MenuStates.EnemyTurn;
+        int rand = Random.Range(0, BattleController.BC.Enemy.talkDialogue.Length);
+        yield return StartCoroutine(textBox.Dialogue(BattleController.BC.Enemy.talkDialogue[rand]));
+        yield return new WaitForSeconds(1f);
+        //Deal Damage
+        yield return StartCoroutine(textBox.Dialogue(BattleController.BC.Enemy.reactionDialogue[BattleController.BC.Enemy.enemyResistances[0]]));
+        yield return new WaitForSeconds(1f);
+        
+        Debug.Log("Here");
+        StartCoroutine(BattleController.BC.EndTurnPlayer());
     }
 
     public void OnHugButtonPress()
     {
+        StartCoroutine(textBox.Dialogue(""));
+        StartCoroutine(hugButtonPress());
 
-        BattleController.BC.EndTurnPlayer();
+    }
+
+    IEnumerator hugButtonPress()
+    {
+        yield return StartCoroutine(MoveTalkBack());
+        currentState = MenuStates.EnemyTurn;
+        int rand = Random.Range(0, BattleController.BC.Enemy.hugDialogue.Length);
+        yield return StartCoroutine(textBox.Dialogue(BattleController.BC.Enemy.hugDialogue[rand]));
+        yield return new WaitForSeconds(1f);
+        //Deal Damage
+        yield return StartCoroutine(textBox.Dialogue(BattleController.BC.Enemy.reactionDialogue[BattleController.BC.Enemy.enemyResistances[1]]));
+        yield return new WaitForSeconds(1f);
+        //Deal Damage
+        StartCoroutine(BattleController.BC.EndTurnPlayer());
     }
 
     public void OnAffirmButtonPress()
     {
+        StartCoroutine(textBox.Dialogue(""));
+        StartCoroutine(affirmButtonPress());
 
-        BattleController.BC.EndTurnPlayer();
+    }
+
+    IEnumerator affirmButtonPress()
+    {
+        yield return StartCoroutine(MoveTalkBack());
+        currentState = MenuStates.EnemyTurn;
+        int rand = Random.Range(0, BattleController.BC.Enemy.affirmDialogue.Length);
+        yield return StartCoroutine(textBox.Dialogue(BattleController.BC.Enemy.affirmDialogue[rand]));
+        yield return new WaitForSeconds(1f);
+        //Deal Damage
+        yield return StartCoroutine(textBox.Dialogue(BattleController.BC.Enemy.reactionDialogue[BattleController.BC.Enemy.enemyResistances[2]]));
+        yield return new WaitForSeconds(1f);
+        //Deal Damage
+        StartCoroutine(BattleController.BC.EndTurnPlayer());
     }
 
     public void OnSitButtonPress()
     {
+        StartCoroutine(textBox.Dialogue(""));
+        StartCoroutine(sitButtonPress());
 
-        BattleController.BC.EndTurnPlayer();
+    }
+
+    IEnumerator sitButtonPress()
+    {
+        yield return StartCoroutine(MoveTalkBack());
+        currentState = MenuStates.EnemyTurn;
+        int rand = Random.Range(0, BattleController.BC.Enemy.sitDialogue.Length);
+        yield return StartCoroutine(textBox.Dialogue(BattleController.BC.Enemy.sitDialogue[rand]));
+        yield return new WaitForSeconds(1f);
+        //Deal Damage
+        yield return StartCoroutine(textBox.Dialogue(BattleController.BC.Enemy.reactionDialogue[BattleController.BC.Enemy.enemyResistances[3]]));
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(BattleController.BC.EndTurnPlayer());
     }
 
     public void OnActButtonPress()
     {
+        StartCoroutine(textBox.Dialogue(""));
+        StartCoroutine(actButtonPress());
 
-        BattleController.BC.EndTurnPlayer();
+    }
+
+    IEnumerator actButtonPress()
+    {
+        yield return StartCoroutine(MoveTalkBack());
+        currentState = MenuStates.EnemyTurn;
+        int rand = Random.Range(0, BattleController.BC.Enemy.actDialogue.Length);
+        yield return StartCoroutine(textBox.Dialogue(BattleController.BC.Enemy.actDialogue[rand]));
+        yield return new WaitForSeconds(1f);
+        //Deal Damage
+        yield return StartCoroutine(textBox.Dialogue(BattleController.BC.Enemy.reactionDialogue[BattleController.BC.Enemy.enemyResistances[4]]));
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(BattleController.BC.EndTurnPlayer());
     }
 
     public void OnGiftButtonPress()
     {
+        StartCoroutine(textBox.Dialogue(""));
+        StartCoroutine(giftButtonPress());
 
-        BattleController.BC.EndTurnPlayer();
+    }
+
+    IEnumerator giftButtonPress()
+    {
+        yield return StartCoroutine(MoveTalkBack());
+        currentState = MenuStates.EnemyTurn;
+        int rand = Random.Range(0, BattleController.BC.Enemy.giftDialogue.Length);
+        yield return StartCoroutine(textBox.Dialogue(BattleController.BC.Enemy.giftDialogue[rand]));
+        yield return new WaitForSeconds(1f);
+        //Deal Damage
+        yield return StartCoroutine(textBox.Dialogue(BattleController.BC.Enemy.reactionDialogue[BattleController.BC.Enemy.enemyResistances[5]]));
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(BattleController.BC.EndTurnPlayer());
     }
 }

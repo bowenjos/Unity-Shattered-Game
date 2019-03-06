@@ -25,4 +25,13 @@ public class TalkControl : MonoBehaviour {
         yield return null;
     }
 
+    public IEnumerator StartDialogue(string[] dialogue)
+    {
+        for(int i = 0; i < dialogue.Length; i++)
+        {
+            yield return StartCoroutine(Dialogue(dialogue[i]));
+            yield return new WaitForSeconds(1f);
+        }
+    }
+
 }
