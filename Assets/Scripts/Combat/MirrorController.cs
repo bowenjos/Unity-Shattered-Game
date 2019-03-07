@@ -36,7 +36,7 @@ public class MirrorController : MonoBehaviour {
     {
         if (col.gameObject.name == "TrebleClefPF(Clone)" || col.gameObject.name == "EnemyNotePF(Clone)")
         {
-            GameControl.control.health -= (damageValue * bf.GetComponent<BattleFlow>().enemyDamageModifier);
+            //GameControl.control.health -= (damageValue * bf.GetComponent<BattleFlow>().enemyDamageModifier);
             this.GetComponent<Shake>().StartShake(0.1f);
             Destroy(col.gameObject);
         }

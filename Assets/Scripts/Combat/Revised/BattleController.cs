@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BattleController : MonoBehaviour {
 
@@ -11,6 +12,7 @@ public class BattleController : MonoBehaviour {
     public TalkControl textBox;
     public PlayerTurnController PTC;
 
+    public Image FieldSeperator;
     /*
     //Enemy Variables
     public int enemyHealthMax;
@@ -43,6 +45,7 @@ public class BattleController : MonoBehaviour {
             Destroy(gameObject);
         }
 
+        FieldSeperator.color = new Color(1f, 1f, 1f, 0f);
         Enemy = GameObject.Find("Enemy").GetComponent<EnemyCombatController>();
         currentState = BattleState.Neither;
     }
@@ -71,8 +74,16 @@ public class BattleController : MonoBehaviour {
 
     public IEnumerator EndTurnPlayer()
     {
-        currentState = BattleState.EnemyTurn;
         Debug.Log("End Player Turn");
+
+        for (float i = 0f; i < 200f; i += 2f)
+        {
+            FieldSeperator.color = new Color(0f, 0f, 0f, i / 255f);
+            yield return new WaitForSeconds(0.005f);
+        }
+        FieldSeperator.color = new Color(0f, 0f, 0f, 200/255f);
+        yield return new WaitForSeconds(1f);
+        currentState = BattleState.EnemyTurn;
         yield return null;
     }
 
@@ -81,6 +92,12 @@ public class BattleController : MonoBehaviour {
         Debug.Log("End Enemy Turn");
         int rand = Random.Range(0, Enemy.playerTurnIdle.Length);
         currentState = BattleState.PlayerTurn;
+        for (float i = 200f; i > 0f; i -= 20f)
+        {
+            FieldSeperator.color = new Color(0f, 0f, 0f, i / 255f);
+            yield return new WaitForSeconds(0.005f);
+        }
+        FieldSeperator.color = new Color(0f, 0f, 0f, 0f);
         StartCoroutine(textBox.Dialogue(Enemy.playerTurnIdle[rand]));
         PTC.currentState = PlayerTurnController.MenuStates.MainSelect;
         PTC.HelpButton.Select();

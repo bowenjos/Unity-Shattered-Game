@@ -17,6 +17,11 @@ public class Shake : MonoBehaviour {
 		
 	}
 
+    public void SetSpeed(float newSpeed)
+    {
+        speed = newSpeed;
+    }
+
     IEnumerator ShakeObject(float time)
     {
         Transform obj = this.transform;
