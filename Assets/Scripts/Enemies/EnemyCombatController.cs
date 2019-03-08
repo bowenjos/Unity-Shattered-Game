@@ -16,7 +16,7 @@ public class EnemyCombatController : MonoBehaviour {
     public int[] enemyResistances;
     public int enemyLevel;
 
-    public string[] introDialogue;
+    public string introDialogue;
     public string[] talkDialogue;
     public string[] sitDialogue;
     public string[] hugDialogue;

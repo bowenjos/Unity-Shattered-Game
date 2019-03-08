@@ -13,6 +13,9 @@ public class BattleController : MonoBehaviour {
     public PlayerTurnController PTC;
 
     public Image FieldSeperator;
+    public SpriteRenderer Mirror;
+    public Text mirrorHealthText;
+
     /*
     //Enemy Variables
     public int enemyHealthMax;
@@ -46,6 +49,8 @@ public class BattleController : MonoBehaviour {
         }
 
         FieldSeperator.color = new Color(1f, 1f, 1f, 0f);
+        Mirror.color = new Color(1f, 1f, 1f, 0f);
+        mirrorHealthText.color = new Color(139 / 255f, 139 / 255f, 139 / 255f, 0f);
         Enemy = GameObject.Find("Enemy").GetComponent<EnemyCombatController>();
         currentState = BattleState.Neither;
     }
@@ -61,7 +66,7 @@ public class BattleController : MonoBehaviour {
     public IEnumerator BattleStart()
     {
 
-        yield return StartCoroutine(textBox.StartDialogue(Enemy.introDialogue));
+        yield return StartCoroutine(textBox.Dialogue(Enemy.introDialogue));
         currentState = BattleState.PlayerTurn;
         PTC.currentState = PlayerTurnController.MenuStates.MainSelect;
         PTC.HelpButton.Select();
@@ -76,12 +81,16 @@ public class BattleController : MonoBehaviour {
     {
         Debug.Log("End Player Turn");
 
-        for (float i = 0f; i < 200f; i += 2f)
+        for (float i = 0f; i < 200f; i += 20f)
         {
             FieldSeperator.color = new Color(0f, 0f, 0f, i / 255f);
+            Mirror.color = new Color(1f, 1f, 1f, (i * 255 / 200) / 255f);
+            mirrorHealthText.color = new Color(139/255f, 139/255f, 139/255f, (i * 255 / 200) / 255f);
             yield return new WaitForSeconds(0.005f);
         }
         FieldSeperator.color = new Color(0f, 0f, 0f, 200/255f);
+        Mirror.color = new Color(1f, 1f, 1f, 1f);
+        mirrorHealthText.color = new Color(139 / 255f, 139 / 255f, 139 / 255f, 1f);
         yield return new WaitForSeconds(1f);
         currentState = BattleState.EnemyTurn;
         yield return null;
@@ -95,9 +104,13 @@ public class BattleController : MonoBehaviour {
         for (float i = 200f; i > 0f; i -= 20f)
         {
             FieldSeperator.color = new Color(0f, 0f, 0f, i / 255f);
+            Mirror.color = new Color(1f, 1f, 1f, (i * 255 / 200) / 255f);
+            mirrorHealthText.color = new Color(139 / 255f, 139 / 255f, 139 / 255f, (i * 255 / 200) / 255f);
             yield return new WaitForSeconds(0.005f);
         }
         FieldSeperator.color = new Color(0f, 0f, 0f, 0f);
+        Mirror.color = new Color(1f, 1f, 1f, 0f);
+        mirrorHealthText.color = new Color(139 / 255f, 139 / 255f, 139 / 255f, 0f);
         StartCoroutine(textBox.Dialogue(Enemy.playerTurnIdle[rand]));
         PTC.currentState = PlayerTurnController.MenuStates.MainSelect;
         PTC.HelpButton.Select();
