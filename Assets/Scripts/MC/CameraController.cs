@@ -45,7 +45,7 @@ public class CameraController : MonoBehaviour {
                 y = Mathf.Lerp(y, Player.position.y, Smoothing.y * Time.deltaTime);
             }
         }
-        var cameraHalfWidth = ortho * ((float)Screen.width / Screen.height);
+        var cameraHalfWidth = ortho * ((float)Screen.width*0.75f / Screen.height);
 
         x = Mathf.Clamp(x, min.x + cameraHalfWidth, max.x - cameraHalfWidth);
         y = Mathf.Clamp(y, min.y + ortho, max.y - ortho);

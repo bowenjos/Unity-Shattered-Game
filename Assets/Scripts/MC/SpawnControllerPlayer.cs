@@ -30,6 +30,9 @@ public class SpawnControllerPlayer : MonoBehaviour {
     public GameObject JukeBox;
     public GameObject JukeBoxPrefab;
 
+    public GameObject SideBars;
+    public GameObject SideBarsPrefab;
+
     public GameObject SpawnLocation;
 
     // Use this for initialization
@@ -124,6 +127,15 @@ public class SpawnControllerPlayer : MonoBehaviour {
         else
         {
             JukeBox = Instantiate(JukeBoxPrefab);
+        }
+
+        if (GameObject.Find("SideBars(Clone)") != null)
+        {
+            SideBars = GameObject.Find("SideBars(Clone)");
+        }
+        else
+        {
+            SideBars = Instantiate(SideBarsPrefab);
         }
     }
 	

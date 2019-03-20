@@ -74,4 +74,7 @@ MonoBehaviour:
   JukeBox: {fileID: 0}
   JukeBoxPrefab: {fileID: 1955013892082458, guid: 570c145a5390fca4d90bc5feaf297438,
     type: 2}
+  SideBars: {fileID: 0}
+  SideBarsPrefab: {fileID: 1409503449203090, guid: 8cafcacccedb3604c8e00ba29d7e40d3,
+    type: 2}
   SpawnLocation: {fileID: 0}
