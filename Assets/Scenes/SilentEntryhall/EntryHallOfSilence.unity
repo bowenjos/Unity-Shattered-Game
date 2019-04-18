@@ -3375,6 +3375,11 @@ PrefabInstance:
       propertyPath: m_CookieSize
       value: 0.47
       objectReference: {fileID: 0}
+    - target: {fileID: 61924804291057104, guid: eb02fc93e1fbabc458942aec39077f74,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb02fc93e1fbabc458942aec39077f74, type: 3}
 --- !u!4 &1161315958 stripped
@@ -3774,8 +3779,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetSceneName: RightsideHallway
   zone: SE
-  targetX: -4
-  targetY: -1.8
+  targetX: -2.6
+  targetY: -1.2
 --- !u!61 &1505609743
 BoxCollider2D:
   m_ObjectHideFlags: 0
