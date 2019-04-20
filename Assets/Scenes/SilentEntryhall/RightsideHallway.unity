@@ -1544,12 +1544,12 @@ PrefabInstance:
     - target: {fileID: 114361182759894780, guid: 4778f28dc12f6c547a2925cbca97519b,
         type: 3}
       propertyPath: targetX
-      value: -4
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 114361182759894780, guid: 4778f28dc12f6c547a2925cbca97519b,
         type: 3}
       propertyPath: targetY
-      value: -0.35
+      value: -0.15
       objectReference: {fileID: 0}
     - target: {fileID: 114361182759894780, guid: 4778f28dc12f6c547a2925cbca97519b,
         type: 3}

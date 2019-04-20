@@ -22,6 +22,7 @@ public class TransitionController : MonoBehaviour {
         zoneText = this.GetComponentInChildren<Text>();
         //Debug.Log(ZoneTransition);
         currentZone = GameControl.control.zone;
+        newZone = currentZone;
         jukebox = GameObject.Find("JukeBox(Clone)").GetComponent<JukeBoxController>();
     }
     
