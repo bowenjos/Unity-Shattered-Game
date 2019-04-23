@@ -126,10 +126,10 @@ public class PlayerTurnController : MonoBehaviour {
         RectTransform TPRT = TalkPanel.GetComponent<RectTransform>();
         enemyText.gameObject.SetActive(false);
         CombatPanel.SetActive(false);
-        float dx = 0.7f;
-        while (dx < 0.9f)
+        float dx = 0.65f;
+        while (dx < 0.8f)
         {
-            dx += ((.01f / 0.2f) * 0.9f);
+            dx += ((.01f / 0.2f) * 0.8f);
             TPRT.anchorMax = new Vector2(dx, TPRT.anchorMax.y);
             TPRT.anchorMin = new Vector2(1 - dx, TPRT.anchorMin.y);
             yield return new WaitForSeconds(0.02f);
@@ -145,10 +145,10 @@ public class PlayerTurnController : MonoBehaviour {
     {
         RectTransform TPRT = TalkPanel.GetComponent<RectTransform>();
         enemyText.gameObject.SetActive(false);
-        float dx = 0.9f;
-        while(dx > 0.7f)
+        float dx = 0.8f;
+        while(dx > 0.65f)
         {
-            dx -= ((.01f / 0.2f) * 0.7f);
+            dx -= ((.01f / 0.2f) * 0.65f);
             TPRT.anchorMax = new Vector2(dx, TPRT.anchorMax.y);
             TPRT.anchorMin = new Vector2(1 - dx, TPRT.anchorMin.y);
             yield return new WaitForSeconds(0.02f);

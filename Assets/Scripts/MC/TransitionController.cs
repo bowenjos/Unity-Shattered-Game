@@ -14,6 +14,7 @@ public class TransitionController : MonoBehaviour {
     public bool elevatorTransfer;
 
     private JukeBoxController jukebox;
+    private Coroutine co;
 
     void Start()
     {
@@ -22,6 +23,7 @@ public class TransitionController : MonoBehaviour {
         zoneText = this.GetComponentInChildren<Text>();
         //Debug.Log(ZoneTransition);
         currentZone = GameControl.control.zone;
+        newZone = currentZone;
         jukebox = GameObject.Find("JukeBox(Clone)").GetComponent<JukeBoxController>();
     }
     
@@ -34,8 +36,12 @@ public class TransitionController : MonoBehaviour {
         if(newZone != currentZone && currentZone != "")
         {
             currentZone = newZone;
+            if(co != null)
+            {
+                StopCoroutine(co);
+            }
             jukebox.StopSong();
-            StartCoroutine(displayZone());
+            co = StartCoroutine(displayZone());
         }
         else
         {
@@ -78,10 +84,10 @@ public class TransitionController : MonoBehaviour {
         }
 
         //Debug.Log(newZone);
-        for (float i = 0f; i < 255f; i += 8.5f)
+        for (float i = 0f; i < 255f; i += 4.25f)
         {
             zoneText.color = new Color(255f, 255f, 255f, i / 255f);
-            yield return new WaitForSeconds(0.005f);
+            yield return new WaitForSeconds(0.025f);
         }
         jukebox.ResumeOverworldSong();
         zoneText.color = new Color(255f, 255f, 255f, 255f);

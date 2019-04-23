@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: f98c1c0f5936b8f4dbd41cda0c9c66e8
-timeCreated: 1550028873
+timeCreated: 1553043009
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -40,12 +40,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 30, y: 30, z: 30, w: 30}
   spritePixelsToUnits: 100
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -85,7 +85,7 @@ TextureImporter:
         height: 160
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 26, y: 26, z: 26, w: 26}
+      border: {x: 40, y: 40, z: 40, w: 40}
       outline: []
       physicsShape: []
       tessellationDetail: 0

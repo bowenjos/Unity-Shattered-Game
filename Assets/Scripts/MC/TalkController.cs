@@ -385,21 +385,21 @@ public class TalkController : MonoBehaviour {
         {
             case "default":
                 editText.font = estro;
-                editText.fontSize = 24;
-                editText.lineSpacing = 1.5f;
+                editText.fontSize = 55;
+                editText.lineSpacing = 1.2f;
                 break;
             case "vi":
                 editText.font = Vi;
-                editText.fontSize = 40;
-                editText.lineSpacing = 1f;
+                editText.fontSize = 80;
+                editText.lineSpacing = 1.1f;
                 break;
             case "will":
                 editText.font = William;
                 break;
             default:
                 editText.font = estro;
-                editText.fontSize = 24;
-                editText.lineSpacing = 1.5f;
+                editText.fontSize = 55;
+                editText.lineSpacing = 1.2f;
                 break;
         }
     }

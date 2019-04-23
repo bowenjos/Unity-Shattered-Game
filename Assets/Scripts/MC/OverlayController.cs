@@ -14,6 +14,8 @@ public class OverlayController : MonoBehaviour {
     RectTransform lensSelectorRT;
     RectTransform[] lensicons;
 
+    private Coroutine co;
+
 	// Use this for initialization
 	void Start () {
         lensicons = LensPanel.GetComponentsInChildren<RectTransform>();
@@ -68,7 +70,11 @@ public class OverlayController : MonoBehaviour {
     public void setLensSelector(int lens)
     {
         GameControl.control.curLens = lens;
-        StartCoroutine(lensDisplayOn(1f));
+        if(co != null)
+        {
+            StopCoroutine(co);
+        }
+        co = StartCoroutine(lensDisplayOn(1f));
         //Set anchors of the lens selector to the anchors of the selected lens 
         //(+3 because lenselector and lensPanel occupy 0 and 1 so everything is offset by 2)
         lensSelectorRT.anchorMax = lensicons[lens+2].anchorMax;

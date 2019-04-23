@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    float speed = 1.75F;
+    float speed = 2F;
     public int direction = 2;
     public bool walking;
     public bool walking2;
@@ -415,7 +415,7 @@ public class PlayerController : MonoBehaviour {
             }
             else
             {
-                speed = 1.5f;
+                speed = 1.2f;
             }
 
             if (!pushing)
