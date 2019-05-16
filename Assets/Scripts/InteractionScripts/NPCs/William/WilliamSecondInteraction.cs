@@ -4,21 +4,25 @@ using UnityEngine;
 
 public class WilliamSecondInteraction : CharacterInteraction {
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    JukeBoxController jukebox;
+
+    void Start () {
+
         if (GameControl.control.DPMainData.progression < 1 || GameControl.control.DPMainData.progression > 5)
         {
             Destroy(this.gameObject);
         }
         else if (!GameControl.control.DPMainData.williamTalked)
         {
+
             switch (GameControl.control.DPMainData.progression)
             {
                 case 1:
                     dialogue = new string[3][];
                     dialogue[0] = new string[] { "...", "...", "...", "Hello again.", "Don't mind me. I'm just, uh, setting up for the performance tonight.", "...",
                                     "Are you just going to keep standing there?", "Look, uh, there is something I need help with actually.", "There is a show going on tonight, but the spotlights haven't been turned on yet.", "I'd do it myself, but I need to set up some things back here for the show, and unfortunately I'm the only person who knows how.", "Oh, before I forget, take this key. You probably wouldn't be able to get very far without it..."};
-                    dialogue[1] = new string[] { "It will let you into some of the storage rooms downstairs.", "There should be three big switches.", 
+                    dialogue[1] = new string[] { "It will let you into some of the storage rooms downstairs.", "There should be three big switches.",
                                                "They're around here somewhere... I don't know why they put them where they did.", "Yeah...", "...", "See ya later.", "Ack, actually, one last thing.", "They're not all in the basement? Only like two of them, the other one is somewhere else...", "But still like, in this sort of general area... The rafters I think?", "That's stupid to say, I shouldn't tell you to go into the rafters what am I thinking.", "Stupid, stupid.",};
                     dialogue[2] = new string[] { "...", "Hey, I'm really sorry. But also I really appreciate you helping.", "I'll be here if you need me." };
                     break;
@@ -49,6 +53,10 @@ public class WilliamSecondInteraction : CharacterInteraction {
     public override IEnumerator StartInteraction()
     {
         talkControl = GameObject.Find("Talk UI(Clone)").GetComponent<TalkController>();
+        jukebox = GameObject.Find("JukeBox(Clone)").GetComponent<JukeBoxController>();
+        jukebox.PlaySong("WillsTheme");
+        StartCoroutine(jukebox.FadeIn(0.4f));
+
         switch (GameControl.control.DPMainData.progression)
         {
             case 1:
@@ -74,6 +82,8 @@ public class WilliamSecondInteraction : CharacterInteraction {
                 break;
         }
         GameControl.control.DPMainData.williamTalked = true;
+        jukebox.SetVolume(0.6f);
+        jukebox.PlaySong("DP");
     }
 
     void DestroyThis()

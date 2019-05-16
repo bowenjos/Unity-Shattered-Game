@@ -9,11 +9,13 @@ public class ActivatedObject : MonoBehaviour {
     public Sprite enabledSprite;
     public Sprite middleSprite;
     public Sprite disabledSprite;
+    public bool reverse;
 
     SpriteRenderer sr;
     BoxCollider2D bx;
 
     bool activatedHere;
+    
 
 	// Use this for initialization
 	void Start () {

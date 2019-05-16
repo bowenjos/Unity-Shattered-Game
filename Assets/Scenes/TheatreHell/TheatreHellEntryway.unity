@@ -144,8 +144,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetSceneName: DPBalcony
   zone: DP
-  targetX: 4.1
-  targetY: -6.2
+  targetX: 2.1
+  targetY: -3.1
 --- !u!61 &2537535
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -953,7 +953,7 @@ MonoBehaviour:
   targetSceneName: TheatreFloor
   zone: DP
   targetX: 0
-  targetY: -5.6
+  targetY: -2.7
 --- !u!61 &971204243
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1992,7 +1992,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.3}
+  m_Offset: {x: 0, y: 0.1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2003,7 +2003,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.1, y: 4}
+  m_Size: {x: 4.4, y: 3}
   m_EdgeRadius: 0
 --- !u!4 &1691580873
 Transform:

@@ -20,6 +20,7 @@ public class GameControl : MonoBehaviour {
     //Rooms
     public MainRoom MainRoom = new MainRoom();
 
+    
     //Player Data
     public string playerName;
     public float health;
@@ -27,6 +28,19 @@ public class GameControl : MonoBehaviour {
     public float money;
     public int numMasks;
     public float playedTime;
+    public bool[] doors = new bool[10];
+    public bool[] keys = new bool[5];
+
+    /**
+    * Doors
+    * 0: Dead Performance Basement
+    * 1: SilentEntryhall - CavernousDescent
+    **/
+
+    /**
+    * Keys
+    * 0: SilentEntryhall - CavernousDescent
+    **/
 
     //Not Stored Data
     public int curLens;

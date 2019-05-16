@@ -29,7 +29,7 @@ public class ElevatorData {
 
         //Dead Performance
         nameElevators[1][0] = "Rafters"; roomElevators[1][0] = "DPRafters";
-        nameElevators[1][1] = "Stage"; roomElevators[1][1] = "TheatreFloor";
+        nameElevators[1][1] = "Lobby"; roomElevators[1][1] = "DPReception";
         nameElevators[1][2] = ""; roomElevators[1][2] = "";
         nameElevators[1][3] = ""; roomElevators[1][3] = "";
 

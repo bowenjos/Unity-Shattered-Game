@@ -99,5 +99,21 @@ EditorBuildSettings:
     path: Assets/Scenes/TheatreHell/DPVIPLower.unity
     guid: 1ce464be4e397864fbb2b85ce1152c2b
   - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPStrangeRoom.unity
+    guid: 33bb448f85af8234a88608d83b6d93f8
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPLessStrangeRoom.unity
+    guid: 5d6aaec043f0fca4a9cb18253876b5f0
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPReception.unity
+    guid: 7aedcfe5c5e95aa4793bccf68a080721
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPOfficeHallway.unity
+    guid: 7073348f55db14745aa05a74cee2dc21
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPPianoRoom.unity
+    guid: d9b2a53a19ac64b4ab90e4778156d5ec
+  - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: bc89e80eb3bf4264c8d195127a8b0aaf
+  m_configObjects: {}

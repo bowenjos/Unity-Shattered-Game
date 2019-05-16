@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class TransitionController : MonoBehaviour {
 
     private bool dark = false;
+    private bool now = false;
+    private bool transitioning = false;
     protected Image ZoneTransition;
     protected Text zoneText;
     public string currentZone;
@@ -29,24 +31,30 @@ public class TransitionController : MonoBehaviour {
     
     void Update()
     {
-        if(dark == true)
+        if (newZone != currentZone && currentZone != "")
         {
-            StartCoroutine(transitionIn());
-        }
-        if(newZone != currentZone && currentZone != "")
-        {
+            transitioning = true;
             currentZone = newZone;
-            if(co != null)
+            if (co != null)
             {
                 StopCoroutine(co);
             }
-            jukebox.StopSong();
             co = StartCoroutine(displayZone());
         }
         else
         {
             currentZone = newZone;
         }
+
+        if (dark == true && transitioning == false)
+        {
+            StartCoroutine(transitionIn());
+        }
+        if(now == true)
+        {
+            StartCoroutine(transitionInNow());
+        }
+        
     }
 
     public IEnumerator displayZone()
@@ -84,13 +92,20 @@ public class TransitionController : MonoBehaviour {
         }
 
         //Debug.Log(newZone);
+        StartCoroutine(jukebox.FadeOut(0.6f));
+        yield return new WaitForSeconds(1f);
         for (float i = 0f; i < 255f; i += 4.25f)
         {
             zoneText.color = new Color(255f, 255f, 255f, i / 255f);
             yield return new WaitForSeconds(0.025f);
         }
         jukebox.ResumeOverworldSong();
+        StartCoroutine(jukebox.FadeIn(0.6f));
         zoneText.color = new Color(255f, 255f, 255f, 255f);
+        yield return new WaitForSeconds(1.5f);
+        StartCoroutine(transitionIn());
+       
+        
         yield return new WaitForSeconds(3f);
         for (float i = 255f; i > 0f; i -= 8.5f) 
         {
@@ -98,6 +113,7 @@ public class TransitionController : MonoBehaviour {
             yield return new WaitForSeconds(0.005f);
         }
         zoneText.color = new Color(255f, 255f, 255f, 0f);
+        transitioning = false;
         yield return null;
     }
 
@@ -110,6 +126,22 @@ public class TransitionController : MonoBehaviour {
         }
         ZoneTransition.color = new Color(0f, 0f, 0f, 1);
         dark = true;
+    }
+
+    public IEnumerator transitionNow()
+    {
+        ZoneTransition.color = new Color(0f, 0f, 0f, 1);
+        yield return new WaitForSeconds(0.4f);
+        now = true;
+        yield return null;
+    }
+
+    public IEnumerator transitionInNow()
+    {
+        yield return new WaitForSeconds(0.4f);
+        GameControl.control.Unfreeze();
+        ZoneTransition.color = new Color(0f, 0f, 0f, 0f);
+        now = false;
     }
 
     public IEnumerator transitionIn()
