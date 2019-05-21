@@ -114,6 +114,15 @@ EditorBuildSettings:
     path: Assets/Scenes/TheatreHell/DPPianoRoom.unity
     guid: d9b2a53a19ac64b4ab90e4778156d5ec
   - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPArchives.unity
+    guid: de63183d1af705b4c9f55d503735c4b0
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPMeetingRoom.unity
+    guid: a031db6428f89144285bbc901da7fa96
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPBossOffice.unity
+    guid: 8133812de676783408c5e3d029454f7a
+  - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: bc89e80eb3bf4264c8d195127a8b0aaf
   m_configObjects: {}
