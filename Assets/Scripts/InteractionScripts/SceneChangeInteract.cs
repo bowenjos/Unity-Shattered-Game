@@ -12,6 +12,8 @@ public class SceneChangeInteract : InteractionController {
     public float targetX;
     public float targetY;
 
+    public bool immediate;
+
 	// Use this for initialization
 	void Awake () { 
     }
@@ -27,7 +29,9 @@ public class SceneChangeInteract : InteractionController {
         GameControl.control.Freeze();
         TC = GameObject.Find("TransitionControl(Clone)").GetComponent<TransitionController>();
         player = GameObject.Find("player(Clone)");
-        yield return StartCoroutine(TC.transitionOut());
+        if (!immediate) { yield return StartCoroutine(TC.transitionOut()); }
+        else { yield return StartCoroutine(TC.transitionNow()); }
+        
         SceneManager.LoadScene(targetSceneName, LoadSceneMode.Single);
         GameControl.control.room = targetSceneName;
         GameControl.control.zone = zone;
