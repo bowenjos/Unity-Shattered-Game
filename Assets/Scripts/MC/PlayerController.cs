@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -407,6 +408,7 @@ public class PlayerController : MonoBehaviour {
 	
 	void FixedUpdate ()
     {
+        Array.Clear(hitBuffer, 0, hitBuffer.Length);
         if (!GameControl.control.frozen)
         {
             if (Input.GetKey(KeyCode.LeftShift))
