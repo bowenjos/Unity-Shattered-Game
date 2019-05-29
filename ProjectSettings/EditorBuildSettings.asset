@@ -126,6 +126,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TheatreHell/DPCubicles.unity
     guid: 5669435c471898040a1d15f6e1dd59eb
   - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPServerRoom.unity
+    guid: 4f8e25a55554e8a41a4e6ec40a176358
+  - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: bc89e80eb3bf4264c8d195127a8b0aaf
   m_configObjects: {}
