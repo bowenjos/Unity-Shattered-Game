@@ -266,6 +266,28 @@ MonoBehaviour:
   saveLocation: DPBossOffice
   saveDialogue:
   - This isn't my office, in case you were wondering.
+--- !u!1 &49941223 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1007800068482820, guid: 84c38e29288e79e4488c27fc6f0ce495,
+    type: 3}
+  m_PrefabInstance: {fileID: 49941220}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &49941224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49941223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13e0c1d1438d3f34991d1fa9823f1e67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  talkControl: {fileID: 0}
+  saveDialogue:
+  - This isn't my office, in case you were wondering.
+  location: Boss's Office - DP
 --- !u!1 &106444152
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,11 +632,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4179851187046412, guid: 31f93a92e9c662c43b3b7fc893c7f362, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4179851187046412, guid: 31f93a92e9c662c43b3b7fc893c7f362, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4179851187046412, guid: 31f93a92e9c662c43b3b7fc893c7f362, type: 3}
       propertyPath: m_LocalPosition.z
