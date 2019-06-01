@@ -14,6 +14,7 @@ public class BattleController : MonoBehaviour {
 
     public Image FieldSeperator;
     public SpriteRenderer Mirror;
+    public SpriteRenderer EnemyAttacker;
     public Text mirrorHealthText;
 
     /*
@@ -86,11 +87,13 @@ public class BattleController : MonoBehaviour {
             FieldSeperator.color = new Color(0f, 0f, 0f, i / 255f);
             Mirror.color = new Color(1f, 1f, 1f, (i * 255 / 200) / 255f);
             mirrorHealthText.color = new Color(139/255f, 139/255f, 139/255f, (i * 255 / 200) / 255f);
+            EnemyAttacker.color = new Color(1f, 1f, 1f, (i * 255 / 200) / 255f);
             yield return new WaitForSeconds(0.005f);
         }
         FieldSeperator.color = new Color(0f, 0f, 0f, 200/255f);
         Mirror.color = new Color(1f, 1f, 1f, 1f);
         mirrorHealthText.color = new Color(139 / 255f, 139 / 255f, 139 / 255f, 1f);
+        EnemyAttacker.color = new Color(1f, 1f, 1f, 1f);
         yield return new WaitForSeconds(1f);
         currentState = BattleState.EnemyTurn;
         yield return null;
@@ -106,11 +109,13 @@ public class BattleController : MonoBehaviour {
             FieldSeperator.color = new Color(0f, 0f, 0f, i / 255f);
             Mirror.color = new Color(1f, 1f, 1f, (i * 255 / 200) / 255f);
             mirrorHealthText.color = new Color(139 / 255f, 139 / 255f, 139 / 255f, (i * 255 / 200) / 255f);
+            EnemyAttacker.color = new Color(1f, 1f, 1f, (i * 255 / 200) / 255f);
             yield return new WaitForSeconds(0.005f);
         }
         FieldSeperator.color = new Color(0f, 0f, 0f, 0f);
         Mirror.color = new Color(1f, 1f, 1f, 0f);
         mirrorHealthText.color = new Color(139 / 255f, 139 / 255f, 139 / 255f, 0f);
+        EnemyAttacker.color = new Color(1f, 1f, 1f, 0f);
         StartCoroutine(textBox.Dialogue(Enemy.playerTurnIdle[rand]));
         PTC.currentState = PlayerTurnController.MenuStates.MainSelect;
         PTC.HelpButton.Select();
