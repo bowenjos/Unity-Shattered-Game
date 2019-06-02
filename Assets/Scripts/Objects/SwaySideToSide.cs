@@ -22,7 +22,6 @@ public class SwaySideToSide : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         mod = (modifier * 0.01f * (float)Math.Sin(speed * Time.time));
-        Debug.Log(mod);
         tf.position = new Vector3(defaultx + mod, tf.position.y, tf.position.z);
     }
 }

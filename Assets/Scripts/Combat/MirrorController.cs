@@ -32,14 +32,11 @@ public class MirrorController : MonoBehaviour {
         }
 	}
 
-    void OnCollisionEnter2D(Collision2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.name == "TrebleClefPF(Clone)" || col.gameObject.name == "EnemyNotePF(Clone)")
-        {
-            //GameControl.control.health -= (damageValue * bf.GetComponent<BattleFlow>().enemyDamageModifier);
-            this.GetComponent<Shake>().StartShake(0.1f);
-            Destroy(col.gameObject);
-        }
+        Debug.Log("Something entered");
+        this.GetComponent<Shake>().StartShake(0.1f);
+        Destroy(col.gameObject);
     }
 
     

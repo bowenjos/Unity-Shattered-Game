@@ -28,35 +28,37 @@ public class OverlayController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && GameControl.control.lens[0])
+        if (!(GameControl.control.encounter || GameControl.control.frozen || GameControl.control.paused))
         {
-            setLensSelector(0);
+            if (Input.GetKeyDown(KeyCode.Alpha1) && GameControl.control.lens[0])
+            {
+                setLensSelector(0);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha2) && GameControl.control.lens[1])
+            {
+                setLensSelector(1);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha3) && GameControl.control.lens[2])
+            {
+                setLensSelector(2);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha4) && GameControl.control.lens[3])
+            {
+                setLensSelector(3);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha5) && GameControl.control.lens[4])
+            {
+                setLensSelector(4);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha6) && GameControl.control.lens[5])
+            {
+                setLensSelector(5);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha7) && GameControl.control.lens[6])
+            {
+                setLensSelector(6);
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2) && GameControl.control.lens[1])
-        {
-            setLensSelector(1);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3) && GameControl.control.lens[2])
-        {
-            setLensSelector(2);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha4) && GameControl.control.lens[3])
-        {
-            setLensSelector(3);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha5) && GameControl.control.lens[4])
-        {
-            setLensSelector(4);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha6) && GameControl.control.lens[5])
-        {
-            setLensSelector(5);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha7) && GameControl.control.lens[6])
-        {
-            setLensSelector(6);
-        }
-
     }
 
     public IEnumerator lensDisplayOn(float time)

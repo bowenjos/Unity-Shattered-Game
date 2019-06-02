@@ -17,6 +17,8 @@ public class BattleController : MonoBehaviour {
     public SpriteRenderer EnemyAttacker;
     public Text mirrorHealthText;
 
+    public bool enemyTurnStart;
+
     /*
     //Enemy Variables
     public int enemyHealthMax;
@@ -51,9 +53,11 @@ public class BattleController : MonoBehaviour {
 
         FieldSeperator.color = new Color(1f, 1f, 1f, 0f);
         Mirror.color = new Color(1f, 1f, 1f, 0f);
+        EnemyAttacker.color = new Color(1f, 1f, 1f, 0f);
         mirrorHealthText.color = new Color(139 / 255f, 139 / 255f, 139 / 255f, 0f);
         Enemy = GameObject.Find("Enemy").GetComponent<EnemyCombatController>();
         currentState = BattleState.Neither;
+        enemyTurnStart = false;
     }
 
     // Use this for initialization
@@ -96,6 +100,7 @@ public class BattleController : MonoBehaviour {
         EnemyAttacker.color = new Color(1f, 1f, 1f, 1f);
         yield return new WaitForSeconds(1f);
         currentState = BattleState.EnemyTurn;
+        enemyTurnStart = true;
         yield return null;
     }
 

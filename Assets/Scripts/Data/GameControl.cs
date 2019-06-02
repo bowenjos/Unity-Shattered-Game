@@ -47,6 +47,7 @@ public class GameControl : MonoBehaviour {
     public bool aggroable;
     public bool paused;
     public bool frozen;
+    public bool encounter;
 
     //Player Items Data
     public string[] items = new string[10];
