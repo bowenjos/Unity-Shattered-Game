@@ -6,6 +6,7 @@ public class DefaultAttack : MonoBehaviour
 {
     Transform thisTransform;
     public float speed;
+    public int damageValue;
 
     // Start is called before the first frame update
     void Start()

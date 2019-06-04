@@ -17,8 +17,8 @@ public class MirrorController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        contactFilter.useTriggers = false;
-        contactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer));
+        //contactFilter.useTriggers = false;
+        //contactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer));
     }
 	
 	// Update is called once per frame
@@ -32,10 +32,11 @@ public class MirrorController : MonoBehaviour {
         }
 	}
 
-    void OnTriggerEnter2D(Collider2D col)
+    void OnCollisionEnter2D(Collision2D col)
     {
         Debug.Log("Something entered");
-        this.GetComponent<Shake>().StartShake(0.1f);
+        GameControl.control.health -= col.gameObject.GetComponent<DefaultAttack>().damageValue;
+        this.GetComponent<Shake>().StartShake(.05f);
         Destroy(col.gameObject);
     }
 
