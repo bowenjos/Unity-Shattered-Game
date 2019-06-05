@@ -97,7 +97,7 @@ public class EnemyCombatController : MonoBehaviour {
     }
 
     //Move directly from the enemies current setpoint, so a new setpoint.
-    public virtual IEnumerator MoveToPoint(Transform destination, float time)
+    public virtual IEnumerator MoveToSetpoint(Transform destination, float time)
     {
         float x = EnemyAttackSprite.position.x;
         float y = EnemyAttackSprite.position.y;
@@ -128,7 +128,7 @@ public class EnemyCombatController : MonoBehaviour {
             {
                 position = 12;
             }
-            yield return MoveToPoint(SetPoints[position], time);
+            yield return MoveToSetpoint(SetPoints[position], time);
         }
     }
 
@@ -145,9 +145,28 @@ public class EnemyCombatController : MonoBehaviour {
             {
                 position = 1;
             }
-            yield return MoveToPoint(SetPoints[position], time);
+            yield return MoveToSetpoint(SetPoints[position], time);
         }
     }
+
+    public virtual IEnumerator MoveToPoint(int x, int y, float time)
+    {
+        float xn = EnemyAttackSprite.position.x;
+        float yn = EnemyAttackSprite.position.y;
+        float dx = EnemyAttackSprite.position.x - x;
+        float dy = EnemyAttackSprite.position.y - y;
+        float dxt = dx / time;
+        float dyt = dy / time;
+
+        for (float i = 0; i < time; i += .01f)
+        {
+            EnemyAttackSprite.position = new Vector3(-dxt * i + xn, -dyt * i + yn, 0);
+            yield return new WaitForSeconds(.01f);
+
+        }
+        EnemyAttackSprite.position = new Vector3(x, y, 0);
+    }
+
 
     //Spawn the default projectile
     void SpawnDefaultProjectile()
