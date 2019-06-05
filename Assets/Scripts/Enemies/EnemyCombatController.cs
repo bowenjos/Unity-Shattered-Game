@@ -15,6 +15,9 @@ public class EnemyCombatController : MonoBehaviour {
     public int[] enemyResistances;
     public int enemyLevel;
 
+    public Sprite enemyMainSprite;
+    public Sprite enemyTurnSprite;
+
     public string introDialogue;
     public string[] talkDialogue;
     public string[] sitDialogue;
@@ -32,13 +35,18 @@ public class EnemyCombatController : MonoBehaviour {
     private Transform[] SetPoints;
     private Transform EnemyAttackSprite;
 
+    //START
+
     void Start()
     {
+        //Check to see if the current scene is encounter, if so, set up the variables, if not, ignore.
         if (SceneManager.GetActiveScene().name == "Encounter")
         {
             GameControl.control.encounter = true;
             SetPoints = GameObject.Find("SetPoints").GetComponentsInChildren<Transform>();
             EnemyAttackSprite = GameObject.Find("EnemyAttackPhaseSprite").GetComponent<Transform>();
+            GameObject.Find("EnemyAttackPhaseSprite").GetComponent<SpriteRenderer>().sprite = enemyTurnSprite;
+            GameObject.Find("EnemySprite").GetComponent<SpriteRenderer>().sprite = enemyMainSprite;
             Debug.Log(SetPoints.Length);
         }
         else
@@ -47,7 +55,7 @@ public class EnemyCombatController : MonoBehaviour {
         }
     }
 
-	// Use this for initialization
+	// Same as above, however the check is performed ideal when the scene is changed to the combat scene
 	void OnSceneLoaded (Scene aScene, LoadSceneMode aMode) {
         Debug.Log("Scene Laoded");
         if(aScene.name == "Encounter")
@@ -64,40 +72,31 @@ public class EnemyCombatController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (GameControl.control.encounter == true)
+        if (GameControl.control.encounter)
         {
-            if (BattleController.BC.currentState == BattleController.BattleState.EnemyTurn && BattleController.BC.enemyTurnStart == true)
+            //Checks to see if it's the enemies turn, and if they've started said turn yet, if met, the enemy starts their turn.
+            if (BattleController.BC.currentState == BattleController.BattleState.EnemyTurn && BattleController.BC.enemyTurnStart)
             {
-                Debug.Log("Hewwo");
+                BattleController.BC.enemyTurnStart = false;
                 StartCoroutine(EnemyTurn());
             }
         }
 	}
 
+    //All actions performed on an Enemies turn
     public virtual IEnumerator EnemyTurn()
     {
-        BattleController.BC.enemyTurnStart = false;
-        yield return StartCoroutine(MoveToPoint(SetPoints[12], .2f));
-        DefaultAttack();
-        for(int i = 1; i < 12; i++)
-        {
-            yield return StartCoroutine(MoveToPoint(SetPoints[i], .2f));
-            DefaultAttack();
-        }
-        yield return StartCoroutine(MoveToPoint(SetPoints[3], .2f));
-        DefaultAttack();
-        yield return StartCoroutine(MoveToPoint(SetPoints[8], .2f));
-        DefaultAttack();
-        yield return StartCoroutine(MoveToPoint(SetPoints[4], .2f));
-        DefaultAttack();
-        yield return StartCoroutine(MoveToPoint(SetPoints[7], .2f));
-        DefaultAttack();
-        yield return StartCoroutine(MoveToPoint(SetPoints[12], .2f));
-        DefaultAttack();
-        yield return new WaitForSeconds(3f);
-        StartCoroutine(BattleController.BC.EndTurnEnemy());
+        yield return SelectAttack();
+        yield return BattleController.BC.EndTurnEnemy();
     }
 
+    //Selection of the enemies attack
+    public virtual IEnumerator SelectAttack()
+    {
+        yield return new WaitForSeconds(1f);
+    }
+
+    //Move directly from the enemies current setpoint, so a new setpoint.
     public virtual IEnumerator MoveToPoint(Transform destination, float time)
     {
         float x = EnemyAttackSprite.position.x;
@@ -116,7 +115,42 @@ public class EnemyCombatController : MonoBehaviour {
         EnemyAttackSprite.position = destination.position;
     }
 
-    void DefaultAttack()
+    //Move from the current setpoints to a new setpoint going counter clockwise
+    public virtual IEnumerator MoveAroundLeft(int destination, int position, float time)
+    {
+        while(destination != position)
+        {
+            if(position != 1)
+            {
+                position -= 1;
+            }
+            else
+            {
+                position = 12;
+            }
+            yield return MoveToPoint(SetPoints[position], time);
+        }
+    }
+
+    //Move from the current setpoint to a new setpoint going clockwise
+    public virtual IEnumerator MoveAroundRight(int destination, int position, float time)
+    {
+        while (destination != position)
+        {
+            if (position != 12)
+            {
+                position += 1;
+            }
+            else
+            {
+                position = 1;
+            }
+            yield return MoveToPoint(SetPoints[position], time);
+        }
+    }
+
+    //Spawn the default projectile
+    void SpawnDefaultProjectile()
     {
         GameObject attack = Instantiate(AttackPrefab);
         attack.GetComponent<Transform>().position = EnemyAttackSprite.transform.position;

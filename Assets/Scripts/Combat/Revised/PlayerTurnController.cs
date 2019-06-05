@@ -31,6 +31,8 @@ public class PlayerTurnController : MonoBehaviour {
     public TalkControl textBox;
 
     public Text enemyText;
+    public SwaySideToSide enemySway;
+    public Shake enemyShake;
 
 	// Use this for initialization
 	void Start () {
@@ -121,6 +123,7 @@ public class PlayerTurnController : MonoBehaviour {
         
 	}
 
+    //Slides the bottom menu back to it's full size
     public IEnumerator MoveTalkBack()
     {
         RectTransform TPRT = TalkPanel.GetComponent<RectTransform>();
@@ -141,6 +144,7 @@ public class PlayerTurnController : MonoBehaviour {
         yield return null;
     }
 
+    //Slides the bottom menu into it's smaller size
     public IEnumerator MoveTalk()
     {
         RectTransform TPRT = TalkPanel.GetComponent<RectTransform>();
@@ -173,7 +177,6 @@ public class PlayerTurnController : MonoBehaviour {
     public void OnHelpButtonPress()
     {
         StartCoroutine(MoveTalk());
-        
     }
 
     public void OnItemButtonPress()
@@ -197,7 +200,6 @@ public class PlayerTurnController : MonoBehaviour {
     {
         StartCoroutine(textBox.Dialogue(""));
         StartCoroutine(talkButtonPress());
-
     }
 
     IEnumerator talkButtonPress()
@@ -208,7 +210,7 @@ public class PlayerTurnController : MonoBehaviour {
         yield return StartCoroutine(textBox.Dialogue(BattleController.BC.Enemy.talkDialogue[rand]));
         yield return new WaitForSeconds(1f);
         //Deal Damage
-        yield return StartCoroutine(textBox.Dialogue(BattleController.BC.Enemy.reactionDialogue[BattleController.BC.Enemy.enemyResistances[0]]));
+        yield return StartCoroutine(EnemyResponse(0));
         yield return new WaitForSeconds(1f);
         
         Debug.Log("Here");
@@ -230,7 +232,7 @@ public class PlayerTurnController : MonoBehaviour {
         yield return StartCoroutine(textBox.Dialogue(BattleController.BC.Enemy.hugDialogue[rand]));
         yield return new WaitForSeconds(1f);
         //Deal Damage
-        yield return StartCoroutine(textBox.Dialogue(BattleController.BC.Enemy.reactionDialogue[BattleController.BC.Enemy.enemyResistances[1]]));
+        yield return StartCoroutine(EnemyResponse(1));
         yield return new WaitForSeconds(1f);
         //Deal Damage
         StartCoroutine(BattleController.BC.EndTurnPlayer());
@@ -251,7 +253,7 @@ public class PlayerTurnController : MonoBehaviour {
         yield return StartCoroutine(textBox.Dialogue(BattleController.BC.Enemy.affirmDialogue[rand]));
         yield return new WaitForSeconds(1f);
         //Deal Damage
-        yield return StartCoroutine(textBox.Dialogue(BattleController.BC.Enemy.reactionDialogue[BattleController.BC.Enemy.enemyResistances[2]]));
+        yield return StartCoroutine(EnemyResponse(2));
         yield return new WaitForSeconds(1f);
         //Deal Damage
         StartCoroutine(BattleController.BC.EndTurnPlayer());
@@ -272,7 +274,7 @@ public class PlayerTurnController : MonoBehaviour {
         yield return StartCoroutine(textBox.Dialogue(BattleController.BC.Enemy.sitDialogue[rand]));
         yield return new WaitForSeconds(1f);
         //Deal Damage
-        yield return StartCoroutine(textBox.Dialogue(BattleController.BC.Enemy.reactionDialogue[BattleController.BC.Enemy.enemyResistances[3]]));
+        yield return StartCoroutine(EnemyResponse(3));
         yield return new WaitForSeconds(1f);
         StartCoroutine(BattleController.BC.EndTurnPlayer());
     }
@@ -292,7 +294,7 @@ public class PlayerTurnController : MonoBehaviour {
         yield return StartCoroutine(textBox.Dialogue(BattleController.BC.Enemy.actDialogue[rand]));
         yield return new WaitForSeconds(1f);
         //Deal Damage
-        yield return StartCoroutine(textBox.Dialogue(BattleController.BC.Enemy.reactionDialogue[BattleController.BC.Enemy.enemyResistances[4]]));
+        yield return StartCoroutine(EnemyResponse(4));
         yield return new WaitForSeconds(1f);
         StartCoroutine(BattleController.BC.EndTurnPlayer());
     }
@@ -312,8 +314,27 @@ public class PlayerTurnController : MonoBehaviour {
         yield return StartCoroutine(textBox.Dialogue(BattleController.BC.Enemy.giftDialogue[rand]));
         yield return new WaitForSeconds(1f);
         //Deal Damage
-        yield return StartCoroutine(textBox.Dialogue(BattleController.BC.Enemy.reactionDialogue[BattleController.BC.Enemy.enemyResistances[5]]));
+        yield return StartCoroutine(EnemyResponse(5));
         yield return new WaitForSeconds(1f);
         StartCoroutine(BattleController.BC.EndTurnPlayer());
+    }
+
+    //HOW THE ENEMY RESPONDS
+
+    IEnumerator EnemyResponse(int type)
+    {
+        switch(BattleController.BC.Enemy.enemyResistances[type])
+        {
+            case 0:
+                yield return StartCoroutine(enemySway.StartSway(4f, 8f, 1f));
+                break;
+            case 1:
+                yield return new WaitForSeconds(0.2f);
+                break;
+            case 2:
+                yield return StartCoroutine(enemyShake.ShakeObject(.5f));
+                break;
+        }
+
     }
 }

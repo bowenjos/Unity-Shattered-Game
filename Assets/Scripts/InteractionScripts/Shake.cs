@@ -22,7 +22,7 @@ public class Shake : MonoBehaviour {
         speed = newSpeed;
     }
 
-    IEnumerator ShakeObject(float time)
+    public IEnumerator ShakeObject(float time)
     {
         Transform obj = this.transform;
         Vector2 defaultPos = obj.position;

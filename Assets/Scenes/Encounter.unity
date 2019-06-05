@@ -1042,6 +1042,8 @@ MonoBehaviour:
   GiftButton: {fileID: 911220328}
   textBox: {fileID: 869774014}
   enemyText: {fileID: 869774012}
+  enemySway: {fileID: 1360807343}
+  enemyShake: {fileID: 1360807342}
 --- !u!1 &348705090
 GameObject:
   m_ObjectHideFlags: 0
@@ -3454,6 +3456,7 @@ GameObject:
   - component: {fileID: 1360807341}
   - component: {fileID: 1360807340}
   - component: {fileID: 1360807342}
+  - component: {fileID: 1360807343}
   m_Layer: 0
   m_Name: EnemySprite
   m_TagString: Untagged
@@ -3535,6 +3538,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b86b3e90e54b59748981acdfe48e4113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0.2
+--- !u!114 &1360807343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360807339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fccd94118d309be448f4ede642b26db3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modifier: 0
   speed: 0
 --- !u!1 &1380236532
 GameObject:
@@ -4610,6 +4627,8 @@ MonoBehaviour:
   enemyEmotion: 
   enemyResistances: 010000000200000000000000000000000100000002000000
   enemyLevel: 0
+  enemyMainSprite: {fileID: 21300000, guid: 5d0e0265c733c22488d5d33769f4ab67, type: 3}
+  enemyTurnSprite: {fileID: 21300000, guid: 38a4810f299262c47951f10d8a8b139e, type: 3}
   introDialogue: A poorly drawn frog approaches.
   talkDialogue:
   - You have a casual conversation about the rain. A topic frogs are well known to

@@ -24,4 +24,13 @@ public class SwaySideToSide : MonoBehaviour {
         mod = (modifier * 0.01f * (float)Math.Sin(speed * Time.time));
         tf.position = new Vector3(defaultx + mod, tf.position.y, tf.position.z);
     }
+
+    public IEnumerator StartSway(float modi, float spe, float ti)
+    {
+        modifier = modi;
+        speed = spe;
+        yield return new WaitForSeconds(ti);
+        modifier = 0;
+        speed = 0;
+    }
 }
