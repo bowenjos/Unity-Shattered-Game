@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -209,12 +210,7 @@ public class PlayerTurnController : MonoBehaviour {
         int rand = Random.Range(0, BattleController.BC.Enemy.talkDialogue.Length);
         yield return StartCoroutine(textBox.Dialogue(BattleController.BC.Enemy.talkDialogue[rand]));
         yield return new WaitForSeconds(1f);
-        //Deal Damage
         yield return StartCoroutine(EnemyResponse(0));
-        yield return new WaitForSeconds(1f);
-        
-        Debug.Log("Here");
-        StartCoroutine(BattleController.BC.EndTurnPlayer());
     }
 
     public void OnHugButtonPress()
@@ -231,11 +227,7 @@ public class PlayerTurnController : MonoBehaviour {
         int rand = Random.Range(0, BattleController.BC.Enemy.hugDialogue.Length);
         yield return StartCoroutine(textBox.Dialogue(BattleController.BC.Enemy.hugDialogue[rand]));
         yield return new WaitForSeconds(1f);
-        //Deal Damage
         yield return StartCoroutine(EnemyResponse(1));
-        yield return new WaitForSeconds(1f);
-        //Deal Damage
-        StartCoroutine(BattleController.BC.EndTurnPlayer());
     }
 
     public void OnAffirmButtonPress()
@@ -252,11 +244,7 @@ public class PlayerTurnController : MonoBehaviour {
         int rand = Random.Range(0, BattleController.BC.Enemy.affirmDialogue.Length);
         yield return StartCoroutine(textBox.Dialogue(BattleController.BC.Enemy.affirmDialogue[rand]));
         yield return new WaitForSeconds(1f);
-        //Deal Damage
         yield return StartCoroutine(EnemyResponse(2));
-        yield return new WaitForSeconds(1f);
-        //Deal Damage
-        StartCoroutine(BattleController.BC.EndTurnPlayer());
     }
 
     public void OnSitButtonPress()
@@ -273,10 +261,7 @@ public class PlayerTurnController : MonoBehaviour {
         int rand = Random.Range(0, BattleController.BC.Enemy.sitDialogue.Length);
         yield return StartCoroutine(textBox.Dialogue(BattleController.BC.Enemy.sitDialogue[rand]));
         yield return new WaitForSeconds(1f);
-        //Deal Damage
         yield return StartCoroutine(EnemyResponse(3));
-        yield return new WaitForSeconds(1f);
-        StartCoroutine(BattleController.BC.EndTurnPlayer());
     }
 
     public void OnActButtonPress()
@@ -293,10 +278,7 @@ public class PlayerTurnController : MonoBehaviour {
         int rand = Random.Range(0, BattleController.BC.Enemy.actDialogue.Length);
         yield return StartCoroutine(textBox.Dialogue(BattleController.BC.Enemy.actDialogue[rand]));
         yield return new WaitForSeconds(1f);
-        //Deal Damage
         yield return StartCoroutine(EnemyResponse(4));
-        yield return new WaitForSeconds(1f);
-        StartCoroutine(BattleController.BC.EndTurnPlayer());
     }
 
     public void OnGiftButtonPress()
@@ -313,28 +295,41 @@ public class PlayerTurnController : MonoBehaviour {
         int rand = Random.Range(0, BattleController.BC.Enemy.giftDialogue.Length);
         yield return StartCoroutine(textBox.Dialogue(BattleController.BC.Enemy.giftDialogue[rand]));
         yield return new WaitForSeconds(1f);
-        //Deal Damage
         yield return StartCoroutine(EnemyResponse(5));
-        yield return new WaitForSeconds(1f);
-        StartCoroutine(BattleController.BC.EndTurnPlayer());
+        
     }
 
     //HOW THE ENEMY RESPONDS
 
     IEnumerator EnemyResponse(int type)
     {
+        float modifier = 1f;
+
         switch(BattleController.BC.Enemy.enemyResistances[type])
         {
             case 0:
-                yield return StartCoroutine(enemySway.StartSway(4f, 8f, 1f));
+                StartCoroutine(enemySway.StartSway(4f, 8f, 1f));
+                modifier = 1.5f;
                 break;
             case 1:
-                yield return new WaitForSeconds(0.2f);
+                modifier = 1f;
                 break;
             case 2:
-                yield return StartCoroutine(enemyShake.ShakeObject(.5f));
+                StartCoroutine(enemyShake.ShakeObject(.5f));
+                modifier = 0.5f;
                 break;
         }
-
+        float flo = GameControl.control.numMasks;
+        int math = (int)Mathf.Round((flo + 1f) * modifier);
+        BattleController.BC.EnemyTakeDamage(math);
+        yield return new WaitForSeconds(1f);
+        if (BattleController.BC.Enemy.enemyHealth <= 0)
+        {
+            yield return StartCoroutine(BattleController.BC.ResolveCombat());
+        }
+        else
+        {
+            StartCoroutine(BattleController.BC.EndTurnPlayer());
+        }
     }
 }

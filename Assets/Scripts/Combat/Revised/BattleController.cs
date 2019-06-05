@@ -126,7 +126,12 @@ public class BattleController : MonoBehaviour {
         PTC.HelpButton.Select();
         yield return null;
     }
-    
+
+    public void EnemyTakeDamage(int value)
+    {
+        Enemy.enemyHealth -= value;
+    }
+
     public IEnumerator ResolveCombat()
     {
         yield return null;
