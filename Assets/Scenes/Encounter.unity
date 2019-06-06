@@ -4622,11 +4622,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fleeable: 0
-  enemyHealth: 0
+  enemyHealth: 5
   enemyHealthMax: 0
   enemyEmotion: 
   enemyResistances: 010000000200000000000000000000000100000002000000
   enemyLevel: 0
+  numAttacks: 0
   enemyMainSprite: {fileID: 21300000, guid: 5d0e0265c733c22488d5d33769f4ab67, type: 3}
   enemyTurnSprite: {fileID: 21300000, guid: 38a4810f299262c47951f10d8a8b139e, type: 3}
   introDialogue: A poorly drawn frog approaches.

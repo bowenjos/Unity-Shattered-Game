@@ -14,6 +14,7 @@ public class EnemyCombatController : MonoBehaviour {
     public string enemyEmotion;
     public int[] enemyResistances;
     public int enemyLevel;
+    public int numAttacks;
 
     public Sprite enemyMainSprite;
     public Sprite enemyTurnSprite;
@@ -87,13 +88,53 @@ public class EnemyCombatController : MonoBehaviour {
     public virtual IEnumerator EnemyTurn()
     {
         yield return SelectAttack();
+        yield return AllProjectilesGone();
         yield return BattleController.BC.EndTurnEnemy();
     }
 
     //Selection of the enemies attack
     public virtual IEnumerator SelectAttack()
     {
-        yield return new WaitForSeconds(1f);
+        numAttacks = 3;
+        int rand = Random.Range(0, numAttacks-1);
+        switch (rand)
+        {
+            case 0:
+                yield return new WaitForSeconds(1f);
+                yield return MoveToSetpoint(SetPoints[1], .2f);
+                SpawnDefaultProjectile();
+                yield return MoveToSetpoint(SetPoints[6], .2f);
+                SpawnDefaultProjectile();
+                yield return MoveToSetpoint(SetPoints[7], .2f);
+                SpawnDefaultProjectile();
+                yield return MoveToSetpoint(SetPoints[3], .2f);
+                SpawnDefaultProjectile();
+                yield return MoveToSetpoint(SetPoints[11], .2f);
+                SpawnDefaultProjectile();
+                break;
+            case 1:
+                yield return MoveToSetpoint(SetPoints[12], .1f);
+                yield return MoveAroundRight(3, 12, .2f);
+                SpawnDefaultProjectile();
+                yield return MoveAroundRight(6, 3, .2f);
+                SpawnDefaultProjectile();
+                yield return MoveAroundRight(9, 6, .2f);
+                SpawnDefaultProjectile();
+                yield return MoveAroundRight(12, 9, .2f);
+                SpawnDefaultProjectile();
+                break;
+            case 2:
+                yield return MoveToSetpoint(SetPoints[12], .1f);
+                SpawnDefaultProjectile();
+                yield return MoveAroundRight(9, 12, .2f);
+                SpawnDefaultProjectile();
+                yield return MoveAroundLeft(3, 9, .2f);
+                SpawnDefaultProjectile();
+                yield return MoveToSetpoint(SetPoints[12], .2f);
+                SpawnDefaultProjectile();
+                break;
+        }
+
     }
 
     //Move directly from the enemies current setpoint, so a new setpoint.
@@ -174,4 +215,13 @@ public class EnemyCombatController : MonoBehaviour {
         GameObject attack = Instantiate(AttackPrefab);
         attack.GetComponent<Transform>().position = EnemyAttackSprite.transform.position;
     }
+
+    IEnumerator AllProjectilesGone()
+    {
+        do
+        {
+            yield return null;
+        } while (GameObject.Find("Attack(Clone)") != null);
+    }
+
 }
