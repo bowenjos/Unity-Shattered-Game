@@ -16,10 +16,13 @@ public class EnemyCombatController : MonoBehaviour {
     public int enemyLevel;
     public int numAttacks;
 
+    public int rewardMoney;
+
     public Sprite enemyMainSprite;
     public Sprite enemyTurnSprite;
 
     public string introDialogue;
+    public string outroDialogue;
     public string[] talkDialogue;
     public string[] sitDialogue;
     public string[] hugDialogue;
@@ -27,7 +30,7 @@ public class EnemyCombatController : MonoBehaviour {
     public string[] affirmDialogue;
     public string[] giftDialogue;
 
-    public string[] reactionDialogue;
+    //public string[] reactionDialogue;
     public string[][] enemyChatter;
     public string[] playerTurnIdle;
 
@@ -40,6 +43,11 @@ public class EnemyCombatController : MonoBehaviour {
 
     void Start()
     {
+        if (!GameControl.control.MainRoom.monikaAlive)
+        {
+            Destroy(this.gameObject);
+        }
+        SceneManager.sceneLoaded += OnSceneLoaded;
         //Check to see if the current scene is encounter, if so, set up the variables, if not, ignore.
         if (SceneManager.GetActiveScene().name == "Encounter")
         {
@@ -48,7 +56,6 @@ public class EnemyCombatController : MonoBehaviour {
             EnemyAttackSprite = GameObject.Find("EnemyAttackPhaseSprite").GetComponent<Transform>();
             GameObject.Find("EnemyAttackPhaseSprite").GetComponent<SpriteRenderer>().sprite = enemyTurnSprite;
             GameObject.Find("EnemySprite").GetComponent<SpriteRenderer>().sprite = enemyMainSprite;
-            Debug.Log(SetPoints.Length);
         }
         else
         {
@@ -63,13 +70,31 @@ public class EnemyCombatController : MonoBehaviour {
         {
             GameControl.control.encounter = true;
             SetPoints = GameObject.Find("SetPoints").GetComponentsInChildren<Transform>();
-            Debug.Log(SetPoints);
+            EnemyAttackSprite = GameObject.Find("EnemyAttackPhaseSprite").GetComponent<Transform>();
+            GameObject.Find("EnemyAttackPhaseSprite").GetComponent<SpriteRenderer>().sprite = enemyTurnSprite;
+            GameObject.Find("EnemySprite").GetComponent<SpriteRenderer>().sprite = enemyMainSprite;
         }
         else
         {
             GameControl.control.encounter = false;
         }
 	}
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.name == "player(Clone)")
+        {
+            GameControl.control.Freeze();
+            StartCoroutine(GameObject.Find("JukeBox(Clone)").GetComponent<JukeBoxController>().FadeOut(0.4f));
+            //Animation
+            this.gameObject.name = "Enemy";
+            this.gameObject.AddComponent<DontDestroy>();
+            Destroy(this.gameObject.GetComponent<BoxCollider2D>());
+            this.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0f);
+            SceneManager.LoadScene("Encounter");
+        }
+    }
+
 	
 	// Update is called once per frame
 	void Update () {
@@ -83,6 +108,13 @@ public class EnemyCombatController : MonoBehaviour {
             }
         }
 	}
+
+
+    //Make this specific enemy dead
+    public virtual void ResolveEnemy()
+    {
+        GameControl.control.MainRoom.monikaAlive = false;
+    }
 
     //All actions performed on an Enemies turn
     public virtual IEnumerator EnemyTurn()

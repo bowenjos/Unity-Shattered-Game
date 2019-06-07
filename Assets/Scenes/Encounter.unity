@@ -1676,6 +1676,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1698922502829086, guid: 705ffea0792f68f419e09aa357f1ecdb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4617673895967614, guid: 705ffea0792f68f419e09aa357f1ecdb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3612,6 +3616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e93c1207e903f6f4db431c3e9446a166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BattleCamera: {fileID: 1184584007}
   currentState: 0
   textBox: {fileID: 869774014}
   PTC: {fileID: 345178841}
@@ -3621,6 +3626,7 @@ MonoBehaviour:
   mirrorHealthText: {fileID: 1070438501}
   enemyTurnStart: 0
   Enemy: {fileID: 0}
+  Player: {fileID: 0}
 --- !u!4 &1386836980
 Transform:
   m_ObjectHideFlags: 0
@@ -4608,7 +4614,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1863317847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4628,9 +4634,11 @@ MonoBehaviour:
   enemyResistances: 010000000200000000000000000000000100000002000000
   enemyLevel: 0
   numAttacks: 0
+  rewardMoney: 0
   enemyMainSprite: {fileID: 21300000, guid: 5d0e0265c733c22488d5d33769f4ab67, type: 3}
   enemyTurnSprite: {fileID: 21300000, guid: 38a4810f299262c47951f10d8a8b139e, type: 3}
   introDialogue: A poorly drawn frog approaches.
+  outroDialogue: 
   talkDialogue:
   - You have a casual conversation about the rain. A topic frogs are well known to
     enjoy.
@@ -4650,10 +4658,6 @@ MonoBehaviour:
   - You give the frog a mud sculpture you made.
   - You attempt to give the frog one of your drawings but they immediately burst into
     tears.
-  reactionDialogue:
-  - The frog smiles at you.
-  - The frog appreciates this, but otherwise doesn't respond.
-  - The frog didn't seem to respond to that very well.
   playerTurnIdle:
   - You're wet from the rain.
   - The frog stares you deeply in the eyes.

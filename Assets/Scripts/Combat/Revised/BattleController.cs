@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BattleController : MonoBehaviour {
 
     public static BattleController BC;
+    public GameObject BattleCamera;
     public enum BattleState {PlayerTurn, EnemyTurn, Neither};
     public BattleState currentState;
 
@@ -38,6 +40,7 @@ public class BattleController : MonoBehaviour {
 
     //Entities
     public EnemyCombatController Enemy;
+    public GameObject Player;
 
     void Awake()
     {
@@ -50,12 +53,14 @@ public class BattleController : MonoBehaviour {
         {
             Destroy(gameObject);
         }
-
+        
         FieldSeperator.color = new Color(1f, 1f, 1f, 0f);
         Mirror.color = new Color(1f, 1f, 1f, 0f);
         EnemyAttacker.color = new Color(1f, 1f, 1f, 0f);
         mirrorHealthText.color = new Color(139 / 255f, 139 / 255f, 139 / 255f, 0f);
         Enemy = GameObject.Find("Enemy").GetComponent<EnemyCombatController>();
+        Player = GameObject.Find("player(Clone)");
+        Player.SetActive(false);
         currentState = BattleState.Neither;
         enemyTurnStart = false;
     }
@@ -134,6 +139,22 @@ public class BattleController : MonoBehaviour {
 
     public IEnumerator ResolveCombat()
     {
+        Enemy.ResolveEnemy();
+        yield return StartCoroutine(textBox.Dialogue(Enemy.outroDialogue));
+        yield return new WaitForSeconds(1f);
+        int actualMoney = Enemy.rewardMoney * (GameControl.control.numMasks + 1) + ((int)Random.Range(-GameControl.control.numMasks, Mathf.Pow(GameControl.control.numMasks, 2f))) + (int)Random.Range(-GameControl.control.numMasks, GameControl.control.numMasks);
+        yield return StartCoroutine(textBox.Dialogue("You received " + actualMoney + " GD."));
+        GameControl.control.money += actualMoney;
+        //Item drop?
+        TransitionController TC = GameObject.Find("TransitionControl(Clone)").GetComponent<TransitionController>();
+        StartCoroutine(GameObject.Find("JukeBox(Clone)").GetComponent<JukeBoxController>().FadeIn(0.4f));
+        yield return StartCoroutine(TC.transitionOut());
+        Destroy(BattleCamera);
+        Player.SetActive(true);
+        GameControl.control.Unfreeze();
+        //StartCoroutine(GameObject.Find("JukeBox(Clone)").GetComponent<JukeBoxController>().FadeIn(0.4f));
+        SceneManager.LoadScene(GameControl.control.room.ToString());
+
         yield return null;
     }
 }
