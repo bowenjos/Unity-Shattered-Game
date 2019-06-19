@@ -18,7 +18,10 @@ public class BlockerBlock : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        Debug.Log("Blocked");
-        Destroy(col.gameObject);
+        if (col.gameObject.name != "Blocker")
+        {
+            Debug.Log("Blocked");
+            Destroy(col.gameObject);
+        }
     }
 }
