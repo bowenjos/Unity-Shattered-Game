@@ -143,6 +143,7 @@ public class EnemyCombatController : MonoBehaviour {
                 SpawnDefaultProjectile();
                 yield return MoveToSetpoint(SetPoints[11], .2f);
                 SpawnDefaultProjectile();
+                yield return new WaitForSeconds(5f);
                 break;
             case 1:
                 yield return MoveToSetpoint(SetPoints[12], .1f);
@@ -154,6 +155,7 @@ public class EnemyCombatController : MonoBehaviour {
                 SpawnDefaultProjectile();
                 yield return MoveAroundRight(12, 9, .2f);
                 SpawnDefaultProjectile();
+                yield return new WaitForSeconds(5f);
                 break;
             case 2:
                 yield return MoveToSetpoint(SetPoints[12], .1f);
@@ -164,6 +166,7 @@ public class EnemyCombatController : MonoBehaviour {
                 SpawnDefaultProjectile();
                 yield return MoveToSetpoint(SetPoints[12], .2f);
                 SpawnDefaultProjectile();
+                yield return new WaitForSeconds(5f);
                 break;
         }
 

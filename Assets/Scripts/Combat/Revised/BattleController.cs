@@ -18,6 +18,7 @@ public class BattleController : MonoBehaviour {
     public SpriteRenderer Mirror;
     public SpriteRenderer EnemyAttacker;
     public Text mirrorHealthText;
+    public SpriteRenderer[] Blockers;
 
     public bool enemyTurnStart;
 
@@ -44,9 +45,10 @@ public class BattleController : MonoBehaviour {
 
     void Awake()
     {
+
         if (BC == null)
         {
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
             BC = this;
         }
         else if (BC != this)
@@ -54,6 +56,8 @@ public class BattleController : MonoBehaviour {
             Destroy(gameObject);
         }
         
+
+        Blockers = GameObject.Find("Blockers").GetComponentsInChildren<SpriteRenderer>();
         FieldSeperator.color = new Color(1f, 1f, 1f, 0f);
         Mirror.color = new Color(1f, 1f, 1f, 0f);
         EnemyAttacker.color = new Color(1f, 1f, 1f, 0f);
@@ -96,12 +100,20 @@ public class BattleController : MonoBehaviour {
             FieldSeperator.color = new Color(0f, 0f, 0f, i / 255f);
             Mirror.color = new Color(1f, 1f, 1f, (i * 255 / 200) / 255f);
             mirrorHealthText.color = new Color(139/255f, 139/255f, 139/255f, (i * 255 / 200) / 255f);
+            for (int j = 0; j < 12; j++)
+            {
+                Blockers[j].color = new Color(1f, 1f, 1f, (i * 255f / 200f * 0.2f) / 255f);
+            }
             EnemyAttacker.color = new Color(1f, 1f, 1f, (i * 255 / 200) / 255f);
             yield return new WaitForSeconds(0.005f);
         }
         FieldSeperator.color = new Color(0f, 0f, 0f, 200/255f);
         Mirror.color = new Color(1f, 1f, 1f, 1f);
         mirrorHealthText.color = new Color(139 / 255f, 139 / 255f, 139 / 255f, 1f);
+        for (int i = 0; i < 12; i++)
+        {
+            Blockers[i].color = new Color(1f, 1f, 1f, 0.2f);
+        }
         EnemyAttacker.color = new Color(1f, 1f, 1f, 1f);
         yield return new WaitForSeconds(1f);
         currentState = BattleState.EnemyTurn;
@@ -119,12 +131,20 @@ public class BattleController : MonoBehaviour {
             FieldSeperator.color = new Color(0f, 0f, 0f, i / 255f);
             Mirror.color = new Color(1f, 1f, 1f, (i * 255 / 200) / 255f);
             mirrorHealthText.color = new Color(139 / 255f, 139 / 255f, 139 / 255f, (i * 255 / 200) / 255f);
+            for(int j = 0; j < 12; j++)
+            {
+                Blockers[j].color = new Color(1f, 1f, 1f, (i * 255f/200f * 0.2f)/255f);
+            }
             EnemyAttacker.color = new Color(1f, 1f, 1f, (i * 255 / 200) / 255f);
             yield return new WaitForSeconds(0.005f);
         }
         FieldSeperator.color = new Color(0f, 0f, 0f, 0f);
         Mirror.color = new Color(1f, 1f, 1f, 0f);
         mirrorHealthText.color = new Color(139 / 255f, 139 / 255f, 139 / 255f, 0f);
+        for (int i = 0; i < 12; i++)
+        {
+            Blockers[i].color = new Color(1f, 1f, 1f, 0f);
+        }
         EnemyAttacker.color = new Color(1f, 1f, 1f, 0f);
         StartCoroutine(textBox.Dialogue(Enemy.playerTurnIdle[rand]));
         PTC.currentState = PlayerTurnController.MenuStates.MainSelect;
