@@ -356,7 +356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fleeable: 0
-  enemyHealth: 2
+  enemyHealth: 10
   enemyHealthMax: 2
   enemyEmotion: Anxiety
   enemyResistances: 010000000000000002000000020000000000000001000000

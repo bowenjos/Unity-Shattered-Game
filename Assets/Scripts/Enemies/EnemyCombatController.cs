@@ -128,22 +128,21 @@ public class EnemyCombatController : MonoBehaviour {
     public virtual IEnumerator SelectAttack()
     {
         numAttacks = 3;
-        int rand = Random.Range(0, numAttacks-1);
+        int rand = Random.Range(0, numAttacks);
         switch (rand)
         {
             case 0:
                 yield return new WaitForSeconds(1f);
                 yield return MoveToSetpoint(SetPoints[1], .2f);
                 SpawnDefaultProjectile();
-                yield return MoveToSetpoint(SetPoints[6], .2f);
-                SpawnDefaultProjectile();
-                yield return MoveToSetpoint(SetPoints[7], .2f);
-                SpawnDefaultProjectile();
-                yield return MoveToSetpoint(SetPoints[3], .2f);
+                yield return MoveToSetpoint(SetPoints[12], .2f);
                 SpawnDefaultProjectile();
                 yield return MoveToSetpoint(SetPoints[11], .2f);
                 SpawnDefaultProjectile();
-                yield return new WaitForSeconds(5f);
+                yield return MoveToSetpoint(SetPoints[1], .2f);
+                SpawnDefaultProjectile();
+                yield return MoveToSetpoint(SetPoints[3], .2f);
+                SpawnDefaultProjectile();
                 break;
             case 1:
                 yield return MoveToSetpoint(SetPoints[12], .1f);
@@ -155,7 +154,6 @@ public class EnemyCombatController : MonoBehaviour {
                 SpawnDefaultProjectile();
                 yield return MoveAroundRight(12, 9, .2f);
                 SpawnDefaultProjectile();
-                yield return new WaitForSeconds(5f);
                 break;
             case 2:
                 yield return MoveToSetpoint(SetPoints[12], .1f);
@@ -166,7 +164,6 @@ public class EnemyCombatController : MonoBehaviour {
                 SpawnDefaultProjectile();
                 yield return MoveToSetpoint(SetPoints[12], .2f);
                 SpawnDefaultProjectile();
-                yield return new WaitForSeconds(5f);
                 break;
         }
 
