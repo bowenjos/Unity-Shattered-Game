@@ -2268,7 +2268,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.04
+  m_Radius: 0.208
 --- !u!114 &768344576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2283,6 +2283,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageValue: 0
   bf: {fileID: 0}
+  mirror1: {fileID: 21300000, guid: 22c711b3e6a8c314d9480707d17969bf, type: 3}
+  mirror2: {fileID: 21300000, guid: cff1ccaa0d39f354b96ab7c057e7d46d, type: 3}
+  mirror3: {fileID: 21300000, guid: 91634ba2f899fdd43abffee7470bcd34, type: 3}
+  mirror4: {fileID: 21300000, guid: b9c139a32aed3eb42a9190237022c580, type: 3}
+  mirror5: {fileID: 21300000, guid: 1ffc9292254dad246b2860672d9c2e07, type: 3}
 --- !u!114 &768344577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2333,7 +2338,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 1c819ea001271174c956b0313aa8b9be, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 22c711b3e6a8c314d9480707d17969bf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2353,7 +2358,7 @@ Transform:
   m_GameObject: {fileID: 768344574}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 1485388408}
   m_RootOrder: 0
@@ -2375,7 +2380,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.25, y: 2.25}
+    oldSize: {x: 0.45, y: 0.45}
     newSize: {x: 2.25, y: 2.25}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
