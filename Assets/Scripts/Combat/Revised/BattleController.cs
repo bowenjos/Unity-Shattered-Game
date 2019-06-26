@@ -18,6 +18,7 @@ public class BattleController : MonoBehaviour {
     public SpriteRenderer Mirror;
     public SpriteRenderer EnemyAttacker;
     public Text mirrorHealthText;
+    public Text mirrorBorderText;
     public SpriteRenderer[] Blockers;
 
     public bool enemyTurnStart;
@@ -62,6 +63,7 @@ public class BattleController : MonoBehaviour {
         Mirror.color = new Color(1f, 1f, 1f, 0f);
         EnemyAttacker.color = new Color(1f, 1f, 1f, 0f);
         mirrorHealthText.color = new Color(139 / 255f, 139 / 255f, 139 / 255f, 0f);
+        mirrorBorderText.color = new Color(139 / 255f, 139 / 255f, 139 / 255f, 0f);
         Enemy = GameObject.Find("Enemy").GetComponent<EnemyCombatController>();
         Player = GameObject.Find("player(Clone)");
         Player.SetActive(false);
@@ -100,6 +102,7 @@ public class BattleController : MonoBehaviour {
             FieldSeperator.color = new Color(0f, 0f, 0f, i / 255f);
             Mirror.color = new Color(1f, 1f, 1f, (i * 255 / 200) / 255f);
             mirrorHealthText.color = new Color(139/255f, 139/255f, 139/255f, (i * 255 / 200) / 255f);
+            mirrorBorderText.color = new Color(1f, 1f, 1f, (i * 255 / 200) / 255f);
             for (int j = 0; j < 12; j++)
             {
                 Blockers[j].color = new Color(1f, 1f, 1f, (i * 255f / 200f * 0.2f) / 255f);
@@ -110,6 +113,7 @@ public class BattleController : MonoBehaviour {
         FieldSeperator.color = new Color(0f, 0f, 0f, 200/255f);
         Mirror.color = new Color(1f, 1f, 1f, 1f);
         mirrorHealthText.color = new Color(139 / 255f, 139 / 255f, 139 / 255f, 1f);
+        mirrorBorderText.color = new Color(1f, 1f, 1f, 1f);
         for (int i = 0; i < 12; i++)
         {
             Blockers[i].color = new Color(1f, 1f, 1f, 0.2f);
@@ -131,7 +135,8 @@ public class BattleController : MonoBehaviour {
             FieldSeperator.color = new Color(0f, 0f, 0f, i / 255f);
             Mirror.color = new Color(1f, 1f, 1f, (i * 255 / 200) / 255f);
             mirrorHealthText.color = new Color(139 / 255f, 139 / 255f, 139 / 255f, (i * 255 / 200) / 255f);
-            for(int j = 0; j < 12; j++)
+            mirrorBorderText.color = new Color(1f, 1f, 1f, (i * 255 / 200) / 255f);
+            for (int j = 0; j < 12; j++)
             {
                 Blockers[j].color = new Color(1f, 1f, 1f, (i * 255f/200f * 0.2f)/255f);
             }
@@ -141,6 +146,7 @@ public class BattleController : MonoBehaviour {
         FieldSeperator.color = new Color(0f, 0f, 0f, 0f);
         Mirror.color = new Color(1f, 1f, 1f, 0f);
         mirrorHealthText.color = new Color(139 / 255f, 139 / 255f, 139 / 255f, 0f);
+        mirrorBorderText.color = new Color(1f, 1f, 1f, 0f);
         for (int i = 0; i < 12; i++)
         {
             Blockers[i].color = new Color(1f, 1f, 1f, 0f);
