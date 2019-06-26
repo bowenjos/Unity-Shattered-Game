@@ -6,8 +6,10 @@ using UnityEngine.UI;
 
 public class TalkController : MonoBehaviour {
 
-    protected UnityEngine.UI.Text editText;
+    protected Text editText;
+    protected Text editSpriteText;
     public GameObject talkText;
+    public GameObject talkSpriteText;
     public GameObject talkCanvas;
     //public GameObject player;
     public GameObject headPanel;
@@ -49,6 +51,7 @@ public class TalkController : MonoBehaviour {
         //Get the edittable text component of the text gameobject from the talking ui;
         */
         editText = talkText.GetComponent<Text>();
+        editSpriteText = talkSpriteText.GetComponent<Text>();
         audioPlayer = this.gameObject.GetComponent<AudioSource>();
     }
 	
@@ -208,13 +211,15 @@ public class TalkController : MonoBehaviour {
         //Starts the wait for keydown function which ways for the player to push the Z button before continuing
         yield return StartCoroutine(WaitForKeyDown(KeyCode.Z));
         editText.text = "";
+        editSpriteText.text = "";
     }
 
     protected IEnumerator DialogueWithSprites(string text){
 
-        yield return StartCoroutine(AnimateText(text));
+        yield return StartCoroutine(AnimateSpriteText(text));
         yield return StartCoroutine(WaitForKeyDown(KeyCode.Z));
         editText.text = "";
+        editSpriteText.text = "";
     }
 
     /*******************
@@ -312,6 +317,82 @@ public class TalkController : MonoBehaviour {
         //Stop the coroutine that lets you skip past all the text if you don't want to watch it print
         StopCoroutine(co);
         editText.text = text;
+        editSpriteText.text = "";
+    }
+
+    protected IEnumerator AnimateSpriteText(string text)
+    {
+        //for each character in the dialogue string, 
+        //update the display string with the current string plus an extra character every 0.03 seconds
+
+        Coroutine co = StartCoroutine(SkipText(text));
+        yield return new WaitForEndOfFrame();
+        //For each character in the dialogue string
+        for (i = 0; i < (text.Length); i++)
+        {
+            //First, check to see if the character is the beginning (or beginning of the end) of a Markdown styliing
+            switch (text[i])
+            {
+                //If the character is < (the beginning of a markdown styling)
+                case '<':
+                    //If the text is not current marked
+                    if (marked == false)
+                    {
+                        //Begin markdown
+                        i = ResolveMarkdown(i, text);
+                    }
+                    else {
+                        //End Markdown
+                        i = FinishMarkdown(i, text);
+                    }
+                    break;
+                //If the character is not a markdown character
+                default:
+                    //If the text being written is currently styled with markdown
+                    if (marked == true)
+                    {
+                        //Append the markdown string to the end of the substring (EX: </color>)
+                        editSpriteText.text = text.Substring(0, i) + markdown;
+                    }
+                    else
+                    {
+                        //Act natural (print the current step of the typewritter text string
+                        editSpriteText.text = text.Substring(0, i);
+                    }
+                    break;
+            }
+
+            //If this character isn't the very first character
+            audioPlayer.Play();
+            if (i != 0)
+            {
+                //Check the last printed character
+                //This switch case essentially servers to add slight time delays after periods and commas, or defaults to the normal time delay
+                //I might/will probably add future functionality for variable delays, but I also might just do that in a different function, or maybe just put this in it's own function Generally
+                switch (text[i - 1])
+                {
+                    case ',':
+                        yield return new WaitForSeconds(0.2f);
+                        break;
+                    case '.':
+                        yield return new WaitForSeconds(0.3f);
+                        break;
+                    case '?':
+                        yield return new WaitForSeconds(0.3f);
+                        break;
+                    case '!':
+                        yield return new WaitForSeconds(0.3f);
+                        break;
+                    default:
+                        yield return new WaitForSeconds(0.02f);
+                        break;
+                }
+            }
+        }
+        //Stop the coroutine that lets you skip past all the text if you don't want to watch it print
+        StopCoroutine(co);
+        editSpriteText.text = text;
+        editText.text = "";
     }
 
     /********************
