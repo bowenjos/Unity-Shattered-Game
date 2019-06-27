@@ -60,24 +60,24 @@ public class WilliamSecondInteraction : CharacterInteraction {
         switch (GameControl.control.DPMainData.progression)
         {
             case 1:
-                yield return StartCoroutine(talkControl.StartDialogueSprite(dialogue[0], "default", 0, 0));
+                yield return StartCoroutine(talkControl.StartDialogueSprite(dialogue[0], "default", 1, 0));
                 GameControl.control.DPMainData.key = true;
                 Debug.Log("KEY DP");
                 yield return StartCoroutine(talkControl.StartDialogueSolo(new string[] { "You received the Dead Performance Key" }));
-                yield return StartCoroutine(talkControl.StartDialogueSprite(dialogue[1], "default", 0, 0));
+                yield return StartCoroutine(talkControl.StartDialogueSprite(dialogue[1], "default", 1, 0));
                 GameControl.control.Freeze();
                 yield return new WaitForSeconds(1f);
-                yield return StartCoroutine(talkControl.StartDialogueSprite(dialogue[2], "default", 0, 0));
+                yield return StartCoroutine(talkControl.StartDialogueSprite(dialogue[2], "default", 1, 0));
                 GameControl.control.DPMainData.progression = 2;
                 DestroyThis();
                 break;
             case 5:
-                yield return StartCoroutine(talkControl.StartDialogueSprite(dialogue[0], "default", 0, 0));
+                yield return StartCoroutine(talkControl.StartDialogueSprite(dialogue[0], "default", 1, 0));
                 GameControl.control.DPMainData.progression = 6;
                 DestroyThis();
                 break;
             default:
-                yield return StartCoroutine(talkControl.StartDialogueSprite(dialogue[0], "default", 0, 0));
+                yield return StartCoroutine(talkControl.StartDialogueSprite(dialogue[0], "default", 1, 0));
                 DestroyThis();
                 break;
         }

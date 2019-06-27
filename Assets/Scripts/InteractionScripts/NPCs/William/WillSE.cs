@@ -49,7 +49,7 @@ public class WillSE : CharacterInteraction
         switch (typeConvo)
         {
             case 0:
-                yield return StartCoroutine(talkControl.StartDialogueSprite(dialogue[0], "default", 0, 0));
+                yield return StartCoroutine(talkControl.StartDialogueSprite(dialogue[0], "default", 1, 0));
                 break;
         }
         anim.SetBool("Paused", false);

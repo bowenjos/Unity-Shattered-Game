@@ -243,11 +243,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnLeft: {fileID: 114781000110935550}
+    m_SelectOnRight: {fileID: 114781000110935550}
   m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -817,7 +817,6 @@ MonoBehaviour:
   talkSpriteText: {fileID: 459854353443002620}
   talkCanvas: {fileID: 1512786227823158}
   headPanel: {fileID: 1025609572002498}
-  headImage: {fileID: 1293942685155130}
   savePanel: {fileID: 1775824423197138}
   saveGamePanel: {fileID: 1461953861939212}
   savingPanel: {fileID: 1245596061700580}
@@ -831,6 +830,16 @@ MonoBehaviour:
   estro: {fileID: 12800000, guid: bdb86a35c7ecf0f449dbca15bfa7f6cf, type: 3}
   Vi: {fileID: 12800000, guid: 5b59a54b685fc2c43a588659306158af, type: 3}
   William: {fileID: 0}
+  talkSprite: {fileID: 114531377935531676}
+  neutral:
+  - {fileID: 21300000, guid: 4361ac7d38b3b0b45b992af54907608a, type: 3}
+  - {fileID: 21300000, guid: 16ddc0b5ead6dcd4eb9472f6db278a68, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!82 &82589616277397560
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1010,7 +1019,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1293942685155130}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 36ed723f5abb6344db5e8fcac96472b0, type: 2}
   m_CullingMode: 0
@@ -1707,11 +1716,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnLeft: {fileID: 114142084397317716}
+    m_SelectOnRight: {fileID: 114142084397317716}
   m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}

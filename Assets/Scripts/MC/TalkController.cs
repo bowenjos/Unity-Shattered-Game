@@ -13,7 +13,6 @@ public class TalkController : MonoBehaviour {
     public GameObject talkCanvas;
     //public GameObject player;
     public GameObject headPanel;
-    public GameObject headImage;
 
     public GameObject savePanel;
     public GameObject saveGamePanel;
@@ -37,6 +36,9 @@ public class TalkController : MonoBehaviour {
     private int i;
     private bool marked;
     private string markdown = "";
+
+    public Image talkSprite;
+    public Sprite[] neutral;
 
     enum DialogueStates { NoDialogue, SoloDialogue, SpriteDialogue, SaveDialogue, SavingDialogue };
     DialogueStates currentState;
@@ -123,11 +125,10 @@ public class TalkController : MonoBehaviour {
         GameControl.control.Freeze();
         //The dialogue window is made visible
         currentState = DialogueStates.SpriteDialogue;
+        SpriteChange(character, emotion);
         yield return new WaitForEndOfFrame();
         yield return new WaitForEndOfFrame();
         FontChange(newFont);
-        headImage.GetComponent<Animator>().SetInteger("Character", character);
-        headImage.GetComponent<Animator>().SetInteger("Mood", emotion);
 
         //Begin iterating over the dialogue lines
         foreach (string text in dialogue)
@@ -481,6 +482,20 @@ public class TalkController : MonoBehaviour {
                 editText.font = estro;
                 editText.fontSize = 55;
                 editText.lineSpacing = 1.2f;
+                break;
+        }
+    }
+
+    //Character: 0 Vi, 1 Will, 2 Yolanda, 3 Elise, 4 Thongsai, 5 Aeron, 6 Selene, 7 Des
+    //Mood: 0 Neutral,
+
+
+    protected void SpriteChange(int character, int mood)
+    {
+        switch (mood)
+        {
+            case 0:
+                talkSprite.sprite = neutral[character];
                 break;
         }
     }
