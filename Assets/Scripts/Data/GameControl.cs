@@ -13,6 +13,8 @@ public class GameControl : MonoBehaviour {
     public ViData ViData = new ViData();
     public WillData WillData = new WillData();
 
+    public EliseData EliseData = new EliseData();
+
     //ZoneData
     public ElevatorData ElevatorData = new ElevatorData();
     public DPMainData DPMainData = new DPMainData();
@@ -123,6 +125,8 @@ public class GameControl : MonoBehaviour {
 
         data.ElevatorData = ElevatorData;
         data.ViData = ViData;
+        data.WillData = WillData;
+        data.EliseData = EliseData;
 
         data.DPMainData = DPMainData;
         data.MainRoom = MainRoom;
@@ -160,6 +164,9 @@ public class GameControl : MonoBehaviour {
 
             ElevatorData = data.ElevatorData;
             ViData = data.ViData;
+            WillData = data.WillData;
+
+            EliseData = data.EliseData;
 
             DPMainData = data.DPMainData;
             MainRoom = data.MainRoom;
@@ -210,6 +217,9 @@ public class GameControl : MonoBehaviour {
 class PlayerData
 {
     public ViData ViData;
+    public WillData WillData;
+
+    public EliseData EliseData;
 
     public ElevatorData ElevatorData;
     public DPMainData DPMainData;

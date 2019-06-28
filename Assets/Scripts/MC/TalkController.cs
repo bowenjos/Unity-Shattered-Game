@@ -39,6 +39,7 @@ public class TalkController : MonoBehaviour {
 
     public Image talkSprite;
     public Sprite[] neutral;
+    public Sprite[] neutralNoMask;
 
     enum DialogueStates { NoDialogue, SoloDialogue, SpriteDialogue, SaveDialogue, SavingDialogue };
     DialogueStates currentState;
@@ -496,6 +497,9 @@ public class TalkController : MonoBehaviour {
         {
             case 0:
                 talkSprite.sprite = neutral[character];
+                break;
+            case 1:
+                talkSprite.sprite = neutralNoMask[character];
                 break;
         }
     }
