@@ -12,7 +12,7 @@ public class GameControl : MonoBehaviour {
     //NPCS
     public ViData ViData = new ViData();
     public WillData WillData = new WillData();
-
+    public YolandaData YolandaData = new YolandaData();
     public EliseData EliseData = new EliseData();
 
     //ZoneData
@@ -126,6 +126,7 @@ public class GameControl : MonoBehaviour {
         data.ElevatorData = ElevatorData;
         data.ViData = ViData;
         data.WillData = WillData;
+        data.YolandaData = YolandaData;
         data.EliseData = EliseData;
 
         data.DPMainData = DPMainData;
@@ -165,7 +166,7 @@ public class GameControl : MonoBehaviour {
             ElevatorData = data.ElevatorData;
             ViData = data.ViData;
             WillData = data.WillData;
-
+            YolandaData = data.YolandaData;
             EliseData = data.EliseData;
 
             DPMainData = data.DPMainData;
@@ -218,7 +219,7 @@ class PlayerData
 {
     public ViData ViData;
     public WillData WillData;
-
+    public YolandaData YolandaData;
     public EliseData EliseData;
 
     public ElevatorData ElevatorData;

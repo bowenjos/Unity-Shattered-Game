@@ -14,6 +14,8 @@ public class EliseSE : CharacterInteraction
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
+
         if (!GameControl.control.masks[2])
         {
             Destroy(this.gameObject);
@@ -44,15 +46,15 @@ public class EliseSE : CharacterInteraction
     public override IEnumerator StartInteraction()
     {
         talkControl = GameObject.Find("Talk UI(Clone)").GetComponent<TalkController>();
-        //anim.SetBool("Paused", true);
+        anim.SetBool("Paused", true);
         switch (typeConvo)
         {
             case 0:
                 yield return StartCoroutine(talkControl.StartDialogueSprite(dialogue[0], "default", 3, 1));
                 break;
         }
-        //anim.SetBool("Paused", false);
-        GameControl.control.WillData.SEConversationHad[convoNumber] = true;
+        anim.SetBool("Paused", false);
+        GameControl.control.EliseData.SEConversationHad[convoNumber] = true;
         dialogue = new string[1][];
         dialogue[0] = new string[] { "Sup." };
 

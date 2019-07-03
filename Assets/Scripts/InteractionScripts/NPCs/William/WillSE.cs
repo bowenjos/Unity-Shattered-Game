@@ -13,7 +13,6 @@ public class WillSE : CharacterInteraction
     void Start()
     {
         anim = GetComponent<Animator>();
-        
 
         if (!GameControl.control.masks[0])
         {
