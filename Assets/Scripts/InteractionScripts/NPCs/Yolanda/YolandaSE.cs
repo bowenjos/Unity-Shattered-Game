@@ -42,7 +42,7 @@ public class YolandaSE : CharacterInteraction
         switch (typeConvo)
         {
             case 0:
-                yield return StartCoroutine(talkControl.StartDialogueSprite(dialogue[0], "default", 2, 0));
+                yield return StartCoroutine(talkControl.StartDialogueSprite(dialogue[0], "default", 2, 1));
                 break;
         }
         //anim.SetBool("Paused", false);

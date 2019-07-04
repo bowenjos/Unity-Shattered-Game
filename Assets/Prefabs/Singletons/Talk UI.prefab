@@ -843,7 +843,7 @@ MonoBehaviour:
   neutralNoMask:
   - {fileID: 0}
   - {fileID: 21300000, guid: 0c8f28a0fbe946a4da5ee60c774c416b, type: 3}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 81ea4ed1045fb7647a8b487f28f6e96e, type: 3}
   - {fileID: 21300000, guid: c1040c63ed25cc847aa70a302418c535, type: 3}
   - {fileID: 0}
   - {fileID: 0}
