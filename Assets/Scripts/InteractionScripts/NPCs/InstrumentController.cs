@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class InstrumentController : MonoBehaviour {
 
-    bool changed;
-    Animator anim;
-    Light thisLight;
+    protected bool changed;
+    protected Animator anim;
+    protected Light thisLight;
 
     public Texture Cookie0;
     public Texture Cookie1;
@@ -31,7 +31,7 @@ public class InstrumentController : MonoBehaviour {
         
 	}
 
-    IEnumerator Change()
+    public virtual IEnumerator Change()
     {
         changed = true;
         int rand = Random.Range(0, 3);

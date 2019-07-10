@@ -4639,3 +4639,46 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e09dfdcf1c2aca478403f8907161469, type: 3}
+--- !u!1 &5717935019805661888 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3235959421246335932, guid: 8e09dfdcf1c2aca478403f8907161469,
+    type: 3}
+  m_PrefabInstance: {fileID: 5717935019805661887}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &5717935019805661889 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3235959421246335934, guid: 8e09dfdcf1c2aca478403f8907161469,
+    type: 3}
+  m_PrefabInstance: {fileID: 5717935019805661887}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5717935019805661890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5717935019805661888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cdc4b69b60cfea4aafcd93a5f8b6a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cookie0: {fileID: 0}
+  Cookie1: {fileID: 0}
+  thisSprite: {fileID: 5717935019805661889}
+  backSprite:
+  - {fileID: 21300000, guid: a9bf02e02811f954b9c8596d0f691a1d, type: 3}
+  - {fileID: 21300006, guid: a9bf02e02811f954b9c8596d0f691a1d, type: 3}
+  backCookie:
+  - {fileID: 2800000, guid: 4069f3cc779189e45ba71a8f8139c52f, type: 3}
+  - {fileID: 2800000, guid: c21b2df12f3a64047a70c00449d513a3, type: 3}
+  forthSprite:
+  - {fileID: 21300002, guid: a9bf02e02811f954b9c8596d0f691a1d, type: 3}
+  - {fileID: 21300004, guid: a9bf02e02811f954b9c8596d0f691a1d, type: 3}
+  forthCookie:
+  - {fileID: 2800000, guid: 50ece626627492f4dad131da46faacea, type: 3}
+  - {fileID: 2800000, guid: 60add21b76d5dc7408cd0eb2823bd6af, type: 3}
+  pausedSprite: {fileID: 21300000, guid: ec6a30709adfe9a46ada4b8cbc262c5a, type: 3}
+  pausedCookie: {fileID: 2800000, guid: 1bc965f1ca17d644d8172e544994b139, type: 3}
+  tempo: 130
+  paused: 0

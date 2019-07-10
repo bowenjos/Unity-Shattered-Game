@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class YolandaSE : CharacterInteraction
 {
-    Animator anim;
+    ViolinController anim;
     int typeConvo;
     int convoNumber;
 
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
+        anim = GetComponent<ViolinController>();
 
         if (!GameControl.control.masks[1])
         {
@@ -38,14 +38,14 @@ public class YolandaSE : CharacterInteraction
     public override IEnumerator StartInteraction()
     {
         talkControl = GameObject.Find("Talk UI(Clone)").GetComponent<TalkController>();
-        //anim.SetBool("Paused", true);
+        anim.paused = true;
         switch (typeConvo)
         {
             case 0:
                 yield return StartCoroutine(talkControl.StartDialogueSprite(dialogue[0], "default", 2, 1));
                 break;
         }
-        //anim.SetBool("Paused", false);
+        anim.paused = false;
         GameControl.control.YolandaData.SEConversationHad[convoNumber] = true;
         dialogue = new string[1][];
         dialogue[0] = new string[] { "Hello, Child." };
