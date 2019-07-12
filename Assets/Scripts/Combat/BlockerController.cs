@@ -58,6 +58,13 @@ public class BlockerController : MonoBehaviour
                 count++;
             }
         }
+        if(count == 0)
+        {
+            for(int i = 0; i < 12; i++)
+            {
+                BlockersBox[i].enabled = false;
+            }
+        }
         if(count == 1)
         {
             if (keys[0])
