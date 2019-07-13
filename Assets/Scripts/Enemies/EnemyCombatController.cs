@@ -84,18 +84,25 @@ public class EnemyCombatController : MonoBehaviour {
     {
         if (col.gameObject.name == "player(Clone)")
         {
-            GameControl.control.Freeze();
-            StartCoroutine(GameObject.Find("JukeBox(Clone)").GetComponent<JukeBoxController>().FadeOut(0.4f));
-            //Animation
-            this.gameObject.name = "Enemy";
-            this.gameObject.AddComponent<DontDestroy>();
-            Destroy(this.gameObject.GetComponent<BoxCollider2D>());
-            this.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0f);
-            SceneManager.LoadScene("Encounter");
+            StartCoroutine(BattleStart());
         }
     }
 
-	
+	public IEnumerator BattleStart()
+    {
+        GameControl.control.Freeze();
+        this.GetComponent<AudioSource>().Play();
+        StartCoroutine(GameObject.Find("JukeBox(Clone)").GetComponent<JukeBoxController>().FadeOut(0.4f));
+        yield return StartCoroutine(GameObject.Find("TransitionControl(Clone)").GetComponent<TransitionController>().EnterCombat());
+        //Animation
+        this.gameObject.name = "Enemy";
+        this.gameObject.AddComponent<DontDestroy>();
+        Destroy(this.gameObject.GetComponent<BoxCollider2D>());
+        this.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0f);
+        SceneManager.LoadScene("Encounter");
+    }
+
+
 	// Update is called once per frame
 	void Update () {
         if (GameControl.control.encounter)

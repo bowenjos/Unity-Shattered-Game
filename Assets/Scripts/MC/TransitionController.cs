@@ -18,6 +18,9 @@ public class TransitionController : MonoBehaviour {
     private JukeBoxController jukebox;
     private Coroutine co;
 
+    public RectTransform enterCombatZero;
+    public RectTransform enterCombatOne;
+
     void Start()
     {
         elevatorTransfer = false;
@@ -163,5 +166,18 @@ public class TransitionController : MonoBehaviour {
         
     }
 
+    public IEnumerator EnterCombat()
+    {
+        yield return null;
+        while (enterCombatOne.position.x >= 800)
+        {
+            enterCombatZero.position = new Vector2(enterCombatZero.position.x - 50, 540);
+            enterCombatOne.position = new Vector2(enterCombatOne.position.x - 50, 540);
+            yield return new WaitForSeconds(0.001f);
+        }
+        yield return StartCoroutine(transitionOut());
+        enterCombatZero.position = new Vector2(2000, 540);
+        enterCombatOne.position = new Vector2(5000, 540);
+    }
     
 }
