@@ -19,12 +19,17 @@ public class MirrorController : MonoBehaviour {
     public Sprite mirror3;
     public Sprite mirror4;
     public Sprite mirror5;
+
+    private AudioSource takeDamage;
+    private bool dying;
     
 
     // Use this for initialization
     void Start () {
         //contactFilter.useTriggers = false;
         //contactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer));
+        takeDamage = this.GetComponent<AudioSource>();
+        dying = false;
     }
 	
 	// Update is called once per frame
@@ -50,18 +55,29 @@ public class MirrorController : MonoBehaviour {
         {
             this.GetComponent<SpriteRenderer>().sprite = mirror5;
         }
-        if (GameControl.control.health <= 0)
+        if (GameControl.control.health <= 0 && !dying)
         {
-            //Play Shattered Effect
+            dying = true;
             StopAllCoroutines();
-            SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
-            Debug.Log("You have Shattered");
+            StartCoroutine(Die());
         }
 	}
+
+    IEnumerator Die()
+    {
+        BattleController.BC.DestroyPlayer();
+        yield return new WaitForSeconds(2f);
+        //Animate
+        GameObject.Find("TransitionControl(Clone)").GetComponent<TransitionController>().transitionNow();
+        SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+        Debug.Log("You have Shattered");
+        yield return null;
+    }
 
     void OnCollisionEnter2D(Collision2D col)
     {
         Debug.Log("Something entered");
+        takeDamage.Play();
         GameControl.control.health -= col.gameObject.GetComponent<DefaultAttack>().damageValue;
         this.GetComponent<Shake>().StartShake(.05f);
         Destroy(col.gameObject);
