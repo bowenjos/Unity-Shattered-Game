@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class EnemyCombatController : MonoBehaviour {
 
     //A Class for storing data relevant to Monster's
+    public AudioClip battleMusic;
 
     public bool fleeable;
 
@@ -92,7 +93,7 @@ public class EnemyCombatController : MonoBehaviour {
     {
         GameControl.control.Freeze();
         this.GetComponent<AudioSource>().Play();
-        StartCoroutine(GameObject.Find("JukeBox(Clone)").GetComponent<JukeBoxController>().FadeOut(0.4f));
+        StartCoroutine(GameObject.Find("JukeBox(Clone)").GetComponent<JukeBoxController>().PauseOut(0.4f));
         yield return StartCoroutine(GameObject.Find("TransitionControl(Clone)").GetComponent<TransitionController>().EnterCombat());
         //Animation
         this.gameObject.name = "Enemy";

@@ -88,6 +88,11 @@ public class JukeBoxController : MonoBehaviour {
         AS.Play();
     }
 
+    public void PauseSongPartway()
+    {
+        AS.Pause();
+    }
+
     public void ResumeSongPartway()
     {
         AS.UnPause();
@@ -125,6 +130,16 @@ public class JukeBoxController : MonoBehaviour {
             yield return new WaitForSeconds(0.1f);
         }
         AS.Stop();
+    }
+
+    public IEnumerator PauseOut(float vol)
+    {
+        for (float i = vol; i > 0; i -= 0.05f)
+        {
+            AS.volume = i;
+            yield return new WaitForSeconds(0.1f);
+        }
+        AS.Pause();
     }
 
     /***********

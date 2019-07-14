@@ -23,6 +23,9 @@ public class BattleController : MonoBehaviour {
 
     public bool enemyTurnStart;
 
+    public AudioSource BattleJukeBox;
+    public FanfareController fanfare;
+
     /*
     //Enemy Variables
     public int enemyHealthMax;
@@ -57,7 +60,6 @@ public class BattleController : MonoBehaviour {
             Destroy(gameObject);
         }
         
-
         Blockers = GameObject.Find("Blockers").GetComponentsInChildren<SpriteRenderer>();
         FieldSeperator.color = new Color(1f, 1f, 1f, 0f);
         Mirror.color = new Color(1f, 1f, 1f, 0f);
@@ -65,6 +67,8 @@ public class BattleController : MonoBehaviour {
         mirrorHealthText.color = new Color(139 / 255f, 139 / 255f, 139 / 255f, 0f);
         mirrorBorderText.color = new Color(139 / 255f, 139 / 255f, 139 / 255f, 0f);
         Enemy = GameObject.Find("Enemy").GetComponent<EnemyCombatController>();
+        BattleJukeBox.clip = Enemy.battleMusic;
+        BattleJukeBox.Play();
         Player = GameObject.Find("player(Clone)");
         Player.SetActive(false);
         currentState = BattleState.Neither;
@@ -75,6 +79,7 @@ public class BattleController : MonoBehaviour {
     void Start () {
         //Are you ready to Begin?
         PTC.currentState = PlayerTurnController.MenuStates.EnemyTurn;
+        //Play battle music
         StartCoroutine(BattleStart());
 
 	}
@@ -166,19 +171,22 @@ public class BattleController : MonoBehaviour {
     public IEnumerator ResolveCombat()
     {
         Enemy.ResolveEnemy();
+        BattleJukeBox.Stop();
+        fanfare.PlayFanfare();
         yield return StartCoroutine(textBox.Dialogue(Enemy.outroDialogue));
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(4f);
         int actualMoney = Enemy.rewardMoney * (GameControl.control.numMasks + 1) + ((int)Random.Range(-GameControl.control.numMasks, Mathf.Pow(GameControl.control.numMasks, 2f))) + (int)Random.Range(-GameControl.control.numMasks, GameControl.control.numMasks);
         yield return StartCoroutine(textBox.Dialogue("You received " + actualMoney + " GD."));
         GameControl.control.money += actualMoney;
+        yield return new WaitForSeconds(4f);
         //Item drop?
         TransitionController TC = GameObject.Find("TransitionControl(Clone)").GetComponent<TransitionController>();
+        GameObject.Find("JukeBox(Clone)").GetComponent<JukeBoxController>().ResumeSongPartway();
         StartCoroutine(GameObject.Find("JukeBox(Clone)").GetComponent<JukeBoxController>().FadeIn(0.4f));
         yield return StartCoroutine(TC.transitionOut());
         Destroy(BattleCamera);
         Player.SetActive(true);
         GameControl.control.Unfreeze();
-        //StartCoroutine(GameObject.Find("JukeBox(Clone)").GetComponent<JukeBoxController>().FadeIn(0.4f));
         SceneManager.LoadScene(GameControl.control.room.ToString());
 
         yield return null;
