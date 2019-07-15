@@ -5,7 +5,7 @@ using UnityEngine;
 public class DPMechanicRoomStopMusic : StopMusicTrigger
 {
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (GameControl.control.DPMainData.progression < 1 || GameControl.control.DPMainData.progression > 5)
         {

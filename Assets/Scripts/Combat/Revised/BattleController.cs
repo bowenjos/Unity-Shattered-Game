@@ -168,6 +168,12 @@ public class BattleController : MonoBehaviour {
         Enemy.enemyHealth -= value;
     }
 
+    public void DestroyPlayer()
+    {
+        Player.SetActive(true);
+        Destroy(Player);
+    }
+
     public IEnumerator ResolveCombat()
     {
         Enemy.ResolveEnemy();

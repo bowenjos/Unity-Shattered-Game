@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OverlayController : MonoBehaviour {
 
@@ -13,23 +14,32 @@ public class OverlayController : MonoBehaviour {
 
     RectTransform lensSelectorRT;
     RectTransform[] lensicons;
+    Image[] lensIconsImage;
 
     private Coroutine co;
 
 	// Use this for initialization
 	void Start () {
         lensicons = LensPanel.GetComponentsInChildren<RectTransform>();
+        lensIconsImage = LensPanel.GetComponentsInChildren<Image>();
         lensSelectorRT = LensSelector.GetComponentInChildren<RectTransform>();
         timerBarRT = LensBar.GetComponent<RectTransform>();
 
         LensPanel.SetActive(false);
         TimerPanel.SetActive(false);
+
+        for(int i = 0; i < 7; i++)
+        {
+            lensIconsImage[i+2].color = new Color(1f, 1f, 1f, 0f);
+        }
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (!(GameControl.control.encounter || GameControl.control.frozen || GameControl.control.paused))
         {
+
+
             if (Input.GetKeyDown(KeyCode.Alpha1) && GameControl.control.lens[0])
             {
                 setLensSelector(0);
@@ -71,6 +81,7 @@ public class OverlayController : MonoBehaviour {
 
     public void setLensSelector(int lens)
     {
+        setDisplayLens();
         GameControl.control.curLens = lens;
         if(co != null)
         {
@@ -81,6 +92,17 @@ public class OverlayController : MonoBehaviour {
         //(+3 because lenselector and lensPanel occupy 0 and 1 so everything is offset by 2)
         lensSelectorRT.anchorMax = lensicons[lens+2].anchorMax;
         lensSelectorRT.anchorMin = lensicons[lens+2].anchorMin;
+    }
+
+    public void setDisplayLens()
+    {
+        for(int i = 0; i < 7; i++)
+        {
+            if (GameControl.control.lens[i])
+            {
+                lensIconsImage[i+2].color = new Color(1f, 1f, 1f, 1f);
+            }
+        }
     }
 
     public IEnumerator timerDisplayOn(float time)

@@ -265,13 +265,11 @@ public class PlayerController : MonoBehaviour {
 
     IEnumerator Push(int dir, int count, KeyCode keyPressed)
     {
+        Pushable tempObject;
         pushing = true;
-        //Check to see if the object in front of the player is pushable
-        if(hitBuffer[0].collider.transform.gameObject.GetComponent<Pushable>() != null)
-        {
-            //If the object is pushable set that object's variable "beingPushed" to true
-            hitBuffer[0].collider.transform.gameObject.GetComponent<Pushable>().beingPushed = true;
-        }
+        //Gets the pushable object and stores it temporarily
+        tempObject = hitBuffer[0].collider.transform.gameObject.GetComponent<Pushable>();
+        tempObject.beingPushed = true;
         //While the player continues to hold the directional key
         while (Input.GetKey(keyPressed))
         {
@@ -299,7 +297,7 @@ public class PlayerController : MonoBehaviour {
             yield return null;
         }
         //Once no longer pushing, set the object being pushed back to false and remove the animation
-        hitBuffer[0].collider.transform.gameObject.GetComponent<Pushable>().beingPushed = false;
+        tempObject.beingPushed = false;
         pushing = false;
         animator.SetBool("pushing", false);
     }
