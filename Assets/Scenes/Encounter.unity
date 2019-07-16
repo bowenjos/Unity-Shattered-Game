@@ -2603,6 +2603,11 @@ MonoBehaviour:
   mirror3: {fileID: 21300000, guid: 91634ba2f899fdd43abffee7470bcd34, type: 3}
   mirror4: {fileID: 21300000, guid: b9c139a32aed3eb42a9190237022c580, type: 3}
   mirror5: {fileID: 21300000, guid: 1ffc9292254dad246b2860672d9c2e07, type: 3}
+  dieSprites:
+  - {fileID: 21300000, guid: 992b03dc544dac74ca3a7708b5d6650e, type: 3}
+  - {fileID: 21300000, guid: 1cfe19c10d258664d97e70a2cbcc606c, type: 3}
+  - {fileID: 21300000, guid: 4c7cdd12147aa014dbe7e69797be9fcc, type: 3}
+  - {fileID: 21300000, guid: 63974dbf0d5043843bed63b09aa01108, type: 3}
 --- !u!114 &768344577
 MonoBehaviour:
   m_ObjectHideFlags: 0

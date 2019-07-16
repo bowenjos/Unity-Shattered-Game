@@ -20,9 +20,12 @@ public class MirrorController : MonoBehaviour {
     public Sprite mirror4;
     public Sprite mirror5;
 
+
+    public Sprite[] dieSprites;
     private AudioSource takeDamage;
     private bool dying;
     
+    private SpriteRenderer mirrorSprite;
 
     // Use this for initialization
     void Start () {
@@ -30,6 +33,7 @@ public class MirrorController : MonoBehaviour {
         //contactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer));
         takeDamage = this.GetComponent<AudioSource>();
         dying = false;
+        mirrorSprite = this.GetComponent<SpriteRenderer>();
     }
 	
 	// Update is called once per frame
@@ -37,23 +41,23 @@ public class MirrorController : MonoBehaviour {
 
         if(GameControl.control.health >= GameControl.control.maxHealth * 0.8f)
         {
-            this.GetComponent<SpriteRenderer>().sprite = mirror1;
+            mirrorSprite.sprite = mirror1;
         }
         else if(GameControl.control.health >= GameControl.control.maxHealth * 0.6f)
         {
-            this.GetComponent<SpriteRenderer>().sprite = mirror2;
+            mirrorSprite.sprite = mirror2;
         }
         else if (GameControl.control.health >= GameControl.control.maxHealth * 0.4f)
         {
-            this.GetComponent<SpriteRenderer>().sprite = mirror3;
+            mirrorSprite.sprite = mirror3;
         }
         else if (GameControl.control.health >= GameControl.control.maxHealth * 0.2f)
         {
-            this.GetComponent<SpriteRenderer>().sprite = mirror4;
+            mirrorSprite.sprite = mirror4;
         }
-        else if (GameControl.control.health >= 0f)
+        else if (GameControl.control.health >= 0f && !dying)
         {
-            this.GetComponent<SpriteRenderer>().sprite = mirror5;
+            mirrorSprite.sprite = mirror5;
         }
         if (GameControl.control.health <= 0 && !dying)
         {
@@ -66,8 +70,21 @@ public class MirrorController : MonoBehaviour {
     IEnumerator Die()
     {
         BattleController.BC.DestroyPlayer();
-        yield return new WaitForSeconds(2f);
+        //while(GameObject.Find("Attack(Clone)") != null)
+        //{
+        //    Destroy(GameObject.Find("Attack(Clone)"));
+        //}
+        GameObject.Find("BattleJukeBox").GetComponent<AudioSource>().Stop();
+        GameObject.Find("mirrorText").GetComponent<Text>().color = new Color(1f, 1f, 1f, 0f);
+        GameObject.Find("mirrorBorderText").GetComponent<Text>().color = new Color(1f, 1f, 1f, 0f);
         //Animate
+        for (int i = 0; i < 4; i++)
+        {
+            mirrorSprite.sprite = dieSprites[i];
+            takeDamage.Play();
+            yield return new WaitForSeconds(.3f);
+        }
+        
         GameObject.Find("TransitionControl(Clone)").GetComponent<TransitionController>().transitionNow();
         SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
         Debug.Log("You have Shattered");
