@@ -9,10 +9,12 @@ public class EnemyCombatController : MonoBehaviour {
     public AudioClip battleMusic;
 
     public bool fleeable;
+    public int enemyNumber;
 
     public double enemyHealth;
     public double enemyHealthMax;
     public string enemyEmotion;
+    //0 - weak, 1 - normal, 2 - resistant
     public int[] enemyResistances;
     public int enemyLevel;
     public int numAttacks;
@@ -37,8 +39,8 @@ public class EnemyCombatController : MonoBehaviour {
 
     public GameObject AttackPrefab;
 
-    private Transform[] SetPoints;
-    private Transform EnemyAttackSprite;
+    protected Transform[] SetPoints;
+    protected Transform EnemyAttackSprite;
 
     //START
 
@@ -57,6 +59,7 @@ public class EnemyCombatController : MonoBehaviour {
             EnemyAttackSprite = GameObject.Find("EnemyAttackPhaseSprite").GetComponent<Transform>();
             GameObject.Find("EnemyAttackPhaseSprite").GetComponent<SpriteRenderer>().sprite = enemyTurnSprite;
             GameObject.Find("EnemySprite").GetComponent<SpriteRenderer>().sprite = enemyMainSprite;
+            GameObject.Find("BattleJukeBox").GetComponent<AudioSource>().clip = battleMusic;
         }
         else
         {
@@ -66,7 +69,6 @@ public class EnemyCombatController : MonoBehaviour {
 
 	// Same as above, however the check is performed ideal when the scene is changed to the combat scene
 	void OnSceneLoaded (Scene aScene, LoadSceneMode aMode) {
-        Debug.Log("Scene Laoded");
         if(aScene.name == "Encounter")
         {
             GameControl.control.encounter = true;
@@ -122,6 +124,7 @@ public class EnemyCombatController : MonoBehaviour {
     public virtual void ResolveEnemy()
     {
         GameControl.control.MainRoom.monikaAlive = false;
+        Debug.Log("Enemy defeated");
     }
 
     //All actions performed on an Enemies turn
@@ -142,36 +145,36 @@ public class EnemyCombatController : MonoBehaviour {
             case 0:
                 yield return new WaitForSeconds(1f);
                 yield return MoveToSetpoint(SetPoints[1], .2f);
-                SpawnDefaultProjectile();
+                SpawnDefaultProjectile(3f);
                 yield return MoveToSetpoint(SetPoints[12], .2f);
-                SpawnDefaultProjectile();
+                SpawnDefaultProjectile(3f);
                 yield return MoveToSetpoint(SetPoints[11], .2f);
-                SpawnDefaultProjectile();
+                SpawnDefaultProjectile(3f);
                 yield return MoveToSetpoint(SetPoints[1], .2f);
-                SpawnDefaultProjectile();
+                SpawnDefaultProjectile(3f);
                 yield return MoveToSetpoint(SetPoints[3], .2f);
-                SpawnDefaultProjectile();
+                SpawnDefaultProjectile(3f);
                 break;
             case 1:
                 yield return MoveToSetpoint(SetPoints[12], .1f);
                 yield return MoveAroundRight(3, 12, .2f);
-                SpawnDefaultProjectile();
+                SpawnDefaultProjectile(3f);
                 yield return MoveAroundRight(6, 3, .2f);
-                SpawnDefaultProjectile();
+                SpawnDefaultProjectile(3f);
                 yield return MoveAroundRight(9, 6, .2f);
-                SpawnDefaultProjectile();
+                SpawnDefaultProjectile(3f);
                 yield return MoveAroundRight(12, 9, .2f);
-                SpawnDefaultProjectile();
+                SpawnDefaultProjectile(3f);
                 break;
             case 2:
                 yield return MoveToSetpoint(SetPoints[12], .1f);
-                SpawnDefaultProjectile();
+                SpawnDefaultProjectile(3f);
                 yield return MoveAroundRight(9, 12, .2f);
-                SpawnDefaultProjectile();
+                SpawnDefaultProjectile(3f);
                 yield return MoveAroundLeft(3, 9, .2f);
-                SpawnDefaultProjectile();
+                SpawnDefaultProjectile(3f);
                 yield return MoveToSetpoint(SetPoints[12], .2f);
-                SpawnDefaultProjectile();
+                SpawnDefaultProjectile(3f);
                 break;
         }
 
@@ -250,9 +253,11 @@ public class EnemyCombatController : MonoBehaviour {
 
 
     //Spawn the default projectile
-    void SpawnDefaultProjectile()
+    protected void SpawnDefaultProjectile(float speed)
     {
         GameObject attack = Instantiate(AttackPrefab);
+        attack.name = "Attack";
+        attack.GetComponent<DefaultAttack>().speed = speed;
         attack.GetComponent<Transform>().position = EnemyAttackSprite.transform.position;
     }
 
@@ -261,7 +266,7 @@ public class EnemyCombatController : MonoBehaviour {
         do
         {
             yield return null;
-        } while (GameObject.Find("Attack(Clone)") != null);
+        } while (GameObject.Find("Attack") != null);
     }
 
 }

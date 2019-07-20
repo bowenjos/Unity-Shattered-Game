@@ -171,8 +171,8 @@ public class TransitionController : MonoBehaviour {
         yield return null;
         while (enterCombatOne.position.x >= 800)
         {
-            enterCombatZero.position = new Vector2(enterCombatZero.position.x - 50, 540);
-            enterCombatOne.position = new Vector2(enterCombatOne.position.x - 50, 540);
+            enterCombatZero.position = new Vector2(enterCombatZero.position.x - 100, 540);
+            enterCombatOne.position = new Vector2(enterCombatOne.position.x - 100, 540);
             yield return new WaitForSeconds(0.001f);
         }
         yield return StartCoroutine(transitionOut());

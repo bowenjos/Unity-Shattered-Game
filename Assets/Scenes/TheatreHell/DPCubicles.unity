@@ -205,32 +205,32 @@ PrefabInstance:
     - target: {fileID: 114208935716878952, guid: 705ffea0792f68f419e09aa357f1ecdb,
         type: 3}
       propertyPath: masks.Array.data[2]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114208935716878952, guid: 705ffea0792f68f419e09aa357f1ecdb,
         type: 3}
       propertyPath: masks.Array.data[5]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114208935716878952, guid: 705ffea0792f68f419e09aa357f1ecdb,
         type: 3}
       propertyPath: masks.Array.data[1]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114208935716878952, guid: 705ffea0792f68f419e09aa357f1ecdb,
         type: 3}
       propertyPath: masks.Array.data[3]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114208935716878952, guid: 705ffea0792f68f419e09aa357f1ecdb,
         type: 3}
       propertyPath: masks.Array.data[4]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114208935716878952, guid: 705ffea0792f68f419e09aa357f1ecdb,
         type: 3}
       propertyPath: masks.Array.data[6]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 705ffea0792f68f419e09aa357f1ecdb, type: 3}
@@ -343,9 +343,9 @@ GameObject:
   m_Component:
   - component: {fileID: 729613344}
   - component: {fileID: 729613343}
-  - component: {fileID: 729613342}
   - component: {fileID: 729613341}
   - component: {fileID: 729613345}
+  - component: {fileID: 729613342}
   m_Layer: 0
   m_Name: m_sticker_1-2
   m_TagString: Untagged
@@ -388,38 +388,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 729613340}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa99a44ff6d49154390b3fd66dce07bc, type: 3}
+  m_Script: {fileID: 11500000, guid: eaca1a0ff20729d48ae8b604c0bc16bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battleMusic: {fileID: 8300000, guid: 21825e04ec9bd624091fc26402c0b0f2, type: 3}
+  battleMusic: {fileID: 8300000, guid: 1aaa635a25b36ce44bbf7e852ec66c11, type: 3}
   fleeable: 0
-  enemyHealth: 3
-  enemyHealthMax: 3
-  enemyEmotion: Anxiety
-  enemyResistances: 010000000000000002000000020000000000000001000000
-  enemyLevel: 1
-  numAttacks: 3
-  rewardMoney: 10
-  enemyMainSprite: {fileID: 21300000, guid: 5d0e0265c733c22488d5d33769f4ab67, type: 3}
-  enemyTurnSprite: {fileID: 21300000, guid: 38a4810f299262c47951f10d8a8b139e, type: 3}
-  introDialogue: Just Monika.
-  outroDialogue: Thank you.
-  talkDialogue:
-  - You said Hello.
-  sitDialogue:
-  - You sit with Monika
-  hugDialogue:
-  - You give Monika a hug.
-  actDialogue:
-  - You brush Monika's hair.
-  affirmDialogue:
-  - You tell Monika she is cool.
-  giftDialogue:
-  - You give Monika a poem.
-  playerTurnIdle:
-  - Just Monika.
-  - Everyday, I dream a dream where I can be with you.
-  - You feel your poem related sins crawling on your back.
+  enemyNumber: 0
+  enemyHealth: 0
+  enemyHealthMax: 0
+  enemyEmotion: 
+  enemyResistances: 
+  enemyLevel: 0
+  numAttacks: 0
+  rewardMoney: 0
+  enemyMainSprite: {fileID: 21300000, guid: ea3b237735773f8439501b56d1befe21, type: 3}
+  enemyTurnSprite: {fileID: 21300000, guid: cf61faf83b9e51043a0ce82b1a307de6, type: 3}
+  introDialogue: 
+  outroDialogue: 
+  talkDialogue: []
+  sitDialogue: []
+  hugDialogue: []
+  actDialogue: []
+  affirmDialogue: []
+  giftDialogue: []
+  playerTurnIdle: []
   AttackPrefab: {fileID: 2741512404559130908, guid: 2626eacf58437cf4fa6900a4fed2bfbb,
     type: 3}
 --- !u!212 &729613343

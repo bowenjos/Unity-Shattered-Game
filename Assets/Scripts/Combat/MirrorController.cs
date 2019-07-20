@@ -78,11 +78,14 @@ public class MirrorController : MonoBehaviour {
         GameObject.Find("mirrorText").GetComponent<Text>().color = new Color(1f, 1f, 1f, 0f);
         GameObject.Find("mirrorBorderText").GetComponent<Text>().color = new Color(1f, 1f, 1f, 0f);
         //Animate
-        for (int i = 0; i < 4; i++)
+        mirrorSprite.sprite = dieSprites[0];
+        takeDamage.Play();
+        yield return new WaitForSeconds(1.5f);
+        for (int i = 1; i < 4; i++)
         {
             mirrorSprite.sprite = dieSprites[i];
             takeDamage.Play();
-            yield return new WaitForSeconds(.3f);
+            yield return new WaitForSeconds(.5f);
         }
         
         GameObject.Find("TransitionControl(Clone)").GetComponent<TransitionController>().transitionNow();
