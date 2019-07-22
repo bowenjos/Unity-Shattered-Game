@@ -17,7 +17,7 @@ public class JitterbugData : EnemyCombatController
         talkDialogue[1] = "You ask them how they're doing, and instead of responding they just scream.";
         talkDialogue[2] = "Jitterbug vibrates so loudly you can't even hear yourself think.";
         sitDialogue = new string[2];
-        sitDialogue[0] = "Sitting close to them, they can feel your calmness, it resonates through the both of you. It could just be the jittering though.";
+        sitDialogue[0] = "You can feel your calmness, it resonates through the both of you. It could just be the jittering though.";
         sitDialogue[1] = "As soon as your butt hits the ground jitterbug stops and stares at you, turning their head to the side.";
         hugDialogue = new string[2];
         hugDialogue[0] = "You're both vibrating now, but it's not entirely unpleasant. But definitly at least a little bit.";
@@ -28,7 +28,7 @@ public class JitterbugData : EnemyCombatController
         affirmDialogue[0] = "You tell Jitterbug they'd make a great dancer. They blush.";
         affirmDialogue[1] = "Jitterbug busts a move. You clap.";
         giftDialogue = new string[1];
-        giftDialogue[0] = "You give Jitterbug some new dance shoes you made from the objects you found lying around, but mostly they just look embarrassed.";
+        giftDialogue[0] = "You give Jitterbug some new dance shoes, but mostly they just look embarrassed.";
 
         playerTurnIdle = new string[5];
         playerTurnIdle[0] = "Jitterbug taps their feet anxiously.";

@@ -17,6 +17,7 @@ public class BattleController : MonoBehaviour {
     public Image FieldSeperator;
     public SpriteRenderer Mirror;
     public SpriteRenderer EnemyAttacker;
+    public SpriteRenderer EnemySprite;
     public Text mirrorHealthText;
     public Text mirrorBorderText;
     public SpriteRenderer[] Blockers;
@@ -176,6 +177,7 @@ public class BattleController : MonoBehaviour {
 
     public IEnumerator ResolveCombat()
     {
+        EnemySprite.color = new Color(1f, 1f, 1f, 0.5f);
         Enemy.ResolveEnemy();
         BattleJukeBox.Stop();
         fanfare.PlayFanfare();

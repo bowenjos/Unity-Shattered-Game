@@ -7,6 +7,8 @@ public class EnemyCombatController : MonoBehaviour {
 
     //A Class for storing data relevant to Monster's
     public AudioClip battleMusic;
+    public Sprite backgroundSprite;
+    public Sprite midgroundSprite;
 
     public bool fleeable;
     public int enemyNumber;
@@ -60,6 +62,8 @@ public class EnemyCombatController : MonoBehaviour {
             GameObject.Find("EnemyAttackPhaseSprite").GetComponent<SpriteRenderer>().sprite = enemyTurnSprite;
             GameObject.Find("EnemySprite").GetComponent<SpriteRenderer>().sprite = enemyMainSprite;
             GameObject.Find("BattleJukeBox").GetComponent<AudioSource>().clip = battleMusic;
+            GameObject.Find("Background").GetComponent<SpriteRenderer>().sprite = backgroundSprite;
+            GameObject.Find("Midground").GetComponent<SpriteRenderer>().sprite = midgroundSprite;
         }
         else
         {
