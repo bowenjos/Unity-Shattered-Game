@@ -17,7 +17,6 @@ public class EnemyWalk : MonoBehaviour
 
     public bool moving;
     public bool aggro;
-    public bool hopping;
 
     protected Coroutine co;
 
@@ -29,20 +28,22 @@ public class EnemyWalk : MonoBehaviour
         }
  
         enemyRange = range.bounds;
-        hopping = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!moving && !aggro)
+
+        if (!moving && !aggro)
         {
             Vector3 destination = RandomPointInBounds(enemyRange);
-            Debug.Log("Destination: " + destination);
+            //Debug.Log("Move");
             co = StartCoroutine(Move(destination));
         }
-        if (aggro)
+        else if (aggro)
         {
+            moving = false;
+            //Debug.Log("Kill");
             StopCoroutine(co);
         }
     }
@@ -64,6 +65,10 @@ public class EnemyWalk : MonoBehaviour
         }
         while (!(Vector3.Distance(enemyTransform.position, destination) < 0.01f))
         {
+            while (GameControl.control.paused)
+            {
+                yield return null;
+            }
             enemyTransform.position = Vector3.MoveTowards(enemyTransform.position, destination, speed);
             yield return new WaitForSeconds(.01f);
         }
@@ -82,6 +87,7 @@ public class EnemyWalk : MonoBehaviour
             );
     }
 
+    /*
     public IEnumerator Hop()
     {
         hopping = true;
@@ -100,4 +106,6 @@ public class EnemyWalk : MonoBehaviour
         enemyTransform.position = new Vector3(x, y, y);
         hopping = false;
     }
+    */
+    
 }

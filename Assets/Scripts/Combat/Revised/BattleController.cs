@@ -101,7 +101,6 @@ public class BattleController : MonoBehaviour {
 
     public IEnumerator EndTurnPlayer()
     {
-        Debug.Log("End Player Turn");
 
         for (float i = 0f; i < 200f; i += 20f)
         {
@@ -133,7 +132,6 @@ public class BattleController : MonoBehaviour {
 
     public IEnumerator EndTurnEnemy()
     {
-        Debug.Log("End Enemy Turn");
         int rand = Random.Range(0, Enemy.playerTurnIdle.Length);
         currentState = BattleState.PlayerTurn;
         for (float i = 200f; i > 0f; i -= 20f)

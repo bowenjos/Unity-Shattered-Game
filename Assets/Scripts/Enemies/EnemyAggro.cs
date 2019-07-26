@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyAggro : MonoBehaviour
 {
@@ -8,12 +9,17 @@ public class EnemyAggro : MonoBehaviour
     public EnemyWalk enemyWalk;
     public Transform enemyTransform;
     public Animator anim;
+    public Animator animAggro;
 
     protected bool moved;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (SceneManager.GetActiveScene().name == "Encounter")
+        {
+            Destroy(this);
+        }
         moved = false;
     }
 
@@ -22,19 +28,21 @@ public class EnemyAggro : MonoBehaviour
     {
 
     }
+
+
     public void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.name == "player(Clone)")
         {
             enemyWalk.aggro = true;
-            StartCoroutine(enemyWalk.Hop());
+            animAggro.SetBool("Aggro", true);
         }
     }
 
     public void OnTriggerStay2D(Collider2D col)
     {
         
-        if (col.gameObject.name == "player(Clone)" && !enemyWalk.hopping && !moved)
+        if (col.gameObject.name == "player(Clone)" && !moved && !GameControl.control.paused)
         {
             anim.SetBool("walking", true);
             StartCoroutine(Move(col));
@@ -55,15 +63,17 @@ public class EnemyAggro : MonoBehaviour
         enemyTransform.position = Vector3.MoveTowards(enemyTransform.position, col.transform.position, 3 * enemyWalk.speed);
         yield return new WaitForSeconds(0.01f);
         moved = false;
+        
     }
 
     public void OnTriggerExit2D(Collider2D col)
     {
         if (col.gameObject.name == "player(Clone)")
         {
-            enemyWalk.aggro = false;
+            
             enemyWalk.moving = false;
             anim.SetBool("walking", false);
+            animAggro.SetBool("Aggro", false);
         }
         
     }

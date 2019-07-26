@@ -13,7 +13,7 @@ public class JitterbugData : EnemyCombatController
         introDialogue = "Jitterbug jitters close.";
         outroDialogue = "Jitterbug stops jittering.";
         talkDialogue = new string[3];
-        talkDialogue[0] = "You open your mouth to speak, but Jitterbug lets out a loud cricket before you can open your mouth.";
+        talkDialogue[0] = "You open your mouth to speak, but Jitterbug lets out a loud cricket before you can say anything.";
         talkDialogue[1] = "You ask them how they're doing, and instead of responding they just scream.";
         talkDialogue[2] = "Jitterbug vibrates so loudly you can't even hear yourself think.";
         sitDialogue = new string[2];

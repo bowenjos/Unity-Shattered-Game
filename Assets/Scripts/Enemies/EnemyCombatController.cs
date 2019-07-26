@@ -50,6 +50,7 @@ public class EnemyCombatController : MonoBehaviour {
     {
         if (!GameControl.control.MainRoom.monikaAlive)
         {
+            Destroy(GetComponentInChildren<Transform>().gameObject);
             Destroy(this.gameObject);
         }
         SceneManager.sceneLoaded += OnSceneLoaded;
