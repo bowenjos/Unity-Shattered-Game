@@ -37,6 +37,9 @@ public class TalkController : MonoBehaviour {
     private bool marked;
     private string markdown = "";
 
+    private string colorStart = "<color=#616161>";
+    private string colorEnd = "</color>";
+
     public Image talkSprite;
     public Sprite[] neutral;
     public Sprite[] neutralNoMask;
@@ -263,14 +266,22 @@ public class TalkController : MonoBehaviour {
                 //If the character is < (the beginning of a markdown styling)
                 case '<':
                     //If the text is not current marked
-                    if (marked == false)
+                    if (text[i + 1] != 'b')
                     {
-                        //Begin markdown
-                        i = ResolveMarkdown(i, text);
+                        if (marked == false)
+                        {
+                            //Begin markdown
+                            i = ResolveMarkdown(i, text);
+                        }
+                        else
+                        {
+                            //End Markdown
+                            i = FinishMarkdown(i, text);
+                        }
                     }
-                    else {
-                        //End Markdown
-                        i = FinishMarkdown(i, text);
+                    else
+                    {
+                        i += 4;
                     }
                     break;
                 //If the character is not a markdown character
@@ -279,12 +290,12 @@ public class TalkController : MonoBehaviour {
                     if (marked == true)
                     {
                         //Append the markdown string to the end of the substring (EX: </color>)
-                        editText.text = text.Substring(0, i) + markdown;
+                        editText.text = text.Substring(0, i) + markdown + colorStart + text.Substring(i, text.Length-i) + colorEnd;
                     }
                     else
                     {
                         //Act natural (print the current step of the typewritter text string
-                        editText.text = text.Substring(0, i);
+                        editText.text = text.Substring(0, i) + colorStart + text.Substring(i, text.Length-i) + colorEnd;
                     }
                     break;
             }
@@ -338,6 +349,7 @@ public class TalkController : MonoBehaviour {
                 //If the character is < (the beginning of a markdown styling)
                 case '<':
                     //If the text is not current marked
+
                     if (marked == false)
                     {
                         //Begin markdown
@@ -347,6 +359,7 @@ public class TalkController : MonoBehaviour {
                         //End Markdown
                         i = FinishMarkdown(i, text);
                     }
+
                     break;
                 //If the character is not a markdown character
                 default:
@@ -354,12 +367,12 @@ public class TalkController : MonoBehaviour {
                     if (marked == true)
                     {
                         //Append the markdown string to the end of the substring (EX: </color>)
-                        editSpriteText.text = text.Substring(0, i) + markdown;
+                        editText.text = text.Substring(0, i) + markdown + colorStart + text.Substring(i, text.Length - i) + colorEnd;
                     }
                     else
                     {
                         //Act natural (print the current step of the typewritter text string
-                        editSpriteText.text = text.Substring(0, i);
+                        editText.text = text.Substring(0, i) + colorStart + text.Substring(i, text.Length - i) + colorEnd;
                     }
                     break;
             }
