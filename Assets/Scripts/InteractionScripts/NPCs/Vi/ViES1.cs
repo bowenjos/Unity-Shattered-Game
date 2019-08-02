@@ -18,9 +18,11 @@ public class ViES1 : CharacterInteraction {
             if (GameControl.control.numMasks == 0)
             {
                 dialogue = new string[1][];
-                dialogue[0] = new string[2];
-                dialogue[0][0] = "Welcome, young master. I wish we could have met under better circumstances, but you are here now, so please enjoy your stay.";
-                dialogue[0][1] = "If there are things you would like to <color=cyan>commit to your memory</color>, please do feel free to find me.";
+                dialogue[0] = new string[4];
+                dialogue[0][0] = "Welcome, young master. I wish we could have met under better circumstances,";
+                dialogue[0][1] = "but you are here now, so please enjoy your stay.";
+                dialogue[0][2] = "If there are things you would like to *commit to your memory*,";
+                dialogue[0][3] = "please do feel free to find me.";
             }
         }
 	}

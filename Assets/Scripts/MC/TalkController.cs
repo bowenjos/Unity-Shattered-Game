@@ -36,7 +36,7 @@ public class TalkController : MonoBehaviour {
     private int i;
     private bool marked;
     private string markdown = "";
-
+    //616161
     private string colorStart = "<color=#616161>";
     private string colorEnd = "</color>";
 
@@ -261,47 +261,17 @@ public class TalkController : MonoBehaviour {
         for (i = 0; i < (text.Length); i++)
         {
             //First, check to see if the character is the beginning (or beginning of the end) of a Markdown styliing
-            switch (text[i])
+            /*
+            if (text[i] == '<')
             {
-                //If the character is < (the beginning of a markdown styling)
-                case '<':
-                    //If the text is not current marked
-                    if (text[i + 1] != 'b')
-                    {
-                        if (marked == false)
-                        {
-                            //Begin markdown
-                            i = ResolveMarkdown(i, text);
-                        }
-                        else
-                        {
-                            //End Markdown
-                            i = FinishMarkdown(i, text);
-                        }
-                    }
-                    else
-                    {
-                        i += 4;
-                    }
-                    break;
-                //If the character is not a markdown character
-                default:
-                    //If the text being written is currently styled with markdown
-                    if (marked == true)
-                    {
-                        //Append the markdown string to the end of the substring (EX: </color>)
-                        editText.text = text.Substring(0, i) + markdown + colorStart + text.Substring(i, text.Length-i) + colorEnd;
-                    }
-                    else
-                    {
-                        //Act natural (print the current step of the typewritter text string
-                        editText.text = text.Substring(0, i) + colorStart + text.Substring(i, text.Length-i) + colorEnd;
-                    }
-                    break;
+                i = SkipMarkdown(i, text);
             }
+            */
+            //Act natural (print the current step of the typewritter text string
+            editText.text = text.Substring(0, i) + colorStart + text.Substring(i, text.Length - i) + colorEnd;
 
-            //If this character isn't the very first character
             audioPlayer.Play();
+            //If this character isn't the very first character
             if (i != 0)
             {
                 //Check the last printed character
@@ -343,23 +313,77 @@ public class TalkController : MonoBehaviour {
         //For each character in the dialogue string
         for (i = 0; i < (text.Length); i++)
         {
+            /*
+            if (text[i] == '<')
+            {
+                i = SkipMarkdown(i, text);
+            }
+            */
+            //Act natural (print the current step of the typewritter text string
+            editSpriteText.text = text.Substring(0, i) + colorStart + text.Substring(i, text.Length - i) + colorEnd;
+
+            audioPlayer.Play();
+            if (i != 0)
+            {
+                //Check the last printed character
+                //This switch case essentially servers to add slight time delays after periods and commas, or defaults to the normal time delay
+                //I might/will probably add future functionality for variable delays, but I also might just do that in a different function, or maybe just put this in it's own function Generally
+                switch (text[i - 1])
+                {
+                    case ',':
+                        yield return new WaitForSeconds(0.2f);
+                        break;
+                    case '.':
+                        yield return new WaitForSeconds(0.3f);
+                        break;
+                    case '?':
+                        yield return new WaitForSeconds(0.3f);
+                        break;
+                    case '!':
+                        yield return new WaitForSeconds(0.3f);
+                        break;
+                    default:
+                        //0.02
+                        yield return new WaitForSeconds(0.02f);
+                        break;
+                }
+            }
+        }
+        //Stop the coroutine that lets you skip past all the text if you don't want to watch it print
+        StopCoroutine(co);
+        editSpriteText.text = text;
+        editText.text = "";
+    }
+
+    /*
+    //Old version of the animate sprite text that parses markup for string concatination, but with the new system it's broken 
+    protected IEnumerator OldAnimateSpriteText(string text)
+    {
+        //for each character in the dialogue string, 
+        //update the display string with the current string plus an extra character every 0.03 seconds
+
+        Coroutine co = StartCoroutine(SkipText(text));
+        yield return new WaitForEndOfFrame();
+        //For each character in the dialogue string
+        for (i = 0; i < (text.Length); i++)
+        {
             //First, check to see if the character is the beginning (or beginning of the end) of a Markdown styliing
             switch (text[i])
             {
                 //If the character is < (the beginning of a markdown styling)
                 case '<':
                     //If the text is not current marked
-
+                    
                     if (marked == false)
                     {
                         //Begin markdown
                         i = ResolveMarkdown(i, text);
                     }
-                    else {
+                    
+                    else { 
                         //End Markdown
                         i = FinishMarkdown(i, text);
                     }
-
                     break;
                 //If the character is not a markdown character
                 default:
@@ -367,14 +391,15 @@ public class TalkController : MonoBehaviour {
                     if (marked == true)
                     {
                         //Append the markdown string to the end of the substring (EX: </color>)
-                        editText.text = text.Substring(0, i) + markdown + colorStart + text.Substring(i, text.Length - i) + colorEnd;
+                        editSpriteText.text = text.Substring(0, i) + markdown + colorStart + text.Substring(i, text.Length - i) + colorEnd;
                     }
                     else
                     {
                         //Act natural (print the current step of the typewritter text string
-                        editText.text = text.Substring(0, i) + colorStart + text.Substring(i, text.Length - i) + colorEnd;
+                        editSpriteText.text = text.Substring(0, i) + colorStart + text.Substring(i, text.Length - i) + colorEnd;
                     }
                     break;
+                    
             }
 
             //If this character isn't the very first character
@@ -399,7 +424,8 @@ public class TalkController : MonoBehaviour {
                         yield return new WaitForSeconds(0.3f);
                         break;
                     default:
-                        yield return new WaitForSeconds(0.02f);
+                        //0.02
+                        yield return new WaitForSeconds(1f);
                         break;
                 }
             }
@@ -408,6 +434,20 @@ public class TalkController : MonoBehaviour {
         StopCoroutine(co);
         editSpriteText.text = text;
         editText.text = "";
+    }
+    */
+
+    protected int SkipMarkdown(int i, string text)
+    {
+        for (int j = i; j < text.Length; j++)
+        {
+            if (text[j] == '>')
+            {
+                return j+1;
+            }
+           
+        }
+        return i;
     }
 
     /********************

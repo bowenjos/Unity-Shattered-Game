@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseOverworld: 0
   Overworld:
-  - {fileID: 8300000, guid: 80883c9ee9e34544ca8f82b4c873cf28, type: 3}
+  - {fileID: 0}
   - {fileID: 8300000, guid: b49771c274105b745a9671fc665beba1, type: 3}
   - {fileID: 0}
   - {fileID: 0}
