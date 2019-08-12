@@ -93,6 +93,11 @@ public class JukeBoxController : MonoBehaviour {
         AS.Pause();
     }
 
+    public float CurrentTime()
+    {
+        return AS.time;
+    }
+
     public void ResumeSongPartway()
     {
         AS.UnPause();

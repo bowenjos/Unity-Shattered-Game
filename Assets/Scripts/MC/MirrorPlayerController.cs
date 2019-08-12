@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MirrorPlayerController : MonoBehaviour
 {
+    public float mirrorAxis;
+
     protected Transform player;
     protected Transform thisTransform;
     protected PlayerController playerController;
@@ -46,6 +48,6 @@ public class MirrorPlayerController : MonoBehaviour
         {
             thisAnim.SetInteger("walkDirection", 1);
         }
-        thisTransform.position = new Vector3(player.position.x, -player.position.y + .38f, -player.position.y);
+        thisTransform.position = new Vector3(player.position.x, -player.position.y + .38f + mirrorAxis, -player.position.y);
     }
 }

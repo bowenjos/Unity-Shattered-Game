@@ -641,6 +641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3efc2b16921241c46b78a36edf187865, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mirrorAxis: 0
 --- !u!1001 &1787782226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1079,6 +1080,16 @@ PrefabInstance:
         type: 3}
       propertyPath: zone
       value: DP
+      objectReference: {fileID: 0}
+    - target: {fileID: 114239836258204064, guid: 6e2b8ae14bd7884458cf02c3fc4ace81,
+        type: 3}
+      propertyPath: targetX
+      value: 1.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 114239836258204064, guid: 6e2b8ae14bd7884458cf02c3fc4ace81,
+        type: 3}
+      propertyPath: targetY
+      value: 1.24
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e2b8ae14bd7884458cf02c3fc4ace81, type: 3}

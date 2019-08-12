@@ -15,8 +15,8 @@ public class DPMainData {
     // 6 - Will in Changing Rooms (Progressed when talked to)
     // 7 - Will in Reception (progressed when talked to)
     // 8 - Will in Office Rooms (Progresses when you approach the door to the practice room)
-    // 9 - Battle with Chadley
-    // 10 - Cutscene after Chadley
+    // 9 - Battle with Tar
+    // 10 - Cutscene after Tar
     // 11 - Will on stage (Talk to initiate final cutscene and Battle)
 
     public bool key = false;
