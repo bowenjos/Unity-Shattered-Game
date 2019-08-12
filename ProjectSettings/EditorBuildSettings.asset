@@ -132,6 +132,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TheatreHell/DPServerRoom.unity
     guid: 4f8e25a55554e8a41a4e6ec40a176358
   - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPBallet.unity
+    guid: f297e25c492053043800f6e564587c96
+  - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: bc89e80eb3bf4264c8d195127a8b0aaf
   m_configObjects: {}

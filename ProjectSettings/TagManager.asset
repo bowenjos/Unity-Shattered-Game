@@ -50,6 +50,9 @@ TagManager:
   - name: Background
     uniqueID: 3603492455
     locked: 0
+  - name: MirrorPlayer
+    uniqueID: 1036450957
+    locked: 0
   - name: BackgroundSuplement
     uniqueID: 3662069639
     locked: 0
