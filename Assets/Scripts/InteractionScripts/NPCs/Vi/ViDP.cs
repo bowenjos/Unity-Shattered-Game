@@ -31,9 +31,15 @@ public class ViDP : CharacterInteraction {
                     dialogue[0][1] = "Don't mind him, he's a really nice guy, he's just not good at meeting new people.";
                     dialogue[0][2] = "You might find him in the room behind the stage, he's usually working there.";
                     break;
-                case 6:
+                case 7:
                     dialogue = new string[1][];
-                    dialogue[0] = new string[] { "Oh? The performance is soon? That's exciting, I'll be sure to be there." };
+                    dialogue[0] = new string[] { "The crew is missing? My, that is concerning." };
+                    break;
+                case 8:
+                    dialogue = new string[3][];
+                    dialogue[0] = new string[] { "Huh..." };
+                    dialogue[1] = new string[] { "Oh it's nothing." };
+                    dialogue[2] = new string[] { "I've just never seen William open up to anyone so quickly before." };
                     break;
                 default:
                     DestroyThis();

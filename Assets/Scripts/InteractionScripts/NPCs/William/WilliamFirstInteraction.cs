@@ -20,7 +20,7 @@ public class WilliamFirstInteraction : TriggerInteraction {
 	void Start () {
         if(GameControl.control.DPMainData.progression != 0)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
         WillAnim = GameObject.FindGameObjectWithTag("William").GetComponent<Animator>();
         talkCanvas = GameObject.Find("Talk UI(Clone)").GetComponent<TalkController>();

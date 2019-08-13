@@ -90,15 +90,15 @@ public class WilliamSecondInteraction : CharacterInteraction {
     {
         switch (GameControl.control.DPMainData.progression)
         {
-            case 4:
+            case 3:
                 dialogue = new string[1][];
                 dialogue[0] = new string[] { "Just two more and then we can get this show on the road.", "Theres one more in the basement and then the other was in the rafters, but don't worry about that one I'll get someone else to do it maybe..." };
                 break;
-            case 5:
+            case 4:
                 dialogue = new string[1][];
                 if (!GameControl.control.DPMainData.levers[2])
                 {
-                    dialogue[0] = new string[] { "Not long now...", "Just the one in the rafters left... I hope someone else comes along I don't want you to go up there..." };
+                    dialogue[0] = new string[] { "Not long now...", "Just the one in the rafters left...", "I hope someone else comes along I don't want you to go up there..." };
                 }
                 else
                 {
