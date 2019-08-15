@@ -10,6 +10,8 @@ public class WilliamThirdInteraction : CharacterInteraction
     public Light thisLight;
     public Animator anim;
 
+    public GameObject trigger;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,5 +44,7 @@ public class WilliamThirdInteraction : CharacterInteraction
         jukebox.PlaySongPartway("DP", time);
         GameControl.control.DPMainData.progression = 8;
         GameControl.control.DPMainData.viTalked = false;
+
+        Destroy(trigger);
     }
 }

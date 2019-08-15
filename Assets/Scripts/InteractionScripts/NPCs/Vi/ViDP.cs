@@ -52,6 +52,7 @@ public class ViDP : CharacterInteraction {
     public override IEnumerator StartInteraction()
     {
         talkControl = GameObject.Find("Talk UI(Clone)").GetComponent<TalkController>();
+        GameControl.control.Freeze();
         switch (GameControl.control.DPMainData.progression)
         {
             case 0:

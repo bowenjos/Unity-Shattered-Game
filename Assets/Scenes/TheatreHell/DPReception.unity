@@ -370,6 +370,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   William: {fileID: 608748777}
   wti: {fileID: 608748778}
+  pc: {fileID: 0}
+  pct: {fileID: 0}
 --- !u!61 &181510150
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -783,6 +785,7 @@ MonoBehaviour:
   William: {fileID: 608748777}
   thisLight: {fileID: 80845397}
   anim: {fileID: 608748775}
+  trigger: {fileID: 181510148}
 --- !u!1001 &642294546
 PrefabInstance:
   m_ObjectHideFlags: 0

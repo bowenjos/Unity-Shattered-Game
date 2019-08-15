@@ -23,7 +23,7 @@ public class ResumeMusicTrigger : TriggerInteraction
         if (!jukebox.IsPlaying())
         {
             jukebox.ResumeSongBeginning();
-            jukebox.SetVolume(0.6f);
+            jukebox.SetVolume(0.4f);
         }
         yield return null;
     }
