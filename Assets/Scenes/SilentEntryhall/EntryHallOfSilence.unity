@@ -4370,6 +4370,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2077370433 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6938072930574998011, guid: efc053ff453f1b943973eeefcac361dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 6938072930164091293}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2077370434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077370433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88dc68925b0448b4bb264403958c208f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  talkControl: {fileID: 0}
+  character: 5
+  mood: 1
+  smallDialogue:
+  - '...'
+  - What?
+  - '...'
+  - Thanks...
 --- !u!1001 &2097203639
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4868,5 +4894,11 @@ PrefabInstance:
       propertyPath: m_CookieSize
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 6938072930574998005, guid: efc053ff453f1b943973eeefcac361dc,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 13316317b2cf5e842b1b116b38e11a4c,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efc053ff453f1b943973eeefcac361dc, type: 3}

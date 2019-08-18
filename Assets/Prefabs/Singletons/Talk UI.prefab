@@ -844,7 +844,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a984f7ab3f6145e498ee31e410742635, type: 3}
   - {fileID: 21300000, guid: b7bba8ee63652a04a95335ef7179a27a, type: 3}
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 69505bd622179ba4197dca74ca82399b, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   neutralNoMask:
@@ -853,7 +853,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 81ea4ed1045fb7647a8b487f28f6e96e, type: 3}
   - {fileID: 21300000, guid: c1040c63ed25cc847aa70a302418c535, type: 3}
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: eea7b8dbe2df38b44b3cc9ef73aa3206, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   generics:
