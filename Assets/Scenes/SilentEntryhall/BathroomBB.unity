@@ -573,7 +573,7 @@ PrefabInstance:
     - target: {fileID: 2414221991556384048, guid: 99c51f1a1efbe024b906b61a2d279685,
         type: 3}
       propertyPath: mirrorAxis
-      value: 0.9
+      value: 0.92
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99c51f1a1efbe024b906b61a2d279685, type: 3}

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Attached to Yolanda in Silent Entryhall
+
 public class YolandaSE : CharacterInteraction
 {
     ViolinController anim;
