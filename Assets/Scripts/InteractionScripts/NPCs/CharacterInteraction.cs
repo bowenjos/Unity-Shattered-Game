@@ -6,7 +6,10 @@ public class CharacterInteraction : InteractionController {
 
     public TalkController talkControl;
 
+    public int character;
+    public int mood;
     protected string[][] dialogue;
+    public string[] smallDialogue;
 
     // Use this for initialization
     void Start()
@@ -14,15 +17,9 @@ public class CharacterInteraction : InteractionController {
         talkControl = GameObject.Find("Talk UI(Clone)").GetComponent<TalkController>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public override IEnumerator StartInteraction()
     {
-        yield return null;
-        //yield return StartCoroutine(talkCanvas.GetComponent<TalkController>().StartDialogueSolo(dialogue));
+
+        yield return StartCoroutine(talkControl.GetComponent<TalkController>().StartDialogueSprite(smallDialogue, "default", character, mood));
     }
 }

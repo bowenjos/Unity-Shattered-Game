@@ -14,9 +14,15 @@ public class TalkController : MonoBehaviour {
     //public GameObject player;
     public GameObject headPanel;
 
+    //Choice Panel Objects
+    public GameObject choicePanel;
+    public Text choiceText;
+    public Text leftText;
+    public Text rightText;
+
+    //Saving related objects
     public GameObject savePanel;
     public GameObject saveGamePanel;
-
     public GameObject savingPanel;
 
     public AudioSource audioPlayer;
@@ -28,6 +34,10 @@ public class TalkController : MonoBehaviour {
     public GameObject saveMasks;
 
     public Button YesButton;
+    public Button LeftButton;
+
+    //True is left, False is right
+    public bool result;
 
     public Font estro;
     public Font Vi;
@@ -44,7 +54,9 @@ public class TalkController : MonoBehaviour {
     public Sprite[] neutral;
     public Sprite[] neutralNoMask;
 
-    enum DialogueStates { NoDialogue, SoloDialogue, SpriteDialogue, SaveDialogue, SavingDialogue };
+    public Sprite[] generics;
+
+    enum DialogueStates { NoDialogue, SoloDialogue, SpriteDialogue, SaveDialogue, SavingDialogue, ChoiceDialogue };
     DialogueStates currentState;
 
     // Use this for initialization
@@ -71,6 +83,7 @@ public class TalkController : MonoBehaviour {
                 savePanel.SetActive(false);
                 saveGamePanel.SetActive(false);
                 savingPanel.SetActive(false);
+                choicePanel.SetActive(false);
                 break;
             case DialogueStates.SoloDialogue:
                 talkCanvas.SetActive(true);
@@ -78,6 +91,7 @@ public class TalkController : MonoBehaviour {
                 savePanel.SetActive(false);
                 saveGamePanel.SetActive(false);
                 savingPanel.SetActive(false);
+                choicePanel.SetActive(false);
                 break;
             case DialogueStates.SpriteDialogue:
                 talkCanvas.SetActive(true);
@@ -85,6 +99,7 @@ public class TalkController : MonoBehaviour {
                 savePanel.SetActive(false);
                 saveGamePanel.SetActive(false);
                 savingPanel.SetActive(false);
+                choicePanel.SetActive(false);
                 break;
             case DialogueStates.SaveDialogue:
                 talkCanvas.SetActive(false);
@@ -92,6 +107,7 @@ public class TalkController : MonoBehaviour {
                 savePanel.SetActive(true);
                 saveGamePanel.SetActive(true);
                 savingPanel.SetActive(false);
+                choicePanel.SetActive(false);
                 break;
             case DialogueStates.SavingDialogue:
                 talkCanvas.SetActive(false);
@@ -99,6 +115,15 @@ public class TalkController : MonoBehaviour {
                 savePanel.SetActive(false);
                 saveGamePanel.SetActive(true);
                 savingPanel.SetActive(true);
+                choicePanel.SetActive(false);
+                break;
+            case DialogueStates.ChoiceDialogue:
+                talkCanvas.SetActive(false);
+                headPanel.SetActive(false);
+                savePanel.SetActive(false);
+                saveGamePanel.SetActive(false);
+                savingPanel.SetActive(false);
+                choicePanel.SetActive(true);
                 break;
         }
 	}
@@ -115,7 +140,7 @@ public class TalkController : MonoBehaviour {
         {
             //Start the dialogue function for a specific line of dialogue and pause this function until it returns
             //When it returns, continue the loop
-            yield return StartCoroutine(Dialogue(text));
+            yield return StartCoroutine(Dialogue(text, editText));
         }
         //Make the dialogue window transparent again
         currentState = DialogueStates.NoDialogue;
@@ -139,11 +164,33 @@ public class TalkController : MonoBehaviour {
         {
             //Start the dialogue function for a specific line of dialogue and pause this function until it returns
             //When it returns, continue the loop
-            yield return StartCoroutine(DialogueWithSprites(text));
+            yield return StartCoroutine(Dialogue(text, editSpriteText));
         }
         //Make the dialogue window transparent again
         currentState = DialogueStates.NoDialogue;
         //Return control to the player
+        GameControl.control.Unfreeze();
+    }
+
+    public IEnumerator StartDialogueChoice(string dialogue, string leftString, string rightString)
+    {
+        currentState = DialogueStates.ChoiceDialogue;
+        GameControl.control.Freeze();
+        yield return new WaitForEndOfFrame();
+        yield return StartCoroutine(AnimateText(dialogue, choiceText));
+        yield return new WaitForSeconds(0.2f);
+        yield return StartCoroutine(AnimateText(leftString, leftText));
+        yield return new WaitForSeconds(0.2f);
+        yield return StartCoroutine(AnimateText(rightString, rightText));
+        yield return new WaitForSeconds(0.2f);
+        LeftButton.Select();
+        yield return StartCoroutine(WaitForKeyDown(KeyCode.Z));
+        yield return new WaitForEndOfFrame();
+        editText.text = "";
+        editSpriteText.text = "";
+        choiceText.text = "";
+        rightText.text = "";
+        leftText.text = "";
         GameControl.control.Unfreeze();
     }
 
@@ -209,22 +256,15 @@ public class TalkController : MonoBehaviour {
     Pre: A line of dialogue must be provided
     Post: The DialogueStart function continues or finishes
     ********************/
-    protected virtual IEnumerator Dialogue(string text)
+    protected virtual IEnumerator Dialogue(string text, Text thisText)
     {
         //Starts the animate text function which runs until the text has finished being printed to the screen
-        yield return StartCoroutine(AnimateText(text));
+        yield return StartCoroutine(AnimateText(text, thisText));
         //Starts the wait for keydown function which ways for the player to push the Z button before continuing
         yield return StartCoroutine(WaitForKeyDown(KeyCode.Z));
         editText.text = "";
         editSpriteText.text = "";
-    }
-
-    protected IEnumerator DialogueWithSprites(string text){
-
-        yield return StartCoroutine(AnimateSpriteText(text));
-        yield return StartCoroutine(WaitForKeyDown(KeyCode.Z));
-        editText.text = "";
-        editSpriteText.text = "";
+        choiceText.text = "";
     }
 
     /*******************
@@ -250,7 +290,7 @@ public class TalkController : MonoBehaviour {
     Post: The text has finished printing character by character and the function returns
     ********************/
 
-    protected IEnumerator AnimateText(string text)
+    protected IEnumerator AnimateText(string text, Text thisText)
     {
         //for each character in the dialogue string, 
         //update the display string with the current string plus an extra character every 0.03 seconds
@@ -268,7 +308,7 @@ public class TalkController : MonoBehaviour {
             }
             */
             //Act natural (print the current step of the typewritter text string
-            editText.text = text.Substring(0, i) + colorStart + text.Substring(i, text.Length - i) + colorEnd;
+            thisText.text = text.Substring(0, i) + colorStart + text.Substring(i, text.Length - i) + colorEnd;
 
             audioPlayer.Play();
             //If this character isn't the very first character
@@ -299,60 +339,8 @@ public class TalkController : MonoBehaviour {
         }
         //Stop the coroutine that lets you skip past all the text if you don't want to watch it print
         StopCoroutine(co);
-        editText.text = text;
-        editSpriteText.text = "";
-    }
-
-    protected IEnumerator AnimateSpriteText(string text)
-    {
-        //for each character in the dialogue string, 
-        //update the display string with the current string plus an extra character every 0.03 seconds
-
-        Coroutine co = StartCoroutine(SkipText(text));
-        yield return new WaitForEndOfFrame();
-        //For each character in the dialogue string
-        for (i = 0; i < (text.Length); i++)
-        {
-            /*
-            if (text[i] == '<')
-            {
-                i = SkipMarkdown(i, text);
-            }
-            */
-            //Act natural (print the current step of the typewritter text string
-            editSpriteText.text = text.Substring(0, i) + colorStart + text.Substring(i, text.Length - i) + colorEnd;
-
-            audioPlayer.Play();
-            if (i != 0)
-            {
-                //Check the last printed character
-                //This switch case essentially servers to add slight time delays after periods and commas, or defaults to the normal time delay
-                //I might/will probably add future functionality for variable delays, but I also might just do that in a different function, or maybe just put this in it's own function Generally
-                switch (text[i - 1])
-                {
-                    case ',':
-                        yield return new WaitForSeconds(0.2f);
-                        break;
-                    case '.':
-                        yield return new WaitForSeconds(0.3f);
-                        break;
-                    case '?':
-                        yield return new WaitForSeconds(0.3f);
-                        break;
-                    case '!':
-                        yield return new WaitForSeconds(0.3f);
-                        break;
-                    default:
-                        //0.02
-                        yield return new WaitForSeconds(0.02f);
-                        break;
-                }
-            }
-        }
-        //Stop the coroutine that lets you skip past all the text if you don't want to watch it print
-        StopCoroutine(co);
-        editSpriteText.text = text;
-        editText.text = "";
+        thisText.text = text;
+        //editSpriteText.text = "";
     }
 
     /*
@@ -541,8 +529,8 @@ public class TalkController : MonoBehaviour {
     }
 
     //Character: 0 Vi, 1 Will, 2 Yolanda, 3 Elise, 4 Thongsai, 5 Aeron, 6 Selene, 7 Des
-    //Mood: 0 Neutral,
-
+    //Mood: 0 Neutral, 1 Neutral No Mask
+    //Mood 9: Generic NPCs | Character: 0 - Sheet ghost
 
     protected void SpriteChange(int character, int mood)
     {
@@ -553,6 +541,10 @@ public class TalkController : MonoBehaviour {
                 break;
             case 1:
                 talkSprite.sprite = neutralNoMask[character];
+                break;
+
+            case 9:
+                talkSprite.sprite = generics[character];
                 break;
         }
     }
@@ -569,5 +561,15 @@ public class TalkController : MonoBehaviour {
         currentState = DialogueStates.NoDialogue;
         GameControl.control.saved = false;
         //GameControl.control.Unfreeze();
+    }
+
+    public void OnLeftPress()
+    {
+        result = true;
+    }
+
+    public void OnRightPress()
+    {
+        result = false;
     }
 }
