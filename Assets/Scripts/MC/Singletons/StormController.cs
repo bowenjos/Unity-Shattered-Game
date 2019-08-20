@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StormController : MonoBehaviour {
 
@@ -8,12 +9,32 @@ public class StormController : MonoBehaviour {
     public AudioClip thunder2;
     public AudioClip thunder3;
 
+    public StormNodeData stormNode;
+    public AudioSource rain;
+    public AudioSource thunder;
+    public Light lightning;
+
     bool tried;
 
 	// Use this for initialization
 	void Start () {
         tried = false;
-	}
+        stormNode = GameObject.Find("StormNode").GetComponent<StormNodeData>();
+        lightning.cookie = stormNode.thunderCookie;
+        lightning.cookieSize = stormNode.cookieSize;
+        rain.volume = stormNode.stormVolume;
+        thunder.volume = stormNode.thunderVolume;
+    }
+
+    void OnSceneLoaded(Scene aScene, LoadSceneMode aMode)
+    {
+        stormNode = GameObject.Find("StormNode").GetComponent<StormNodeData>();
+        lightning.cookie = stormNode.thunderCookie;
+        lightning.cookieSize = stormNode.cookieSize;
+        rain.volume = stormNode.stormVolume;
+        thunder.volume = stormNode.thunderVolume;
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -26,9 +47,10 @@ public class StormController : MonoBehaviour {
     IEnumerator tryThunder()
     {
         tried = true;
-        yield return new WaitForSeconds(30f + Random.Range(-15f, 15f));
+        //30f + (range 0 to 60)
+        yield return new WaitForSeconds(30f + Random.Range(0f, 60f));
         Thunder();
-        yield return new WaitForSeconds(30f + Random.Range(-15f, 15f));
+        yield return new WaitForSeconds(30f + Random.Range(0f, 60f));
         tried = false;
 
     }
@@ -50,13 +72,16 @@ public class StormController : MonoBehaviour {
                 break;
         }
         this.GetComponent<AudioSource>().Play();
-        StartCoroutine(Flash());
+        if (!stormNode.lightningOff)
+        {
+            StartCoroutine(Flash());
+        }
     }
 
     IEnumerator Flash()
     {
-        this.GetComponentInChildren<Light>().intensity = 10;
-        yield return new WaitForSeconds(0.1f);
+        this.GetComponentInChildren<Light>().intensity = 5;
+        yield return new WaitForSeconds(0.2f);
         this.GetComponentInChildren<Light>().intensity = 0;
     }
 

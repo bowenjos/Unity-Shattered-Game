@@ -33,6 +33,9 @@ public class SpawnControllerPlayer : MonoBehaviour {
     public GameObject SideBars;
     public GameObject SideBarsPrefab;
 
+    public GameObject StormController;
+    public GameObject StormControllerPrefab;
+
     public GameObject SpawnLocation;
 
     // Use this for initialization
@@ -136,6 +139,15 @@ public class SpawnControllerPlayer : MonoBehaviour {
         else
         {
             SideBars = Instantiate(SideBarsPrefab);
+        }
+
+        if(GameObject.Find("StormSystem(Clone)") != null)
+        {
+            StormController = GameObject.Find("StormSystem(Clone)");
+        }
+        else
+        {
+            StormController = Instantiate(StormControllerPrefab);
         }
     }
 	

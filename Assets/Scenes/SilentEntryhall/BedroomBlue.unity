@@ -1714,7 +1714,7 @@ MonoBehaviour:
   talkController: {fileID: 0}
   choiceDialogue: Read it?
   leftDialogue:
-  - Hey......... why
+  - Hey........ why
   rightDialogue:
   - Probably for the best.
   leftButtonText: Yes
