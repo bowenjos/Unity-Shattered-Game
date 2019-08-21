@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class StormNodeData : MonoBehaviour
 {
-    public Texture thunderCookie;
-    public float cookieSize;
+    public Sprite thunderCookie;
     public float stormVolume;
     public float thunderVolume;
     public bool lightningOff;

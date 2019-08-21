@@ -12,25 +12,25 @@ public class StormController : MonoBehaviour {
     public StormNodeData stormNode;
     public AudioSource rain;
     public AudioSource thunder;
-    public Light lightning;
+    public SpriteRenderer lightningReal;
 
     bool tried;
 
 	// Use this for initialization
 	void Start () {
+        SceneManager.sceneLoaded += OnSceneLoaded;
         tried = false;
         stormNode = GameObject.Find("StormNode").GetComponent<StormNodeData>();
-        lightning.cookie = stormNode.thunderCookie;
-        lightning.cookieSize = stormNode.cookieSize;
+        lightningReal.sprite = stormNode.thunderCookie;
         rain.volume = stormNode.stormVolume;
         thunder.volume = stormNode.thunderVolume;
     }
 
     void OnSceneLoaded(Scene aScene, LoadSceneMode aMode)
     {
+        Debug.Log("loaded");
         stormNode = GameObject.Find("StormNode").GetComponent<StormNodeData>();
-        lightning.cookie = stormNode.thunderCookie;
-        lightning.cookieSize = stormNode.cookieSize;
+        lightningReal.sprite = stormNode.thunderCookie;
         rain.volume = stormNode.stormVolume;
         thunder.volume = stormNode.thunderVolume;
 
@@ -46,7 +46,13 @@ public class StormController : MonoBehaviour {
 
     IEnumerator tryThunder()
     {
+        //this is a hopefully temporary solution to the fact OnSceneLoaded doesn't seem to run
         tried = true;
+        stormNode = GameObject.Find("StormNode").GetComponent<StormNodeData>();
+        lightningReal.sprite = stormNode.thunderCookie;
+        rain.volume = stormNode.stormVolume;
+        thunder.volume = stormNode.thunderVolume;
+        //END FIX
         //30f + (range 0 to 60)
         yield return new WaitForSeconds(30f + Random.Range(0f, 60f));
         Thunder();
@@ -80,9 +86,18 @@ public class StormController : MonoBehaviour {
 
     IEnumerator Flash()
     {
-        this.GetComponentInChildren<Light>().intensity = 5;
-        yield return new WaitForSeconds(0.2f);
-        this.GetComponentInChildren<Light>().intensity = 0;
+        for (float i = 0f; i < 1f; i += 0.2f)
+        {
+            lightningReal.color = new Color(1f, 1f, 1f, i);
+            yield return new WaitForSeconds(0.01f);
+        }
+        yield return new WaitForSeconds(0.3f);
+        for (float i = 1f; i > 0f; i -= 0.1f)
+        {
+            lightningReal.color = new Color(1f, 1f, 1f, i);
+            yield return new WaitForSeconds(0.01f);
+        }
+        lightningReal.color = new Color(1f, 1f, 1f, 0f);
     }
 
 }
