@@ -46,13 +46,7 @@ public class StormController : MonoBehaviour {
 
     IEnumerator tryThunder()
     {
-        //this is a hopefully temporary solution to the fact OnSceneLoaded doesn't seem to run
         tried = true;
-        stormNode = GameObject.Find("StormNode").GetComponent<StormNodeData>();
-        lightningReal.sprite = stormNode.thunderCookie;
-        rain.volume = stormNode.stormVolume;
-        thunder.volume = stormNode.thunderVolume;
-        //END FIX
         //30f + (range 0 to 60)
         yield return new WaitForSeconds(30f + Random.Range(0f, 60f));
         Thunder();
