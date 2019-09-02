@@ -43,6 +43,13 @@ public class TalkController : MonoBehaviour {
     public Font Vi;
     public Font William;
 
+    public AudioClip playerVoice;
+    public AudioClip defaultVoice;
+    public AudioClip viVoice;
+    public AudioClip willVoice;
+
+    public AudioClip seleneVoice;
+
     private int i;
     private bool marked;
     private string markdown = "";
@@ -55,6 +62,7 @@ public class TalkController : MonoBehaviour {
     public Sprite[] neutralNoMask;
 
     public Sprite[] generics;
+    public Sprite[] uniques;
 
     enum DialogueStates { NoDialogue, SoloDialogue, SpriteDialogue, SaveDialogue, SavingDialogue, ChoiceDialogue };
     DialogueStates currentState;
@@ -508,6 +516,13 @@ public class TalkController : MonoBehaviour {
         switch (newFont)
         {
             case "default":
+                audioPlayer.clip = playerVoice;
+                editText.font = estro;
+                editText.fontSize = 55;
+                editText.lineSpacing = 1.2f;
+                break;
+            case "generic":
+                audioPlayer.clip = defaultVoice;
                 editText.font = estro;
                 editText.fontSize = 55;
                 editText.lineSpacing = 1.2f;
@@ -545,6 +560,9 @@ public class TalkController : MonoBehaviour {
 
             case 9:
                 talkSprite.sprite = generics[character];
+                break;
+            case 10:
+                talkSprite.sprite = uniques[character];
                 break;
         }
     }

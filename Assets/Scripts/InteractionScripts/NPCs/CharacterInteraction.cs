@@ -20,6 +20,6 @@ public class CharacterInteraction : InteractionController {
     public override IEnumerator StartInteraction()
     {
 
-        yield return StartCoroutine(talkControl.GetComponent<TalkController>().StartDialogueSprite(smallDialogue, "default", character, mood));
+        yield return StartCoroutine(talkControl.GetComponent<TalkController>().StartDialogueSprite(smallDialogue, "generic", character, mood));
     }
 }

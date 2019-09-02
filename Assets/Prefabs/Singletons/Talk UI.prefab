@@ -837,6 +837,11 @@ MonoBehaviour:
   estro: {fileID: 12800000, guid: bdb86a35c7ecf0f449dbca15bfa7f6cf, type: 3}
   Vi: {fileID: 12800000, guid: 5b59a54b685fc2c43a588659306158af, type: 3}
   William: {fileID: 0}
+  playerVoice: {fileID: 8300000, guid: e51ab000eedaf4444b7d03ff123dd86a, type: 3}
+  defaultVoice: {fileID: 8300000, guid: 7f5c59fc434b54c4690d43a91ebce8b5, type: 3}
+  viVoice: {fileID: 0}
+  willVoice: {fileID: 0}
+  seleneVoice: {fileID: 8300000, guid: 46797edf95d2222429f61eed667da1e6, type: 3}
   talkSprite: {fileID: 114531377935531676}
   neutral:
   - {fileID: 21300000, guid: 4361ac7d38b3b0b45b992af54907608a, type: 3}
@@ -858,6 +863,11 @@ MonoBehaviour:
   - {fileID: 0}
   generics:
   - {fileID: 21300000, guid: 942615887a341d94ab8f1050afa15aa9, type: 3}
+  - {fileID: 21300000, guid: a2b3031dc9eecce4eb378b72fcfa3ccc, type: 3}
+  - {fileID: 21300000, guid: f9d69a4ea1af3954b8449b994daf1f01, type: 3}
+  uniques:
+  - {fileID: 21300000, guid: b44a55e119acb1e4f94014b29a1c8c84, type: 3}
+  - {fileID: 21300000, guid: bf5de2d996fb7484696ca6c1b298bb66, type: 3}
 --- !u!82 &82589616277397560
 AudioSource:
   m_ObjectHideFlags: 0
