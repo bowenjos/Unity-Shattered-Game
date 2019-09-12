@@ -101,7 +101,7 @@ public class EnemyDemoMonika : EnemyCombatControl {
 
     public override void CheckThis()
     {
-        if (!GameControl.control.MainRoom.monikaAlive)
+        if (GameControl.control.frozen)
         {
             GameObject.Destroy(this.gameObject);
         }
@@ -109,7 +109,7 @@ public class EnemyDemoMonika : EnemyCombatControl {
 
     public override void DestroyThis()
     {
-        GameControl.control.MainRoom.monikaAlive = false;
+        //GameControl.control.MainRoom.monikaAlive = false;
         GameObject.Destroy(this.gameObject);
     }
 

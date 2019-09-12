@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DefaultAttack : MonoBehaviour
 {
-    Transform thisTransform;
+    protected Transform thisTransform;
     public float speed;
     public int damageValue;
 

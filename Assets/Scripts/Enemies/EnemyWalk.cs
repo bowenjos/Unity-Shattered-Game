@@ -65,11 +65,14 @@ public class EnemyWalk : MonoBehaviour
         }
         while (!(Vector3.Distance(enemyTransform.position, destination) < 0.01f))
         {
-            while (GameControl.control.paused)
+            if (!GameControl.control.frozen)
             {
-                yield return null;
+                while (GameControl.control.paused)
+                {
+                    yield return null;
+                }
+                enemyTransform.position = Vector3.MoveTowards(enemyTransform.position, destination, speed);
             }
-            enemyTransform.position = Vector3.MoveTowards(enemyTransform.position, destination, speed);
             yield return new WaitForSeconds(.01f);
         }
         anim.SetBool("walking", false);

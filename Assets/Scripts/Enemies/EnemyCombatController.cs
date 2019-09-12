@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,6 +18,7 @@ public class EnemyCombatController : MonoBehaviour {
     public double enemyHealthMax;
     public string enemyEmotion;
     //0 - weak, 1 - normal, 2 - resistant
+    //0 - Talking, 1 - Physical Touch, 2 - Words of Affirmation, 3 - Quality Time, 4 - Acts of Charity, 5 - Gifts
     public int[] enemyResistances;
     public int enemyLevel;
     public int numAttacks;
@@ -40,6 +42,7 @@ public class EnemyCombatController : MonoBehaviour {
     public string[] playerTurnIdle;
 
     public GameObject AttackPrefab;
+    public GameObject LaserPrefab;
 
     protected Transform[] SetPoints;
     protected Transform EnemyAttackSprite;
@@ -48,7 +51,7 @@ public class EnemyCombatController : MonoBehaviour {
 
     void Start()
     {
-        if (!GameControl.control.MainRoom.monikaAlive)
+        if (CheckEnemy())
         {
             Destroy(GetComponentInChildren<Transform>().gameObject);
             Destroy(this.gameObject);
@@ -128,8 +131,12 @@ public class EnemyCombatController : MonoBehaviour {
     //Make this specific enemy dead
     public virtual void ResolveEnemy()
     {
-        GameControl.control.MainRoom.monikaAlive = false;
         Debug.Log("Enemy defeated");
+    }
+
+    public virtual bool CheckEnemy()
+    {
+        return GameControl.control.EnemyData.jitterbugDefeated[enemyNumber];
     }
 
     //All actions performed on an Enemies turn
@@ -144,7 +151,7 @@ public class EnemyCombatController : MonoBehaviour {
     public virtual IEnumerator SelectAttack()
     {
         numAttacks = 3;
-        int rand = Random.Range(0, numAttacks);
+        int rand = UnityEngine.Random.Range(0, numAttacks);
         switch (rand)
         {
             case 0:
@@ -266,12 +273,39 @@ public class EnemyCombatController : MonoBehaviour {
         attack.GetComponent<Transform>().position = EnemyAttackSprite.transform.position;
     }
 
+    protected IEnumerator SpawnLaserProjectile(float speed, int total)
+    {
+        GameObject[] attack = new GameObject[total];
+        yield return new WaitForSeconds(speed);
+        for (int i = 0; i < total; i++)
+        {
+            attack[i] = Instantiate(LaserPrefab);
+            attack[i].name = "Attack";
+            Transform thisTransform = attack[i].GetComponent<Transform>();
+            thisTransform.position = EnemyAttackSprite.transform.position;
+
+
+            double value = Math.Atan(thisTransform.position.y / thisTransform.position.x) * (180 / Math.PI);
+            Vector3 newAngle = new Vector3(0f, 0f, (float)value);
+            Quaternion from = thisTransform.rotation;
+            Quaternion to = Quaternion.Euler(newAngle);
+            thisTransform.localRotation = Quaternion.Lerp(from, to, 1);
+
+            yield return new WaitForSeconds(0.002f);
+        }
+        
+        //Set speed
+        //rotate object
+        //stretch from 
+    }
+
     IEnumerator AllProjectilesGone()
     {
         do
         {
             yield return null;
         } while (GameObject.Find("Attack") != null);
+        yield return new WaitForSeconds(.3f);
     }
 
 }

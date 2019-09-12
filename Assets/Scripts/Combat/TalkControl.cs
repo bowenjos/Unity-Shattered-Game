@@ -5,21 +5,15 @@ using UnityEngine.UI;
 
 public class TalkControl : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    // Use this for initialization
+    private string colorStart = "<color=#616161>";
+    private string colorEnd = "</color>";
 
     public IEnumerator Dialogue(string text)
     {
         for(int i = 0; i < (text.Length+1); i++)
         {
-            this.GetComponent<Text>().text = text.Substring(0, i);
+            this.GetComponent<Text>().text = text.Substring(0, i) + colorStart + text.Substring(i, text.Length - i) + colorEnd;
             yield return new WaitForSeconds(.03f);
         }
         yield return null;

@@ -57,8 +57,13 @@ public class JitterbugData : EnemyCombatController
 
     public override void ResolveEnemy()
     {
-        //GameControl.control.EnemyData.jitterbugDefeated[enemyNumber] = alive;
-        GameControl.control.MainRoom.monikaAlive = false;
+        GameControl.control.EnemyData.jitterbugDefeated[enemyNumber] = true;
+        //GameControl.control.MainRoom.monikaAlive = false;
+    }
+
+    public override bool CheckEnemy()
+    {
+        return GameControl.control.EnemyData.jitterbugDefeated[enemyNumber];
     }
 
     public override IEnumerator SelectAttack()

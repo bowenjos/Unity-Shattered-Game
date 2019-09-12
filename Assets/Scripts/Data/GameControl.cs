@@ -19,9 +19,8 @@ public class GameControl : MonoBehaviour {
     public ElevatorData ElevatorData = new ElevatorData();
     public DPMainData DPMainData = new DPMainData();
 
-    //Rooms
-    public MainRoom MainRoom = new MainRoom();
-
+    //Other
+    public EnemyData EnemyData;
     
     //Player Data
     public string playerName;
@@ -130,7 +129,6 @@ public class GameControl : MonoBehaviour {
         data.EliseData = EliseData;
 
         data.DPMainData = DPMainData;
-        data.MainRoom = MainRoom;
 
         data.playerName = playerName;
         data.maxHealth = maxHealth;
@@ -170,7 +168,6 @@ public class GameControl : MonoBehaviour {
             EliseData = data.EliseData;
 
             DPMainData = data.DPMainData;
-            MainRoom = data.MainRoom;
 
             playerName = data.playerName;
             maxHealth = data.maxHealth;
@@ -224,8 +221,6 @@ class PlayerData
 
     public ElevatorData ElevatorData;
     public DPMainData DPMainData;
-
-    public MainRoom MainRoom;
 
     public string playerName;
     public float health;

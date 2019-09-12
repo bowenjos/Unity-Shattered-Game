@@ -60,7 +60,10 @@ public class EnemyAggro : MonoBehaviour
         {
             sprite.flipX = false;
         }
-        enemyTransform.position = Vector3.MoveTowards(enemyTransform.position, col.transform.position, 3 * enemyWalk.speed);
+        if (!GameControl.control.frozen)
+        {
+            enemyTransform.position = Vector3.MoveTowards(enemyTransform.position, col.transform.position, 3 * enemyWalk.speed);
+        }
         yield return new WaitForSeconds(0.01f);
         moved = false;
         
@@ -72,6 +75,7 @@ public class EnemyAggro : MonoBehaviour
         {
             
             enemyWalk.moving = false;
+            enemyWalk.aggro = false;
             anim.SetBool("walking", false);
             animAggro.SetBool("Aggro", false);
         }
