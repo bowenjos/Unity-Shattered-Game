@@ -263,7 +263,7 @@ public class PlayerController : MonoBehaviour {
     * Purpose: To allow the player character to push objects in front of them, prevent them from pushing more than 1 object at a time. 
     ***********************/
 
-    IEnumerator Push(int dir, int count, KeyCode keyPressed)
+    IEnumerator Push(int dir, int count, String button)
     {
         Pushable tempObject;
         pushing = true;
@@ -271,7 +271,7 @@ public class PlayerController : MonoBehaviour {
         tempObject = hitBuffer[0].collider.transform.gameObject.GetComponent<Pushable>();
         tempObject.beingPushed = true;
         //While the player continues to hold the directional key
-        while (Input.GetKey(keyPressed))
+        while (Input.GetButton(button))
         {
             //Begin the pushing animation for the direction they are moving
             animator.SetInteger("walkDirection", dir);
@@ -310,6 +310,7 @@ public class PlayerController : MonoBehaviour {
     **********************/
     void Walk(int dir, int count)
     {
+        //This is a check so that the player can walk left or right if they are facing a wall.
         //Checks to see if the number of objects in front of the player is more than 0
         if (count > 0)
         {
@@ -318,7 +319,7 @@ public class PlayerController : MonoBehaviour {
             direction = dir;
             animator.SetBool("walking", false);
             //Checks to see if the player is pushing either the left or the right arrow, but not both at the same time
-            if (Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
+            if (Input.GetButton("Left") && !Input.GetButton("Right"))
             { // Walk Left
                 //If Left is pressed, a check is perfroemd to see if there are objects in front of the player
                 int count2 = rb2d.Cast(Vector2.left, contactFilter, hitBuffer, 0.02F);
@@ -331,7 +332,7 @@ public class PlayerController : MonoBehaviour {
                     direction = 3;
                 }
             }
-            else if (Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow))
+            else if (Input.GetButton("Right") && !Input.GetButton("Left"))
             { // Walk Right
                 //If Right is pressed, a check is performed to see if there are objects in front of the player
                 int count2 = rb2d.Cast(Vector2.right, contactFilter, hitBuffer, 0.02F);
@@ -379,12 +380,12 @@ public class PlayerController : MonoBehaviour {
         transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y);
     }
 
-    IEnumerator Held(KeyCode keypressed, int dir)
+    IEnumerator Held(String button, int dir)
     {
         do
         {
             yield return null;
-        } while (Input.GetKey(keypressed));
+        } while (Input.GetButton(button));
 
         if (dir == 0)
         {
@@ -420,32 +421,32 @@ public class PlayerController : MonoBehaviour {
 
             if (!pushing)
             {
-                if (Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
+                if (Input.GetButton("Left") && !Input.GetButton("Right"))
                 { // Walk Left
                     count = rb2d.Cast(Vector2.left, contactFilter, hitBuffer, 0.02F);
                     if (count > 0 && hitBuffer[0].collider.transform.gameObject.GetComponent<Pushable>())
                     {
-                        StartCoroutine(Push(3, count, KeyCode.LeftArrow));
+                        StartCoroutine(Push(3, count, "Left"));
                     }
                     else
                     {
                         Walk(3, count);
                     }
 
-                    StartCoroutine(Held(KeyCode.LeftArrow, 3));
+                    StartCoroutine(Held("Left", 3));
                 }
-                else if (Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow))
+                else if (Input.GetButton("Right") && !Input.GetButton("Left"))
                 { // Walk Right
                     count = rb2d.Cast(Vector2.right, contactFilter, hitBuffer, 0.02F);
                     if (count > 0 && hitBuffer[0].collider.transform.gameObject.GetComponent<Pushable>())
                     {
-                        StartCoroutine(Push(1, count, KeyCode.RightArrow));
+                        StartCoroutine(Push(1, count, "Right"));
                     }
                     else
                     {
                         Walk(1, count);
                     }
-                    StartCoroutine(Held(KeyCode.RightArrow, 1));
+                    StartCoroutine(Held("Right", 1));
                 }
                 else
                 {
@@ -453,36 +454,36 @@ public class PlayerController : MonoBehaviour {
                     walking = false;
                 }
 
-                if (Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow))
+                if (Input.GetButton("Up") && !Input.GetButton("Down"))
                 { // Walk Up
                     count = rb2d.Cast(Vector2.up, contactFilter, hitBuffer, 0.02F);
                     if (count > 0 && hitBuffer[0].collider.transform.gameObject.GetComponent<Pushable>())
                     {
-                        StartCoroutine(Push(0, count, KeyCode.UpArrow));
+                        StartCoroutine(Push(0, count, "Up"));
                     }
                     else
                     {
                         Walk(0, count);
                     }
-                    StartCoroutine(Held(KeyCode.UpArrow, 0));
+                    StartCoroutine(Held("Up", 0));
                 }
-                else if (Input.GetKey(KeyCode.DownArrow) && !Input.GetKey(KeyCode.UpArrow))
+                else if (Input.GetButton("Down") && !Input.GetButton("Up"))
                 { // Walk Down
                     count = rb2d.Cast(Vector2.down, contactFilter, hitBuffer, 0.02F);
                     if (count > 0 && hitBuffer[0].collider.transform.gameObject.GetComponent<Pushable>())
                     {
-                        StartCoroutine(Push(2, count, KeyCode.DownArrow));
+                        StartCoroutine(Push(2, count, "Down"));
                     }
                     else
                     {
                         Walk(2, count);
                     }
-                    StartCoroutine(Held(KeyCode.DownArrow, 2));
+                    StartCoroutine(Held("Down", 2));
                 }
             }
 
             // Stop Walking
-            if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow))
+            if (!Input.GetButton("Left") && !Input.GetButton("Right") && !Input.GetButton("Up") && !Input.GetButton("Down"))
             {
                 animator.SetBool("walking", false);
                 rb2d.velocity = new Vector3(0, 0, 0);
@@ -490,7 +491,7 @@ public class PlayerController : MonoBehaviour {
             }
 
             //Check to see if their is an object in front of the player and begin interaction
-            if (Input.GetKeyDown(KeyCode.Z) && !GameControl.control.frozen)
+            if (Input.GetButtonDown("Submit") && !GameControl.control.frozen)
             {
                 if (direction == 0)
                 {

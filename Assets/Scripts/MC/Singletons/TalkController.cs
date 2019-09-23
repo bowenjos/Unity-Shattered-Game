@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -192,7 +193,7 @@ public class TalkController : MonoBehaviour {
         yield return StartCoroutine(AnimateText(rightString, rightText));
         yield return new WaitForSeconds(0.2f);
         LeftButton.Select();
-        yield return StartCoroutine(WaitForKeyDown(KeyCode.Z));
+        yield return StartCoroutine(WaitForKeyDown("Submit"));
         yield return new WaitForEndOfFrame();
         editText.text = "";
         editSpriteText.text = "";
@@ -220,7 +221,7 @@ public class TalkController : MonoBehaviour {
 
         YesButton.Select();
         YesButton.OnSelect(null);
-        yield return WaitForKeyDown(KeyCode.Z);
+        yield return WaitForKeyDown("Submit");
         yield return new WaitForEndOfFrame();
         GameControl.control.Unfreeze();
     }
@@ -250,7 +251,7 @@ public class TalkController : MonoBehaviour {
         YesButton.Select();
         YesButton.OnSelect(null);
         yield return new WaitForEndOfFrame();
-        yield return WaitForKeyDown(KeyCode.Z);
+        yield return WaitForKeyDown("Submit");
         GameControl.control.Unfreeze();
         currentState = DialogueStates.NoDialogue;
 
@@ -269,7 +270,7 @@ public class TalkController : MonoBehaviour {
         //Starts the animate text function which runs until the text has finished being printed to the screen
         yield return StartCoroutine(AnimateText(text, thisText));
         //Starts the wait for keydown function which ways for the player to push the Z button before continuing
-        yield return StartCoroutine(WaitForKeyDown(KeyCode.Z));
+        yield return StartCoroutine(WaitForKeyDown("Submit"));
         editText.text = "";
         editSpriteText.text = "";
         choiceText.text = "";
@@ -282,12 +283,12 @@ public class TalkController : MonoBehaviour {
     Pre: Nothing specific, but usually a line of dialogue will be on the screen waiting to be continued
     Post: The line of dialogue will end and a new one might start (or not depending on if there is any left)
     *******************/
-    protected IEnumerator WaitForKeyDown(KeyCode keyCode)
+    protected IEnumerator WaitForKeyDown(String keyCode)
     {
         do
         {
             yield return null;
-        } while (!Input.GetKeyDown(keyCode));
+        } while (!Input.GetButtonDown(keyCode));
     }
 
     /********************
@@ -507,7 +508,7 @@ public class TalkController : MonoBehaviour {
 
     protected IEnumerator SkipText(string text)
     {
-        yield return WaitForKeyDown(KeyCode.Z);
+        yield return WaitForKeyDown("Submit");
         i = text.Length-1;
     }
 

@@ -88,7 +88,7 @@ public class PauseMenuController : MonoBehaviour {
                 break;
         }
 
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetButtonDown("Pause"))
         {
             switch (currentState)
             {
@@ -113,7 +113,7 @@ public class PauseMenuController : MonoBehaviour {
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetButtonDown("Cancel"))
         {
             switch (currentState)
             {
