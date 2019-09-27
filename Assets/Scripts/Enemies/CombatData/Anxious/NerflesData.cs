@@ -60,6 +60,7 @@ public class NerflesData : EnemyCombatController
     public override void ResolveEnemy()
     {
         GameControl.control.EnemyData.fresneticDefeated[enemyNumber] = true;
+        base.ResolveEnemy();
         //GameControl.control.MainRoom.monikaAlive = false;
     }
 

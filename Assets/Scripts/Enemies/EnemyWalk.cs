@@ -3,22 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EnemyWalk : MonoBehaviour
+public class EnemyWalk : EnemyIdle
 {
-    public float speed;
-    public float idleTime;
 
-    public SpriteRenderer sprite;
-    public Transform enemyTransform;
     public BoxCollider2D range;
     protected Bounds enemyRange;
-    public Animator anim;
-    public Rigidbody2D rb2d;
-
-    public bool moving;
-    public bool aggro;
-
-    protected Coroutine co;
 
     void Start()
     {

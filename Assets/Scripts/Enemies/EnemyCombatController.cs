@@ -102,6 +102,7 @@ public class EnemyCombatController : MonoBehaviour {
 	public IEnumerator BattleStart()
     {
         GameControl.control.Freeze();
+        GetComponentInChildren<EnemyAggro>().stop = true;
         this.GetComponent<AudioSource>().Play();
         StartCoroutine(GameObject.Find("JukeBox(Clone)").GetComponent<JukeBoxController>().PauseOut(0.4f));
         yield return StartCoroutine(GameObject.Find("TransitionControl(Clone)").GetComponent<TransitionController>().EnterCombat());
@@ -132,6 +133,7 @@ public class EnemyCombatController : MonoBehaviour {
     public virtual void ResolveEnemy()
     {
         Debug.Log("Enemy defeated");
+        Destroy(this.gameObject);
     }
 
     public virtual bool CheckEnemy()

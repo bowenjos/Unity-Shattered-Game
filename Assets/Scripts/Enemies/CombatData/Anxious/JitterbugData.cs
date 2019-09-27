@@ -53,11 +53,13 @@ public class JitterbugData : EnemyCombatController
         numAttacks = 3;
 
         rewardMoney = 10;
-}
+    }
+
 
     public override void ResolveEnemy()
     {
         GameControl.control.EnemyData.jitterbugDefeated[enemyNumber] = true;
+        base.ResolveEnemy();
         //GameControl.control.MainRoom.monikaAlive = false;
     }
 

@@ -6,12 +6,13 @@ using UnityEngine.SceneManagement;
 public class EnemyAggro : MonoBehaviour
 {
     public SpriteRenderer sprite;
-    public EnemyWalk enemyWalk;
+    public EnemyIdle enemyAggroStyle;
     public Transform enemyTransform;
     public Animator anim;
     public Animator animAggro;
 
     protected bool moved;
+    public bool stop;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,7 @@ public class EnemyAggro : MonoBehaviour
             Destroy(this);
         }
         moved = false;
+        stop = false;
     }
 
     // Update is called once per frame
@@ -32,9 +34,9 @@ public class EnemyAggro : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.gameObject.name == "player(Clone)")
+        if(col.gameObject.name == "player(Clone)" && !stop)
         {
-            enemyWalk.aggro = true;
+            enemyAggroStyle.aggro = true;
             animAggro.SetBool("Aggro", true);
         }
     }
@@ -42,10 +44,14 @@ public class EnemyAggro : MonoBehaviour
     public void OnTriggerStay2D(Collider2D col)
     {
         
-        if (col.gameObject.name == "player(Clone)" && !moved && !GameControl.control.paused)
+        if (col.gameObject.name == "player(Clone)" && !moved && !GameControl.control.paused && !stop)
         {
             anim.SetBool("walking", true);
             StartCoroutine(Move(col));
+        }
+        if (stop)
+        {
+            animAggro.SetBool("Aggro", false);
         }
     }
 
@@ -62,7 +68,7 @@ public class EnemyAggro : MonoBehaviour
         }
         if (!GameControl.control.frozen)
         {
-            enemyTransform.position = Vector3.MoveTowards(enemyTransform.position, col.transform.position, 3 * enemyWalk.speed);
+            enemyTransform.position = Vector3.MoveTowards(enemyTransform.position, col.transform.position, 3 * enemyAggroStyle.speed);
         }
         yield return new WaitForSeconds(0.01f);
         moved = false;
@@ -74,8 +80,8 @@ public class EnemyAggro : MonoBehaviour
         if (col.gameObject.name == "player(Clone)")
         {
             
-            enemyWalk.moving = false;
-            enemyWalk.aggro = false;
+            enemyAggroStyle.moving = false;
+            enemyAggroStyle.aggro = false;
             anim.SetBool("walking", false);
             animAggro.SetBool("Aggro", false);
         }
