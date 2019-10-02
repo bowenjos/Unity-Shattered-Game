@@ -43,9 +43,13 @@ public class EnemyCombatController : MonoBehaviour {
 
     public GameObject AttackPrefab;
     public GameObject LaserPrefab;
+    protected DefaultCharge Charge;
 
     protected Transform[] SetPoints;
     protected Transform EnemyAttackSprite;
+
+    protected bool thisObjectOfficer;
+    
 
     //START
 
@@ -68,22 +72,29 @@ public class EnemyCombatController : MonoBehaviour {
             GameObject.Find("BattleJukeBox").GetComponent<AudioSource>().clip = battleMusic;
             GameObject.Find("Background").GetComponent<SpriteRenderer>().sprite = backgroundSprite;
             GameObject.Find("Midground").GetComponent<SpriteRenderer>().sprite = midgroundSprite;
+            Charge = GameObject.Find("Charge").GetComponent<DefaultCharge>();
+            Debug.Log(Charge);
         }
         else
         {
             GameControl.control.encounter = false;
+            thisObjectOfficer = false;
         }
     }
 
 	// Same as above, however the check is performed ideal when the scene is changed to the combat scene
 	void OnSceneLoaded (Scene aScene, LoadSceneMode aMode) {
-        if(aScene.name == "Encounter")
+        if(aScene.name == "Encounter" && thisObjectOfficer)
         {
             GameControl.control.encounter = true;
             SetPoints = GameObject.Find("SetPoints").GetComponentsInChildren<Transform>();
             EnemyAttackSprite = GameObject.Find("EnemyAttackPhaseSprite").GetComponent<Transform>();
             GameObject.Find("EnemyAttackPhaseSprite").GetComponent<SpriteRenderer>().sprite = enemyTurnSprite;
             GameObject.Find("EnemySprite").GetComponent<SpriteRenderer>().sprite = enemyMainSprite;
+            GameObject.Find("BattleJukeBox").GetComponent<AudioSource>().clip = battleMusic;
+            GameObject.Find("Background").GetComponent<SpriteRenderer>().sprite = backgroundSprite;
+            GameObject.Find("Midground").GetComponent<SpriteRenderer>().sprite = midgroundSprite;
+            Charge = GameObject.Find("Charge").GetComponent<DefaultCharge>();
         }
         else
         {
@@ -102,6 +113,7 @@ public class EnemyCombatController : MonoBehaviour {
 	public IEnumerator BattleStart()
     {
         GameControl.control.Freeze();
+        thisObjectOfficer = true;
         GetComponentInChildren<EnemyAggro>().stop = true;
         this.GetComponent<AudioSource>().Play();
         StartCoroutine(GameObject.Find("JukeBox(Clone)").GetComponent<JukeBoxController>().PauseOut(0.4f));
@@ -278,7 +290,7 @@ public class EnemyCombatController : MonoBehaviour {
     protected IEnumerator SpawnLaserProjectile(float speed, int total)
     {
         GameObject[] attack = new GameObject[total];
-        yield return new WaitForSeconds(speed);
+        yield return StartCoroutine(Charge.animate(speed));
         for (int i = 0; i < total; i++)
         {
             attack[i] = Instantiate(LaserPrefab);

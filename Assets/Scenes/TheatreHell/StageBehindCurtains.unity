@@ -262,14 +262,70 @@ PrefabInstance:
         type: 3}
       propertyPath: range
       value: 
-      objectReference: {fileID: 673957464}
+      objectReference: {fileID: 0}
+    - target: {fileID: 5211822883835106555, guid: 551f4d608530cef4d927d14f2fe8bd22,
+        type: 3}
+      propertyPath: enemyAggroStyle
+      value: 
+      objectReference: {fileID: 286243962}
     - target: {fileID: 5211822884109999599, guid: 551f4d608530cef4d927d14f2fe8bd22,
         type: 3}
       propertyPath: numAttacks
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5211822884109999596, guid: 551f4d608530cef4d927d14f2fe8bd22, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 551f4d608530cef4d927d14f2fe8bd22, type: 3}
+--- !u!1 &286243957 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5211822884109999592, guid: 551f4d608530cef4d927d14f2fe8bd22,
+    type: 3}
+  m_PrefabInstance: {fileID: 286243956}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &286243958 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 5211822884109999594, guid: 551f4d608530cef4d927d14f2fe8bd22,
+    type: 3}
+  m_PrefabInstance: {fileID: 286243956}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &286243959 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5211822884109999595, guid: 551f4d608530cef4d927d14f2fe8bd22,
+    type: 3}
+  m_PrefabInstance: {fileID: 286243956}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &286243960 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5211822884109999597, guid: 551f4d608530cef4d927d14f2fe8bd22,
+    type: 3}
+  m_PrefabInstance: {fileID: 286243956}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &286243961 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5211822884109999598, guid: 551f4d608530cef4d927d14f2fe8bd22,
+    type: 3}
+  m_PrefabInstance: {fileID: 286243956}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &286243962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286243957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 950bb0544f3b0164dbf5903406a2dd22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.011
+  idleTime: 0
+  sprite: {fileID: 286243960}
+  enemyTransform: {fileID: 286243961}
+  anim: {fileID: 286243959}
+  rb2d: {fileID: 286243958}
+  aggro: 0
+  moving: 0
 --- !u!1001 &320141319
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -331,63 +387,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 705ffea0792f68f419e09aa357f1ecdb, type: 3}
---- !u!1 &673957463
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 673957465}
-  - component: {fileID: 673957464}
-  m_Layer: 0
-  m_Name: NerflesRange
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!61 &673957464
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 673957463}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.0001, y: 0.0001}
-  m_EdgeRadius: 0
---- !u!4 &673957465
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 673957463}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: -1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &958419843 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1474613045937104, guid: 31f93a92e9c662c43b3b7fc893c7f362,

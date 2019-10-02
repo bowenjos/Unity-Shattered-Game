@@ -63,10 +63,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 5211822884109999597}
-  enemyWalk: {fileID: 5211822884109999596}
+  enemyAggroStyle: {fileID: 8543383228620025981}
   enemyTransform: {fileID: 5211822884109999598}
   anim: {fileID: 5211822884109999595}
   animAggro: {fileID: 5211822883835106553}
+  stop: 0
 --- !u!212 &5211822883835106554
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -144,12 +145,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5211822884109999598}
   - component: {fileID: 5211822884109999597}
-  - component: {fileID: 5211822884109999596}
   - component: {fileID: 5211822884109999595}
   - component: {fileID: 5211822884109999594}
   - component: {fileID: 5211822884109999593}
   - component: {fileID: 5211822884109999599}
   - component: {fileID: 5211822884109999584}
+  - component: {fileID: 8543383228620025981}
   m_Layer: 0
   m_Name: FresneticOverworld
   m_TagString: Untagged
@@ -220,27 +221,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5211822884109999596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5211822884109999592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19c86dba3db80764190467e3106ce806, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.011
-  idleTime: 0
-  sprite: {fileID: 5211822884109999597}
-  enemyTransform: {fileID: 5211822884109999598}
-  range: {fileID: 0}
-  anim: {fileID: 5211822884109999595}
-  rb2d: {fileID: 5211822884109999594}
-  moving: 0
-  aggro: 0
 --- !u!95 &5211822884109999595
 Animator:
   serializedVersion: 3
@@ -280,7 +260,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!61 &5211822884109999593
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -332,7 +312,7 @@ MonoBehaviour:
   numAttacks: 0
   rewardMoney: 0
   enemyMainSprite: {fileID: 21300000, guid: a26ca279a91f5d7488917771efa3f7a0, type: 3}
-  enemyTurnSprite: {fileID: 21300000, guid: 5e6109cd3a7e9dc498fd42e674cfd5d4, type: 3}
+  enemyTurnSprite: {fileID: 21300000, guid: c3e1b73a8182508449c0c5b65fb59bf4, type: 3}
   introDialogue: 
   outroDialogue: 
   talkDialogue: []
@@ -442,3 +422,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8543383228620025981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5211822884109999592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 950bb0544f3b0164dbf5903406a2dd22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.011
+  idleTime: 0
+  sprite: {fileID: 5211822884109999597}
+  enemyTransform: {fileID: 5211822884109999598}
+  anim: {fileID: 5211822884109999595}
+  rb2d: {fileID: 5211822884109999594}
+  aggro: 0
+  moving: 0

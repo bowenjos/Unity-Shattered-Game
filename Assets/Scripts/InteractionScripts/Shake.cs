@@ -40,7 +40,6 @@ public class Shake : MonoBehaviour {
 
         obj.position = defaultPos;
         shaking = false;
-        Debug.Log("Done");
     }
 
     public void StartShake(float time)
