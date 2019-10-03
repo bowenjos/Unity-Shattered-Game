@@ -96,10 +96,6 @@ public class EnemyCombatController : MonoBehaviour {
             GameObject.Find("Midground").GetComponent<SpriteRenderer>().sprite = midgroundSprite;
             Charge = GameObject.Find("Charge").GetComponent<DefaultCharge>();
         }
-        else
-        {
-            GameControl.control.encounter = false;
-        }
 	}
 
     void OnCollisionEnter2D(Collision2D col)
@@ -134,6 +130,7 @@ public class EnemyCombatController : MonoBehaviour {
             //Checks to see if it's the enemies turn, and if they've started said turn yet, if met, the enemy starts their turn.
             if (BattleController.BC.currentState == BattleController.BattleState.EnemyTurn && BattleController.BC.enemyTurnStart)
             {
+                Debug.Log("My turn mother fucker");
                 BattleController.BC.enemyTurnStart = false;
                 StartCoroutine(EnemyTurn());
             }
@@ -166,6 +163,7 @@ public class EnemyCombatController : MonoBehaviour {
     {
         numAttacks = 3;
         int rand = UnityEngine.Random.Range(0, numAttacks);
+        
         switch (rand)
         {
             case 0:

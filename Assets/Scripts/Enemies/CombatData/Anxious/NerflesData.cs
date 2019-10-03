@@ -78,19 +78,19 @@ public class NerflesData : EnemyCombatController
         {
             case 0:
                 yield return new WaitForSeconds(1f);
-                yield return StartCoroutine(SpawnLaserProjectile(.2f, 30));
+                yield return StartCoroutine(SpawnLaserProjectile(.3f, 30));
                 yield return MoveToSetpoint(SetPoints[2], .2f);
-                yield return StartCoroutine(SpawnLaserProjectile(.2f, 30));
+                yield return StartCoroutine(SpawnLaserProjectile(.3f, 30));
                 yield return MoveToSetpoint(SetPoints[3], .2f);
-                yield return StartCoroutine(SpawnLaserProjectile(.5f, 30));
+                yield return StartCoroutine(SpawnLaserProjectile(.3f, 30));
                 yield return MoveToSetpoint(SetPoints[4], .2f);
-                yield return StartCoroutine(SpawnLaserProjectile(.2f, 30));
+                yield return StartCoroutine(SpawnLaserProjectile(.3f, 30));
                 yield return MoveToSetpoint(SetPoints[5], .2f);
-                yield return StartCoroutine(SpawnLaserProjectile(.2f, 30));
+                yield return StartCoroutine(SpawnLaserProjectile(.3f, 30));
                 yield return MoveToSetpoint(SetPoints[6], .2f);
-                yield return StartCoroutine(SpawnLaserProjectile(.2f, 30));
+                yield return StartCoroutine(SpawnLaserProjectile(.3f, 30));
                 yield return MoveToSetpoint(SetPoints[9], .2f);
-                yield return StartCoroutine(SpawnLaserProjectile(.2f, 30));
+                yield return StartCoroutine(SpawnLaserProjectile(.3f, 30));
 
                 yield return new WaitForSeconds(.1f);
                 break;

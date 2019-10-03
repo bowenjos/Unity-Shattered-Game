@@ -72,6 +72,8 @@ public class JitterbugData : EnemyCombatController
     {
         numAttacks = 3;
         int rand = Random.Range(0, numAttacks);
+        Debug.Log("heww");
+        Debug.Log(rand);
         switch (rand)
         {
             case 0:

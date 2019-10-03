@@ -126,6 +126,7 @@ public class BattleController : MonoBehaviour {
         EnemyAttacker.color = new Color(1f, 1f, 1f, 1f);
         yield return new WaitForSeconds(1f);
         currentState = BattleState.EnemyTurn;
+        Debug.Log("Hello from BC");
         enemyTurnStart = true;
         yield return null;
     }
