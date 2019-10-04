@@ -277,12 +277,22 @@ public class EnemyCombatController : MonoBehaviour {
 
 
     //Spawn the default projectile
-    protected void SpawnDefaultProjectile(float speed)
+    protected GameObject SpawnDefaultProjectile(float speed)
     {
         GameObject attack = Instantiate(AttackPrefab);
         attack.name = "Attack";
         attack.GetComponent<DefaultAttack>().speed = speed;
         attack.GetComponent<Transform>().position = EnemyAttackSprite.transform.position;
+        return attack;
+    }
+
+    protected GameObject SpawnSpecialNormalProjectile(float speed, GameObject prefab)
+    {
+        GameObject attack = Instantiate(prefab);
+        attack.name = "Attack";
+        attack.GetComponent<DefaultAttack>().speed = speed;
+        attack.GetComponent<Transform>().position = EnemyAttackSprite.transform.position;
+        return attack;
     }
 
     protected IEnumerator SpawnLaserProjectile(float speed, int total)
