@@ -25,9 +25,12 @@ public class ButtonEffect : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        sr.sprite = ButtonDown;
-        audios.Play();
-        activated = true;
+        if (col.gameObject.tag == "Player")
+        {
+            sr.sprite = ButtonDown;
+            audios.Play();
+            activated = true;
+        }
     }
 
     void OnTriggerStay2D(Collider2D col)
