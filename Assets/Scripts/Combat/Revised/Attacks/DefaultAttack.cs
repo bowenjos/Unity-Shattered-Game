@@ -32,6 +32,10 @@ public class DefaultAttack : MonoBehaviour
 
         for (float i = 0; i < speed; i += .01f)
         {
+            if(BattleController.BC.currentState == BattleController.BattleState.Dying)
+            {
+                Destroy(this);
+            }
             thisTransform.position = new Vector3(-dxt * i + x, -dyt * i + y, 0);
             yield return new WaitForSeconds(.01f);
 

@@ -7,7 +7,7 @@ using UnityEngine;
 public class EnemyData
 {
     //Anxious
-    public bool[] jitterbugDefeated = new bool[2];
-    public bool[] fresneticDefeated = new bool[1];
-    public bool[] lunaseeDefeated = new bool[1];
+    public bool[] jitterbugDefeated = new bool[3];
+    public bool[] fresneticDefeated = new bool[2];
+    public bool[] lunaseeDefeated = new bool[2];
 }

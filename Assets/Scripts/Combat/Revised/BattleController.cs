@@ -8,7 +8,7 @@ public class BattleController : MonoBehaviour {
 
     public static BattleController BC;
     public GameObject BattleCamera;
-    public enum BattleState {PlayerTurn, EnemyTurn, Neither};
+    public enum BattleState {PlayerTurn, EnemyTurn, Neither, Dying};
     public BattleState currentState;
 
     public TalkControl textBox;
@@ -170,6 +170,7 @@ public class BattleController : MonoBehaviour {
 
     public void DestroyPlayer()
     {
+        currentState = BattleState.Dying;
         Player.SetActive(true);
         Destroy(Player);
     }

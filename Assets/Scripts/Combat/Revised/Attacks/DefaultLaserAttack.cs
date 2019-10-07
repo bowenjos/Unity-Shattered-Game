@@ -17,6 +17,10 @@ public class DefaultLaserAttack : DefaultAttack
 
         for (float i = 0; i < speed; i += .012f)
         {
+            if (BattleController.BC.currentState == BattleController.BattleState.Dying)
+            {
+                Destroy(this);
+            }
             thisTransform.position = new Vector3(-dxt * i + x, -dyt * i + y, 0);
             yield return new WaitForSeconds(.005f);
 
