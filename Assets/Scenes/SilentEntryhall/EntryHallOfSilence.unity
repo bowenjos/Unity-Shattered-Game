@@ -2939,16 +2939,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: WilliamMaskless
       objectReference: {fileID: 0}
-    - target: {fileID: 108126423080599312, guid: e47ac28b12e83264b909ee70ce2b9dd7,
-        type: 3}
-      propertyPath: m_Cookie
-      value: 
-      objectReference: {fileID: 2800000, guid: 39b6953433e49d849990bc8a8f2f0098, type: 3}
-    - target: {fileID: 108126423080599312, guid: e47ac28b12e83264b909ee70ce2b9dd7,
-        type: 3}
-      propertyPath: m_CookieSize
-      value: 0.67
-      objectReference: {fileID: 0}
     - target: {fileID: 4217664514373456, guid: e47ac28b12e83264b909ee70ce2b9dd7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.15
@@ -2988,6 +2978,16 @@ PrefabInstance:
     - target: {fileID: 4217664514373456, guid: e47ac28b12e83264b909ee70ce2b9dd7, type: 3}
       propertyPath: m_LocalScale.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108126423080599312, guid: e47ac28b12e83264b909ee70ce2b9dd7,
+        type: 3}
+      propertyPath: m_Cookie
+      value: 
+      objectReference: {fileID: 2800000, guid: 39b6953433e49d849990bc8a8f2f0098, type: 3}
+    - target: {fileID: 108126423080599312, guid: e47ac28b12e83264b909ee70ce2b9dd7,
+        type: 3}
+      propertyPath: m_CookieSize
+      value: 0.67
       objectReference: {fileID: 0}
     - target: {fileID: 212791666898992196, guid: e47ac28b12e83264b909ee70ce2b9dd7,
         type: 3}
@@ -4633,14 +4633,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.42, y: 1.07}
+    oldSize: {x: 0.34, y: 0.86}
     newSize: {x: 0.28, y: 0.71}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 1
   serializedVersion: 2
-  m_Size: {x: 0.39, y: 0.9}
+  m_Size: {x: 0.312, y: 0.72}
   m_EdgeRadius: 0
 --- !u!1001 &2143463811
 PrefabInstance:
@@ -4693,16 +4693,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114305202220195550, guid: 75e684c3a7d7d274bacb15b7e26a1c83,
-        type: 3}
-      propertyPath: zone
-      value: CD
-      objectReference: {fileID: 0}
-    - target: {fileID: 114305202220195550, guid: 75e684c3a7d7d274bacb15b7e26a1c83,
-        type: 3}
-      propertyPath: targetSceneName
-      value: Main
-      objectReference: {fileID: 0}
     - target: {fileID: 61682516838198022, guid: 75e684c3a7d7d274bacb15b7e26a1c83,
         type: 3}
       propertyPath: m_Size.x
@@ -4712,6 +4702,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.y
       value: 0.422
+      objectReference: {fileID: 0}
+    - target: {fileID: 114305202220195550, guid: 75e684c3a7d7d274bacb15b7e26a1c83,
+        type: 3}
+      propertyPath: zone
+      value: CD
+      objectReference: {fileID: 0}
+    - target: {fileID: 114305202220195550, guid: 75e684c3a7d7d274bacb15b7e26a1c83,
+        type: 3}
+      propertyPath: targetSceneName
+      value: Main
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114335011923724782, guid: 75e684c3a7d7d274bacb15b7e26a1c83, type: 3}
