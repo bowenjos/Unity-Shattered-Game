@@ -5,9 +5,13 @@ using UnityEngine;
 public class MirrorPlayerController : MonoBehaviour
 {
     public float mirrorAxis;
+    public float hideAxisX;
+    public bool useHideAxis;
+    public bool lessThanX;
 
     protected Transform player;
     protected Transform thisTransform;
+    protected SpriteRenderer thisSprite;
     protected PlayerController playerController;
     protected Animator thisAnim;
 
@@ -17,12 +21,14 @@ public class MirrorPlayerController : MonoBehaviour
         player = GameObject.Find("player(Clone)").GetComponent<Transform>();
         playerController = GameObject.Find("player(Clone)").GetComponent<PlayerController>();
         thisTransform = GetComponent<Transform>();
+        thisSprite = GetComponent<SpriteRenderer>();
         thisAnim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        checkVisibility();
         if (playerController.walking)
         {
             thisAnim.SetBool("walking", true);
@@ -49,5 +55,34 @@ public class MirrorPlayerController : MonoBehaviour
             thisAnim.SetInteger("walkDirection", 1);
         }
         thisTransform.position = new Vector3(player.position.x, -player.position.y + .38f + mirrorAxis, -player.position.y);
+    }
+
+    protected void checkVisibility()
+    {
+        if (useHideAxis)
+        {
+            if (!lessThanX)
+            {
+                if (player.position.x > hideAxisX)
+                {
+                    thisSprite.color = new Color(1f, 1f, 1f, 0f);
+                }
+                else
+                {
+                    thisSprite.color = new Color(1f, 1f, 1f, 1f);
+                }
+            }
+            else
+            {
+                if (player.position.x < hideAxisX)
+                {
+                    thisSprite.color = new Color(1f, 1f, 1f, 0f);
+                }
+                else
+                {
+                    thisSprite.color = new Color(1f, 1f, 1f, 1f);
+                }
+            }
+        }
     }
 }
