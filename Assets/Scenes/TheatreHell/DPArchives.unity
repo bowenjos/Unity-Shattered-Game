@@ -226,15 +226,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   talkCanvas: {fileID: 0}
-  dialogue: []
+  dialogue:
+  - On the shelf is a dusty book titled "This Book Is Old".
   talkController: {fileID: 0}
   choiceDialogue: Read it?
   leftDialogue:
-  - 
+  - '"Well I mean it isn''t right now while I''m writing it."'
+  - '"But I''m sure it will be when you find it."'
+  - '"I mean look at all the dust on it!"'
+  - '"(Or the dust I assume is on it.)"'
+  - '"Why am I writing this again?"'
   rightDialogue:
-  - 
-  leftButtonText: Yee
-  rightButtonText: Nah
+  - You can tell at a glance that it isn't lying.
+  leftButtonText: Yes
+  rightButtonText: No
 --- !u!61 &84908823
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1357,15 +1362,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   talkCanvas: {fileID: 0}
-  dialogue: []
+  dialogue:
+  - You find catalogues of historical plays and performances.
   talkController: {fileID: 0}
-  choiceDialogue: Read it?
+  choiceDialogue: Read one?
   leftDialogue:
-  - 
+  - '"Allora enters stage left"'
+  - '"Allora: Hey Ythurgil, you left your silver platter floating in the ocean again."'
+  - '"Ythurgil: Ah yeah, I left that there intentionally."'
+  - '"Allora: Why on evenarth would you-"'
+  - '"Allora: You know what, nevermind."'
+  - '"Ythurgil: Someday that''s going to be really important and you''ll be glad I
+    did."'
+  - '"Ythurgil: Or not."'
+  - '"Ythurgil: Depending on how it all shakes out."'
+  - '"Ythurgill: It could go either way."'
+  - You have no idea what these two are talking about. You put the book back.
   rightDialogue:
-  - 
-  leftButtonText: Yee
-  rightButtonText: Nah
+  - Maybe some other time.
+  leftButtonText: Yeah
+  rightButtonText: Nope
 --- !u!61 &667500587
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2685,15 +2701,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   talkCanvas: {fileID: 0}
-  dialogue: []
+  dialogue:
+  - You find a book, it has no title, but it's writen by someone named Allan.
   talkController: {fileID: 0}
   choiceDialogue: Read it?
   leftDialogue:
-  - 
+  - '"[To be written later]"'
   rightDialogue:
-  - 
-  leftButtonText: Yee
-  rightButtonText: Nah
+  - What kind of book doesn't have a title? Pass.
+  leftButtonText: Yup
+  rightButtonText: Nop
 --- !u!61 &1923484023
 BoxCollider2D:
   m_ObjectHideFlags: 0
