@@ -100,6 +100,7 @@ public class MirrorController : MonoBehaviour {
         takeDamage.Play();
         GameControl.control.health -= col.gameObject.GetComponent<DefaultAttack>().damageValue;
         this.GetComponent<Shake>().StartShake(.05f);
+        BattleController.BC.healingTouched = false;
         Destroy(col.gameObject);
     }
 

@@ -15,6 +15,7 @@ public class LunaseeData : EnemyCombatController
     {
         introDialogue = "I See You.";
         outroDialogue = ".";
+        descriptionDialogue = "Just your average stage prop turned possessed object.";
         talkDialogue = new string[1];
         talkDialogue[0] = "";
 
@@ -36,9 +37,10 @@ public class LunaseeData : EnemyCombatController
         playerTurnIdle = new string[1];
         playerTurnIdle[0] = "";
 
+        enemyName = "Lunasee";
         enemyHealth = 6;
         enemyHealthMax = 6;
-        enemyEmotion = "anxiety";
+        enemyEmotion = "Anxiety";
 
         enemyResistances = new int[6];
         enemyResistances[0] = 1;

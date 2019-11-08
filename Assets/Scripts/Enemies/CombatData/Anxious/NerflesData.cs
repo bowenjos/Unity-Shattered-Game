@@ -9,6 +9,7 @@ public class NerflesData : EnemyCombatController
     {
         introDialogue = "Fresnetic shines their light in your eyes.";
         outroDialogue = "Fresnetic light stops flickering.";
+        descriptionDialogue = "Don't state directly into the light.";
         talkDialogue = new string[3];
         talkDialogue[0] = "You chat with Fresnetic about stagetech.";
         talkDialogue[1] = "You tell Fresnetic about a time you dressed up as a penguin for a school play once.";
@@ -39,9 +40,10 @@ public class NerflesData : EnemyCombatController
         playerTurnIdle[3] = "Fresnetic flickers silently.";
         playerTurnIdle[4] = "";
 
+        enemyName = "Fresnetic";
         enemyHealth = 4;
         enemyHealthMax = 4;
-        enemyEmotion = "anxiety";
+        enemyEmotion = "Anxiety";
 
         enemyResistances = new int[6];
         enemyResistances[0] = 1;

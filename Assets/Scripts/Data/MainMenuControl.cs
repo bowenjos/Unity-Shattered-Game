@@ -17,17 +17,25 @@ public class MainMenuControl : MonoBehaviour {
     public Text playerLocation;
 
     public GameObject will;
+    public GameObject willExtra;
     public GameObject elise;
     public GameObject thongsai;
     public GameObject des;
     public GameObject drum;
     public GameObject voice;
     public GameObject violin;
+    public GameObject yolandaExtra;
+
+    public GameObject[] masks;
 
 	// Use this for initialization
 	void Start () {
 
         //Set all ghosts to inactive on menu
+        for(int i = 0; i < 7; i++)
+        {
+            masks[i].SetActive(false);
+        }
         will.SetActive(false);
         elise.SetActive(false);
         thongsai.SetActive(false);
@@ -48,30 +56,39 @@ public class MainMenuControl : MonoBehaviour {
             if (GameControl.control.masksTemp[0])
             {
                 will.SetActive(true);
+                masks[0].SetActive(true);
+                willExtra.SetActive(false);
             }
             if (GameControl.control.masksTemp[1])
             {
                 violin.SetActive(true);
+                masks[1].SetActive(true);
+                yolandaExtra.SetActive(false);
             }
             if (GameControl.control.masksTemp[2])
             {
                 elise.SetActive(true);
+                masks[2].SetActive(true);
             }
             if (GameControl.control.masksTemp[3])
             {
                 thongsai.SetActive(true);
+                masks[3].SetActive(true);
             }
             if (GameControl.control.masksTemp[4])
             {
                 drum.SetActive(true);
+                masks[4].SetActive(true);
             }
             if (GameControl.control.masksTemp[5])
             {
                 voice.SetActive(true);
+                masks[5].SetActive(true);
             }
             if (GameControl.control.masksTemp[6])
             {
                 des.SetActive(true);
+                masks[6].SetActive(true);
             }
 
             ContinueButton.Select();

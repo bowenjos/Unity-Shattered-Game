@@ -35,8 +35,8 @@ public class PlayerTurnController : MonoBehaviour {
     public SwaySideToSide enemySway;
     public Shake enemyShake;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start() {
         currentState = MenuStates.MainSelect;
         MenuVisibility = MenuPanel.gameObject.GetComponent<Image>();
         TalkVisibility = TalkPanel.gameObject.GetComponent<Image>();
@@ -44,9 +44,9 @@ public class PlayerTurnController : MonoBehaviour {
         HelpButton.Select();
 
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update() {
 
         /*
         if(BattleController.BC.currentState != BattleController.BattleState.PlayerTurn)
@@ -110,9 +110,9 @@ public class PlayerTurnController : MonoBehaviour {
                 break;
         }
 
-        if(Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.X))
         {
-            if(currentState == MenuStates.HelpSelect)
+            if (currentState == MenuStates.HelpSelect)
             {
                 StartCoroutine(MoveTalkBack());
             }
@@ -121,8 +121,8 @@ public class PlayerTurnController : MonoBehaviour {
                 currentState = MenuStates.MainSelect;
             }
         }
-        
-	}
+
+    }
 
     //Slides the bottom menu back to it's full size
     public IEnumerator MoveTalkBack()
@@ -151,13 +151,13 @@ public class PlayerTurnController : MonoBehaviour {
         RectTransform TPRT = TalkPanel.GetComponent<RectTransform>();
         enemyText.gameObject.SetActive(false);
         float dx = 0.8f;
-        while(dx > 0.65f)
+        while (dx > 0.65f)
         {
             dx -= ((.01f / 0.2f) * 0.65f);
             TPRT.anchorMax = new Vector2(dx, TPRT.anchorMax.y);
             TPRT.anchorMin = new Vector2(1 - dx, TPRT.anchorMin.y);
             yield return new WaitForSeconds(0.02f);
-        }  
+        }
         currentState = MenuStates.HelpSelect;
         CombatPanel.SetActive(true);
         TalkButton.gameObject.SetActive(true);
@@ -180,19 +180,46 @@ public class PlayerTurnController : MonoBehaviour {
         StartCoroutine(MoveTalk());
     }
 
-    public void OnItemButtonPress()
-    {
-        currentState = MenuStates.HelpSelect;
-    }
 
     public void OnRestButtonPress()
     {
+        StartCoroutine(HealPlayer());
+        //Heal Player
+        //End turn
+    }
 
+    public IEnumerator HealPlayer()
+    {
+        currentState = MenuStates.EnemyTurn;
+        int targetHealth = GameControl.control.health + GameControl.control.healFactor;
+        if (targetHealth > GameControl.control.maxHealth)
+        {
+            targetHealth = GameControl.control.maxHealth;
+        }
+        yield return StartCoroutine(textBox.Dialogue("You took some time to take care of yourself."));
+        BattleController.BC.healingTouched = true;
+        for (int i = GameControl.control.health; i <= targetHealth; i++)
+        {
+            GameControl.control.health = i;
+            yield return new WaitForEndOfFrame();
+        }
+        //sound effect
+        yield return new WaitForSeconds(0.2f);
+        currentState = MenuStates.EnemyTurn;
+        StartCoroutine(BattleController.BC.EndTurnPlayer());
+    }
+
+    public void OnLookButtonPress()
+    {
+        currentState = MenuStates.EnemyTurn;
+        StartCoroutine(BattleController.BC.DisplayEnemyData());
     }
 
     public void OnFleeButtonPress()
     {
-
+        //Try to flee
+        //Flee if successful
+        //otherwise end turn
     }
 
     //HELP MENU FUNCTIONS

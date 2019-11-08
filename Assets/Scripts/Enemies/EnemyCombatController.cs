@@ -14,6 +14,7 @@ public class EnemyCombatController : MonoBehaviour {
     public bool fleeable;
     public int enemyNumber;
 
+    public string enemyName;
     public double enemyHealth;
     public double enemyHealthMax;
     public string enemyEmotion;
@@ -30,6 +31,7 @@ public class EnemyCombatController : MonoBehaviour {
 
     public string introDialogue;
     public string outroDialogue;
+    public string descriptionDialogue;
     public string[] talkDialogue;
     public string[] sitDialogue;
     public string[] hugDialogue;

@@ -24,8 +24,9 @@ public class GameControl : MonoBehaviour {
     
     //Player Data
     public string playerName;
-    public float health;
-    public float maxHealth;
+    public int health;
+    public int maxHealth;
+    public int healFactor;
     public float money;
     public int numMasks;
     public float playedTime;
@@ -133,6 +134,7 @@ public class GameControl : MonoBehaviour {
         data.playerName = playerName;
         data.maxHealth = maxHealth;
         data.health = health;
+        data.healFactor = healFactor;
         data.money = money;
         data.numMasks = numMasks;
         data.playedTime = playedTime;
@@ -172,6 +174,7 @@ public class GameControl : MonoBehaviour {
             playerName = data.playerName;
             maxHealth = data.maxHealth;
             health = data.health;
+            healFactor = data.healFactor;
             money = data.money;
             numMasks = data.numMasks;
             playedTime = data.playedTime;
@@ -223,8 +226,9 @@ class PlayerData
     public DPMainData DPMainData;
 
     public string playerName;
-    public float health;
-    public float maxHealth;
+    public int health;
+    public int maxHealth;
+    public int healFactor;
     public float money;
     public int numMasks;
     public float playedTime;

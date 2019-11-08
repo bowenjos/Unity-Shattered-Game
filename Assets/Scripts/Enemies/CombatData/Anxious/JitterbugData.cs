@@ -12,6 +12,7 @@ public class JitterbugData : EnemyCombatController
     {
         introDialogue = "Jitterbug jitters close.";
         outroDialogue = "Jitterbug stops jittering.";
+        descriptionDialogue = "A nervous friend who just can't stop shaking.";
         talkDialogue = new string[3];
         talkDialogue[0] = "You open your mouth to speak, but Jitterbug lets out a loud cricket before you can say anything.";
         talkDialogue[1] = "You ask them how they're doing, and instead of responding they just scream.";
@@ -37,9 +38,10 @@ public class JitterbugData : EnemyCombatController
         playerTurnIdle[3] = "Jitterbug vibrates at mach speeds.";
         playerTurnIdle[4] = "Jitterbug does the worm, despite very clearly not being a worm.";
 
+        enemyName = "Jitterbug";
         enemyHealth = 4;
         enemyHealthMax = 4;
-        enemyEmotion = "anxiety";
+        enemyEmotion = "Anxiety";
 
         enemyResistances = new int[6];
         enemyResistances[0] = 2;

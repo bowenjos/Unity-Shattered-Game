@@ -23,6 +23,7 @@ public class BattleController : MonoBehaviour {
     public SpriteRenderer[] Blockers;
 
     public bool enemyTurnStart;
+    public bool healingTouched;
 
     public AudioSource BattleJukeBox;
     public FanfareController fanfare;
@@ -133,6 +134,32 @@ public class BattleController : MonoBehaviour {
 
     public IEnumerator EndTurnEnemy()
     {
+        if (healingTouched)
+        {
+            int healthTarget = GameControl.control.health + GameControl.control.healFactor;
+            if(healthTarget > GameControl.control.maxHealth)
+            {
+                healthTarget = GameControl.control.maxHealth;
+            }
+            //animation + soundeffect
+            mirrorHealthText.fontSize = 85;
+            mirrorBorderText.fontSize = 85;
+            GameControl.control.health = healthTarget;
+            mirrorHealthText.color = new Color(139 / 255f, 255 / 255f, 139 / 255f, 255f);
+            yield return new WaitForSeconds(.5f);
+            for (int i = 0; i < 10; i++)
+            {
+                mirrorHealthText.fontSize--;
+                mirrorBorderText.fontSize--;
+                yield return new WaitForSeconds(.02f);
+            }
+            mirrorHealthText.color = new Color(139 / 255f, 139 / 255f, 139 / 255f, 255f);
+            mirrorHealthText.fontSize = 75;
+            mirrorBorderText.fontSize = 75;
+            yield return new WaitForSeconds(.5f);
+            healingTouched = false;
+        }
+
         int rand = Random.Range(0, Enemy.playerTurnIdle.Length);
         currentState = BattleState.PlayerTurn;
         for (float i = 200f; i > 0f; i -= 20f)
@@ -166,6 +193,17 @@ public class BattleController : MonoBehaviour {
     public void EnemyTakeDamage(int value)
     {
         Enemy.enemyHealth -= value;
+    }
+
+    public IEnumerator DisplayEnemyData()
+    {
+        yield return StartCoroutine(textBox.Dialogue(Enemy.enemyName + " - " + 
+                                                    Enemy.enemyEmotion + " - " + 
+                                                    Enemy.enemyHealth + "/" + 
+                                                    Enemy.enemyHealthMax + " - " + 
+                                                    Enemy.descriptionDialogue));
+        yield return new WaitForSeconds(4f);
+        StartCoroutine(BattleController.BC.EndTurnPlayer());
     }
 
     public void DestroyPlayer()
