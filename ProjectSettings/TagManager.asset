@@ -13,6 +13,7 @@ TagManager:
   - Purple
   - William
   - LensEffect
+  - Enemy
   layers:
   - Default
   - TransparentFX

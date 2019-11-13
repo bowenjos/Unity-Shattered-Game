@@ -17,10 +17,13 @@ public class EnemyAggro : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        /*
         if (SceneManager.GetActiveScene().name == "Encounter")
         {
-            Destroy(this);
+            Debug.Log("Twice?");
+            //Destroy(this);
         }
+        */
         moved = false;
         stop = false;
     }
@@ -28,9 +31,15 @@ public class EnemyAggro : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (GameControl.control.stunned)
+        {
+            stop = true;
+        }
+        else
+        {
+            stop = false;
+        }
     }
-
 
     public void OnTriggerEnter2D(Collider2D col)
     {

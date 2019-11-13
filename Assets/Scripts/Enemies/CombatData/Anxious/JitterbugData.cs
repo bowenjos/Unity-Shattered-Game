@@ -5,7 +5,10 @@ using UnityEngine;
 public class JitterbugData : EnemyCombatController
 {
     // Start is called before the first frame update
-
+    public GameObject UpPrefab;
+    public GameObject RightPrefab;
+    public GameObject DownPrefab;
+    public GameObject LeftPrefab;
     // Update is called once per frame
 
     void Awake()
@@ -39,6 +42,7 @@ public class JitterbugData : EnemyCombatController
         playerTurnIdle[4] = "Jitterbug does the worm, despite very clearly not being a worm.";
 
         enemyName = "Jitterbug";
+        fleeable = true;
         enemyHealth = 4;
         enemyHealthMax = 4;
         enemyEmotion = "Anxiety";
@@ -65,59 +69,135 @@ public class JitterbugData : EnemyCombatController
         //GameControl.control.MainRoom.monikaAlive = false;
     }
 
-    public override bool CheckEnemy()
+    public override bool CheckEnemyDead()
     {
         return GameControl.control.EnemyData.jitterbugDefeated[enemyNumber];
     }
 
     public override IEnumerator SelectAttack()
     {
-        numAttacks = 3;
+        numAttacks = 5;
         int rand = Random.Range(0, numAttacks);
-        Debug.Log("heww");
-        Debug.Log(rand);
         switch (rand)
         {
             case 0:
+                rand = Random.Range(3, 7);
                 yield return new WaitForSeconds(1f);
-                yield return MoveToSetpoint(SetPoints[1], .2f);
-                yield return new WaitForSeconds(.1f);
-                SpawnDefaultProjectile(4f);
-                yield return MoveToSetpoint(SetPoints[12], .2f);
-                yield return new WaitForSeconds(.1f);
-                SpawnDefaultProjectile(4f);
-                yield return MoveToSetpoint(SetPoints[11], .2f);
-                yield return new WaitForSeconds(.1f);
-                SpawnDefaultProjectile(4f);
+                for (int i = 0; i < rand; i++)
+                {
+                    int randtwo = Random.Range(0, 3);
+                    switch (randtwo)
+                    {
+                        case 0:
+                            yield return MoveToSetpoint(SetPoints[1], .2f);
+                            yield return new WaitForSeconds(.05f);
+                            SpawnSpecialNormalProjectile(2.5f, RightPrefab);
+                            break;
+                        case 1:
+                            yield return MoveToSetpoint(SetPoints[12], .2f);
+                            yield return new WaitForSeconds(.05f);
+                            SpawnSpecialNormalProjectile(2.5f, UpPrefab);
+                            break;
+                        case 2:
+                            yield return MoveToSetpoint(SetPoints[11], .2f);
+                            yield return new WaitForSeconds(.05f);
+                            SpawnSpecialNormalProjectile(2.5f, LeftPrefab);
+                            break;
+
+                    }
+                }
                 break;
             case 1:
                 yield return MoveToSetpoint(SetPoints[12], .1f);
                 yield return MoveAroundRight(3, 12, .3f);
-                SpawnDefaultProjectile(4f);
+                SpawnSpecialNormalProjectile(2f, RightPrefab);
                 yield return MoveAroundRight(6, 3, .3f);
-                SpawnDefaultProjectile(4f);
+                SpawnSpecialNormalProjectile(2f, DownPrefab);
                 yield return MoveAroundRight(9, 6, .3f);
-                SpawnDefaultProjectile(4f);
+                SpawnSpecialNormalProjectile(2f, LeftPrefab);
                 yield return MoveAroundRight(12, 9, .3f);
-                SpawnDefaultProjectile(4f);
+                SpawnSpecialNormalProjectile(2f, UpPrefab);
                 break;
             case 2:
+                rand = Random.Range(3, 7);
                 yield return new WaitForSeconds(1f);
-                yield return MoveToSetpoint(SetPoints[2], .2f);
-                yield return new WaitForSeconds(.1f);
-                SpawnDefaultProjectile(4f);
-                yield return MoveToSetpoint(SetPoints[3], .2f);
-                yield return new WaitForSeconds(.1f);
-                SpawnDefaultProjectile(4f);
-                yield return MoveToSetpoint(SetPoints[4], .2f);
-                yield return new WaitForSeconds(.1f);
-                SpawnDefaultProjectile(4f);
-                yield return MoveToSetpoint(SetPoints[3], .2f);
-                yield return new WaitForSeconds(.1f);
-                SpawnDefaultProjectile(4f);
-                yield return MoveToSetpoint(SetPoints[2], .2f);
-                yield return new WaitForSeconds(.1f);
-                SpawnDefaultProjectile(4f);
+                for (int i = 0; i < rand; i++)
+                {
+                    int randtwo = Random.Range(0, 3);
+                    switch (randtwo)
+                    {
+                        case 0:
+                            yield return MoveToSetpoint(SetPoints[3], .2f);
+                            yield return new WaitForSeconds(.05f);
+                            SpawnSpecialNormalProjectile(2.5f, RightPrefab);
+                            break;
+                        case 1:
+                            yield return MoveToSetpoint(SetPoints[2], .2f);
+                            yield return new WaitForSeconds(.05f);
+                            SpawnSpecialNormalProjectile(2.5f, UpPrefab);
+                            break;
+                        case 2:
+                            yield return MoveToSetpoint(SetPoints[4], .2f);
+                            yield return new WaitForSeconds(.05f);
+                            SpawnSpecialNormalProjectile(2.5f, DownPrefab);
+                            break;
+
+                    }
+                }
+                break;
+            case 3:
+                rand = Random.Range(3, 7);
+                yield return new WaitForSeconds(1f);
+                for (int i = 0; i < rand; i++)
+                {
+                    int randtwo = Random.Range(0, 3);
+                    switch (randtwo)
+                    {
+                        case 0:
+                            yield return MoveToSetpoint(SetPoints[6], .2f);
+                            yield return new WaitForSeconds(.05f);
+                            SpawnSpecialNormalProjectile(2.5f, DownPrefab);
+                            break;
+                        case 1:
+                            yield return MoveToSetpoint(SetPoints[5], .2f);
+                            yield return new WaitForSeconds(.05f);
+                            SpawnSpecialNormalProjectile(2.5f, RightPrefab);
+                            break;
+                        case 2:
+                            yield return MoveToSetpoint(SetPoints[7], .2f);
+                            yield return new WaitForSeconds(.05f);
+                            SpawnSpecialNormalProjectile(2.5f, LeftPrefab);
+                            break;
+
+                    }
+                }
+                break;
+            case 4:
+                rand = Random.Range(3, 7);
+                yield return new WaitForSeconds(1f);
+                for (int i = 0; i < rand; i++)
+                {
+                    int randtwo = Random.Range(0, 3);
+                    switch (randtwo)
+                    {
+                        case 0:
+                            yield return MoveToSetpoint(SetPoints[9], .2f);
+                            yield return new WaitForSeconds(.05f);
+                            SpawnSpecialNormalProjectile(2.5f, LeftPrefab);
+                            break;
+                        case 1:
+                            yield return MoveToSetpoint(SetPoints[8], .2f);
+                            yield return new WaitForSeconds(.05f);
+                            SpawnSpecialNormalProjectile(2.5f, DownPrefab);
+                            break;
+                        case 2:
+                            yield return MoveToSetpoint(SetPoints[10], .2f);
+                            yield return new WaitForSeconds(.05f);
+                            SpawnSpecialNormalProjectile(2.5f, UpPrefab);
+                            break;
+
+                    }
+                }
                 break;
         }
 

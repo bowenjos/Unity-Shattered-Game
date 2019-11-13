@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 8543383228620025981}
   m_Layer: 0
   m_Name: FresneticOverworld
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -304,6 +304,7 @@ MonoBehaviour:
   midgroundSprite: {fileID: 21300000, guid: 2b6dcc1c6d0921c4092afea1aed14684, type: 3}
   fleeable: 0
   enemyNumber: 0
+  enemyName: 
   enemyHealth: 0
   enemyHealthMax: 0
   enemyEmotion: 
@@ -315,6 +316,7 @@ MonoBehaviour:
   enemyTurnSprite: {fileID: 21300000, guid: c3e1b73a8182508449c0c5b65fb59bf4, type: 3}
   introDialogue: 
   outroDialogue: 
+  descriptionDialogue: 
   talkDialogue: []
   sitDialogue: []
   hugDialogue: []

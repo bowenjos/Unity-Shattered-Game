@@ -69,6 +69,8 @@ public class BattleController : MonoBehaviour {
         mirrorHealthText.color = new Color(139 / 255f, 139 / 255f, 139 / 255f, 0f);
         mirrorBorderText.color = new Color(139 / 255f, 139 / 255f, 139 / 255f, 0f);
         Enemy = GameObject.Find("Enemy").GetComponent<EnemyCombatController>();
+
+
         BattleJukeBox.clip = Enemy.battleMusic;
         BattleJukeBox.Play();
         Player = GameObject.Find("player(Clone)");
@@ -211,6 +213,27 @@ public class BattleController : MonoBehaviour {
         currentState = BattleState.Dying;
         Player.SetActive(true);
         Destroy(Player);
+    }
+
+    public IEnumerator FleeCombat()
+    {
+        //Sound Effect
+        GameControl.control.stunned = true;
+        yield return StartCoroutine(textBox.Dialogue("You managed to escape!"));
+        yield return new WaitForSeconds(1f);
+        BattleJukeBox.Stop();
+        TransitionController TC = GameObject.Find("TransitionControl(Clone)").GetComponent<TransitionController>();
+        GameObject.Find("JukeBox(Clone)").GetComponent<JukeBoxController>().ResumeSongPartway();
+        StartCoroutine(GameObject.Find("JukeBox(Clone)").GetComponent<JukeBoxController>().FadeIn(0.4f));
+        yield return StartCoroutine(TC.transitionOut());
+        Destroy(BattleCamera);
+        Player.SetActive(true);
+        GameControl.control.Unfreeze();
+
+        Enemy.FleeEnemy();
+        //Destroy(Enemy.gameObject);
+
+        SceneManager.LoadScene(GameControl.control.room.ToString());
     }
 
     public IEnumerator ResolveCombat()

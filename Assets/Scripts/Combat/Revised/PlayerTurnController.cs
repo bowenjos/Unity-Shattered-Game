@@ -217,9 +217,39 @@ public class PlayerTurnController : MonoBehaviour {
 
     public void OnFleeButtonPress()
     {
+        currentState = MenuStates.EnemyTurn;
+        if (!BattleController.BC.Enemy.fleeable)
+        {
+            StartCoroutine(FleeFailed());
+        }
+        else {
+            int rand = Random.Range(0, 10);
+            if (rand > 0)
+            {
+                StartCoroutine(BattleController.BC.FleeCombat());
+            }
+            else
+            {
+                StartCoroutine(FleeFailed());
+            }
+        }
         //Try to flee
-        //Flee if successful
+        
         //otherwise end turn
+    }
+
+    public IEnumerator FleeFailed()
+    {
+        if (BattleController.BC.Enemy.fleeable)
+        {
+            yield return StartCoroutine(textBox.Dialogue("You try to flee, but can't."));
+        }
+        else
+        {
+            yield return StartCoroutine(textBox.Dialogue("You can't run from all of your problems."));
+        }
+        yield return new WaitForSeconds(2f);
+        StartCoroutine(BattleController.BC.EndTurnPlayer());
     }
 
     //HELP MENU FUNCTIONS

@@ -646,7 +646,7 @@ Transform:
   m_LocalScale: {x: 4.5, y: 4.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &157496645
 MonoBehaviour:
@@ -715,7 +715,7 @@ PrefabInstance:
     - target: {fileID: 224283477643261860, guid: 8cafcacccedb3604c8e00ba29d7e40d3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 224283477643261860, guid: 8cafcacccedb3604c8e00ba29d7e40d3,
         type: 3}
@@ -1987,7 +1987,7 @@ Transform:
   m_LocalScale: {x: 4.5, y: 4.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &469524938
 MonoBehaviour:
@@ -2195,7 +2195,7 @@ Transform:
   - {fileID: 2036461751}
   - {fileID: 453500947}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &659137893
 GameObject:
@@ -4041,7 +4041,7 @@ Transform:
   m_LocalScale: {x: 15, y: 15, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1077819191
 MonoBehaviour:
@@ -4955,7 +4955,7 @@ Transform:
   - {fileID: 345178840}
   - {fileID: 1360807341}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1353284641
 GameObject:
@@ -5166,6 +5166,7 @@ MonoBehaviour:
   mirrorBorderText: {fileID: 1505012381}
   Blockers: []
   enemyTurnStart: 0
+  healingTouched: 0
   BattleJukeBox: {fileID: 38443383}
   fanfare: {fileID: 567226379}
   Enemy: {fileID: 0}
@@ -5419,7 +5420,7 @@ Transform:
   - {fileID: 915758176}
   - {fileID: 40114735}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1498002781
 GameObject:
@@ -7579,93 +7580,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!1 &1863317846
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1863317848}
-  - component: {fileID: 1863317847}
-  m_Layer: 0
-  m_Name: Enemy
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1863317847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1863317846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa99a44ff6d49154390b3fd66dce07bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  battleMusic: {fileID: 0}
-  backgroundSprite: {fileID: 0}
-  midgroundSprite: {fileID: 0}
-  fleeable: 0
-  enemyNumber: 0
-  enemyHealth: 5
-  enemyHealthMax: 0
-  enemyEmotion: 
-  enemyResistances: 010000000200000000000000000000000100000002000000
-  enemyLevel: 0
-  numAttacks: 0
-  rewardMoney: 0
-  enemyMainSprite: {fileID: 21300000, guid: 5d0e0265c733c22488d5d33769f4ab67, type: 3}
-  enemyTurnSprite: {fileID: 21300000, guid: 38a4810f299262c47951f10d8a8b139e, type: 3}
-  introDialogue: A poorly drawn frog approaches.
-  outroDialogue: 
-  talkDialogue:
-  - You have a casual conversation about the rain. A topic frogs are well known to
-    enjoy.
-  - You tell the frog about a cool pond lily you saw once.
-  sitDialogue:
-  - You sit with the frog. They appreciate your presence.
-  - The frog and you share a moment of silence together. You are closer for it.
-  hugDialogue:
-  - You try to give the frog a hug but they are having none of it right now.
-  - You go in for the hug but the frog gives you a blank stare.
-  actDialogue:
-  - You clean the frogs painting supplies.
-  affirmDialogue:
-  - You tell the frog that you like their art.
-  - You give the frog a pat on the head. Good job Frog.
-  giftDialogue:
-  - You give the frog a mud sculpture you made.
-  - You attempt to give the frog one of your drawings but they immediately burst into
-    tears.
-  playerTurnIdle:
-  - You're wet from the rain.
-  - The frog stares you deeply in the eyes.
-  - Ribbit Ribbit.
-  - I had a funny joke but I forgot it.
-  - You feel as if Graphic Design has suddenly become your Burden to bear.
-  AttackPrefab: {fileID: 2741512404559130908, guid: 2626eacf58437cf4fa6900a4fed2bfbb,
-    type: 3}
-  LaserPrefab: {fileID: 0}
---- !u!4 &1863317848
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1863317846}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1864878944
 GameObject:
   m_ObjectHideFlags: 0
@@ -7987,7 +7901,7 @@ PrefabInstance:
     - target: {fileID: 1932456058455284246, guid: d216bc08b13037945b44287d13a89b58,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1932456058455284246, guid: d216bc08b13037945b44287d13a89b58,
         type: 3}

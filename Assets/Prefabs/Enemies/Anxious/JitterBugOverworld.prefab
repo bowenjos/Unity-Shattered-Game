@@ -63,10 +63,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 1265634730188490424}
-  enemyWalk: {fileID: 1265634730188490401}
+  enemyAggroStyle: {fileID: 0}
   enemyTransform: {fileID: 1265634730188490427}
   anim: {fileID: 1265634730188490407}
   animAggro: {fileID: 1265634728779011201}
+  stop: 0
 --- !u!212 &1265634728779011200
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -152,7 +153,7 @@ GameObject:
   - component: {fileID: 1265634730188490406}
   m_Layer: 0
   m_Name: JitterBugOverworld
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -237,6 +238,7 @@ MonoBehaviour:
   midgroundSprite: {fileID: 21300000, guid: 2b6dcc1c6d0921c4092afea1aed14684, type: 3}
   fleeable: 0
   enemyNumber: 0
+  enemyName: 
   enemyHealth: 0
   enemyHealthMax: 0
   enemyEmotion: 
@@ -248,6 +250,7 @@ MonoBehaviour:
   enemyTurnSprite: {fileID: 21300000, guid: 5e6109cd3a7e9dc498fd42e674cfd5d4, type: 3}
   introDialogue: 
   outroDialogue: 
+  descriptionDialogue: 
   talkDialogue: []
   sitDialogue: []
   hugDialogue: []
@@ -256,6 +259,16 @@ MonoBehaviour:
   giftDialogue: []
   playerTurnIdle: []
   AttackPrefab: {fileID: 2741512404559130908, guid: 2626eacf58437cf4fa6900a4fed2bfbb,
+    type: 3}
+  LaserPrefab: {fileID: 4186949833314906665, guid: 1642a3536cf1be74c8fd22e5271096c0,
+    type: 3}
+  UpPrefab: {fileID: 3350795024473694626, guid: f57fa9dfd55b4bd4f9e31c09b9fdb284,
+    type: 3}
+  RightPrefab: {fileID: 3350795024473694626, guid: d6259e248ec8406449c7fc37830798e3,
+    type: 3}
+  DownPrefab: {fileID: 3350795024473694626, guid: ddf099a335ab02b459fec942207f87e6,
+    type: 3}
+  LeftPrefab: {fileID: 3350795024473694626, guid: cf1567bc1bbd6de44b980d33baaaaf6a,
     type: 3}
 --- !u!82 &1265634730188490405
 AudioSource:
@@ -414,11 +427,11 @@ MonoBehaviour:
   idleTime: 2
   sprite: {fileID: 1265634730188490424}
   enemyTransform: {fileID: 1265634730188490427}
-  range: {fileID: 0}
   anim: {fileID: 1265634730188490407}
   rb2d: {fileID: 1265634730188490406}
-  moving: 0
   aggro: 0
+  moving: 0
+  range: {fileID: 0}
 --- !u!50 &1265634730188490406
 Rigidbody2D:
   serializedVersion: 4

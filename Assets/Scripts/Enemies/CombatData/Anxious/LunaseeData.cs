@@ -38,6 +38,7 @@ public class LunaseeData : EnemyCombatController
         playerTurnIdle[0] = "";
 
         enemyName = "Lunasee";
+        fleeable = true;
         enemyHealth = 6;
         enemyHealthMax = 6;
         enemyEmotion = "Anxiety";
@@ -63,7 +64,7 @@ public class LunaseeData : EnemyCombatController
         //GameControl.control.MainRoom.monikaAlive = false;
     }
 
-    public override bool CheckEnemy()
+    public override bool CheckEnemyDead()
     {
         return GameControl.control.EnemyData.lunaseeDefeated[enemyNumber];
     }

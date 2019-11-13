@@ -28,12 +28,10 @@ public class StormController : MonoBehaviour {
 
     void OnSceneLoaded(Scene aScene, LoadSceneMode aMode)
     {
-        Debug.Log("loaded");
         stormNode = GameObject.Find("StormNode").GetComponent<StormNodeData>();
         lightningReal.sprite = stormNode.thunderCookie;
         rain.volume = stormNode.stormVolume;
         thunder.volume = stormNode.thunderVolume;
-
     }
 	
 	// Update is called once per frame

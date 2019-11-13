@@ -57,12 +57,19 @@ public class EnemyCombatController : MonoBehaviour {
 
     void Start()
     {
-        if (CheckEnemy())
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        if (CheckDoubleEnemy() && !thisObjectOfficer)
         {
             Destroy(GetComponentInChildren<Transform>().gameObject);
             Destroy(this.gameObject);
         }
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        if (CheckEnemyDead())
+        {
+            Destroy(GetComponentInChildren<Transform>().gameObject);
+            Destroy(this.gameObject);
+        }
+        
         //Check to see if the current scene is encounter, if so, set up the variables, if not, ignore.
         if (SceneManager.GetActiveScene().name == "Encounter")
         {
@@ -85,8 +92,16 @@ public class EnemyCombatController : MonoBehaviour {
     }
 
 	// Same as above, however the check is performed ideal when the scene is changed to the combat scene
-	void OnSceneLoaded (Scene aScene, LoadSceneMode aMode) {
-        if(aScene.name == "Encounter" && thisObjectOfficer)
+	void OnSceneLoaded (Scene aScene, LoadSceneMode aMode)
+    {
+        try {
+            Destroy(this.gameObject.GetComponent<DontDestroy>());
+        }
+        catch
+        {
+            Debug.Log("No DontDestroy to Destroy");
+        }
+        if (aScene.name == "Encounter" && thisObjectOfficer)
         {
             GameControl.control.encounter = true;
             SetPoints = GameObject.Find("SetPoints").GetComponentsInChildren<Transform>();
@@ -110,23 +125,41 @@ public class EnemyCombatController : MonoBehaviour {
 
 	public IEnumerator BattleStart()
     {
+        //Make this opject stop moving
         GameControl.control.Freeze();
-        thisObjectOfficer = true;
+        this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0f, 0f, 0f);
         GetComponentInChildren<EnemyAggro>().stop = true;
+
+        //Mark this as the object to be used in the next scene (as opposed to the other objects which get deleted soon after entering and cause my huge pains)
+        thisObjectOfficer = true;
+       
+        //Play combat enter sound effect
         this.GetComponent<AudioSource>().Play();
+        //Fade out music
         StartCoroutine(GameObject.Find("JukeBox(Clone)").GetComponent<JukeBoxController>().PauseOut(0.4f));
+
+        //Enter Combat Transition
         yield return StartCoroutine(GameObject.Find("TransitionControl(Clone)").GetComponent<TransitionController>().EnterCombat());
-        //Animation
+        //Set object name to "enemy" so it can be found by the Battle Controller in next scene
         this.gameObject.name = "Enemy";
+        //Don't destroy this object so it makes it into the next scene
         this.gameObject.AddComponent<DontDestroy>();
-        Destroy(this.gameObject.GetComponent<BoxCollider2D>());
+
+        //Disable aspects of this object we don't need in next scene
+        this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
         this.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0f);
+        this.gameObject.GetComponent<EnemyIdle>().enabled = false;
+        this.gameObject.GetComponentInChildren<EnemyAggro>().enabled = false;
+
+        //Load battle scene
         SceneManager.LoadScene("Encounter");
     }
 
 
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
+
         if (GameControl.control.encounter)
         {
             //Checks to see if it's the enemies turn, and if they've started said turn yet, if met, the enemy starts their turn.
@@ -139,6 +172,15 @@ public class EnemyCombatController : MonoBehaviour {
         }
 	}
 
+    public virtual void FleeEnemy()
+    {
+        this.gameObject.AddComponent<DontDestroy>();
+        thisObjectOfficer = false;
+        this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        this.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+        this.gameObject.GetComponent<EnemyIdle>().enabled = true;
+        this.gameObject.GetComponentInChildren<EnemyAggro>().enabled = true;
+    }
 
     //Make this specific enemy dead
     public virtual void ResolveEnemy()
@@ -147,7 +189,30 @@ public class EnemyCombatController : MonoBehaviour {
         Destroy(this.gameObject);
     }
 
-    public virtual bool CheckEnemy()
+    public virtual bool CheckDoubleEnemy()
+    {
+        EnemyCombatController potentialDouble;
+        try
+        {
+            potentialDouble = GameObject.Find("Enemy").GetComponent<EnemyCombatController>();
+            if (potentialDouble != null)
+            {
+                if (potentialDouble.enemyName == this.enemyName && potentialDouble.enemyNumber == this.enemyNumber && potentialDouble != this)
+                {
+                    Debug.Log("Deleted");
+                    return true;
+                }
+            }
+        }
+        catch
+        {
+            Debug.Log("Enemy DNE right now");
+        }
+
+        return false;
+    }
+
+    public virtual bool CheckEnemyDead()
     {
         return GameControl.control.EnemyData.jitterbugDefeated[enemyNumber];
     }

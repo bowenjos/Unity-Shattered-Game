@@ -41,6 +41,7 @@ public class NerflesData : EnemyCombatController
         playerTurnIdle[4] = "";
 
         enemyName = "Fresnetic";
+        fleeable = true;
         enemyHealth = 4;
         enemyHealthMax = 4;
         enemyEmotion = "Anxiety";
@@ -66,7 +67,7 @@ public class NerflesData : EnemyCombatController
         //GameControl.control.MainRoom.monikaAlive = false;
     }
 
-    public override bool CheckEnemy()
+    public override bool CheckEnemyDead()
     {
         return GameControl.control.EnemyData.fresneticDefeated[enemyNumber];
     }

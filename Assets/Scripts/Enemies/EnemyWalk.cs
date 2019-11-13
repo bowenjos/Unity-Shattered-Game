@@ -11,19 +11,28 @@ public class EnemyWalk : EnemyIdle
 
     void Start()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        /*
         if (SceneManager.GetActiveScene().name == "Encounter")
         {
-            Destroy(this);
+            //Destroy(this);
         }
- 
+        */
+        hitbox = this.GetComponent<BoxCollider2D>();
+        if (GameControl.control.stunned)
+        {
+            StartCoroutine(StunEnemy());
+        }
+        // The next two lines are a shameful workaround, but I have no shame.
         enemyRange = range.bounds;
+        co = StartCoroutine(Move(new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z)));
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (!moving && !aggro)
+        if (!moving && !aggro && !GameControl.control.stunned)
         {
             Vector3 destination = RandomPointInBounds(enemyRange);
             //Debug.Log("Move");
@@ -37,7 +46,19 @@ public class EnemyWalk : EnemyIdle
         }
     }
 
-
+    protected override void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        /*
+        if (SceneManager.GetActiveScene().name == "Encounter")
+        {
+            //Destroy(this);
+        }
+        */
+        if (GameControl.control.stunned)
+        {
+            StartCoroutine(StunEnemy());
+        }
+    }
 
     protected IEnumerator Move(Vector3 destination)
     {
