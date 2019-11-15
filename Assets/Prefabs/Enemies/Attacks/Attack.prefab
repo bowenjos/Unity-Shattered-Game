@@ -95,6 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   damageValue: 10
+  marked: 0
 --- !u!61 &1877246175984486197
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -119,5 +120,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 0.7}
+  m_Size: {x: 0.2, y: 0.35}
   m_EdgeRadius: 0

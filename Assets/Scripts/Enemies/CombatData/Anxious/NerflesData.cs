@@ -24,14 +24,17 @@ public class NerflesData : EnemyCombatController
         affirmDialogue[1] = "Fresnetic shines their light on some objects and looks to you. You give them a thumbs up.";
 
         sitDialogue = new string[2];
-        sitDialogue[0] = "";
-        sitDialogue[1] = "";
+        sitDialogue[0] = "You stare at Fresnetic. Fresnetic shines their light on you. It's a moment in time for sure.";
+        sitDialogue[1] = "You sit... Nothing interesting happens as Fresnetic continues to flicker their light at you.";
 
-        actDialogue = new string[1];
+        actDialogue = new string[2];
         actDialogue[0] = "You untangle Fresnetic's cables, they sigh a huge sigh of relief, well as much as a light fixture can.";
+        actDialogue[1] = "After polishing Fresnetic's lens, they seem a bit more relaxed.";
+        actDialogue[2] = "A fresh dusting seemed to be all Fresnetic needed to put their mind at ease.";
 
-        giftDialogue = new string[1];
-        giftDialogue[0] = "";
+        giftDialogue = new string[2];
+        giftDialogue[0] = "You attempt to give Fresnetic a gift, however they do not have any arms with which to lift it.";
+        giftDialogue[1] = "You hold a gift out for Fresnetic to take... But they don't, because they have no hands.";
 
         playerTurnIdle = new string[5];
         playerTurnIdle[0] = "Is it hot in here? Or is it just the 1 kilowatt light beaming down on you.";
@@ -80,21 +83,16 @@ public class NerflesData : EnemyCombatController
         switch (rand)
         {
             case 0:
-                yield return new WaitForSeconds(1f);
-                yield return StartCoroutine(SpawnLaserProjectile(.3f, 30));
-                yield return MoveToSetpoint(SetPoints[2], .2f);
-                yield return StartCoroutine(SpawnLaserProjectile(.3f, 30));
-                yield return MoveToSetpoint(SetPoints[3], .2f);
-                yield return StartCoroutine(SpawnLaserProjectile(.3f, 30));
-                yield return MoveToSetpoint(SetPoints[4], .2f);
-                yield return StartCoroutine(SpawnLaserProjectile(.3f, 30));
-                yield return MoveToSetpoint(SetPoints[5], .2f);
-                yield return StartCoroutine(SpawnLaserProjectile(.3f, 30));
-                yield return MoveToSetpoint(SetPoints[6], .2f);
-                yield return StartCoroutine(SpawnLaserProjectile(.3f, 30));
-                yield return MoveToSetpoint(SetPoints[9], .2f);
-                yield return StartCoroutine(SpawnLaserProjectile(.3f, 30));
 
+
+                for (int i = 0; i < 5; i++)
+                {
+                    int rand2 = Random.Range(1, 13);
+                    yield return MoveToSetpoint(SetPoints[rand2], .2f);
+                    yield return new WaitForSeconds(1f);
+                    yield return StartCoroutine(SpawnLaserProjectile(.3f, 10));
+                    
+                }
                 yield return new WaitForSeconds(.1f);
                 break;
         }

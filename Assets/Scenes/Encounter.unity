@@ -3251,6 +3251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8640e4c716c64478261f9ac4ab2496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockController: {fileID: 1059287033}
 --- !u!50 &908223064
 Rigidbody2D:
   serializedVersion: 4
@@ -3871,6 +3872,7 @@ MonoBehaviour:
   - {fileID: 1636393854}
   - {fileID: 1498002783}
   - {fileID: 1760321660}
+  semiSolid: 0
 --- !u!1 &1070438498
 GameObject:
   m_ObjectHideFlags: 0
@@ -4824,6 +4826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8640e4c716c64478261f9ac4ab2496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockController: {fileID: 1059287033}
 --- !u!50 &1227604843
 Rigidbody2D:
   serializedVersion: 4
@@ -5493,6 +5496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8640e4c716c64478261f9ac4ab2496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockController: {fileID: 1059287033}
 --- !u!50 &1498002785
 Rigidbody2D:
   serializedVersion: 4
@@ -6657,6 +6661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8640e4c716c64478261f9ac4ab2496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockController: {fileID: 1059287033}
 --- !u!50 &1636393856
 Rigidbody2D:
   serializedVersion: 4
@@ -6749,6 +6754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8640e4c716c64478261f9ac4ab2496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockController: {fileID: 1059287033}
 --- !u!50 &1669522410
 Rigidbody2D:
   serializedVersion: 4
@@ -7077,6 +7083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8640e4c716c64478261f9ac4ab2496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockController: {fileID: 1059287033}
 --- !u!50 &1694348273
 Rigidbody2D:
   serializedVersion: 4
@@ -7296,6 +7303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8640e4c716c64478261f9ac4ab2496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockController: {fileID: 1059287033}
 --- !u!50 &1728157494
 Rigidbody2D:
   serializedVersion: 4
@@ -7388,6 +7396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8640e4c716c64478261f9ac4ab2496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockController: {fileID: 1059287033}
 --- !u!50 &1760321662
 Rigidbody2D:
   serializedVersion: 4
@@ -7559,6 +7568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8640e4c716c64478261f9ac4ab2496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockController: {fileID: 1059287033}
 --- !u!50 &1849171633
 Rigidbody2D:
   serializedVersion: 4
@@ -7751,6 +7761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8640e4c716c64478261f9ac4ab2496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockController: {fileID: 1059287033}
 --- !u!50 &1926803204
 Rigidbody2D:
   serializedVersion: 4
@@ -8006,6 +8017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8640e4c716c64478261f9ac4ab2496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockController: {fileID: 1059287033}
 --- !u!50 &1985903459
 Rigidbody2D:
   serializedVersion: 4
@@ -8334,6 +8346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8640e4c716c64478261f9ac4ab2496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockController: {fileID: 1059287033}
 --- !u!50 &2036278191
 Rigidbody2D:
   serializedVersion: 4

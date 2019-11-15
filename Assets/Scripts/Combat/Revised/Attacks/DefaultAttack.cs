@@ -8,9 +8,12 @@ public class DefaultAttack : MonoBehaviour
     public float speed;
     public int damageValue;
 
+    public bool marked;
+
     // Start is called before the first frame update
     void Start()
     {
+        marked = false;
         thisTransform = GetComponent<Transform>();
         StartCoroutine(Attack(speed));
     }

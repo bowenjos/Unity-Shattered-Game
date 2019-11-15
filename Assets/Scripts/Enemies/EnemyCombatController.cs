@@ -113,6 +113,12 @@ public class EnemyCombatController : MonoBehaviour {
             GameObject.Find("Midground").GetComponent<SpriteRenderer>().sprite = midgroundSprite;
             Charge = GameObject.Find("Charge").GetComponent<DefaultCharge>();
         }
+        /*
+        if (!thisObjectOfficer)
+        {
+            Destroy(this.gameObject);
+        }
+        */
 	}
 
     void OnCollisionEnter2D(Collision2D col)
