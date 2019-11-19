@@ -102,24 +102,24 @@ public class LunaseeData : EnemyCombatController
                     moonPosition = rand2;
                 }
                 
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(1.5f);
                 SpawnSpecialNormalProjectile(1f, CrescentPrefab);
-                yield return new WaitForSeconds(.3f);
+                yield return new WaitForSeconds(.4f);
                 SpawnSpecialNormalProjectile(1f, HalfPrefab);
-                yield return new WaitForSeconds(.3f);
+                yield return new WaitForSeconds(.4f);
                 SpawnSpecialNormalProjectile(1f, WanePrefab);
-                yield return new WaitForSeconds(.3f);
+                yield return new WaitForSeconds(.4f);
                 SpawnSpecialNormalProjectile(1f, FullPrefab);
-                yield return new WaitForSeconds(.3f);
+                yield return new WaitForSeconds(.4f);
                 attack = SpawnSpecialNormalProjectile(1f, WanePrefab);
                 attack.GetComponent<SpriteRenderer>().flipX = true;
-                yield return new WaitForSeconds(.3f);
+                yield return new WaitForSeconds(.4f);
                 attack = SpawnSpecialNormalProjectile(1f, HalfPrefab);
                 attack.GetComponent<SpriteRenderer>().flipX = true;
-                yield return new WaitForSeconds(.3f);
+                yield return new WaitForSeconds(.4f);
                 attack = SpawnSpecialNormalProjectile(1f, CrescentPrefab);
                 attack.GetComponent<SpriteRenderer>().flipX = true;
-                yield return new WaitForSeconds(.3f);
+                yield return new WaitForSeconds(.4f);
                 attack = SpawnSpecialNormalProjectile(1f, FullPrefab);
                 attack.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 1f, 1f);
                 break;

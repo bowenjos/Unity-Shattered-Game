@@ -138,6 +138,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TheatreHell/DPGreenRoom.unity
     guid: 1076694b37d96fd49a463a1638eba534
   - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPJanitorCloset.unity
+    guid: 1b83655a9d300c24cbad5a641887796a
+  - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: bc89e80eb3bf4264c8d195127a8b0aaf
   m_configObjects: {}
