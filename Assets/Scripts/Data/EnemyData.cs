@@ -10,4 +10,5 @@ public class EnemyData
     public bool[] jitterbugDefeated = new bool[3];
     public bool[] fresneticDefeated = new bool[2];
     public bool[] lunaseeDefeated = new bool[2];
+    public bool[] showbizzyDefeated = new bool[1];
 }

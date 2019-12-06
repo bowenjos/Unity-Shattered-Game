@@ -10,6 +10,8 @@ public class JukeBoxController : MonoBehaviour {
     public AudioClip[] Overworld = new AudioClip[9];
     public AudioClip[] AllSongs = new AudioClip[10];
 
+    string currentSong;
+
 	// Use this for initialization
 	void Start () {
         AS = GetComponent<AudioSource>();
@@ -28,6 +30,7 @@ public class JukeBoxController : MonoBehaviour {
 
     public void PlaySong(string songName)
     {
+        currentSong = songName;
         switch (songName)
         {
             case "SE":
@@ -98,6 +101,11 @@ public class JukeBoxController : MonoBehaviour {
         return AS.time;
     }
 
+    public string CurrentSong()
+    {
+        return currentSong;
+    }
+
     public void ResumeSongPartway()
     {
         AS.UnPause();
@@ -154,6 +162,7 @@ public class JukeBoxController : MonoBehaviour {
 
     public void ResumeOverworldSong()
     {
+        currentSong = GameControl.control.zone;
         switch (GameControl.control.zone)
         {
             case "SE":
