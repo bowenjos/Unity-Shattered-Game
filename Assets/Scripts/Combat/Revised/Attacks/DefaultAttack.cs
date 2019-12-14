@@ -18,12 +18,6 @@ public class DefaultAttack : MonoBehaviour
         StartCoroutine(Attack(speed));
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public virtual IEnumerator Attack(float speed)
     {
         float x = thisTransform.position.x;

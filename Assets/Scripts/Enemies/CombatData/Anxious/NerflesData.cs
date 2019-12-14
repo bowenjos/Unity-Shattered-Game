@@ -41,7 +41,7 @@ public class NerflesData : EnemyCombatController
         playerTurnIdle[1] = "The light shines directly in your face, it's a little bit distracting.";
         playerTurnIdle[2] = "You close your eyes but the light sears blue through your eyelids.";
         playerTurnIdle[3] = "Fresnetic flickers silently.";
-        playerTurnIdle[4] = "";
+        playerTurnIdle[4] = "Loose cables wrap around your feet.";
 
         enemyName = "Fresnetic";
         fleeable = true;

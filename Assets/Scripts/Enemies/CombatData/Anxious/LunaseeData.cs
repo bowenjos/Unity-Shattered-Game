@@ -17,18 +17,20 @@ public class LunaseeData : EnemyCombatController
     {
         moonPosition = 12;
 
-        introDialogue = "I See You.";
+        introDialogue = "Lunasee swings in.";
         outroDialogue = "A spirit leaves the prop causing it to fall to the ground softly.";
         descriptionDialogue = "Just your average stage prop turned possessed object.";
 
-        talkDialogue = new string[1];
+        talkDialogue = new string[2];
         talkDialogue[0] = "You talk to Lunasee. It's a good listener, but doesn't have much to say.";
+        talkDialogue[1] = "Expressing your interests is hard, but theres something about the way that Lunasee looks at you that makes it easy.";
 
         hugDialogue = new string[1];
         hugDialogue[0] = "You hug the moon. Your arms don't quite reach, but everyone knows it's the thought that counts.";
 
-        affirmDialogue = new string[1];
+        affirmDialogue = new string[2];
         affirmDialogue[0] = "You share a glance, and nothing needs to be said. A single tear roles down Lunasee's wooden face.";
+        affirmDialogue[1] = "You give Lunasee a thumbs up, and they swing joyously.";
 
         sitDialogue = new string[1];
         sitDialogue[0] = "You attempt to sit in Lunasee's crest, it does not go over well.";
@@ -40,10 +42,11 @@ public class LunaseeData : EnemyCombatController
         giftDialogue = new string[1];
         giftDialogue[0] = "You struggle to think of something a cutout of a moon could possibly need.";
 
-        playerTurnIdle = new string[3];
+        playerTurnIdle = new string[4];
         playerTurnIdle[0] = "Lunasee swings from side to side.";
         playerTurnIdle[1] = "You feel like maybe something is watching you...";
-        playerTurnIdle[0] = "It stares straight through you.";
+        playerTurnIdle[2] = "It stares straight through you.";
+        playerTurnIdle[3] = "I see you.";
 
         enemyName = "Lunasee";
         fleeable = true;
