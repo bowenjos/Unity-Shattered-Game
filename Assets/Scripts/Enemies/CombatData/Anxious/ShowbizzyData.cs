@@ -73,7 +73,7 @@ public class ShowbizzyData : EnemyCombatController
     public override IEnumerator SelectAttack()
     {
         //Pick a side
-        int randPos = 1; //Random.Range(0, 3);
+        int randPos = 3; //Random.Range(0, 3);
         int randAttack = Random.Range(0, 4);
         switch (randPos)
         {
@@ -143,7 +143,7 @@ public class ShowbizzyData : EnemyCombatController
                     hookAttack.LaunchHook(new Vector3(-4.5f, -1.5f, 0f));
                     break;
                 case 3:
-                    yield return StartCoroutine(hookAttack.Rotate(true, 1f, 3, .95f));
+                    yield return StartCoroutine(hookAttack.Rotate(true, 1f, 3, .9f));
                     hookAttack.LaunchHook(new Vector3(-4.5f, -.45f, 0f));
                     break;
             }
@@ -175,19 +175,19 @@ public class ShowbizzyData : EnemyCombatController
             switch (randAttack)
             {
                 case 0:
-                    yield return StartCoroutine(hookAttack.Rotate(true, 1f, 3, -.95f));
+                    yield return StartCoroutine(hookAttack.Rotate(true, 1f, 4, -.95f));
                     hookAttack.LaunchHook(new Vector3(4.5f, .45f, 0f));
                     break;
                 case 1:
-                    yield return StartCoroutine(hookAttack.Rotate(true, 1f, 4, -0.9f));
-                    hookAttack.LaunchHook(new Vector3(4.5f, -1.5f, 0f));
-                    break;
-                case 2:
-                    yield return StartCoroutine(hookAttack.Rotate(false, 1f, 4, 0.9f));
+                    yield return StartCoroutine(hookAttack.Rotate(true, 1f, 6, -0.9f));
                     hookAttack.LaunchHook(new Vector3(4.5f, 1.5f, 0f));
                     break;
+                case 2:
+                    yield return StartCoroutine(hookAttack.Rotate(false, 1f, 5, 0.9f));
+                    hookAttack.LaunchHook(new Vector3(4.5f, -1.5f, 0f));
+                    break;
                 case 3:
-                    yield return StartCoroutine(hookAttack.Rotate(false, 1f, 4, .95f));
+                    yield return StartCoroutine(hookAttack.Rotate(false, 1f, 3, .9f));
                     hookAttack.LaunchHook(new Vector3(4.5f, -.45f, 0f));
                     break;
             }
