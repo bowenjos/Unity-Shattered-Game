@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ShowbizzyData : EnemyCombatController
 {
+    public GameObject hookPrefab;
+    public GameObject ropePrefab;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -28,8 +31,11 @@ public class ShowbizzyData : EnemyCombatController
         giftDialogue = new string[1];
         giftDialogue[0] = "";
 
-        playerTurnIdle = new string[1];
-        playerTurnIdle[0] = "";
+        playerTurnIdle = new string[4];
+        playerTurnIdle[0] = "Showbizzy spins their pulley wildly.";
+        playerTurnIdle[1] = "Frayed rope pieces line the floor.";
+        playerTurnIdle[2] = "";
+        playerTurnIdle[3] = "";
 
 
         enemyName = "Showbizzy";
@@ -40,8 +46,8 @@ public class ShowbizzyData : EnemyCombatController
 
         enemyResistances = new int[6];
         enemyResistances[0] = 1;
-        enemyResistances[1] = 1;
-        enemyResistances[2] = 0;
+        enemyResistances[1] = 0;
+        enemyResistances[2] = 1;
         enemyResistances[3] = 1;
         enemyResistances[4] = 1;
         enemyResistances[5] = 1;
@@ -66,39 +72,112 @@ public class ShowbizzyData : EnemyCombatController
 
     public override IEnumerator SelectAttack()
     {
-        numAttacks = 1;
-        int rand = Random.Range(0, numAttacks);
-        switch (rand)
+        //Pick a side
+        int randPos = 1;  //Random.Range(0, 4);
+        int randAttack = 0; // Random.Range(0, 4);
+        switch (randPos)
         {
             case 0:
-                rand = Random.Range(3, 7);
-                yield return new WaitForSeconds(1f);
-                for (int i = 0; i < rand; i++)
-                {
-                    int randtwo = Random.Range(0, 3);
-                    switch (randtwo)
-                    {
-                        case 0:
-                            yield return MoveToSetpoint(SetPoints[1], .2f);
-                            yield return new WaitForSeconds(.2f);
-                            //SpawnSpecialNormalProjectile(2.5f, RightPrefab);
-                            break;
-                        case 1:
-                            yield return MoveToSetpoint(SetPoints[12], .2f);
-                            yield return new WaitForSeconds(.2f);
-                            //SpawnSpecialNormalProjectile(2.5f, UpPrefab);
-                            break;
-                        case 2:
-                            yield return MoveToSetpoint(SetPoints[11], .2f);
-                            yield return new WaitForSeconds(.2f);
-                            //SpawnSpecialNormalProjectile(2.5f, LeftPrefab);
-                            break;
-
-                    }
-                    yield return new WaitForSeconds(1f);
-                }
+                yield return MoveToSetpoint(SetPoints[12], .2f);
+                break;
+            case 1:
+                yield return MoveToSetpoint(SetPoints[3], .2f);
+                break;
+            case 2:
+                yield return MoveToSetpoint(SetPoints[6], .2f);
+                break;
+            case 3:
+                yield return MoveToSetpoint(SetPoints[9], .2f);
                 break;
         }
+
+        //Spawn the hook and rope
+        GameObject hook = SpawnSpecialNormalProjectile(1f, hookPrefab);
+        HookAttack hookAttack = hook.GetComponent<HookAttack>();
+        Instantiate(ropePrefab);
+        RotateAroundOnCommand hookRotater = hook.GetComponent<RotateAroundOnCommand>();
+        hookRotater._centre = GameObject.Find("EnemyAttackPhaseSprite").GetComponent<Transform>().position;
+        yield return StartCoroutine(hookAttack.MoveHook(.2f, 1f));
+
+
+        //pick an attack
+
+
+        //perform that attack
+        if (randPos == 0)
+        {
+            switch (randAttack)
+            {
+                case 0:
+                    yield return StartCoroutine(hookAttack.Rotate(true, 1f, 4, 0f));
+                    hookAttack.LaunchHook(new Vector3(.45f, -4.5f, 0f));
+                    break;
+                case 1:
+                    yield return StartCoroutine(hookAttack.Rotate(true, 1f, 6, -.1f));
+                    hookAttack.LaunchHook(new Vector3(1.5f, -4.5f, 0f));
+                    break;
+                case 2:
+                    yield return StartCoroutine(hookAttack.Rotate(false, 1f, 6, -.1f));
+                    hookAttack.LaunchHook(new Vector3(-1.5f, -4.5f, 0f));
+                    break;
+                case 3:
+                    yield return StartCoroutine(hookAttack.Rotate(false, 1f, 4, 0f));
+                    hookAttack.LaunchHook(new Vector3(-.45f, -4.5f, 0f));
+                    break;
+            }
+        }
+        else if(randPos == 1)
+        {
+            switch (randAttack)
+            {
+                case 0:
+                    yield return StartCoroutine(hookAttack.Rotate(true, 1f, 5, .95f));
+                    hookAttack.LaunchHook(new Vector3(-4.5f, .45f, 0f));
+                    break;
+                case 1:
+                    yield return StartCoroutine(hookAttack.Rotate(true, 1f, 6, 0.9f));
+                    hookAttack.LaunchHook(new Vector3(-4.5f, -1.5f, 0f));
+                    break;
+                case 2:
+                    yield return StartCoroutine(hookAttack.Rotate(false, 1f, 6, -0.9f));
+                    hookAttack.LaunchHook(new Vector3(-4.5f, 1.5f, 0f));
+                    break;
+                case 3:
+                    yield return StartCoroutine(hookAttack.Rotate(false, 1f, 4, -.95f));
+                    hookAttack.LaunchHook(new Vector3(-4.5f, -.45f, 0f));
+                    break;
+            }
+        }
+        else if(randPos == 2)
+        {
+            switch (randAttack)
+            {
+                case 0:
+                    yield return StartCoroutine(hookAttack.Rotate(true, 1f, 5, 0f));
+                    hookAttack.LaunchHook(new Vector3(-.45f, 4.5f, 0f));
+                    break;
+                case 1:
+                    yield return StartCoroutine(hookAttack.Rotate(true, 1f, 7, .1f));
+                    hookAttack.LaunchHook(new Vector3(-1.5f, 4.5f, 0f));
+                    break;
+                case 2:
+                    yield return StartCoroutine(hookAttack.Rotate(false, 1f, 7, .1f));
+                    hookAttack.LaunchHook(new Vector3(1.5f, 4.5f, 0f));
+                    break;
+                case 3:
+                    yield return StartCoroutine(hookAttack.Rotate(false, 1f, 5, 0f));
+                    hookAttack.LaunchHook(new Vector3(.45f, 4.5f, 0f));
+                    break;
+            }
+        }
+        else if(randPos == 3)
+        {
+            
+        }
+        
+
+
+        
 
     }
 }
