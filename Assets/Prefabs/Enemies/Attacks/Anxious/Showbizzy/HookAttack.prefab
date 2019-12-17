@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  damageValue: 0
+  damageValue: 30
   marked: 0
   rotater: {fileID: 0}
 --- !u!50 &3876052942048817748
