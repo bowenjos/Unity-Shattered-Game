@@ -19,7 +19,7 @@ public class RotateAroundOnCommand : RotateAround
     public IEnumerator StartRotation(bool falseIsCWTrueIsCCW, float newRadius, int numRotations, float endY)
     {
         int curRotations = 0;
-        int delay = 0;
+        int delay = 5;
         Radius = newRadius;
         _angle = Mathf.PI;
 
