@@ -14,28 +14,31 @@ public class ShowbizzyData : EnemyCombatController
         outroDialogue = "Showbizzy nods knowingly. The show must go on.";
         descriptionDialogue = "It's very clearly openning night.";
         talkDialogue = new string[1];
-        talkDialogue[0] = "";
+        talkDialogue[0] = "You chat about stagetech work, Showbizzy is clearly passionate about the work.";
 
         sitDialogue = new string[1];
-        sitDialogue[0] = "";
+        sitDialogue[0] = "You sit with Showbizzy, but they're not interested in saying anything.";
 
         hugDialogue = new string[1];
         hugDialogue[0] = "They whisper in your ear \"Thank you\".";
+        hugDialogue[1] = "You pat them on the back and they let out a few tears.";
 
-        actDialogue = new string[1];
-        actDialogue[0] = "";
+        actDialogue = new string[2];
+        actDialogue[0] = "You attempt to help Showbizzy with the prework, but they insist you get out of their way.";
+        actDialogue[1] = "You reach for a rope, but Showbizzy slaps your hand away frantically.";
 
-        affirmDialogue = new string[1];
-        affirmDialogue[0] = "";
+        affirmDialogue = new string[2];
+        affirmDialogue[0] = "You tell Showbizzy the show is going to be great, they yell back that you don't know that.";
+        affirmDialogue[1] = "You assure Showbizzy they're doing a good job, they assure you everythign is a disaster.";
 
         giftDialogue = new string[1];
-        giftDialogue[0] = "";
+        giftDialogue[0] = "You present a new pulley to Showbizzy, they are impressed, but fancy pulleys didn't make a show good.";
 
         playerTurnIdle = new string[4];
         playerTurnIdle[0] = "Showbizzy spins their pulley wildly.";
         playerTurnIdle[1] = "Frayed rope pieces line the floor.";
-        playerTurnIdle[2] = "";
-        playerTurnIdle[3] = "";
+        playerTurnIdle[2] = "The din of pre-show prepwork fills the room.";
+        playerTurnIdle[3] = "The shadow of openning night looms over you.";
 
 
         enemyName = "Showbizzy";
@@ -45,12 +48,12 @@ public class ShowbizzyData : EnemyCombatController
         enemyEmotion = "Anxiety";
 
         enemyResistances = new int[6];
-        enemyResistances[0] = 1;
-        enemyResistances[1] = 0;
-        enemyResistances[2] = 1;
-        enemyResistances[3] = 1;
-        enemyResistances[4] = 1;
-        enemyResistances[5] = 1;
+        enemyResistances[0] = 1; //Talking
+        enemyResistances[1] = 0; //Physical Touch
+        enemyResistances[2] = 2; //Affirmation
+        enemyResistances[3] = 1; //Quality Time
+        enemyResistances[4] = 2; //Acts of Charity
+        enemyResistances[5] = 1; // Gifts
 
         enemyLevel = 2;
         numAttacks = 3;
@@ -73,7 +76,7 @@ public class ShowbizzyData : EnemyCombatController
     public override IEnumerator SelectAttack()
     {
         //Pick a side
-        int randPos = 3; //Random.Range(0, 3);
+        int randPos = Random.Range(0, 3);
         int randAttack = Random.Range(0, 4);
         switch (randPos)
         {

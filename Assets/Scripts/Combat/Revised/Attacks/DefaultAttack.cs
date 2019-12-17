@@ -38,4 +38,10 @@ public class DefaultAttack : MonoBehaviour
 
         }
     }
+
+    public IEnumerator FailSafe(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Destroy(this.gameObject);
+    }
 }

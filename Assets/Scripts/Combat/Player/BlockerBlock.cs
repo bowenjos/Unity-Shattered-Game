@@ -7,7 +7,7 @@ public class BlockerBlock : MonoBehaviour
     // Start is called before the first frame update
     public BlockerController blockController;
 
-    void OnCollisionEnter2D(Collision2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.name != "Blocker")
         {

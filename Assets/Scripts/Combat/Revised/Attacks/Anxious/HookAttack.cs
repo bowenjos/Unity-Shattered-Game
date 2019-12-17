@@ -15,7 +15,7 @@ public class HookAttack : DefaultAttack
         thisTransform = GetComponent<Transform>();
         rotater = GetComponent<RotateAroundOnCommand>();
         targetTransform = GameObject.Find("EnemyAttackPhaseSprite").GetComponent<Transform>();
-        //StartCoroutine(Rotate(20f));
+        StartCoroutine(FailSafe(10f));
     }
 
     void Update()
@@ -64,4 +64,6 @@ public class HookAttack : DefaultAttack
     {
         this.GetComponent<Rigidbody2D>().velocity = velocity;
     }
+
+    
 }
