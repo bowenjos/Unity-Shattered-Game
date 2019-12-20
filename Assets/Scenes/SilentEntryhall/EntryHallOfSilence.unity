@@ -1600,6 +1600,7 @@ GameObject:
   - component: {fileID: 282658485}
   - component: {fileID: 282658489}
   - component: {fileID: 282658487}
+  - component: {fileID: 282658488}
   m_Layer: 0
   m_Name: MezzanineDoor
   m_TagString: Untagged
@@ -1686,6 +1687,21 @@ MonoBehaviour:
   targetX: 0
   targetY: 0
   immediate: 0
+--- !u!114 &282658488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282658484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbb58ee19ae10714d8e26efdff2682c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorNumber: 4
+  lockedDialogue:
+  - It's locked from the other side.
 --- !u!61 &282658489
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1710,7 +1726,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9, y: 0.66}
+  m_Size: {x: 0.6, y: 0.42}
   m_EdgeRadius: 0
 --- !u!1 &545738695
 GameObject:
@@ -2439,6 +2455,7 @@ GameObject:
   - component: {fileID: 816640027}
   - component: {fileID: 816640031}
   - component: {fileID: 816640029}
+  - component: {fileID: 816640030}
   m_Layer: 0
   m_Name: DiningRoomDoor
   m_TagString: Untagged
@@ -2525,6 +2542,21 @@ MonoBehaviour:
   targetX: 0
   targetY: 0
   immediate: 0
+--- !u!114 &816640030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816640026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbb58ee19ae10714d8e26efdff2682c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorNumber: 3
+  lockedDialogue:
+  - It's locked from the other side.
 --- !u!61 &816640031
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2939,6 +2971,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: WilliamMaskless
       objectReference: {fileID: 0}
+    - target: {fileID: 108126423080599312, guid: e47ac28b12e83264b909ee70ce2b9dd7,
+        type: 3}
+      propertyPath: m_Cookie
+      value: 
+      objectReference: {fileID: 2800000, guid: 39b6953433e49d849990bc8a8f2f0098, type: 3}
+    - target: {fileID: 108126423080599312, guid: e47ac28b12e83264b909ee70ce2b9dd7,
+        type: 3}
+      propertyPath: m_CookieSize
+      value: 0.67
+      objectReference: {fileID: 0}
     - target: {fileID: 4217664514373456, guid: e47ac28b12e83264b909ee70ce2b9dd7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.15
@@ -2978,16 +3020,6 @@ PrefabInstance:
     - target: {fileID: 4217664514373456, guid: e47ac28b12e83264b909ee70ce2b9dd7, type: 3}
       propertyPath: m_LocalScale.y
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 108126423080599312, guid: e47ac28b12e83264b909ee70ce2b9dd7,
-        type: 3}
-      propertyPath: m_Cookie
-      value: 
-      objectReference: {fileID: 2800000, guid: 39b6953433e49d849990bc8a8f2f0098, type: 3}
-    - target: {fileID: 108126423080599312, guid: e47ac28b12e83264b909ee70ce2b9dd7,
-        type: 3}
-      propertyPath: m_CookieSize
-      value: 0.67
       objectReference: {fileID: 0}
     - target: {fileID: 212791666898992196, guid: e47ac28b12e83264b909ee70ce2b9dd7,
         type: 3}

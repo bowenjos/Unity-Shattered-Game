@@ -928,16 +928,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 212006972440745072, guid: 31516ca4375ba1942bc1ffef3978f3ee,
-        type: 3}
-      propertyPath: m_FlipX
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 61722875310228566, guid: 31516ca4375ba1942bc1ffef3978f3ee,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: -0.01
-      objectReference: {fileID: 0}
     - target: {fileID: 114504210878724678, guid: 31516ca4375ba1942bc1ffef3978f3ee,
         type: 3}
       propertyPath: zone
@@ -962,6 +952,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212006972440745072, guid: 31516ca4375ba1942bc1ffef3978f3ee,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 61722875310228566, guid: 31516ca4375ba1942bc1ffef3978f3ee,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.01
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114504210878724678, guid: 31516ca4375ba1942bc1ffef3978f3ee, type: 3}
@@ -1183,7 +1183,7 @@ MonoBehaviour:
   transitionName: TheatreFloor
   targetx: 2
   targety: 1.2
-  doorNumber: 0
+  doorNumber: 2
   unlockText:
   - You unlock the door.
   lockedText: []

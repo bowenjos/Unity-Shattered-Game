@@ -19,7 +19,7 @@ public class ShowbizzyData : EnemyCombatController
         sitDialogue = new string[1];
         sitDialogue[0] = "You sit with Showbizzy, but they're not interested in saying anything.";
 
-        hugDialogue = new string[1];
+        hugDialogue = new string[2];
         hugDialogue[0] = "They whisper in your ear \"Thank you\".";
         hugDialogue[1] = "You pat them on the back and they let out a few tears.";
 

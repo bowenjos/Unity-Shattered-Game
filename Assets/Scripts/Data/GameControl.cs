@@ -35,8 +35,11 @@ public class GameControl : MonoBehaviour {
 
     /**
     * Doors
-    * 0: Dead Performance Basement
-    * 1: SilentEntryhall - CavernousDescent
+    * 0: Dead Performance (Basement Weird Room)
+    * 1: SilentEntryhall - (Silent Entryhall Basement)
+    * 2: Dead Performance (Stage - Reception)
+    * 3: SilentEntryhall (Forgotten Mezzanine Dining Hall)
+    * 4: SilentEntryhall (Forgotten Mezzanine Mezzanine)
     **/
 
     /**

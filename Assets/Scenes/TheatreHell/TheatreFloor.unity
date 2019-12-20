@@ -207,9 +207,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbb58ee19ae10714d8e26efdff2682c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorNumber: 0
+  doorNumber: 2
   lockedDialogue:
-  - It's locked from this side.
+  - It's locked from the other side.
 --- !u!4 &54826518 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4393177348293348, guid: 31516ca4375ba1942bc1ffef3978f3ee,
