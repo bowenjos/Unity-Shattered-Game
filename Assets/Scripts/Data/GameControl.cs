@@ -40,6 +40,7 @@ public class GameControl : MonoBehaviour {
     * 2: Dead Performance (Stage - Reception)
     * 3: SilentEntryhall (Forgotten Mezzanine Dining Hall)
     * 4: SilentEntryhall (Forgotten Mezzanine Mezzanine)
+    * 5: SilentEntryhall (Desolate Heart Entrance)
     **/
 
     /**
