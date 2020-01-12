@@ -191,6 +191,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &390480850 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3994505847273279681, guid: bf9bf5048473c9948ada3cccb2f043a1,
+    type: 3}
+  m_PrefabInstance: {fileID: 3994505846883586835}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &390480851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390480850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c4987976abe4354cb1185782e7694e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  talkCanvas: {fileID: 0}
+  dialogue:
+  - A finely tuned grand piano.
+  - It's keys are worn from years of practice and play,
+  - But it's lack of dust and clean interior suggest it's well taken care of.
 --- !u!1001 &393291524
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -493,7 +516,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4179851187046412, guid: 31f93a92e9c662c43b3b7fc893c7f362, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4179851187046412, guid: 31f93a92e9c662c43b3b7fc893c7f362, type: 3}
       propertyPath: m_LocalPosition.z
@@ -733,8 +756,106 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114208935716878952, guid: 705ffea0792f68f419e09aa357f1ecdb,
+        type: 3}
+      propertyPath: lens.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114208935716878952, guid: 705ffea0792f68f419e09aa357f1ecdb,
+        type: 3}
+      propertyPath: lens.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114208935716878952, guid: 705ffea0792f68f419e09aa357f1ecdb,
+        type: 3}
+      propertyPath: lens.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114208935716878952, guid: 705ffea0792f68f419e09aa357f1ecdb,
+        type: 3}
+      propertyPath: lens.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114208935716878952, guid: 705ffea0792f68f419e09aa357f1ecdb,
+        type: 3}
+      propertyPath: lens.Array.data[4]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114208935716878952, guid: 705ffea0792f68f419e09aa357f1ecdb,
+        type: 3}
+      propertyPath: lens.Array.data[5]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114208935716878952, guid: 705ffea0792f68f419e09aa357f1ecdb,
+        type: 3}
+      propertyPath: lens.Array.data[6]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114208935716878952, guid: 705ffea0792f68f419e09aa357f1ecdb,
+        type: 3}
+      propertyPath: masks.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114208935716878952, guid: 705ffea0792f68f419e09aa357f1ecdb,
+        type: 3}
+      propertyPath: masks.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114208935716878952, guid: 705ffea0792f68f419e09aa357f1ecdb,
+        type: 3}
+      propertyPath: masks.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114208935716878952, guid: 705ffea0792f68f419e09aa357f1ecdb,
+        type: 3}
+      propertyPath: masks.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114208935716878952, guid: 705ffea0792f68f419e09aa357f1ecdb,
+        type: 3}
+      propertyPath: masks.Array.data[4]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114208935716878952, guid: 705ffea0792f68f419e09aa357f1ecdb,
+        type: 3}
+      propertyPath: masks.Array.data[5]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114208935716878952, guid: 705ffea0792f68f419e09aa357f1ecdb,
+        type: 3}
+      propertyPath: masks.Array.data[6]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114208935716878952, guid: 705ffea0792f68f419e09aa357f1ecdb,
+        type: 3}
+      propertyPath: lantern
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 705ffea0792f68f419e09aa357f1ecdb, type: 3}
+--- !u!1 &1919778062 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3994505845577281053, guid: bf9bf5048473c9948ada3cccb2f043a1,
+    type: 3}
+  m_PrefabInstance: {fileID: 3994505846883586835}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1919778063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919778062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c4987976abe4354cb1185782e7694e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  talkCanvas: {fileID: 0}
+  dialogue:
+  - A finely tuned grand piano.
+  - It's keys at worn from years of practice and play, but it's lack of dust and clean
+    interior suggest it's well taken care of.
 --- !u!1 &1979437234
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,6 +1046,20 @@ MonoBehaviour:
   William: {fileID: 212791666898992196}
   forward: {fileID: 21300000, guid: 2fa572166a19eec498e5939ccd91868c, type: 3}
   backward: {fileID: 21300000, guid: 64e365abae28ff242aba4c3461835328, type: 3}
+--- !u!114 &1688094077740546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688094077740544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ac5525f6a8d5b2439980a11df810f94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lowerlimit: 0
+  upperlimit: 8
 --- !u!212 &212791666898992196 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 212791666898992196, guid: e47ac28b12e83264b909ee70ce2b9dd7,
@@ -952,7 +1087,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4217664514373456, guid: e47ac28b12e83264b909ee70ce2b9dd7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4217664514373456, guid: e47ac28b12e83264b909ee70ce2b9dd7, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1004,3 +1139,72 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e47ac28b12e83264b909ee70ce2b9dd7, type: 3}
+--- !u!1001 &3994505846883586835
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3994505847273279681, guid: bf9bf5048473c9948ada3cccb2f043a1,
+        type: 3}
+      propertyPath: m_Name
+      value: Piano
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994505847273279687, guid: bf9bf5048473c9948ada3cccb2f043a1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994505847273279687, guid: bf9bf5048473c9948ada3cccb2f043a1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.305
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994505847273279687, guid: bf9bf5048473c9948ada3cccb2f043a1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994505847273279687, guid: bf9bf5048473c9948ada3cccb2f043a1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994505847273279687, guid: bf9bf5048473c9948ada3cccb2f043a1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994505847273279687, guid: bf9bf5048473c9948ada3cccb2f043a1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994505847273279687, guid: bf9bf5048473c9948ada3cccb2f043a1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994505847273279687, guid: bf9bf5048473c9948ada3cccb2f043a1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994505847273279687, guid: bf9bf5048473c9948ada3cccb2f043a1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994505847273279687, guid: bf9bf5048473c9948ada3cccb2f043a1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994505847273279687, guid: bf9bf5048473c9948ada3cccb2f043a1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bf9bf5048473c9948ada3cccb2f043a1, type: 3}

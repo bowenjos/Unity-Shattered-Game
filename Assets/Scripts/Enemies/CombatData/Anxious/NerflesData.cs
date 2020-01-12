@@ -10,6 +10,7 @@ public class NerflesData : EnemyCombatController
         introDialogue = "Fresnetic shines their light in your eyes.";
         outroDialogue = "Fresnetic light stops flickering.";
         descriptionDialogue = "Don't state directly into the light.";
+
         talkDialogue = new string[3];
         talkDialogue[0] = "You chat with Fresnetic about stagetech.";
         talkDialogue[1] = "You tell Fresnetic about a time you dressed up as a penguin for a school play once.";
@@ -27,7 +28,7 @@ public class NerflesData : EnemyCombatController
         sitDialogue[0] = "You stare at Fresnetic. Fresnetic shines their light on you. It's a moment in time for sure.";
         sitDialogue[1] = "You sit... Nothing interesting happens as Fresnetic continues to flicker their light at you.";
 
-        actDialogue = new string[2];
+        actDialogue = new string[3];
         actDialogue[0] = "You untangle Fresnetic's cables, they sigh a huge sigh of relief, well as much as a light fixture can.";
         actDialogue[1] = "After polishing Fresnetic's lens, they seem a bit more relaxed.";
         actDialogue[2] = "A fresh dusting seemed to be all Fresnetic needed to put their mind at ease.";

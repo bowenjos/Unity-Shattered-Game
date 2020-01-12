@@ -37,7 +37,7 @@ public class LunaseeData : EnemyCombatController
 
         actDialogue = new string[2];
         actDialogue[0] = "You give Lunasee a fresh coat of paint.";
-        actDialogue[0] = "You tighten the rope that fastens Lunasee to the ceiling.";
+        actDialogue[1] = "You tighten the rope that fastens Lunasee to the ceiling.";
 
         giftDialogue = new string[1];
         giftDialogue[0] = "You struggle to think of something a cutout of a moon could possibly need.";
