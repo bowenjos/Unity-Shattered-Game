@@ -547,7 +547,7 @@ public class TalkController : MonoBehaviour {
     //Character: 0 Vi, 1 Will, 2 Yolanda, 3 Elise, 4 Thongsai, 5 Aeron, 6 Selene, 7 Des
     //Mood: 0 Neutral, 1 Neutral No Mask
     //Mood 9: Generic NPCs | Character: 0 - Sheet ghost, 1 - DP Type 1, 2 - DP Type 2
-    //Mood 10: Unique NPCs | Character: 0,1 - DP Fangirls, 2 - Elevator Guy, 3 - Bartender
+    //Mood 10: Unique NPCs | Character: 0,1 - DP Fangirls, 2 - Elevator Guy, 3 - Bartender, 4 - Chadley
 
     protected void SpriteChange(int character, int mood)
     {

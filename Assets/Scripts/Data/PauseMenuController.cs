@@ -32,6 +32,9 @@ public class PauseMenuController : MonoBehaviour {
     public AudioClip pause;
     public AudioClip unpause;
 
+    public GameObject[] Lens;
+    public GameObject[] Masks;
+
 	// Use this for initialization
 	void Awake () {
         currentState = PauseMenuStates.NoMenu;
@@ -147,7 +150,8 @@ public class PauseMenuController : MonoBehaviour {
     {
         for(int i = 0; i < 7; i++)
         {
-            statusPanel.transform.GetChild(i).gameObject.SetActive(GameControl.control.lens[i]);
+            Lens[i].SetActive(GameControl.control.lens[i]);
+            Masks[i].SetActive(GameControl.control.masks[i]);
         }
     }
 
