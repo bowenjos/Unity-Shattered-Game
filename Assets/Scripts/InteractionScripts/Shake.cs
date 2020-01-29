@@ -11,11 +11,6 @@ public class Shake : MonoBehaviour {
     void Start () {
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void SetSpeed(float newSpeed)
     {
@@ -26,6 +21,7 @@ public class Shake : MonoBehaviour {
     {
         Transform obj = this.transform;
         Vector2 defaultPos = obj.position;
+        Vector3 cuPos = obj.position;
 
         float counter = 0f;
 
@@ -34,11 +30,11 @@ public class Shake : MonoBehaviour {
             counter += Time.deltaTime;
             float decreaseSpeed = speed;
             Vector2 tempPos = defaultPos + Random.insideUnitCircle * decreaseSpeed;
-            obj.position = tempPos;
+            obj.position = new Vector3(tempPos.x, tempPos.y, cuPos.z);
             yield return null;
         }
 
-        obj.position = defaultPos;
+        obj.position = cuPos;
         shaking = false;
     }
 

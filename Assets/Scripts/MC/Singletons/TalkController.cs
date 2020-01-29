@@ -14,6 +14,7 @@ public class TalkController : MonoBehaviour {
     public GameObject talkCanvas;
     //public GameObject player;
     public GameObject headPanel;
+    public GameObject moveOnIndicator;
 
     //Choice Panel Objects
     public GameObject choicePanel;
@@ -285,10 +286,21 @@ public class TalkController : MonoBehaviour {
     *******************/
     protected IEnumerator WaitForKeyDown(String keyCode)
     {
+        bool onOff = true;
+        int counter = 0;
+
         do
         {
+            if(counter > 20)
+            {
+                onOff = !onOff;
+                counter = 0;
+            }
+            counter++;
+            moveOnIndicator.SetActive(onOff);
             yield return null;
         } while (!Input.GetButtonDown(keyCode));
+        moveOnIndicator.SetActive(false);
     }
 
     /********************
