@@ -229,6 +229,7 @@ public class BattleController : MonoBehaviour {
         Destroy(BattleCamera);
         Player.SetActive(true);
         GameControl.control.Unfreeze();
+        GameControl.control.PlayerUnfreeze();
 
         Enemy.FleeEnemy();
         //Destroy(Enemy.gameObject);
@@ -256,6 +257,7 @@ public class BattleController : MonoBehaviour {
         Destroy(BattleCamera);
         Player.SetActive(true);
         GameControl.control.Unfreeze();
+        GameControl.control.PlayerUnfreeze();
         SceneManager.LoadScene(GameControl.control.room.ToString());
 
         yield return null;

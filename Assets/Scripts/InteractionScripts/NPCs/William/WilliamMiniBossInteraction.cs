@@ -24,6 +24,7 @@ public class WilliamMiniBossInteraction : TriggerInteraction
     public SpriteRenderer tar;
     public SpriteRenderer mirrorTar;
     public Sprite[] tarForms;
+    public GameObject tarEnemy;
 
     public string[][] dialogue;
 
@@ -103,6 +104,7 @@ public class WilliamMiniBossInteraction : TriggerInteraction
         yield return StartCoroutine(talkCanvas.StartDialogueSprite(dialogue[0], "default", 4, 10));
         yield return StartCoroutine(talkCanvas.StartDialogueSprite(dialogue[1], "default", 1, 0));
         yield return StartCoroutine(talkCanvas.StartDialogueSprite(dialogue[2], "default", 4, 10));
+        GameControl.control.Freeze();
         yield return new WaitForSeconds(0.5f);
         for(int i = 0; i < 5; i++)
         {
@@ -110,6 +112,7 @@ public class WilliamMiniBossInteraction : TriggerInteraction
             yield return new WaitForSeconds(0.5f);
         }
         yield return StartCoroutine(talkCanvas.StartDialogueSprite(dialogue[3], "default", 4, 10));
+        GameControl.control.Freeze();
         yield return StartCoroutine(Vanish(chadley, chadleyLight));
         jukebox.PlaySong("InTheDeepestDarkness");
         StartCoroutine(jukebox.FadeIn(1f));
@@ -132,6 +135,7 @@ public class WilliamMiniBossInteraction : TriggerInteraction
         mirrorTar.sprite = tarForms[2];
         heartbeat.Play();
         yield return StartCoroutine(talkCanvas.StartDialogueSprite(dialogue[6], "default", 1, 0));
+        GameControl.control.Freeze();
         heartbeat.Play();
         yield return StartCoroutine(cameraControl.ShakeCamera(0.25f, 0.2f));
         heartbeat.Play();
@@ -139,7 +143,14 @@ public class WilliamMiniBossInteraction : TriggerInteraction
         tar.sprite = tarForms[3];
         mirrorTar.sprite = tarForms[3];
         yield return StartCoroutine(talkCanvas.StartDialogueSprite(dialogue[7], "default", 1, 0));
+        GameControl.control.PlayerFreeze();
         yield return StartCoroutine(Vanish(William, thisLight));
+        tar.sprite = null;
+        Instantiate(tarEnemy);
+        GameControl.control.DPMainData.progression = 10;
+        GameControl.control.PlayerFreeze();
+        Destroy(this.gameObject);
+        //GameObject.Find("AgroRange").GetComponent<CircleCollider2D>().radius = 2f;
     }
 
     public IEnumerator Vanish(SpriteRenderer sprite, Light light)

@@ -408,7 +408,7 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate ()
     {
         Array.Clear(hitBuffer, 0, hitBuffer.Length);
-        if (!GameControl.control.frozen)
+        if (!GameControl.control.frozen && !GameControl.control.playerFrozen)
         {
             if (Input.GetKey(KeyCode.LeftShift))
             {
@@ -491,7 +491,7 @@ public class PlayerController : MonoBehaviour {
             }
 
             //Check to see if their is an object in front of the player and begin interaction
-            if (Input.GetButtonDown("Submit") && !GameControl.control.frozen)
+            if (Input.GetButtonDown("Submit") && !GameControl.control.frozen && !GameControl.control.playerFrozen)
             {
                 if (direction == 0)
                 {

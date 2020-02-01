@@ -54,6 +54,7 @@ public class GameControl : MonoBehaviour {
     public bool paused;
     public bool frozen;
     public bool stunned;
+    public bool playerFrozen;
     public bool encounter;
 
     //Player Items Data
@@ -117,6 +118,16 @@ public class GameControl : MonoBehaviour {
     public void Unfreeze()
     {
         frozen = false;
+    }
+
+    public void PlayerFreeze()
+    {
+        playerFrozen = true;
+    }
+
+    public void PlayerUnfreeze()
+    {
+        playerFrozen = false;
     }
 
     public IEnumerator Save()
