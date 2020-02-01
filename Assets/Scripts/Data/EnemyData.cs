@@ -11,4 +11,5 @@ public class EnemyData
     public bool[] fresneticDefeated = new bool[3];
     public bool[] lunaseeDefeated = new bool[2];
     public bool[] showbizzyDefeated = new bool[2];
+    public bool tarDefeated;
 }

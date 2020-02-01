@@ -271,7 +271,7 @@ public class TalkController : MonoBehaviour {
         //Starts the animate text function which runs until the text has finished being printed to the screen
         yield return StartCoroutine(AnimateText(text, thisText));
         //Starts the wait for keydown function which ways for the player to push the Z button before continuing
-        yield return StartCoroutine(WaitForKeyDown("Submit"));
+        yield return StartCoroutine(AnimateContinueIndicator("Submit"));
         editText.text = "";
         editSpriteText.text = "";
         choiceText.text = "";
@@ -286,12 +286,19 @@ public class TalkController : MonoBehaviour {
     *******************/
     protected IEnumerator WaitForKeyDown(String keyCode)
     {
-        bool onOff = true;
-        int counter = 0;
-
         do
         {
-            if(counter > 20)
+            yield return null;
+        } while (!Input.GetButtonDown(keyCode));
+    }
+
+    protected IEnumerator AnimateContinueIndicator(String keyCode)
+    {
+        bool onOff = true;
+        int counter = 0;
+        do
+        {
+            if (counter > 50)
             {
                 onOff = !onOff;
                 counter = 0;

@@ -66,11 +66,15 @@ public class JukeBoxController : MonoBehaviour {
             case "WillsTheme":
                 AS.clip = AllSongs[2];
                 break;
+            case "InTheDeepestDarkness":
+                AS.clip = AllSongs[3];
+                break;
             default:
                 AS.clip = AllSongs[0];
                 break;
         }
         AS.Play();
+        Debug.Log("Now Playing: " + AS.clip);
     }
 
     public void ReplaceSongPartway(string songName)

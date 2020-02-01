@@ -9,7 +9,7 @@ public class NerflesData : EnemyCombatController
     {
         introDialogue = "Fresnetic shines their light in your eyes.";
         outroDialogue = "Fresnetic light stops flickering.";
-        descriptionDialogue = "Don't state directly into the light.";
+        descriptionDialogue = "Don't stare directly into the light.";
 
         talkDialogue = new string[3];
         talkDialogue[0] = "You chat with Fresnetic about stagetech.";
