@@ -284,8 +284,10 @@ MonoBehaviour:
   affirmDialogue: []
   giftDialogue: []
   playerTurnIdle: []
-  AttackPrefab: {fileID: 0}
-  LaserPrefab: {fileID: 0}
+  AttackPrefab: {fileID: 4427565478936963208, guid: 174321a1f404c2846acb8cc0c2eb6c70,
+    type: 3}
+  LaserPrefab: {fileID: 4186949833314906665, guid: 1642a3536cf1be74c8fd22e5271096c0,
+    type: 3}
 --- !u!50 &2237283137436947048
 Rigidbody2D:
   serializedVersion: 4

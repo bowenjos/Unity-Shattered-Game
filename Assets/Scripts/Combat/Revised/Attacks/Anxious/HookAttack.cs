@@ -5,7 +5,7 @@ using UnityEngine;
 public class HookAttack : DefaultAttack
 {
     public RotateAroundOnCommand rotater;
-    Transform thisTransform;
+    //Transform thisTransform;
     Transform targetTransform;
 
     // Start is called before the first frame update

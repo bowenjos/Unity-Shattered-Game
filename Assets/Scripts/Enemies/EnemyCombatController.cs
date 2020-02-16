@@ -330,7 +330,7 @@ public class EnemyCombatController : MonoBehaviour {
         }
     }
 
-    public virtual IEnumerator MoveToPoint(int x, int y, float time)
+    public virtual IEnumerator MoveToPoint(float x, float y, float time)
     {
         float xn = EnemyAttackSprite.position.x;
         float yn = EnemyAttackSprite.position.y;
@@ -343,11 +343,19 @@ public class EnemyCombatController : MonoBehaviour {
         {
             EnemyAttackSprite.position = new Vector3(-dxt * i + xn, -dyt * i + yn, 0);
             yield return new WaitForSeconds(.01f);
-
         }
         EnemyAttackSprite.position = new Vector3(x, y, 0);
     }
 
+    public virtual void TeleportToPoint(float x, float y)
+    {
+        EnemyAttackSprite.position = new Vector3(x, y, 0);
+    }
+
+    public virtual void TeleportToSetpoint(Transform destination)
+    {
+        EnemyAttackSprite.position = destination.position;
+    }
 
     //Spawn the default projectile
     protected GameObject SpawnDefaultProjectile(float speed)

@@ -67,7 +67,7 @@ public class WilliamMiniBossInteraction : TriggerInteraction
         dialogue[3][4] = "But your endurance is pretty lacking, my guy.";
         dialogue[3][5] = "When you get to the end of a piece it just starts to fall apart.";
         dialogue[3][6] = "And your sixteenth notes? Sloppy bro, Sloppy.";
-        dialogue[3][6] = "You should consider joining in on our reps,";
+        dialogue[3][6] = "You should consider joining in on our reps.";
         dialogue[3][7] = "I think it'd do you some good, yeah bruh?"; 
         dialogue[3][8] = "Anyway, see you at the show, bro.";
         dialogue[3][9] = "Good luck.";
@@ -146,7 +146,8 @@ public class WilliamMiniBossInteraction : TriggerInteraction
         GameControl.control.PlayerFreeze();
         yield return StartCoroutine(Vanish(William, thisLight));
         tar.sprite = null;
-        Instantiate(tarEnemy);
+        GameObject tarNew = Instantiate(tarEnemy);
+        mirrorTar.GetComponent<MirrorObject>().UpdateObjectToBeMirrored(tarNew);
         GameControl.control.DPMainData.progression = 10;
         GameControl.control.PlayerFreeze();
         Destroy(this.gameObject);

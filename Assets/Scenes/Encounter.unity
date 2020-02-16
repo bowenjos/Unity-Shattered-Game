@@ -2582,9 +2582,9 @@ GameObject:
   - component: {fileID: 768344577}
   - component: {fileID: 768344576}
   - component: {fileID: 768344575}
-  - component: {fileID: 768344580}
   - component: {fileID: 768344581}
   - component: {fileID: 768344582}
+  - component: {fileID: 768344580}
   m_Layer: 0
   m_Name: Mirror
   m_TagString: Untagged
@@ -2627,6 +2627,8 @@ MonoBehaviour:
   mirror3: {fileID: 21300000, guid: 91634ba2f899fdd43abffee7470bcd34, type: 3}
   mirror4: {fileID: 21300000, guid: b9c139a32aed3eb42a9190237022c580, type: 3}
   mirror5: {fileID: 21300000, guid: 1ffc9292254dad246b2860672d9c2e07, type: 3}
+  mirrorAnimator: {fileID: 768344580}
+  Affliction: 0
   dieSprites:
   - {fileID: 21300000, guid: 992b03dc544dac74ca3a7708b5d6650e, type: 3}
   - {fileID: 21300000, guid: 1cfe19c10d258664d97e70a2cbcc606c, type: 3}
@@ -2707,32 +2709,25 @@ Transform:
   m_Father: {fileID: 1485388408}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &768344580
-BoxCollider2D:
+--- !u!95 &768344580
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 768344574}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.45, y: 0.45}
-    newSize: {x: 2.25, y: 2.25}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.5}
-  m_EdgeRadius: 0
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0818d3c3c4333244db442cb8c9ad52e1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!50 &768344581
 Rigidbody2D:
   serializedVersion: 4

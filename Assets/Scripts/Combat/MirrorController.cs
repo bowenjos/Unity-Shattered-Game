@@ -14,12 +14,8 @@ public class MirrorController : MonoBehaviour {
     protected List<RaycastHit2D> hitBufferList = new List<RaycastHit2D>(16);
     protected Collider2D mirrorCollider;
 
-    public Sprite mirror1;
-    public Sprite mirror2;
-    public Sprite mirror3;
-    public Sprite mirror4;
-    public Sprite mirror5;
-
+    public Animator mirrorAnimator;
+    public int Affliction;
 
     public Sprite[] dieSprites;
     private AudioSource takeDamage;
@@ -29,39 +25,41 @@ public class MirrorController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        //contactFilter.useTriggers = false;
-        //contactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer));
         takeDamage = this.GetComponent<AudioSource>();
         dying = false;
         mirrorSprite = this.GetComponent<SpriteRenderer>();
+        Affliction = 0;
+        mirrorAnimator.SetBool("Dying", false);
     }
 	
 	// Update is called once per frame
 	void Update () {
+        mirrorAnimator.SetInteger("Affliction", Affliction);
 
         if(GameControl.control.health >= GameControl.control.maxHealth * 0.8f)
         {
-            mirrorSprite.sprite = mirror1;
+            mirrorAnimator.SetInteger("DamageStatus", 0);
         }
         else if(GameControl.control.health >= GameControl.control.maxHealth * 0.6f)
         {
-            mirrorSprite.sprite = mirror2;
+            mirrorAnimator.SetInteger("DamageStatus", 1);
         }
         else if (GameControl.control.health >= GameControl.control.maxHealth * 0.4f)
         {
-            mirrorSprite.sprite = mirror3;
+            mirrorAnimator.SetInteger("DamageStatus", 2);
         }
         else if (GameControl.control.health >= GameControl.control.maxHealth * 0.2f)
         {
-            mirrorSprite.sprite = mirror4;
+            mirrorAnimator.SetInteger("DamageStatus", 3);
         }
         else if (GameControl.control.health >= 0f && !dying)
         {
-            mirrorSprite.sprite = mirror5;
+            mirrorAnimator.SetInteger("DamageStatus", 4);
         }
         if (GameControl.control.health <= 0 && !dying)
         {
             dying = true;
+            mirrorAnimator.SetBool("Dying", true);
             StopAllCoroutines();
             StartCoroutine(Die());
         }
