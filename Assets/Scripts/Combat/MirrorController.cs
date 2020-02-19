@@ -59,7 +59,7 @@ public class MirrorController : MonoBehaviour {
         if (GameControl.control.health <= 0 && !dying)
         {
             dying = true;
-            mirrorAnimator.SetBool("Dying", true);
+
             StopAllCoroutines();
             StartCoroutine(Die());
         }
@@ -72,10 +72,22 @@ public class MirrorController : MonoBehaviour {
         //{
         //    Destroy(GameObject.Find("Attack(Clone)"));
         //}
+        mirrorAnimator.SetInteger("DamageStatus", 4);
+        yield return new WaitForEndOfFrame();
+        mirrorAnimator.SetBool("Dying", true);
         GameObject.Find("BattleJukeBox").GetComponent<AudioSource>().Stop();
         GameObject.Find("mirrorText").GetComponent<Text>().color = new Color(1f, 1f, 1f, 0f);
         GameObject.Find("mirrorBorderText").GetComponent<Text>().color = new Color(1f, 1f, 1f, 0f);
+        takeDamage.Play();
+        yield return new WaitForSeconds(0.5f);
+        takeDamage.Play();
+        yield return new WaitForSeconds(0.5f);
+        takeDamage.Play();
+        yield return new WaitForSeconds(0.5f);
+        takeDamage.Play();
+        yield return new WaitForSeconds(0.5f);
         //Animate
+        /*
         mirrorSprite.sprite = dieSprites[0];
         takeDamage.Play();
         yield return new WaitForSeconds(1.5f);
@@ -85,7 +97,7 @@ public class MirrorController : MonoBehaviour {
             takeDamage.Play();
             yield return new WaitForSeconds(.5f);
         }
-        
+        */
         GameObject.Find("TransitionControl(Clone)").GetComponent<TransitionController>().transitionNow();
         SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
         Debug.Log("You have Shattered");

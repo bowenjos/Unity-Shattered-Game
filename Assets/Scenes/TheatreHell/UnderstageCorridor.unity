@@ -483,6 +483,11 @@ PrefabInstance:
       propertyPath: targetY
       value: -0.32
       objectReference: {fileID: 0}
+    - target: {fileID: 114504210878724678, guid: 31516ca4375ba1942bc1ffef3978f3ee,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 212006972440745072, guid: 31516ca4375ba1942bc1ffef3978f3ee,
         type: 3}
       propertyPath: m_FlipX
@@ -501,6 +506,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 664039429}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &664039431 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1861338231142746, guid: 31516ca4375ba1942bc1ffef3978f3ee,
+    type: 3}
+  m_PrefabInstance: {fileID: 664039429}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &664039432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 664039431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c4987976abe4354cb1185782e7694e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  talkCanvas: {fileID: 0}
+  dialogue:
+  - This door is locked in this version. Sowwy.
 --- !u!1 &713060432
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,9 +734,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8ec278b698a32f4f80c187d1a5a41bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newTargetLocation: DPLessStrangeRoom
-  x: 2.1
-  y: 0.75
 --- !u!1 &1102563583
 GameObject:
   m_ObjectHideFlags: 0
@@ -1041,6 +1064,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StorageRightBottomRight
       objectReference: {fileID: 0}
+    - target: {fileID: 1861338231142746, guid: 31516ca4375ba1942bc1ffef3978f3ee, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4393177348293348, guid: 31516ca4375ba1942bc1ffef3978f3ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.65
@@ -1161,6 +1188,10 @@ PrefabInstance:
     - target: {fileID: 1861338231142746, guid: 31516ca4375ba1942bc1ffef3978f3ee, type: 3}
       propertyPath: m_Name
       value: StorageTopRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 1861338231142746, guid: 31516ca4375ba1942bc1ffef3978f3ee, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4393177348293348, guid: 31516ca4375ba1942bc1ffef3978f3ee, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1803,7 +1834,13 @@ PrefabInstance:
       propertyPath: targetY
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114504210878724678, guid: 31516ca4375ba1942bc1ffef3978f3ee,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114504210878724678, guid: 31516ca4375ba1942bc1ffef3978f3ee, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 31516ca4375ba1942bc1ffef3978f3ee, type: 3}
 --- !u!4 &1708742505 stripped
 Transform:
@@ -2082,6 +2119,10 @@ PrefabInstance:
     - target: {fileID: 1741420436670192, guid: 9da878bcfb74ab84daea547c1553a1ff, type: 3}
       propertyPath: m_Name
       value: PushableCrate (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1741420436670192, guid: 9da878bcfb74ab84daea547c1553a1ff, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4263324333471892, guid: 9da878bcfb74ab84daea547c1553a1ff, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2666,6 +2707,16 @@ PrefabInstance:
       propertyPath: health
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 114208935716878952, guid: 705ffea0792f68f419e09aa357f1ecdb,
+        type: 3}
+      propertyPath: DPMainData.key
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114208935716878952, guid: 705ffea0792f68f419e09aa357f1ecdb,
+        type: 3}
+      propertyPath: DPMainData.levers.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 705ffea0792f68f419e09aa357f1ecdb, type: 3}
 --- !u!1 &2113830527
@@ -2813,6 +2864,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 212157964258685112, guid: 71ac57786038da241bc11d44eeaa8add,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9256dc420e0a1d14da8cb456d80e2e93,
+        type: 3}
     - target: {fileID: 114573973680992290, guid: 71ac57786038da241bc11d44eeaa8add,
         type: 3}
       propertyPath: zone
@@ -2833,12 +2890,6 @@ PrefabInstance:
       propertyPath: targetY
       value: -0.86
       objectReference: {fileID: 0}
-    - target: {fileID: 212157964258685112, guid: 71ac57786038da241bc11d44eeaa8add,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 9256dc420e0a1d14da8cb456d80e2e93,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71ac57786038da241bc11d44eeaa8add, type: 3}
 --- !u!1001 &87469236754149350

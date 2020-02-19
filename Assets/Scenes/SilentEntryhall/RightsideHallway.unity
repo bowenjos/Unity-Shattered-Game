@@ -1832,6 +1832,11 @@ PrefabInstance:
       propertyPath: zone
       value: FM
       objectReference: {fileID: 0}
+    - target: {fileID: 114305202220195550, guid: 75e684c3a7d7d274bacb15b7e26a1c83,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 212350816511668464, guid: 75e684c3a7d7d274bacb15b7e26a1c83,
         type: 3}
       propertyPath: m_FlipX
@@ -1855,3 +1860,24 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 114335011923724782, guid: 75e684c3a7d7d274bacb15b7e26a1c83, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 75e684c3a7d7d274bacb15b7e26a1c83, type: 3}
+--- !u!1 &2095016337 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1897051879665998, guid: 75e684c3a7d7d274bacb15b7e26a1c83,
+    type: 3}
+  m_PrefabInstance: {fileID: 2095016336}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2095016338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095016337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c4987976abe4354cb1185782e7694e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  talkCanvas: {fileID: 0}
+  dialogue:
+  - This door is locked in this version. Sowwy.

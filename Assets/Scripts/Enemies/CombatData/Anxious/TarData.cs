@@ -71,14 +71,24 @@ public class TarData : EnemyCombatController
 
     public override IEnumerator SelectAttack()
     {
-        numAttacks = 1;
+        numAttacks = 2;
         yield return new WaitForSeconds(0.5f);
-        yield return StartCoroutine(CircleAttack());
+        int choice = Random.Range(0, numAttacks);
+        switch (choice)
+        {
+            case 0:
+                yield return StartCoroutine(ClockwiseAttack());
+                break;
+            case 1:
+                yield return StartCoroutine(CounterClockwiseAttack());
+                break;
+        }
+       
         yield return new WaitForSeconds(1f);
 
     }
 
-    public IEnumerator CircleAttack()
+    public IEnumerator ClockwiseAttack()
     {
         yield return MoveToPoint(4, 4, .2f);
         yield return new WaitForSeconds(1f);
@@ -87,8 +97,22 @@ public class TarData : EnemyCombatController
         {
             TeleportToSetpoint(SetPoints[i]);
             SpawnDefaultProjectile(speed);
-            speed += 0.25f;
+            speed += 1f;
         }
         TeleportToPoint(4, 4);
+    }
+
+    public IEnumerator CounterClockwiseAttack()
+    {
+        yield return MoveToPoint(-4, 4, .2f);
+        yield return new WaitForSeconds(1f);
+        float speed = 1f;
+        for (int i = 12; i > 0; i--)
+        {
+            TeleportToSetpoint(SetPoints[i]);
+            SpawnDefaultProjectile(speed);
+            speed += 1f;
+        }
+        TeleportToPoint(-4, 4);
     }
 }

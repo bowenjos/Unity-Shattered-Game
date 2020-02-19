@@ -64,6 +64,7 @@ public class WilliamSecondInteraction : CharacterInteraction {
                 GameControl.control.DPMainData.key = true;
                 Debug.Log("KEY DP");
                 yield return StartCoroutine(talkControl.StartDialogueSolo(new string[] { "You received the Dead Performance Key" }));
+                GameControl.control.DPMainData.key = true;
                 yield return StartCoroutine(talkControl.StartDialogueSprite(dialogue[1], "default", 1, 0));
                 GameControl.control.Freeze();
                 yield return new WaitForSeconds(1f);

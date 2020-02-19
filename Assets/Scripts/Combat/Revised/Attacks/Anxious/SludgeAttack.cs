@@ -36,14 +36,14 @@ public class SludgeAttack : DefaultAttack
 
     public override IEnumerator Attack(float speed)
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(speed);
         float x = thisTransform.position.x;
         float y = thisTransform.position.y;
 
-        float dxt = x / speed;
-        float dyt = y / speed;
+        float dxt = x / 2f;
+        float dyt = y / 2f;
 
-        for (float i = 0; i < speed; i += .01f)
+        for (float i = 0; i < 2f; i += .01f)
         {
             if (BattleController.BC.currentState == BattleController.BattleState.Dying)
             {
