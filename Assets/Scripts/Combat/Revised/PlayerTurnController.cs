@@ -12,6 +12,7 @@ public class PlayerTurnController : MonoBehaviour {
     public GameObject MenuPanel;
     public GameObject TalkPanel;
     public GameObject CombatPanel;
+    public Image StatusIcon;
 
     protected Image MenuVisibility;
     protected Image TalkVisibility;
@@ -35,6 +36,8 @@ public class PlayerTurnController : MonoBehaviour {
     public SwaySideToSide enemySway;
     public Shake enemyShake;
 
+    public Sprite[] afflictionIcons;
+
     // Use this for initialization
     void Start() {
         currentState = MenuStates.MainSelect;
@@ -48,13 +51,14 @@ public class PlayerTurnController : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        /*
-        if(BattleController.BC.currentState != BattleController.BattleState.PlayerTurn)
+        //Affliction Zone
+        StatusIcon.sprite = afflictionIcons[BattleController.BC.playerAffliction];
+        if(BattleController.BC.playerAffliction == 1)
         {
-            currentState = MenuStates.EnemyTurn;
+            AnxietyAffliction();
         }
-        */
-
+        
+        //Menu State Zone
         switch (currentState)
         {
             case MenuStates.MainSelect:
@@ -79,9 +83,7 @@ public class PlayerTurnController : MonoBehaviour {
                 ItemButton.interactable = false;
                 RestButton.interactable = false;
                 FleeButton.interactable = false;
-                //TalkVisibility.color = new Color(1f, 1f, 1f, 0f);
                 CombatVisibility.color = new Color(1f, 1f, 1f, 1f);
-                //CombatPanel.SetActive(true);
                 TalkButton.gameObject.SetActive(true);
                 HugButton.gameObject.SetActive(true);
                 AffirmButton.gameObject.SetActive(true);
@@ -387,6 +389,70 @@ public class PlayerTurnController : MonoBehaviour {
         else
         {
             StartCoroutine(BattleController.BC.EndTurnPlayer());
+        }
+    }
+
+    public void AnxietyAffliction()
+    {
+        int rand = Random.Range(0, 100);
+
+        if (rand == 0)
+        {
+            if (currentState == MenuStates.MainSelect)
+            {
+                BattleController.BC.cameraShake.StartShake(0.1f);
+                rand = Random.Range(0, 3);
+                switch (rand)
+                {
+                    case 0:
+                        HelpButton.Select();
+                        break;
+                    case 1:
+                        RestButton.Select();
+                        break;
+                    case 2:
+                        ItemButton.Select();
+                        break;
+                    case 3:
+                        //Invoke
+                        break;
+                }
+            }
+            else if (currentState == MenuStates.HelpSelect)
+            {
+                BattleController.BC.cameraShake.StartShake(0.1f);
+                rand = Random.Range(0, 7);
+                switch (rand)
+                {
+                    case 0:
+                        TalkButton.Select();
+                        break;
+                    case 1:
+                        SitButton.Select();
+                        break;
+                    case 2:
+                        HugButton.Select();
+                        break;
+                    case 3:
+                        ActButton.Select();
+                        break;
+                    case 4:
+                        AffirmButton.Select();
+                        break;
+                    case 5:
+                        GiftButton.Select();
+                        break;
+                    case 6:
+                        Invoke("MoveTalkBack", 0f);
+                        break;
+                    case 7:
+                        break;
+                }
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }

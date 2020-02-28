@@ -1599,7 +1599,6 @@ GameObject:
   - component: {fileID: 282658486}
   - component: {fileID: 282658485}
   - component: {fileID: 282658489}
-  - component: {fileID: 282658487}
   - component: {fileID: 282658488}
   m_Layer: 0
   m_Name: MezzanineDoor
@@ -1670,23 +1669,6 @@ Transform:
   m_Father: {fileID: 603451124}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &282658487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 282658484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9ca1959fdfe3bd48a0b8d724314513b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetSceneName: EntryHallOfSilence
-  zone: FM
-  targetX: 0
-  targetY: 0
-  immediate: 0
 --- !u!114 &282658488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2454,7 +2436,6 @@ GameObject:
   - component: {fileID: 816640028}
   - component: {fileID: 816640027}
   - component: {fileID: 816640031}
-  - component: {fileID: 816640029}
   - component: {fileID: 816640030}
   m_Layer: 0
   m_Name: DiningRoomDoor
@@ -2525,23 +2506,6 @@ Transform:
   m_Father: {fileID: 603451124}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &816640029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 816640026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9ca1959fdfe3bd48a0b8d724314513b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetSceneName: EntryHallOfSilence
-  zone: SE
-  targetX: 0
-  targetY: 0
-  immediate: 0
 --- !u!114 &816640030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2971,16 +2935,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: WilliamMaskless
       objectReference: {fileID: 0}
-    - target: {fileID: 108126423080599312, guid: e47ac28b12e83264b909ee70ce2b9dd7,
-        type: 3}
-      propertyPath: m_Cookie
-      value: 
-      objectReference: {fileID: 2800000, guid: 39b6953433e49d849990bc8a8f2f0098, type: 3}
-    - target: {fileID: 108126423080599312, guid: e47ac28b12e83264b909ee70ce2b9dd7,
-        type: 3}
-      propertyPath: m_CookieSize
-      value: 0.67
-      objectReference: {fileID: 0}
     - target: {fileID: 4217664514373456, guid: e47ac28b12e83264b909ee70ce2b9dd7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.15
@@ -3027,6 +2981,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 8a9aa02142bae1f4dbf1ef91bfebb3e8,
         type: 3}
+    - target: {fileID: 108126423080599312, guid: e47ac28b12e83264b909ee70ce2b9dd7,
+        type: 3}
+      propertyPath: m_Cookie
+      value: 
+      objectReference: {fileID: 2800000, guid: 39b6953433e49d849990bc8a8f2f0098, type: 3}
+    - target: {fileID: 108126423080599312, guid: e47ac28b12e83264b909ee70ce2b9dd7,
+        type: 3}
+      propertyPath: m_CookieSize
+      value: 0.67
+      objectReference: {fileID: 0}
     - target: {fileID: 4557182306679366, guid: e47ac28b12e83264b909ee70ce2b9dd7, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
@@ -3107,6 +3071,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114848956526141756, guid: 2467928b247b17c42a63982723ce55f5, type: 3}
+    - {fileID: 114902753178395562, guid: 2467928b247b17c42a63982723ce55f5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2467928b247b17c42a63982723ce55f5, type: 3}
 --- !u!1 &971531353 stripped
 GameObject:
@@ -3353,28 +3318,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114060778835237738, guid: eb02fc93e1fbabc458942aec39077f74,
-        type: 3}
-      propertyPath: dialogue.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114060778835237738, guid: eb02fc93e1fbabc458942aec39077f74,
-        type: 3}
-      propertyPath: dialogue.Array.data[1]
-      value: But in all my time here I've never seen it.
-      objectReference: {fileID: 0}
-    - target: {fileID: 114060778835237738, guid: eb02fc93e1fbabc458942aec39077f74,
-        type: 3}
-      propertyPath: dialogue.Array.data[0]
-      value: They say in this house there is a light that never goes out.
-      objectReference: {fileID: 0}
-    - target: {fileID: 114060778835237738, guid: eb02fc93e1fbabc458942aec39077f74,
-        type: 3}
-      propertyPath: dialogue.Array.data[2]
-      value: <color=red>this</color> <color=orange>is</color> <color=yellow>a</color>
-        <color=lime>test</color> <color=blue>line</color>. <color=purple>purple</color>
-        <color=#ff80ffff>pink</color>.
-      objectReference: {fileID: 0}
     - target: {fileID: 4975792499868314, guid: eb02fc93e1fbabc458942aec39077f74, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.545
@@ -3415,6 +3358,19 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 61924804291057104, guid: eb02fc93e1fbabc458942aec39077f74,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 944284794, guid: eb02fc93e1fbabc458942aec39077f74, type: 3}
+      propertyPath: smallDialogue.Array.data[0]
+      value: They say in this house there is a light that never goes out.
+      objectReference: {fileID: 0}
+    - target: {fileID: 944284794, guid: eb02fc93e1fbabc458942aec39077f74, type: 3}
+      propertyPath: smallDialogue.Array.data[1]
+      value: Though in all my time here, I've never seen it.
+      objectReference: {fileID: 0}
     - target: {fileID: 212830244193702140, guid: eb02fc93e1fbabc458942aec39077f74,
         type: 3}
       propertyPath: m_Sprite
@@ -3431,18 +3387,27 @@ PrefabInstance:
       propertyPath: m_CookieSize
       value: 0.47
       objectReference: {fileID: 0}
-    - target: {fileID: 61924804291057104, guid: eb02fc93e1fbabc458942aec39077f74,
+    - target: {fileID: 114060778835237738, guid: eb02fc93e1fbabc458942aec39077f74,
         type: 3}
-      propertyPath: m_Offset.y
-      value: -0.17
+      propertyPath: dialogue.Array.size
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 944284794, guid: eb02fc93e1fbabc458942aec39077f74, type: 3}
-      propertyPath: smallDialogue.Array.data[0]
+    - target: {fileID: 114060778835237738, guid: eb02fc93e1fbabc458942aec39077f74,
+        type: 3}
+      propertyPath: dialogue.Array.data[1]
+      value: But in all my time here I've never seen it.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114060778835237738, guid: eb02fc93e1fbabc458942aec39077f74,
+        type: 3}
+      propertyPath: dialogue.Array.data[0]
       value: They say in this house there is a light that never goes out.
       objectReference: {fileID: 0}
-    - target: {fileID: 944284794, guid: eb02fc93e1fbabc458942aec39077f74, type: 3}
-      propertyPath: smallDialogue.Array.data[1]
-      value: Though in all my time here, I've never seen it.
+    - target: {fileID: 114060778835237738, guid: eb02fc93e1fbabc458942aec39077f74,
+        type: 3}
+      propertyPath: dialogue.Array.data[2]
+      value: <color=red>this</color> <color=orange>is</color> <color=yellow>a</color>
+        <color=lime>test</color> <color=blue>line</color>. <color=purple>purple</color>
+        <color=#ff80ffff>pink</color>.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb02fc93e1fbabc458942aec39077f74, type: 3}
@@ -4495,32 +4460,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Elise
       objectReference: {fileID: 0}
-    - target: {fileID: 114465517119480696, guid: 9cd21a16672a13a41a322b4134c8a134,
-        type: 3}
-      propertyPath: Cookie0
-      value: 
-      objectReference: {fileID: 2800000, guid: c2c32d642b3cb0e4198a425b3dbe3c8a, type: 3}
-    - target: {fileID: 114465517119480696, guid: 9cd21a16672a13a41a322b4134c8a134,
-        type: 3}
-      propertyPath: Cookie1
-      value: 
-      objectReference: {fileID: 2800000, guid: c2c32d642b3cb0e4198a425b3dbe3c8a, type: 3}
-    - target: {fileID: 95510574394701822, guid: 9cd21a16672a13a41a322b4134c8a134,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 72a5fec0261279847a1812c2a12dc047, type: 2}
-    - target: {fileID: 212723218990150586, guid: 9cd21a16672a13a41a322b4134c8a134,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212723218990150586, guid: 9cd21a16672a13a41a322b4134c8a134,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: a1e2338c6628bd74988d51bb09fcb129,
-        type: 3}
     - target: {fileID: 4544226222299866, guid: 9cd21a16672a13a41a322b4134c8a134, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.45
@@ -4561,14 +4500,32 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1727875432370328, guid: 9cd21a16672a13a41a322b4134c8a134, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 212723218990150586, guid: 9cd21a16672a13a41a322b4134c8a134,
+        type: 3}
+      propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4034035002813028, guid: 9cd21a16672a13a41a322b4134c8a134, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.01
-      objectReference: {fileID: 0}
+    - target: {fileID: 212723218990150586, guid: 9cd21a16672a13a41a322b4134c8a134,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a1e2338c6628bd74988d51bb09fcb129,
+        type: 3}
+    - target: {fileID: 95510574394701822, guid: 9cd21a16672a13a41a322b4134c8a134,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 72a5fec0261279847a1812c2a12dc047, type: 2}
+    - target: {fileID: 114465517119480696, guid: 9cd21a16672a13a41a322b4134c8a134,
+        type: 3}
+      propertyPath: Cookie0
+      value: 
+      objectReference: {fileID: 2800000, guid: c2c32d642b3cb0e4198a425b3dbe3c8a, type: 3}
+    - target: {fileID: 114465517119480696, guid: 9cd21a16672a13a41a322b4134c8a134,
+        type: 3}
+      propertyPath: Cookie1
+      value: 
+      objectReference: {fileID: 2800000, guid: c2c32d642b3cb0e4198a425b3dbe3c8a, type: 3}
     - target: {fileID: 4736377541037212, guid: 9cd21a16672a13a41a322b4134c8a134, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.005
@@ -4576,6 +4533,14 @@ PrefabInstance:
     - target: {fileID: 4736377541037212, guid: 9cd21a16672a13a41a322b4134c8a134, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4034035002813028, guid: 9cd21a16672a13a41a322b4134c8a134, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727875432370328, guid: 9cd21a16672a13a41a322b4134c8a134, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 108673884892353990, guid: 9cd21a16672a13a41a322b4134c8a134,
         type: 3}
@@ -4977,16 +4942,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6938072931552728534, guid: efc053ff453f1b943973eeefcac361dc,
-        type: 3}
-      propertyPath: m_CookieSize
-      value: 0.65
-      objectReference: {fileID: 0}
     - target: {fileID: 6938072930574998005, guid: efc053ff453f1b943973eeefcac361dc,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 13316317b2cf5e842b1b116b38e11a4c,
         type: 3}
+    - target: {fileID: 6938072931552728534, guid: efc053ff453f1b943973eeefcac361dc,
+        type: 3}
+      propertyPath: m_CookieSize
+      value: 0.65
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efc053ff453f1b943973eeefcac361dc, type: 3}

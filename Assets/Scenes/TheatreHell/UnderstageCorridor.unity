@@ -498,7 +498,8 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: -0.01
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114504210878724678, guid: 31516ca4375ba1942bc1ffef3978f3ee, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 31516ca4375ba1942bc1ffef3978f3ee, type: 3}
 --- !u!4 &664039430 stripped
 Transform:

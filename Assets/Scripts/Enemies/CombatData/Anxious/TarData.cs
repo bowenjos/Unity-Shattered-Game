@@ -71,16 +71,22 @@ public class TarData : EnemyCombatController
 
     public override IEnumerator SelectAttack()
     {
-        numAttacks = 2;
+        numAttacks = 4;
         yield return new WaitForSeconds(0.5f);
         int choice = Random.Range(0, numAttacks);
         switch (choice)
         {
             case 0:
-                yield return StartCoroutine(ClockwiseAttack());
+                yield return StartCoroutine(RotateAttack());
                 break;
             case 1:
-                yield return StartCoroutine(CounterClockwiseAttack());
+                yield return StartCoroutine(EveryOtherAttack());
+                break;
+            case 2:
+                yield return StartCoroutine(NEWSAttack());
+                break;
+            case 3:
+                yield return StartCoroutine(FourCornersAttack());
                 break;
         }
        
@@ -88,31 +94,331 @@ public class TarData : EnemyCombatController
 
     }
 
-    public IEnumerator ClockwiseAttack()
+    //Done
+    public IEnumerator RotateAttack()
     {
         yield return MoveToPoint(4, 4, .2f);
         yield return new WaitForSeconds(1f);
         float speed = 1f;
-        for (int i = 1; i < 13; i++)
+        int choice = Random.Range(0, 2);
+        if (choice == 0)
         {
-            TeleportToSetpoint(SetPoints[i]);
-            SpawnDefaultProjectile(speed);
-            speed += 1f;
+            for (int i = 1; i < 13; i++)
+            {
+                TeleportToSetpoint(SetPoints[i]);
+                SpawnDefaultProjectile(speed);
+                speed += 1f;
+            }
+        }
+        else
+        {
+            for (int i = 12; i > 0; i--)
+            {
+                TeleportToSetpoint(SetPoints[i]);
+                SpawnDefaultProjectile(speed);
+                speed += 1f;
+            }
         }
         TeleportToPoint(4, 4);
     }
 
-    public IEnumerator CounterClockwiseAttack()
+    //WIP
+    public IEnumerator EveryOtherAttack()
     {
         yield return MoveToPoint(-4, 4, .2f);
-        yield return new WaitForSeconds(1f);
         float speed = 1f;
-        for (int i = 12; i > 0; i--)
+        yield return new WaitForSeconds(1f);
+        int choice = Random.Range(0, 2);
+        if (choice == 0)
         {
-            TeleportToSetpoint(SetPoints[i]);
-            SpawnDefaultProjectile(speed);
-            speed += 1f;
+            for (int i = 1; i < 13; i += 2)
+            {
+                TeleportToSetpoint(SetPoints[i]);
+                SpawnDefaultProjectile(speed);
+                speed += 1f;
+            }
+            for (int i = 2; i < 13; i += 2)
+            {
+                TeleportToSetpoint(SetPoints[i]);
+                SpawnDefaultProjectile(speed);
+                speed += 1f;
+            }
+        }
+        else
+        {
+            for (int i = 11; i > 0; i -= 2)
+            {
+                TeleportToSetpoint(SetPoints[i]);
+                SpawnDefaultProjectile(speed);
+                speed += 1f;
+            }
+            for (int i = 12; i > 0; i -= 2)
+            {
+                TeleportToSetpoint(SetPoints[i]);
+                SpawnDefaultProjectile(speed);
+                speed += 1f;
+            }
         }
         TeleportToPoint(-4, 4);
+    }
+
+    //WIP
+    public IEnumerator NEWSAttack()
+    {
+        int[] array = { 0, 1, 2, 3 };
+
+        yield return MoveToPoint(-4, -4, .2f);
+        float speed = 1f;
+        yield return new WaitForSeconds(1f);
+        array = RandomArray(array);
+        for (int i = 0; i < 4; i++)
+        {
+            int choice = Random.Range(0, 2);
+            switch (array[i])
+            {
+                case 0:
+                    if (choice == 0)
+                    {
+                        TeleportToSetpoint(SetPoints[11]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                        TeleportToSetpoint(SetPoints[12]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                        TeleportToSetpoint(SetPoints[1]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                    }
+                    else
+                    {
+                        TeleportToSetpoint(SetPoints[1]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                        TeleportToSetpoint(SetPoints[12]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                        TeleportToSetpoint(SetPoints[11]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                    }
+                    break;
+                case 1:
+                    if (choice == 0)
+                    {
+                        TeleportToSetpoint(SetPoints[2]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                        TeleportToSetpoint(SetPoints[3]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                        TeleportToSetpoint(SetPoints[4]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                    }
+                    else
+                    {
+                        TeleportToSetpoint(SetPoints[4]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                        TeleportToSetpoint(SetPoints[3]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                        TeleportToSetpoint(SetPoints[2]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                    }
+                    break;
+                case 2:
+                    if (choice == 0)
+                    {
+                        TeleportToSetpoint(SetPoints[5]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                        TeleportToSetpoint(SetPoints[6]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                        TeleportToSetpoint(SetPoints[7]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                    }
+                    else
+                    {
+                        TeleportToSetpoint(SetPoints[7]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                        TeleportToSetpoint(SetPoints[6]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                        TeleportToSetpoint(SetPoints[5]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                    }
+                    break;
+                case 3:
+                    if (choice == 0)
+                    {
+                        TeleportToSetpoint(SetPoints[8]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                        TeleportToSetpoint(SetPoints[9]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                        TeleportToSetpoint(SetPoints[10]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                    }
+                    else
+                    {
+                        TeleportToSetpoint(SetPoints[10]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                        TeleportToSetpoint(SetPoints[9]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                        TeleportToSetpoint(SetPoints[8]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                    }
+                    break;
+            }
+        }
+        TeleportToPoint(-4, -4);
+    }
+
+    //WIP
+    public IEnumerator FourCornersAttack()
+    {
+        yield return MoveToPoint(4, -4, .2f);
+        int[] array = { 0, 1, 2, 3 };
+        float speed = 1f;
+        yield return new WaitForSeconds(1f);
+        array = RandomArray(array);
+        for (int i = 0; i < 4; i++)
+        {
+            int choice = Random.Range(0, 2);
+            switch (array[i])
+            {
+                case 0:
+                    if (choice == 0)
+                    {
+                        TeleportToSetpoint(SetPoints[10]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                        TeleportToSetpoint(SetPoints[12]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                        TeleportToSetpoint(SetPoints[2]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                    }
+                    else
+                    {
+                        TeleportToSetpoint(SetPoints[2]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                        TeleportToSetpoint(SetPoints[12]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                        TeleportToSetpoint(SetPoints[10]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                    }
+                    break;
+                case 1:
+                    if (choice == 0)
+                    {
+                        TeleportToSetpoint(SetPoints[1]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                        TeleportToSetpoint(SetPoints[3]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                        TeleportToSetpoint(SetPoints[5]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                    }
+                    else
+                    {
+                        TeleportToSetpoint(SetPoints[5]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                        TeleportToSetpoint(SetPoints[3]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                        TeleportToSetpoint(SetPoints[1]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                    }
+                    break;
+                case 2:
+                    if (choice == 0)
+                    {
+                        TeleportToSetpoint(SetPoints[4]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                        TeleportToSetpoint(SetPoints[6]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                        TeleportToSetpoint(SetPoints[8]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                    }
+                    else
+                    {
+                        TeleportToSetpoint(SetPoints[8]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                        TeleportToSetpoint(SetPoints[6]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                        TeleportToSetpoint(SetPoints[4]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                    }
+                    break;
+                case 3:
+                    if (choice == 0)
+                    {
+                        TeleportToSetpoint(SetPoints[7]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                        TeleportToSetpoint(SetPoints[9]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                        TeleportToSetpoint(SetPoints[11]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                    }
+                    else
+                    {
+                        TeleportToSetpoint(SetPoints[11]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                        TeleportToSetpoint(SetPoints[9]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                        TeleportToSetpoint(SetPoints[7]);
+                        SpawnDefaultProjectile(speed);
+                        speed += 1f;
+                    }
+                    break;
+            }
+        }
+        TeleportToPoint(4, -4);
+    }
+
+    protected int[] RandomArray(int[] array)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < array.Length; j++)
+            {
+                int random = Random.Range(0, array.Length);
+                int temp = array[random];
+                array[random] = array[j];
+                array[j] = temp;
+            }
+        }
+        return array;
     }
 }

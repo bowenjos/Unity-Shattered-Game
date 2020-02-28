@@ -40,14 +40,14 @@ public class BlockerController : MonoBehaviour
     {
         if (BattleController.BC.currentState == BattleController.BattleState.EnemyTurn)
         {
-            keys[0] = Input.GetKey(KeyCode.W);
-            keys[1] = Input.GetKey(KeyCode.D);
-            keys[2] = Input.GetKey(KeyCode.S);
-            keys[3] = Input.GetKey(KeyCode.A);
-            keys[4] = Input.GetKey(KeyCode.UpArrow);
-            keys[5] = Input.GetKey(KeyCode.RightArrow);
-            keys[6] = Input.GetKey(KeyCode.DownArrow);
-            keys[7] = Input.GetKey(KeyCode.LeftArrow);
+            keys[0] = Input.GetButton("BlockUp");
+            keys[1] = Input.GetButton("BlockRight");
+            keys[2] = Input.GetButton("BlockDown");
+            keys[3] = Input.GetButton("BlockLeft");
+            keys[4] = Input.GetButton("Up");
+            keys[5] = Input.GetButton("Right");
+            keys[6] = Input.GetButton("Down");
+            keys[7] = Input.GetButton("Left");
             StartCoroutine(ActivateBlockers());
         }
     }

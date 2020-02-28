@@ -16,6 +16,7 @@ public class MirrorController : MonoBehaviour {
 
     public Animator mirrorAnimator;
     public int Affliction;
+    public bool Afflicted;
 
     public Sprite[] dieSprites;
     private AudioSource takeDamage;
@@ -34,6 +35,8 @@ public class MirrorController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        Affliction = BattleController.BC.playerAffliction;
+
         mirrorAnimator.SetInteger("Affliction", Affliction);
 
         if(GameControl.control.health >= GameControl.control.maxHealth * 0.8f)
@@ -111,6 +114,13 @@ public class MirrorController : MonoBehaviour {
         GameControl.control.health -= col.gameObject.GetComponent<DefaultAttack>().damageValue;
         this.GetComponent<Shake>().StartShake(.05f);
         BattleController.BC.healingTouched = false;
+
+        //Check to see if this attack has an affliction associated, if so, attempt to afflict.
+        if (col.gameObject.GetComponent<AfflictionMod>() != null)
+        {
+            col.gameObject.GetComponent<AfflictionMod>().Afflict();
+        }
+
         Destroy(col.gameObject);
     }
 

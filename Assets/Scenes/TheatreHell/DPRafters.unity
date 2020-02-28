@@ -546,6 +546,11 @@ PrefabInstance:
       propertyPath: zone
       value: FL
       objectReference: {fileID: 0}
+    - target: {fileID: 114504210878724678, guid: 31516ca4375ba1942bc1ffef3978f3ee,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 212006972440745072, guid: 31516ca4375ba1942bc1ffef3978f3ee,
         type: 3}
       propertyPath: m_FlipX
@@ -556,7 +561,8 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: -0.02
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114504210878724678, guid: 31516ca4375ba1942bc1ffef3978f3ee, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 31516ca4375ba1942bc1ffef3978f3ee, type: 3}
 --- !u!4 &235660742 stripped
 Transform:
@@ -564,6 +570,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 235660741}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &235660743 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1861338231142746, guid: 31516ca4375ba1942bc1ffef3978f3ee,
+    type: 3}
+  m_PrefabInstance: {fileID: 235660741}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &235660744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235660743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c4987976abe4354cb1185782e7694e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  talkCanvas: {fileID: 0}
+  dialogue:
+  - This door is locked in this build. Sorry.
 --- !u!1001 &255901975
 PrefabInstance:
   m_ObjectHideFlags: 0

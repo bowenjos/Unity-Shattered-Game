@@ -11,6 +11,17 @@ public class SludgeAttack : DefaultAttack
         thisTransform = GetComponent<Transform>();
         StartCoroutine(FailSafe(30f));
         StartCoroutine(Attack(speed));
+
+        //Random chance to be an affliction attack anytime this attack is spawned.
+        int random = Random.Range(0, 3);
+        if (random == 0)
+        {
+            this.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 1f);
+            AfflictionMod afflictionMod = this.gameObject.AddComponent<AfflictionMod>();
+            afflictionMod.affliction = 1;
+            afflictionMod.numTurns = 3;
+            afflictionMod.oneInWhat = 1;
+        }
     }
 
     // Update is called once per frame

@@ -24,9 +24,12 @@ public class BattleController : MonoBehaviour {
 
     public bool enemyTurnStart;
     public bool healingTouched;
+    public int playerAffliction;
+    public int turnsAfflicted;
 
     public AudioSource BattleJukeBox;
     public FanfareController fanfare;
+    public Shake cameraShake;
 
     /*
     //Enemy Variables
@@ -70,7 +73,7 @@ public class BattleController : MonoBehaviour {
         mirrorBorderText.color = new Color(139 / 255f, 139 / 255f, 139 / 255f, 0f);
         Enemy = GameObject.Find("Enemy").GetComponent<EnemyCombatController>();
 
-
+        playerAffliction = 0;
         BattleJukeBox.clip = Enemy.battleMusic;
         BattleJukeBox.Play();
         Player = GameObject.Find("player(Clone)");
@@ -160,6 +163,7 @@ public class BattleController : MonoBehaviour {
             mirrorBorderText.fontSize = 75;
             yield return new WaitForSeconds(.5f);
             healingTouched = false;
+            
         }
 
         int rand = Random.Range(0, Enemy.playerTurnIdle.Length);
@@ -189,6 +193,10 @@ public class BattleController : MonoBehaviour {
         StartCoroutine(textBox.Dialogue(Enemy.playerTurnIdle[rand]));
         PTC.currentState = PlayerTurnController.MenuStates.MainSelect;
         PTC.HelpButton.Select();
+        if (turnsAfflicted > 0)
+        {
+            turnsAfflicted -= 1;
+        }
         yield return null;
     }
 
