@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Intro.unity
     guid: 3027eae0f81e5684db4c3f9d02fb3db7
   - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: bc89e80eb3bf4264c8d195127a8b0aaf
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 130cbe7313c73874085af942c5f3628c
   - enabled: 1
@@ -144,6 +147,12 @@ EditorBuildSettings:
     path: Assets/Scenes/TheatreHell/DPTheIntermission.unity
     guid: fdfb502e2ba182b48865af876ed665bb
   - enabled: 1
-    path: Assets/Scenes/Main.unity
-    guid: bc89e80eb3bf4264c8d195127a8b0aaf
+    path: Assets/Scenes/ForgottenMezzanine/FMDiningRoom.unity
+    guid: e62b500d488252b4f91bb1b5121aa6fc
+  - enabled: 1
+    path: Assets/Scenes/ForgottenMezzanine/FMGameRoom.unity
+    guid: 5b1d5f076dae5ed4c8b62e7ae4cdb0f1
+  - enabled: 1
+    path: Assets/Scenes/ForgottenMezzanine/FMConservatory.unity
+    guid: b2c6cbf731955de4f8cbf72433bd9176
   m_configObjects: {}

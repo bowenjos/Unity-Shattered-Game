@@ -49,8 +49,8 @@ MonoBehaviour:
   Overworld:
   - {fileID: 0}
   - {fileID: 8300000, guid: b49771c274105b745a9671fc665beba1, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 5701ed30246eef54c9e30fea0328c277, type: 3}
+  - {fileID: 8300000, guid: 739af3ecbbcf8ed45af55d46b2ba8a2a, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 8300000, guid: 7e4a27433d6325a41ba8eaa06056d6ad, type: 3}
