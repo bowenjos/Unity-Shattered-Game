@@ -46,6 +46,7 @@ public class JitterbugData : EnemyCombatController
         playerTurnIdle[3] = "Jitterbug vibrates at mach speeds.";
         playerTurnIdle[4] = "Jitterbug does the worm, despite very clearly not being a worm.";
 
+        enemyID = EnemyIDs.jitterbug;
         enemyName = "Jitterbug";
         fleeable = true;
         enemyHealth = 4;

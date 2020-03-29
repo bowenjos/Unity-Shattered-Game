@@ -72,4 +72,7 @@ MonoBehaviour:
   StormController: {fileID: 0}
   StormControllerPrefab: {fileID: 1355077093081284, guid: e0834da366f9700478592abc6f8a425f,
     type: 3}
+  EncounterNode: {fileID: 0}
+  EncounterNodePrefab: {fileID: 4961927420560289804, guid: 43841f71ac2c84247a7e8395248c3e3b,
+    type: 3}
   SpawnLocation: {fileID: 0}

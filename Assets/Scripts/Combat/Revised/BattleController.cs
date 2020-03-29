@@ -71,13 +71,14 @@ public class BattleController : MonoBehaviour {
         EnemyAttacker.color = new Color(1f, 1f, 1f, 0f);
         mirrorHealthText.color = new Color(139 / 255f, 139 / 255f, 139 / 255f, 0f);
         mirrorBorderText.color = new Color(139 / 255f, 139 / 255f, 139 / 255f, 0f);
-        Enemy = GameObject.Find("Enemy").GetComponent<EnemyCombatController>();
 
         playerAffliction = 0;
-        BattleJukeBox.clip = Enemy.battleMusic;
-        BattleJukeBox.Play();
+        
+        
         Player = GameObject.Find("player(Clone)");
         Player.SetActive(false);
+        
+
         currentState = BattleState.Neither;
         enemyTurnStart = false;
     }
@@ -93,7 +94,7 @@ public class BattleController : MonoBehaviour {
 	
     public IEnumerator BattleStart()
     {
-
+        yield return new WaitForSeconds(0.01f);
         yield return StartCoroutine(textBox.Dialogue(Enemy.introDialogue));
         currentState = BattleState.PlayerTurn;
         PTC.currentState = PlayerTurnController.MenuStates.MainSelect;

@@ -38,6 +38,7 @@ public class TarData : EnemyCombatController
         playerTurnIdle[1] = "Your shoes are stuck to the floor";
         playerTurnIdle[2] = "Squelches fill the air.";
 
+        enemyID = EnemyIDs.tar;
         enemyName = "Tar";
         fleeable = false;
         enemyHealth = 30;

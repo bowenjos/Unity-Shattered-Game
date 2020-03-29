@@ -36,6 +36,9 @@ public class SpawnControllerPlayer : MonoBehaviour {
     public GameObject StormController;
     public GameObject StormControllerPrefab;
 
+    public GameObject EncounterNode;
+    public GameObject EncounterNodePrefab;
+
     public GameObject SpawnLocation;
 
     // Use this for initialization
@@ -148,6 +151,15 @@ public class SpawnControllerPlayer : MonoBehaviour {
         else
         {
             StormController = Instantiate(StormControllerPrefab);
+        }
+
+        if (GameObject.Find("EncounterNode(Clone)") != null)
+        {
+            EncounterNode = GameObject.Find("EncounterNode(Clone)");
+        }
+        else
+        {
+            EncounterNode = Instantiate(EncounterNodePrefab);
         }
     }
 	

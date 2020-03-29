@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class EnemyCombatController : MonoBehaviour {
 
+    public enum EnemyIDs { jitterbug, fresnetic, lunasee, showbizzy, tar };
+
     //A Class for storing data relevant to Monster's
     public AudioClip battleMusic;
     public Sprite backgroundSprite;
@@ -14,6 +16,7 @@ public class EnemyCombatController : MonoBehaviour {
     public bool fleeable;
     public int enemyNumber;
 
+    public EnemyIDs enemyID;
     public string enemyName;
     public double enemyHealth;
     public double enemyHealthMax;
@@ -51,19 +54,14 @@ public class EnemyCombatController : MonoBehaviour {
     protected Transform EnemyAttackSprite;
 
     protected bool thisObjectOfficer;
+
+    protected EncounterNodeData END;
     
 
     //START
 
     void Start()
     {
-
-        SceneManager.sceneLoaded += OnSceneLoaded;
-        if (CheckDoubleEnemy() && !thisObjectOfficer)
-        {
-            Destroy(GetComponentInChildren<Transform>().gameObject);
-            Destroy(this.gameObject);
-        }
         if (CheckEnemyDead())
         {
             Destroy(GetComponentInChildren<Transform>().gameObject);
@@ -83,43 +81,20 @@ public class EnemyCombatController : MonoBehaviour {
             GameObject.Find("Midground").GetComponent<SpriteRenderer>().sprite = midgroundSprite;
             Charge = GameObject.Find("Charge").GetComponent<DefaultCharge>();
             Debug.Log(Charge);
+
+            GetComponent<SpriteRenderer>().enabled = false;
+
+            BattleController.BC.Enemy = this;
+            BattleController.BC.BattleJukeBox.clip = battleMusic;
+            BattleController.BC.BattleJukeBox.Play();
         }
         else
         {
             GameControl.control.encounter = false;
             thisObjectOfficer = false;
+            END = GameObject.Find("EncounterNode(Clone)").GetComponent<EncounterNodeData>();
         }
     }
-
-	// Same as above, however the check is performed ideal when the scene is changed to the combat scene
-	void OnSceneLoaded (Scene aScene, LoadSceneMode aMode)
-    {
-        try {
-            Destroy(this.gameObject.GetComponent<DontDestroy>());
-        }
-        catch
-        {
-            Debug.Log("No DontDestroy to Destroy");
-        }
-        if (aScene.name == "Encounter" && thisObjectOfficer)
-        {
-            GameControl.control.encounter = true;
-            SetPoints = GameObject.Find("SetPoints").GetComponentsInChildren<Transform>();
-            EnemyAttackSprite = GameObject.Find("EnemyAttackPhaseSprite").GetComponent<Transform>();
-            GameObject.Find("EnemyAttackPhaseSprite").GetComponent<SpriteRenderer>().sprite = enemyTurnSprite;
-            GameObject.Find("EnemySprite").GetComponent<SpriteRenderer>().sprite = enemyMainSprite;
-            GameObject.Find("BattleJukeBox").GetComponent<AudioSource>().clip = battleMusic;
-            GameObject.Find("Background").GetComponent<SpriteRenderer>().sprite = backgroundSprite;
-            GameObject.Find("Midground").GetComponent<SpriteRenderer>().sprite = midgroundSprite;
-            Charge = GameObject.Find("Charge").GetComponent<DefaultCharge>();
-        }
-        /*
-        if (!thisObjectOfficer)
-        {
-            Destroy(this.gameObject);
-        }
-        */
-	}
 
     void OnCollisionEnter2D(Collision2D col)
     {
@@ -148,14 +123,12 @@ public class EnemyCombatController : MonoBehaviour {
         yield return StartCoroutine(GameObject.Find("TransitionControl(Clone)").GetComponent<TransitionController>().EnterCombat());
         //Set object name to "enemy" so it can be found by the Battle Controller in next scene
         this.gameObject.name = "Enemy";
-        //Don't destroy this object so it makes it into the next scene
-        this.gameObject.AddComponent<DontDestroy>();
 
-        //Disable aspects of this object we don't need in next scene
-        this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
-        this.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0f);
-        this.gameObject.GetComponent<EnemyIdle>().enabled = false;
-        this.gameObject.GetComponentInChildren<EnemyAggro>().enabled = false;
+
+        //Store data in the node
+        END.enemyID = enemyID;
+        END.enemyX = transform.position.x;
+        END.enemyY = transform.position.y;
 
         //Load battle scene
         SceneManager.LoadScene("Encounter");
@@ -180,8 +153,6 @@ public class EnemyCombatController : MonoBehaviour {
 
     public virtual void FleeEnemy()
     {
-        this.gameObject.AddComponent<DontDestroy>();
-        thisObjectOfficer = false;
         this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
         this.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
         this.gameObject.GetComponent<EnemyIdle>().enabled = true;

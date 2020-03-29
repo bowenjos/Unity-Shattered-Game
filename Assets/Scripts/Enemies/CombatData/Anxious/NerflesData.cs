@@ -44,6 +44,7 @@ public class NerflesData : EnemyCombatController
         playerTurnIdle[3] = "Fresnetic flickers silently.";
         playerTurnIdle[4] = "Loose cables wrap around your feet.";
 
+        enemyID = EnemyIDs.fresnetic;
         enemyName = "Fresnetic";
         fleeable = true;
         enemyHealth = 4;

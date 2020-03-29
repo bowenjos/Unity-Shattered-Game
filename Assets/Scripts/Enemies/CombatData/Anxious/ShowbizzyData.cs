@@ -40,7 +40,7 @@ public class ShowbizzyData : EnemyCombatController
         playerTurnIdle[2] = "The din of pre-show prepwork fills the room.";
         playerTurnIdle[3] = "The shadow of openning night looms over you.";
 
-
+        enemyID = EnemyIDs.showbizzy;
         enemyName = "Showbizzy";
         fleeable = true;
         enemyHealth = 8;

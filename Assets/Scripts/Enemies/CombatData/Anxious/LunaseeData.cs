@@ -48,6 +48,7 @@ public class LunaseeData : EnemyCombatController
         playerTurnIdle[2] = "It stares straight through you.";
         playerTurnIdle[3] = "I see you.";
 
+        enemyID = EnemyIDs.lunasee;
         enemyName = "Lunasee";
         fleeable = true;
         enemyHealth = 6;

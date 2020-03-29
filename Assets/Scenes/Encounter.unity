@@ -438,6 +438,56 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &103667593
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 103667595}
+  - component: {fileID: 103667594}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &103667594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103667593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a38c0040c477ed47ba6226120db8540, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 1265634730188490425, guid: 246d48fa63e66f2409250c83fbe7b95c, type: 3}
+  - {fileID: 5211822884109999592, guid: 551f4d608530cef4d927d14f2fe8bd22, type: 3}
+  - {fileID: 6034437646255275022, guid: fb1c3bfe983ab7d428cd99bb927fc3a9, type: 3}
+  - {fileID: 1454835811664051495, guid: e590d97f54192a64ba7ffb5c77626f76, type: 3}
+  - {fileID: 2237283137436947055, guid: d33f3112072c3b04db53f00f70236a04, type: 3}
+  enemy: {fileID: 0}
+--- !u!4 &103667595
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103667593}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &147344426
 GameObject:
   m_ObjectHideFlags: 0
@@ -3157,7 +3207,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Unfortunately he had it done to em.
+  m_Text: 
 --- !u!222 &869774013
 CanvasRenderer:
   m_ObjectHideFlags: 0
