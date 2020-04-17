@@ -8,6 +8,7 @@ public class EncounterNodeData : MonoBehaviour
 {
 
     public EnemyCombatController.EnemyIDs enemyID;
+    public int enemyNumber;
     public float enemyX;
     public float enemyY;
     public float playerX;
@@ -29,7 +30,7 @@ public class EncounterNodeData : MonoBehaviour
     {
         if (aScene.name == "Encounter")
         {
-            GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().SpawnEnemy(enemyID);
+            GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().SpawnEnemy(enemyID, enemyNumber);
         }
     }
 

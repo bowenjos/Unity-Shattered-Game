@@ -110,6 +110,7 @@ public class MainMenuControl : MonoBehaviour {
     public void OnContinueButtonPress()
     {
         GameControl.control.Load();
+        GameControl.control.frozen = false;
         SceneManager.LoadScene(GameControl.control.room, LoadSceneMode.Single);
     }
 
@@ -127,6 +128,7 @@ public class MainMenuControl : MonoBehaviour {
 
         GameControl.control.room = "EntryHallOfSilence";
         GameControl.control.lantern = false;
+        GameControl.control.frozen = false;
         SceneManager.LoadScene(GameControl.control.room, LoadSceneMode.Single);
 
     }

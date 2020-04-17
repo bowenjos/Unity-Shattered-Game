@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 1265634730188490424}
-  enemyAggroStyle: {fileID: 0}
+  enemyAggroStyle: {fileID: 1265634730188490401}
   enemyTransform: {fileID: 1265634730188490427}
   anim: {fileID: 1265634730188490407}
   animAggro: {fileID: 1265634728779011201}
@@ -238,6 +238,7 @@ MonoBehaviour:
   midgroundSprite: {fileID: 21300000, guid: 2b6dcc1c6d0921c4092afea1aed14684, type: 3}
   fleeable: 0
   enemyNumber: 0
+  enemyID: 0
   enemyName: 
   enemyHealth: 0
   enemyHealthMax: 0

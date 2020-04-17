@@ -79,7 +79,7 @@ public class GameControl : MonoBehaviour {
     // Use this for initialization
     void Awake () {
 
-        Cursor.visible = false;
+        //Cursor.visible = false;
 
         if (control == null)
         {
@@ -144,7 +144,7 @@ public class GameControl : MonoBehaviour {
         data.WillData = WillData;
         data.YolandaData = YolandaData;
         data.EliseData = EliseData;
-
+        data.EnemyData = EnemyData;
         data.DPMainData = DPMainData;
 
         data.playerName = playerName;
@@ -237,6 +237,8 @@ class PlayerData
     public WillData WillData;
     public YolandaData YolandaData;
     public EliseData EliseData;
+
+    public EnemyData EnemyData;
 
     public ElevatorData ElevatorData;
     public DPMainData DPMainData;

@@ -238,6 +238,7 @@ MonoBehaviour:
   midgroundSprite: {fileID: 21300000, guid: 2b6dcc1c6d0921c4092afea1aed14684, type: 3}
   fleeable: 0
   enemyNumber: 0
+  enemyID: 0
   enemyName: 
   enemyHealth: 0
   enemyHealthMax: 0
@@ -261,6 +262,10 @@ MonoBehaviour:
   AttackPrefab: {fileID: 2741512404559130908, guid: 2626eacf58437cf4fa6900a4fed2bfbb,
     type: 3}
   LaserPrefab: {fileID: 4186949833314906665, guid: 1642a3536cf1be74c8fd22e5271096c0,
+    type: 3}
+  hookPrefab: {fileID: 7962924866358726506, guid: d95c0a476f1dd4e4a8d5fe03c7f77a37,
+    type: 3}
+  ropePrefab: {fileID: 4123781189433176093, guid: 65bcf26cd36e15a469833c8a19f519dd,
     type: 3}
 --- !u!82 &1454835811664051514
 AudioSource:

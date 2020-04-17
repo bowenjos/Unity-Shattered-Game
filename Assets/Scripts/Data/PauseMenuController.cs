@@ -37,6 +37,7 @@ public class PauseMenuController : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
+        SceneManager.sceneLoaded += OnSceneLoaded;
         currentState = PauseMenuStates.NoMenu;
 	}
 	
@@ -91,7 +92,7 @@ public class PauseMenuController : MonoBehaviour {
                 break;
         }
 
-        if (Input.GetButtonDown("Pause"))
+        if (Input.GetButtonDown("Pause") && !GameControl.control.frozen)
         {
             switch (currentState)
             {
@@ -199,6 +200,7 @@ public class PauseMenuController : MonoBehaviour {
         quitPanel.SetActive(true);
         desktopButton.Select();
         desktopButton.OnSelect(null);
+        Destroy(GameObject.Find("player(Clone)"));
     }
 
     public void OnDesktopClick()
@@ -208,6 +210,7 @@ public class PauseMenuController : MonoBehaviour {
 
     public void OnMainMenuClick()
     {
+        currentState = PauseMenuStates.NoMenu;
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 
@@ -217,5 +220,13 @@ public class PauseMenuController : MonoBehaviour {
         menuOptions.SetActive(true);
         resumeButton.Select();
         resumeButton.OnSelect(null);
+    }
+
+    void OnSceneLoaded(Scene aScene, LoadSceneMode mode)
+    {
+        if(aScene.name == "MainMenu")
+        {
+            GameControl.control.frozen = true;
+        }
     }
 }

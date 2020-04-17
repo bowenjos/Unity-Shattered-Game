@@ -62,6 +62,7 @@ public class TarData : EnemyCombatController
     public override void ResolveEnemy()
     {
         GameControl.control.EnemyData.tarDefeated = true;
+        GameControl.control.DPMainData.progression = 10;
         base.ResolveEnemy();
     }
 

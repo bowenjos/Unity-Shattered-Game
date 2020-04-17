@@ -11,7 +11,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject enemy;
 
     // Start is called before the first frame update
-    public void SpawnEnemy(EnemyCombatController.EnemyIDs enemyID)
+    public void SpawnEnemy(EnemyCombatController.EnemyIDs enemyID, int enemyNumber)
     {
         switch (enemyID)
         {
@@ -33,6 +33,7 @@ public class EnemySpawner : MonoBehaviour
         }
 
         enemy.name = "Enemy";
+        enemy.GetComponent<EnemyCombatController>().enemyNumber = enemyNumber;
 
     }
 

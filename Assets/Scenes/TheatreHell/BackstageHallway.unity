@@ -1641,12 +1641,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2619532286643818996, guid: 38572abd1202e244bb97c574566aad2a,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 0c0160f819fea524ca06eda02bf92dc0,
-        type: 3}
     - target: {fileID: 2619532286643818998, guid: 38572abd1202e244bb97c574566aad2a,
         type: 3}
       propertyPath: character
@@ -1657,6 +1651,12 @@ PrefabInstance:
       propertyPath: smallDialogue.Array.data[0]
       value: Whose child is this?
       objectReference: {fileID: 0}
+    - target: {fileID: 2619532286643818996, guid: 38572abd1202e244bb97c574566aad2a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0c0160f819fea524ca06eda02bf92dc0,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38572abd1202e244bb97c574566aad2a, type: 3}
 --- !u!1 &986964381
@@ -3165,7 +3165,7 @@ PrefabInstance:
     - target: {fileID: 114573973680992290, guid: 71ac57786038da241bc11d44eeaa8add,
         type: 3}
       propertyPath: targetX
-      value: -0.55
+      value: -0.95
       objectReference: {fileID: 0}
     - target: {fileID: 114573973680992290, guid: 71ac57786038da241bc11d44eeaa8add,
         type: 3}

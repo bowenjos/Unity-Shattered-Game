@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class EnemyCombatController : MonoBehaviour {
 
-    public enum EnemyIDs { jitterbug, fresnetic, lunasee, showbizzy, tar };
+    public enum EnemyIDs { jitterbug, fresnetic, lunasee, showbizzy, tar, william };
 
     //A Class for storing data relevant to Monster's
     public AudioClip battleMusic;
@@ -127,6 +127,7 @@ public class EnemyCombatController : MonoBehaviour {
 
         //Store data in the node
         END.enemyID = enemyID;
+        END.enemyNumber = enemyNumber;
         END.enemyX = transform.position.x;
         END.enemyY = transform.position.y;
 
