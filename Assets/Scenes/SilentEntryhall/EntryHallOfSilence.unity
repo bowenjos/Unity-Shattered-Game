@@ -2744,6 +2744,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4557182306679366, guid: e47ac28b12e83264b909ee70ce2b9dd7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 212791666898992196, guid: e47ac28b12e83264b909ee70ce2b9dd7,
         type: 3}
       propertyPath: m_Sprite
@@ -2759,10 +2763,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CookieSize
       value: 0.67
-      objectReference: {fileID: 0}
-    - target: {fileID: 4557182306679366, guid: e47ac28b12e83264b909ee70ce2b9dd7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e47ac28b12e83264b909ee70ce2b9dd7, type: 3}
@@ -3144,11 +3144,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 61924804291057104, guid: eb02fc93e1fbabc458942aec39077f74,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -0.17
-      objectReference: {fileID: 0}
     - target: {fileID: 944284794, guid: eb02fc93e1fbabc458942aec39077f74, type: 3}
       propertyPath: smallDialogue.Array.data[0]
       value: They say in this house there is a light that never goes out.
@@ -3156,6 +3151,11 @@ PrefabInstance:
     - target: {fileID: 944284794, guid: eb02fc93e1fbabc458942aec39077f74, type: 3}
       propertyPath: smallDialogue.Array.data[1]
       value: Though in all my time here, I've never seen it.
+      objectReference: {fileID: 0}
+    - target: {fileID: 61924804291057104, guid: eb02fc93e1fbabc458942aec39077f74,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.17
       objectReference: {fileID: 0}
     - target: {fileID: 212830244193702140, guid: eb02fc93e1fbabc458942aec39077f74,
         type: 3}
@@ -4152,6 +4152,20 @@ MonoBehaviour:
   - What?
   - '...'
   - Thanks...
+--- !u!114 &2077370435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077370433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c94dd14167aebd94896c8865d606e235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maskToCheck: 4
+  deleteIfMaskTrue: 0
 --- !u!1001 &2097203639
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4203,6 +4217,18 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4736377541037212, guid: 9cd21a16672a13a41a322b4134c8a134, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4736377541037212, guid: 9cd21a16672a13a41a322b4134c8a134, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4034035002813028, guid: 9cd21a16672a13a41a322b4134c8a134, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 212723218990150586, guid: 9cd21a16672a13a41a322b4134c8a134,
         type: 3}
       propertyPath: m_SortingOrder
@@ -4229,18 +4255,6 @@ PrefabInstance:
       propertyPath: Cookie1
       value: 
       objectReference: {fileID: 2800000, guid: c2c32d642b3cb0e4198a425b3dbe3c8a, type: 3}
-    - target: {fileID: 4736377541037212, guid: 9cd21a16672a13a41a322b4134c8a134, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.005
-      objectReference: {fileID: 0}
-    - target: {fileID: 4736377541037212, guid: 9cd21a16672a13a41a322b4134c8a134, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.005
-      objectReference: {fileID: 0}
-    - target: {fileID: 4034035002813028, guid: 9cd21a16672a13a41a322b4134c8a134, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.01
-      objectReference: {fileID: 0}
     - target: {fileID: 1727875432370328, guid: 9cd21a16672a13a41a322b4134c8a134, type: 3}
       propertyPath: m_IsActive
       value: 1

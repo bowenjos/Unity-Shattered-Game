@@ -55,7 +55,7 @@ public class EnemyCombatController : MonoBehaviour {
 
     protected bool thisObjectOfficer;
 
-    protected EncounterNodeData END;
+    public EncounterNodeData END;
     
 
     //START
