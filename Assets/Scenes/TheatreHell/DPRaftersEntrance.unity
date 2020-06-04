@@ -619,7 +619,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   talkCanvas: {fileID: 0}
   dialogue:
-  - There appeas to be something in the pocket of one of the jackets...
+  - There appears to be something in the pocket of one of the jackets...
   - It's just mothballs.
 --- !u!61 &1532951216
 BoxCollider2D:
