@@ -1,0 +1,13 @@
+dialogueApproach
+Monika approaches.
+end
+dialogueIdle
+0
+Monika stares at you intently
+Monika looks like she's getting tired
+1
+This is only just getting started
+The sound of thunder rolls through the building
+Monika winks at you
+You feel uneasy
+end

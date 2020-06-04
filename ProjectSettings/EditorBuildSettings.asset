@@ -1,0 +1,158 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: 3027eae0f81e5684db4c3f9d02fb3db7
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: bc89e80eb3bf4264c8d195127a8b0aaf
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 130cbe7313c73874085af942c5f3628c
+  - enabled: 1
+    path: Assets/Scenes/Combat.unity
+    guid: 8d314292cc631da449d1b522b98abd06
+  - enabled: 1
+    path: Assets/Scenes/Encounter.unity
+    guid: 1c3a35c93057fe640ae32f5a3d5c58cf
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 514219ff54d2d7645b793768b99acf9b
+  - enabled: 1
+    path: Assets/Scenes/Other/Elevator.unity
+    guid: f3995a645e33f57419aedb95642ce204
+  - enabled: 1
+    path: Assets/Scenes/SilentEntryhall/EntryHallOfSilence.unity
+    guid: adf05722388f8a6459a282c1c9769c57
+  - enabled: 1
+    path: Assets/Scenes/SilentEntryhall/RightsideHallway.unity
+    guid: 0d7bfd2ad6506444ab2a6769f2f16a27
+  - enabled: 1
+    path: Assets/Scenes/SilentEntryhall/BathroomSEHallway.unity
+    guid: e315862da52f98c4c8e3992bccff995e
+  - enabled: 1
+    path: Assets/Scenes/SilentEntryhall/BedroomBlue.unity
+    guid: fbc25157cb331db4eafe8bf62a64fcd4
+  - enabled: 1
+    path: Assets/Scenes/SilentEntryhall/BathroomBB.unity
+    guid: 0626a37175c88d94b99dcd313a03d26a
+  - enabled: 1
+    path: Assets/Scenes/SilentEntryhall/OfficeSE.unity
+    guid: 33a20fb1de8b4a44fb30dc65785a929d
+  - enabled: 1
+    path: Assets/Scenes/SilentEntryhall/GarageSE.unity
+    guid: 5992e280c102d344aac85ee1a86d4af4
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/TheatreHellEntryway.unity
+    guid: 9e5d65b03a1949d4fa3d56808e483088
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/TheatreFloor.unity
+    guid: b0c90ab1e91add74fb7e5c2ad38154be
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/StageBehindCurtains.unity
+    guid: e3de8f29f8e945343b0666402d4165b4
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/BackstageHallway.unity
+    guid: 65c7144112292e74b8fce706823dc3c9
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/UnderstageCorridor.unity
+    guid: 35abcf07ca62c5c46a4134546208ec3d
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/WillGhostRoom.unity
+    guid: d50b84f90ccb3c4498a1dcc790f100a0
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/StageMaintenence.unity
+    guid: 2f9876022f921724e9abdbc166729586
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPMensChangingRoom.unity
+    guid: 6edc6564e5d87c343a580bde8b1e69c6
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPWomensChangingRoom.unity
+    guid: e4c0c34e36934ef46b2702d756cb4e28
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPWhicheverChangingRoom.unity
+    guid: 52c648270e57a194a90afa7c41406c1f
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPStorageTransition.unity
+    guid: 4c76c91d9d537f143a8ce10c04685d88
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPPuzzleRoomOne.unity
+    guid: a5a593a4a16aef94d9b08a5aa6797429
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPBalcony.unity
+    guid: 505d4e583e4211a478aca1f27a8e07a5
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPRaftersEntrance.unity
+    guid: e79cf2b37418a48488735049d2ac28a0
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPRaftersEntranceUP.unity
+    guid: 099fe3f4791942a488d034c57dbc3491
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPRafters.unity
+    guid: 331d7a5eeb3ba68449dae909d2feefee
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPLeverRoomTwo.unity
+    guid: abadbc4da5f2ca84c8e14f7b58d252d3
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPViP.unity
+    guid: beef926002d9f194780cd6583eae682d
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPVIPLower.unity
+    guid: 1ce464be4e397864fbb2b85ce1152c2b
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPStrangeRoom.unity
+    guid: 33bb448f85af8234a88608d83b6d93f8
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPLessStrangeRoom.unity
+    guid: 5d6aaec043f0fca4a9cb18253876b5f0
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPReception.unity
+    guid: 7aedcfe5c5e95aa4793bccf68a080721
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPOfficeHallway.unity
+    guid: 7073348f55db14745aa05a74cee2dc21
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPPianoRoom.unity
+    guid: d9b2a53a19ac64b4ab90e4778156d5ec
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPArchives.unity
+    guid: de63183d1af705b4c9f55d503735c4b0
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPMeetingRoom.unity
+    guid: a031db6428f89144285bbc901da7fa96
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPBossOffice.unity
+    guid: 8133812de676783408c5e3d029454f7a
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPCubicles.unity
+    guid: 5669435c471898040a1d15f6e1dd59eb
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPServerRoom.unity
+    guid: 4f8e25a55554e8a41a4e6ec40a176358
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPBallet.unity
+    guid: f297e25c492053043800f6e564587c96
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPGreenRoom.unity
+    guid: 1076694b37d96fd49a463a1638eba534
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPJanitorCloset.unity
+    guid: 1b83655a9d300c24cbad5a641887796a
+  - enabled: 1
+    path: Assets/Scenes/TheatreHell/DPTheIntermission.unity
+    guid: fdfb502e2ba182b48865af876ed665bb
+  - enabled: 1
+    path: Assets/Scenes/ForgottenMezzanine/FMDiningRoom.unity
+    guid: e62b500d488252b4f91bb1b5121aa6fc
+  - enabled: 1
+    path: Assets/Scenes/ForgottenMezzanine/FMGameRoom.unity
+    guid: 5b1d5f076dae5ed4c8b62e7ae4cdb0f1
+  - enabled: 1
+    path: Assets/Scenes/ForgottenMezzanine/FMConservatory.unity
+    guid: b2c6cbf731955de4f8cbf72433bd9176
+  m_configObjects: {}
