@@ -380,6 +380,10 @@ public class EnemyCombatController : MonoBehaviour {
         {
             yield return null;
         } while (GameObject.Find("Attack") != null);
+        if(BattleController.BC.currentState == BattleController.BattleState.Dying)
+        {
+            Destroy(this);
+        }
         yield return new WaitForSeconds(.3f);
     }
 

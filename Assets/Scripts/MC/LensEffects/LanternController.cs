@@ -30,6 +30,7 @@ public class LanternController : MonoBehaviour {
     Light thisLight;
     GameObject Player;
     PlayerController PlayerC;
+    BoxCollider2D collider;
 
     bool lensSet;
     bool flickering;
@@ -147,6 +148,8 @@ public class LanternController : MonoBehaviour {
         Current = Instantiate(Pink);
         StartCoroutine(OverlayC.timerDisplayOn(1f));
         Current.transform.parent = Player.transform;
+        Current.transform.position = Player.transform.position;
+        collider = Current.gameObject.GetComponent<BoxCollider2D>();
         lensSet = true;
         StopCoroutine("flicker");
         flickering = false;
@@ -156,15 +159,23 @@ public class LanternController : MonoBehaviour {
         {
             case 0:
                 thisLight.cookie = cone0;
+                collider.offset = new Vector2(collider.offset.x, collider.offset.y + 0.5f);
+                collider.size = new Vector2(0.3f, 1f);
                 break;
             case 1:
                 thisLight.cookie = cone1;
+                collider.offset = new Vector2(collider.offset.x + 0.5f, collider.offset.y);
+                collider.size = new Vector2(1f, 0.3f);
                 break;
             case 2:
                 thisLight.cookie = cone2;
+                collider.offset = new Vector2(collider.offset.x, collider.offset.y - 0.5f);
+                collider.size = new Vector2(0.3f, 1f);
                 break;
             case 3:
                 thisLight.cookie = cone3;
+                collider.offset = new Vector2(collider.offset.x - 0.5f, collider.offset.y);
+                collider.size = new Vector2(1f, 0.3f);
                 break;
         }
         thisLight.color = new Color(1f, 0.5f, 1f, 1f); //Fine
@@ -179,6 +190,7 @@ public class LanternController : MonoBehaviour {
         Current = Instantiate(Orange);
         StartCoroutine(OverlayC.timerDisplayOn(1f));
         Current.transform.parent = Player.transform;
+        Current.transform.position = Player.transform.position;
         lensSet = true;
         StopCoroutine("flicker");
         flickering = false;
@@ -211,6 +223,7 @@ public class LanternController : MonoBehaviour {
         Current = Instantiate(Green);
         StartCoroutine(OverlayC.timerDisplayOn(1f));
         Current.transform.parent = Player.transform;
+        Current.transform.position = Player.transform.position;
         lensSet = true;
         StopCoroutine("flicker");
         flickering = false;
@@ -260,6 +273,7 @@ public class LanternController : MonoBehaviour {
     {
         Current = Instantiate(Yellow);
         Current.transform.parent = Player.transform;
+        Current.transform.position = Player.transform.position;
         lensSet = true;
         StopCoroutine("flicker");
         flickering = false;
@@ -276,6 +290,7 @@ public class LanternController : MonoBehaviour {
     {
         Current = Instantiate(Purple);
         Current.transform.parent = Player.transform;
+        Current.transform.position = Player.transform.position;
         lensSet = true;
         StopCoroutine("flicker");
         flickering = false;

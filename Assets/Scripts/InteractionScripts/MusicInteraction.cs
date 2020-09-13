@@ -22,11 +22,9 @@ public class MusicInteraction : DialogueInteraction
     // Update is called once per frame
     public override IEnumerator StartInteraction()
     {
-        float time;
         GameControl.control.Freeze();
         yield return StartCoroutine(jukebox.PauseOut(0.4f));
         currentSong = jukebox.CurrentSong();
-        time = jukebox.CurrentTime();
         jukebox.StopSong();
         jukebox.PlaySong(songName);
         yield return StartCoroutine(jukebox.FadeIn(0.01f));

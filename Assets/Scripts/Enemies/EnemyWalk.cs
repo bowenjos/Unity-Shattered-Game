@@ -12,12 +12,12 @@ public class EnemyWalk : EnemyIdle
     void Start()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
-        /*
+        
         if (SceneManager.GetActiveScene().name == "Encounter")
         {
-            //Destroy(this);
+            Destroy(this);
         }
-        */
+        
         hitbox = this.GetComponent<BoxCollider2D>();
         if (GameControl.control.stunned)
         {

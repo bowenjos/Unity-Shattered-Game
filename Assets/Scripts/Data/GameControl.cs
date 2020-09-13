@@ -18,6 +18,7 @@ public class GameControl : MonoBehaviour {
     //ZoneData
     public ElevatorData ElevatorData = new ElevatorData();
     public DPMainData DPMainData = new DPMainData();
+    public FMMainData FMMainData = new FMMainData();
 
     //Other
     public EnemyData EnemyData;
@@ -41,11 +42,13 @@ public class GameControl : MonoBehaviour {
     * 3: SilentEntryhall (Forgotten Mezzanine Dining Hall)
     * 4: SilentEntryhall (Forgotten Mezzanine Mezzanine)
     * 5: SilentEntryhall (Desolate Heart Entrance)
+    * 6: ForgottenMezzanine (Mezzanine Door)
     **/
 
     /**
     * Keys
-    * 0: SilentEntryhall - CavernousDescent
+    * 0: SilentEntryhall - CavernousDescent (Door 1)
+    * 1: ForgottenMezzanine - Mezzanine Door (Door 6)
     **/
 
     //Not Stored Data

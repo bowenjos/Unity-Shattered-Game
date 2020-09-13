@@ -155,4 +155,31 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ForgottenMezzanine/FMConservatory.unity
     guid: b2c6cbf731955de4f8cbf72433bd9176
+  - enabled: 1
+    path: Assets/Scenes/ForgottenMezzanine/FMFirstFloorHallway.unity
+    guid: 7987f64ca5834e64fa437b84d41a6b11
+  - enabled: 1
+    path: Assets/Scenes/ForgottenMezzanine/FMKitchen.unity
+    guid: d4f0c426d18bf9747989f649169e661c
+  - enabled: 1
+    path: Assets/Scenes/ForgottenMezzanine/FMDen.unity
+    guid: 42b24b9dec4f94541ab4e41db8f9bafc
+  - enabled: 1
+    path: Assets/Scenes/ForgottenMezzanine/FMSecondFloorHallway.unity
+    guid: 561becfe00e5a97438defd104c730c5c
+  - enabled: 1
+    path: Assets/Scenes/ForgottenMezzanine/FMMasterBedroom.unity
+    guid: 5f3f792ad3a75544e91a85b33246a8ed
+  - enabled: 1
+    path: Assets/Scenes/ForgottenMezzanine/FMMasterBathroom.unity
+    guid: c7590088f82d5544f9e4f7f9bf9a9061
+  - enabled: 1
+    path: Assets/Scenes/ForgottenMezzanine/FMMezzanine.unity
+    guid: 8af94d700fc98de4f8a345098a73c080
+  - enabled: 1
+    path: Assets/Scenes/ForgottenMezzanine/FMNorthRoom.unity
+    guid: 91f47574a5ecbaf44b546b48050c360a
+  - enabled: 1
+    path: Assets/Scenes/ForgottenMezzanine/FMWindowRoom.unity
+    guid: f284fb36d253c524eb8c1d302c7e0581
   m_configObjects: {}

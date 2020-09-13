@@ -37,6 +37,7 @@ public class EnemySpawner : MonoBehaviour
 
         enemy.name = "Enemy";
         enemy.GetComponent<EnemyCombatController>().enemyNumber = enemyNumber;
+        Destroy(enemy.GetComponent<EnemyIdle>());
 
     }
 
