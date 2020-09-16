@@ -13,4 +13,6 @@ public class EnemyData
     public bool[] showbizzyDefeated = new bool[2];
     public bool tarDefeated;
     public bool willDefeated;
+    public bool[] telltaleheartDefeated = new bool[1];
+    public bool[] accusatinDefeated = new bool[1];
 }

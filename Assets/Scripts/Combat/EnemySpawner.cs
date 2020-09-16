@@ -33,6 +33,12 @@ public class EnemySpawner : MonoBehaviour
             case EnemyCombatController.EnemyIDs.william:
                 enemy = Instantiate(enemies[5]);
                 break;
+            case EnemyCombatController.EnemyIDs.telltaleheart:
+                enemy = Instantiate(enemies[6]);
+                break;
+            case EnemyCombatController.EnemyIDs.accusatin:
+                enemy = Instantiate(enemies[7]);
+                break;
         }
 
         enemy.name = "Enemy";
