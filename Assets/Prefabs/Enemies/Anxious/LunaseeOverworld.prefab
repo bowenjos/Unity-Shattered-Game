@@ -32,7 +32,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6034437646255275022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.768, y: -1.251, z: 0}
+  m_LocalPosition: {x: 500, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6034437646807765740}
@@ -299,6 +299,7 @@ MonoBehaviour:
   midgroundSprite: {fileID: 21300000, guid: 2b6dcc1c6d0921c4092afea1aed14684, type: 3}
   fleeable: 0
   enemyNumber: 0
+  enemyID: 0
   enemyName: 
   enemyHealth: 0
   enemyHealthMax: 0
@@ -323,6 +324,7 @@ MonoBehaviour:
     type: 3}
   LaserPrefab: {fileID: 4186949833314906665, guid: 1642a3536cf1be74c8fd22e5271096c0,
     type: 3}
+  END: {fileID: 0}
   FullPrefab: {fileID: 2984527373070123950, guid: bea4383d603d8394b9f88c1d8e168bb5,
     type: 3}
   WanePrefab: {fileID: 9104015482366433314, guid: 879893013bde2474389fc20099944a99,

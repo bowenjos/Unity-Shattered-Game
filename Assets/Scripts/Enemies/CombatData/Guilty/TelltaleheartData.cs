@@ -11,22 +11,27 @@ public class TelltaleheartData : EnemyCombatController
         outroDialogue = "The ticking stops, or at least it's a normal clock ticking now.";
         descriptionDialogue = "A grandfather clocked moved to life by the constant beating of a heart.";
         talkDialogue = new string[3];
-        talkDialogue[0] = "";
-
-        sitDialogue = new string[2];
-        sitDialogue[0] = "";
+        talkDialogue[0] = "You strike up a conversation. Tell-Tale-Heart tells a novel about their youth.";
+        talkDialogue[1] = "You say hello. Tell-Tale-Heart calls you a 'such a nice young lad'.";
+        talkDialogue[2] = "'Finally a youth that respects their elders' says Tell-Tale-Heart.";
 
         hugDialogue = new string[2];
-        hugDialogue[0] = "";
-
-        actDialogue = new string[1];
-        actDialogue[0] = "";
+        hugDialogue[0] = "You try to wrap your arms around the clock, but it's too big.";
+        hugDialogue[1] = "You consider a strategy for hugging this clock, but get nowhere.";
 
         affirmDialogue = new string[2];
-        affirmDialogue[0] = "";
+        affirmDialogue[0] = "You tell Tell-Tale-Heart it's a good clock. It says it knows.";
+        affirmDialogue[1] = "You give Tell-Tale-Heart a thumbs up. It maybe liked that, maybe not, hard to tell, it's a clock.";
+
+        sitDialogue = new string[2];
+        sitDialogue[0] = "You sit in silence, except it's not silence, as the tick tick ticking continues.";
+        sitDialogue[1] = "Your head is pounding and ringing.";
+
+        actDialogue = new string[1];
+        actDialogue[0] = "You clean down Tell-Tale-Heart's outside, but it's concerned the whole time for its wood finish.";
 
         giftDialogue = new string[1];
-        giftDialogue[0] = "";
+        giftDialogue[0] = "You give Tell-Tale-Heart some new clockwork, but it's attached to it's current parts.";
 
         playerTurnIdle = new string[5];
         playerTurnIdle[0] = "Tick. Tock. Tick. Tock.";
@@ -43,10 +48,10 @@ public class TelltaleheartData : EnemyCombatController
         enemyEmotion = "Guilt";
 
         enemyResistances = new int[6];
-        enemyResistances[0] = 1;
-        enemyResistances[1] = 1;
+        enemyResistances[0] = 0;
+        enemyResistances[1] = 2;
         enemyResistances[2] = 1;
-        enemyResistances[3] = 1;
+        enemyResistances[3] = 2;
         enemyResistances[4] = 1;
         enemyResistances[5] = 1;
 

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class EnemyCombatController : MonoBehaviour {
 
-    public enum EnemyIDs { jitterbug, fresnetic, lunasee, showbizzy, tar, william, telltaleheart, accusatin };
+    public enum EnemyIDs { jitterbug, fresnetic, lunasee, showbizzy, tar, william, telltaleheart, accusatin, shamesham, appendature, guardgoyle, yolanda };
 
     //A Class for storing data relevant to Monster's
     public AudioClip battleMusic;

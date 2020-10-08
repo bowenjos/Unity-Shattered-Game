@@ -166,7 +166,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1454835811664051495}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.065, y: 0.164, z: 0.164}
+  m_LocalPosition: {x: 500, y: 0, z: 0.164}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1454835810056447376}
@@ -263,6 +263,7 @@ MonoBehaviour:
     type: 3}
   LaserPrefab: {fileID: 4186949833314906665, guid: 1642a3536cf1be74c8fd22e5271096c0,
     type: 3}
+  END: {fileID: 0}
   hookPrefab: {fileID: 7962924866358726506, guid: d95c0a476f1dd4e4a8d5fe03c7f77a37,
     type: 3}
   ropePrefab: {fileID: 4123781189433176093, guid: 65bcf26cd36e15a469833c8a19f519dd,

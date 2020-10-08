@@ -31,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6732683323397625308}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.5, y: -2.5, z: 0}
+  m_LocalPosition: {x: 500, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6732683323629406677}
@@ -81,7 +81,6 @@ MonoBehaviour:
   LaserPrefab: {fileID: 4186949833314906665, guid: 1642a3536cf1be74c8fd22e5271096c0,
     type: 3}
   END: {fileID: 0}
-  weirdShader: {fileID: 2100000, guid: 59ade5a810b103547be161cd8fc49b61, type: 2}
 --- !u!61 &6732683323397625311
 BoxCollider2D:
   m_ObjectHideFlags: 0

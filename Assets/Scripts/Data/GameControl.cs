@@ -33,6 +33,7 @@ public class GameControl : MonoBehaviour {
     public float playedTime;
     public bool[] doors = new bool[10];
     public bool[] keys = new bool[5];
+    public bool[] mirrorPolish = new bool[33];
 
     /**
     * Doors

@@ -166,7 +166,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1265634730188490425}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4, y: 0, z: 0}
+  m_LocalPosition: {x: 500, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1265634728779011204}
@@ -263,6 +263,7 @@ MonoBehaviour:
     type: 3}
   LaserPrefab: {fileID: 4186949833314906665, guid: 1642a3536cf1be74c8fd22e5271096c0,
     type: 3}
+  END: {fileID: 0}
   UpPrefab: {fileID: 3350795024473694626, guid: f57fa9dfd55b4bd4f9e31c09b9fdb284,
     type: 3}
   RightPrefab: {fileID: 3350795024473694626, guid: d6259e248ec8406449c7fc37830798e3,
