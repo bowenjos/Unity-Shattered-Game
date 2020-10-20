@@ -477,6 +477,7 @@ MonoBehaviour:
   - {fileID: 8153111420813920168, guid: 0850111340565da4ab3e3b973f548631, type: 3}
   - {fileID: 8450146305600652384, guid: 8a73f79434f0aca46919bf28fedcbeae, type: 3}
   - {fileID: 9819410280912601, guid: e3655e60145ded7489ee5a76e6819def, type: 3}
+  - {fileID: 671751628446780291, guid: 9f5b87ba08f31084c9043e7383d421d8, type: 3}
   enemy: {fileID: 0}
 --- !u!4 &103667595
 Transform:

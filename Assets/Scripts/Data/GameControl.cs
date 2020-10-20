@@ -34,6 +34,7 @@ public class GameControl : MonoBehaviour {
     public bool[] doors = new bool[10];
     public bool[] keys = new bool[5];
     public bool[] mirrorPolish = new bool[33];
+    public bool tutorialComplete;
 
     /**
     * Doors
@@ -158,6 +159,10 @@ public class GameControl : MonoBehaviour {
         data.money = money;
         data.numMasks = numMasks;
         data.playedTime = playedTime;
+        data.doors = doors;
+        data.keys = keys;
+        data.mirrorPolish = mirrorPolish;
+        data.tutorialComplete = tutorialComplete;
 
         data.items = items;
         data.lens = lens;
@@ -198,6 +203,10 @@ public class GameControl : MonoBehaviour {
             money = data.money;
             numMasks = data.numMasks;
             playedTime = data.playedTime;
+            doors = data.doors;
+            keys = data.keys;
+            mirrorPolish = data.mirrorPolish;
+            tutorialComplete = data.tutorialComplete;
 
             items = data.items;
             lens = data.lens;
@@ -254,6 +263,10 @@ class PlayerData
     public float money;
     public int numMasks;
     public float playedTime;
+    public bool[] doors = new bool[10];
+    public bool[] keys = new bool[5];
+    public bool[] mirrorPolish = new bool[33];
+    public bool tutorialComplete;
 
     public string[] items = new string[10];
     public bool[] lens = new bool[7];

@@ -161,7 +161,7 @@ Transform:
   - {fileID: 213161655}
   - {fileID: 1638027566}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &51240997
 PrefabInstance:
@@ -269,7 +269,7 @@ Transform:
   - {fileID: 1339633368}
   - {fileID: 884985585}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &117337390 stripped
 Transform:
@@ -1309,7 +1309,7 @@ Transform:
   m_LocalScale: {x: 100, y: 100, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &465008237
 PrefabInstance:
@@ -1485,7 +1485,7 @@ PrefabInstance:
     - target: {fileID: 717420883736833235, guid: c7bcd74412fe2f048bbd9ff1581d788e,
         type: 3}
       propertyPath: chestNumber
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7bcd74412fe2f048bbd9ff1581d788e, type: 3}

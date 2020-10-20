@@ -53,8 +53,8 @@ public class TalkController : MonoBehaviour {
     public AudioClip seleneVoice;
 
     private int i;
-    private bool marked;
-    private string markdown = "";
+    //private bool marked;
+    //private string markdown = "";
     //616161
     private string colorStart = "<color=#616161>";
     private string colorEnd = "</color>";
@@ -473,14 +473,14 @@ public class TalkController : MonoBehaviour {
     Pre: A line of dialogue must be given, and a position in the string must be given
     Post: The end of the markdown string has been received, the string has been updated
     ********************/
-
+    /*
     protected int ResolveMarkdown(int i, string text)
     {
         int j = 0;
         int k = 0;
         int l = 0;
         //Set the marked variable to true (for use in the main Animate Text function)
-        marked = true;
+        //marked = true;
         //Find the end of the first set of markdown (EX: <color=blue>)
         for (j = i; j < text.Length; j++)
         {
@@ -507,7 +507,7 @@ public class TalkController : MonoBehaviour {
         return j;
 
     }
-
+    */
     /********************
     Function Name: FinishMarkdown
     Function Type: Int
@@ -515,7 +515,7 @@ public class TalkController : MonoBehaviour {
     Pre: A line of dialogue must be given
     Post: traversing the markdown is completed
     ********************/
-
+    /*
     protected int FinishMarkdown(int i, string text)
     {
         //Set marked to false, and skip forward the length of the markdown string
@@ -524,6 +524,7 @@ public class TalkController : MonoBehaviour {
         editText.text = text.Substring(0, i);
         return i;
     }
+    */
 
     protected IEnumerator SkipText(string text)
     {

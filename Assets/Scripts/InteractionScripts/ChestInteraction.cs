@@ -8,9 +8,10 @@ public class ChestInteraction : DialogueInteraction
     public int chestNumber;
     public Sprite chestOpen;
 
-    void Awake()
+    void Start()
     {
-        if(GameControl.control.mirrorPolish[chestNumber])
+        talkCanvas = GameObject.Find("Talk UI(Clone)");
+        if (GameControl.control.mirrorPolish[chestNumber])
         {
             this.GetComponent<SpriteRenderer>().sprite = chestOpen;
             Destroy(this);

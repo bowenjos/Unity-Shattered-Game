@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class EnemyCombatController : MonoBehaviour {
 
-    public enum EnemyIDs { jitterbug, fresnetic, lunasee, showbizzy, tar, william, telltaleheart, accusatin, shamesham, appendature, guardgoyle, yolanda };
+    public enum EnemyIDs { jitterbug, fresnetic, lunasee, showbizzy, tar, william, telltaleheart, accusatin, shamesham, appendature, guardgoyle, yolanda, bjorn };
 
     //A Class for storing data relevant to Monster's
     public AudioClip battleMusic;
@@ -104,7 +104,7 @@ public class EnemyCombatController : MonoBehaviour {
         }
     }
 
-	public IEnumerator BattleStart()
+	public virtual IEnumerator BattleStart()
     {
         //Make this opject stop moving
         GameControl.control.Freeze();
